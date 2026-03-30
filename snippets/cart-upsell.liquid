@@ -1,0 +1,217 @@
+ 
+
+<style>
+/* ===== UPSELL WRAPPER ===== */
+ .cart-upsell {
+  margin-top: 30px;
+ }
+
+.cart-upsell__title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #111;
+  text-transform: capitalize;
+}
+
+/* ===== CARD ===== */
+.cart-upsell__item {
+  display: flex;
+  align-items: center;
+  gap:8px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 8px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  position:relative;
+}
+
+/* ===== IMAGE ===== */
+.cart-upsell__item img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #f6f6f6;
+  flex-shrink: 0;
+}
+
+/* ===== INFO ===== */
+.cart-upsell__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cart-upsell__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+/* Optional product description (if you add later) */
+.cart-upsell__desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ===== PRICE (RIGHT SIDE LOOK) ===== */
+.cart-upsell__price {
+    font-size: 12px;
+    font-weight: 600;
+    color: #111;
+    position: absolute;
+    right: 22px;
+    top: 14px;
+}
+
+.cart-upsell__price del {
+  font-size: 13px;
+  color: #888;
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+/* ===== VARIANT DROPDOWN ===== */
+.cart-upsell__variant {
+  margin-top: 4px;
+  background: #f2f2f2;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #111;
+  width: fit-content;
+  outline: none;
+}
+
+/* ===== ADD BUTTON (BLUE ROUNDED) ===== */
+.cart-upsell__add {
+  margin-left: auto;
+  background: #0a3d91;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+  margin-top:35px;
+}
+
+.cart-upsell__add:hover {
+  background: #082f70;
+}
+
+.cart-upsell__add:active {
+  transform: scale(0.97);
+}
+
+
+
+    </style>
+{% assign upsell_collection = collections['upsell'] %}
+
+{% if upsell_collection and cart.item_count > 0 %}
+  <div class="cart-upsell" data-cart-upsell>
+    <h3 class="cart-upsell__title">you may also like</h3>
+
+    {% for product in upsell_collection.products limit: 3 %}
+      {% assign variant = product.selected_or_first_available_variant %}
+
+      <div class="cart-upsell__item" data-upsell-item>
+        {% comment %} Added data-upsell-image attribute {% endcomment %}
+        <img
+          src="{{ variant.featured_image | default: product.featured_image | image_url: width: 120 }}"
+          alt="{{ product.title }}"
+          loading="lazy"
+          data-upsell-image
+        >
+
+        <div class="cart-upsell__info">
+          <p class="cart-upsell__name">{{ product.title }}</p>
+
+          <div class="cart-upsell__price">
+             {% comment %} We add a data attribute here to update the price too {% endcomment %}
+            <span data-upsell-price>{{ variant.price | money }}</span>
+            {% if variant.compare_at_price > variant.price %}
+              <del data-upsell-compare>{{ variant.compare_at_price | money }}</del>
+            {% endif %}
+          </div>
+
+          {% if product.variants.size > 1 %}
+            <select class="cart-upsell__variant" data-upsell-select>
+              {% for v in product.variants %}
+                {% comment %} 
+                  We store the variant image and price in data attributes 
+                {% endcomment %}
+                <option 
+                  value="{{ v.id }}" 
+                  data-image="{{ v.featured_image | default: product.featured_image | image_url: width: 120 }}"
+                  data-price="{{ v.price | money }}"
+                >
+                  {{ v.title }}
+                </option>
+              {% endfor %}
+            </select>
+          {% endif %}
+        </div>
+
+        <button
+          class="cart-upsell__add button"
+          data-variant-id="{{ variant.id }}"
+          type="button"
+          data-upsell-add
+        >
+          Add
+        </button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const upsellContainer = document.querySelector('[data-cart-upsell]');
+
+    if (upsellContainer) {
+      upsellContainer.addEventListener('change', function(e) {
+        if (e.target.matches('[data-upsell-select]')) {
+          const select = e.target;
+          const selectedOption = select.options[select.selectedIndex];
+          const itemContainer = select.closest('[data-upsell-item]');
+          
+          // 1. Update Image
+          const newImage = selectedOption.getAttribute('data-image');
+          const imgTag = itemContainer.querySelector('[data-upsell-image]');
+          if (newImage && imgTag) {
+            imgTag.src = newImage;
+          }
+
+          // 2. Update Add Button ID
+          const newVariantId = select.value;
+          const addButton = itemContainer.querySelector('[data-upsell-add]');
+          if (addButton) {
+            addButton.setAttribute('data-variant-id', newVariantId);
+          }
+
+          // 3. Update Price (Optional but recommended)
+          const newPrice = selectedOption.getAttribute('data-price');
+          const priceTag = itemContainer.querySelector('[data-upsell-price]');
+          if (newPrice && priceTag) {
+            priceTag.textContent = newPrice;
+          }
+        }
+      });
+    }
+  });
+</script>
+
+

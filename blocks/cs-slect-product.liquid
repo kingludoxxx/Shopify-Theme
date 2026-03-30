@@ -1,0 +1,224 @@
+<style>
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      background-color: {{ section.settings.back_color }};
+  }
+
+  .single-product {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+  }
+
+  .cs_single_pro_img img {
+      max-width: 70px;
+      max-height: 70px;
+  }
+
+  .cs_single_pro_price_title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  .cs_single_pro_title,
+  .cs_single_pro_price {
+      margin: 0;
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 600;
+      font-family: 'Satoshi-Bold';
+      color: #373737;
+  }
+
+  .cs_single_pro_price_desc {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 600;
+      font-family: 'Satoshi-Bold';
+      color: #373737;
+      padding: 6px 0;
+  }
+
+  .cs_single_pro_price_button {
+      flex-shrink: 0;
+      min-height: 41px;
+      min-width: 100px;
+      padding: 0 2rem;
+      font-weight: 600;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #373737;
+      font-size: 16px;
+      border-radius: 30px;
+      font-family: 'Satoshi-Bold';
+      letter-spacing: 0px;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s;
+  }
+
+  .cs_single_pro_price_button:hover {
+      background: #1a1a1a;
+  }
+  .cs_single_pro_selector{
+    padding:0 10px;
+    margin:20px 0;
+    width:100px;
+  }
+
+  .mainn-iconn-text {
+      border-radius: 0.5rem;
+      margin-top: 2rem;
+      background: rgb(255,255,255);
+      border: 0.1rem solid rgba(var(0,0,0), 0.15);
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+      padding: 16px;
+      margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+      .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.mbl_padding_top }}px;
+          padding-bottom: {{ section.settings.mbl_padding_bottom }}px;
+      }
+  }
+</style>
+
+<section class="icon-textt section-{{ section.id }}-padding">
+  <div class="mainn-iconn-text">
+    {% assign selected_product = block.settings.selected_product %}
+
+    {% if selected_product %}
+      {% assign first_variant = selected_product.variants.first %}
+
+      <div class="single-product">
+        <div class="cs_single_pro_img">
+          <img src="{{ selected_product.featured_image | image_url }}" width="100%" height="auto" loading="lazy">
+        </div>
+
+        <div class="cs_single_pro_detail">
+          <div class="cs_single_pro_price_title">
+            <h2 class="cs_single_pro_title">{{ selected_product.title }}</h2>
+            <h2 class="cs_single_pro_price">{{ selected_product.price | money }}</h2>
+          </div>
+          <h2 class="cs_single_pro_price_desc">{{ selected_product.description }}</h2>
+        </div>
+
+        <!-- Add to Cart Button -->
+        <button 
+          type="button" 
+          class="cs_single_pro_price_button" 
+          data-variant-id="{{ first_variant.id }}">
+          Add
+        </button>
+      </div>
+    {% endif %}
+<select id="product-option-{{ section.id }}" class="cs_single_pro_selector">
+  <option value="{{ first_variant.id }}">1 Slot</option>
+  <option value="{{ first_variant.id }}">2 Slot</option>
+  <option value="{{ first_variant.id }}">3 Slot</option>
+</select>
+
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const buttons = document.querySelectorAll('.cs_single_pro_price_button');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', function() {
+      const variantId = this.dataset.variantId;
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: variantId,
+          quantity: 1
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Product added, now refresh the page
+        location.reload();
+      })
+      .catch(error => {
+        console.error('Error adding to cart:', error);
+      });
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Selected Product",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mbl_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Top Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mbl_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Bottom Padding",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "back_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Select Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Selected Product",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

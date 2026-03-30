@@ -1,0 +1,638 @@
+
+
+<script type="application/ld+json">
+  {{ closest.product | structured_data }}
+</script>
+
+{% assign country_code = localization.country.iso_code %}   
+{% assign new_zealand_images = product.metafields.custom.new_zealand_product_images.value %}
+{% assign norway_images = product.metafields.custom.norway_product_images.value %}
+{% assign switzerland_images = product.metafields.custom.switzerland_product_images.value %}
+{% assign united_kingdom_images = product.metafields.custom.united_kingdom_product_images.value %}
+{% assign spain_images = product.metafields.custom.spain_product_images.value %}
+{% assign sweden_images = product.metafields.custom.sweden_product_images.value %}
+{% assign nederland_images = product.metafields.custom.nederland_product_images.value %}
+{% assign italy_images = product.metafields.custom.italy_product_images.value %}
+{% assign german_images = product.metafields.custom.germany_product_images.value %}
+{% assign finland_images = product.metafields.custom.finland_product_images.value %}
+{% assign denmark_images = product.metafields.custom.denmark_product_images.value %}
+{% assign belgium_images = product.metafields.custom.belgium_product_images.value %}
+{% assign austria_images = product.metafields.custom.austria_product_images.value %}
+{% assign french_images = product.metafields.custom.france_product_images.value %}
+{% assign canada_images = product.metafields.custom.canada_product_images.value %}
+{% assign australia_images = product.metafields.custom.australia_product_images.value %}
+
+{% assign localized_images = blank %}
+
+{% assign locale_code = request.locale.iso_code %}
+{%- if country_code == 'DE' or locale_code == 'de' or language_code == 'de' and german_images.size > 0 -%}
+{% assign localized_images = german_images %}  
+
+{%- elsif country_code == 'NZ' or locale_code == 'nz' or language_code == 'nz' and new_zealand_images.size > 0 -%}
+{% assign localized_images = new_zealand_images %}  
+
+{%- elsif country_code == 'NO' or locale_code == 'no' or language_code == 'no' and norway_images.size > 0 -%}
+{% assign localized_images = norway_images %} 
+
+{%- elsif country_code == 'CH' or locale_code == 'ch' or language_code == 'ch' and switzerland_images.size > 0 -%}
+{% assign localized_images = switzerland_images %} 
+
+{%- elsif country_code == 'UK' or locale_code == 'uk' or language_code == 'uk' and united_kingdom_images.size > 0 -%}
+{% assign localized_images = united_kingdom_images %} 
+
+{%- elsif country_code == 'NL' or locale_code == 'nl' or language_code == 'nl' and nederland_images.size > 0 -%}
+{% assign localized_images = nederland_images %}  
+
+{%- elsif country_code == 'SE' or locale_code == 'se' or language_code == 'se' and sweden_images.size > 0 -%}
+{% assign localized_images = sweden_images %} 
+
+{%- elsif country_code == 'IT' or locale_code == 'it' or language_code == 'it' and italy_images.size > 0 -%}
+{% assign localized_images = italy_images %}    
+
+{%- elsif country_code == 'AT' or locale_code == 'at' or language_code == 'at' and austria_images.size > 0 -%}
+{% assign localized_images = austria_images %}           
+
+{%- elsif country_code == 'BE' or locale_code == 'be' or language_code == 'be' and belgium_images.size > 0 -%}
+{% assign localized_images = belgium_images %}          
+
+{%- elsif country_code == 'ES' or locale_code == 'es' or language_code == 'es' and spain_images.size > 0 -%}
+{% assign localized_images = spain_images %} 
+
+{%- elsif country_code == 'MX' or locale_code == 'mx' or language_code == 'es' and spain_images.size > 0 -%}
+{% assign localized_images = spain_images %} 
+
+{%- elsif country_code == 'FI' or locale_code == 'fl' or language_code == 'fl' and finland_images.size > 0 -%}
+{% assign localized_images = finland_images %}
+
+{%- elsif country_code == 'DK' or locale_code == 'dk' or language_code == 'dk' and denmark_images.size > 0 -%}
+{% assign localized_images = denmark_images %}  
+
+{%- elsif country_code == 'CA' or locale_code == 'ca' or language_code == 'ca' and canada_images.size > 0 -%}
+{% assign localized_images = canada_images %} 
+
+{%- elsif country_code == 'AU' or locale_code == 'au' or language_code == 'au' and australia_images.size > 0 -%}
+{% assign localized_images = australia_images %} 
+
+{%- elsif country_code == 'FR' or locale_code == 'fr' or language_code == 'fr' and french_images.size > 0 -%}
+{% assign localized_images = french_images %}           
+          
+{%- endif -%}
+
+{% comment %} TRANSLATIONS BYPASSED — remove the line below to re-enable country images {% endcomment %}
+{% assign localized_images = blank %}
+
+{% capture media_gallery %}
+{%- if localized_images != blank -%}
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/>  
+  <div class="main-product-media-gallery" >
+  <div class="product-media-gallery__wrap">
+    <div class="product-media-gallery" >
+        {%- for image in localized_images -%}
+          <div class="product-media-gallery-img product-country" >
+            <img src="{{ image | img_url: 'master' }}" alt="{{ product.title }} - {{ country_code }}" class="product-media-gallery-image" width="100%">
+            </div>
+        {%- endfor -%}
+    </div>
+  </div>
+    <div class="product-thumbnail-gallery" >
+        {%- for image in localized_images -%}
+           <div class="product-thumbnail-img "  data-target="{{ section.id }}-{{ image.id }}" >
+            <img src="{{ image | img_url: 'master' }}" alt="{{ product.title }} - {{ country_code }}" class="product-media-gallery-image" width="100%">
+            </div>
+        {%- endfor -%}
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+  $('.product-media-gallery').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: false,
+    prevArrow: '<button type="button" class="custom-slick-prev custom-slick-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="none"></circle><path d="M10.7049 14.495C10.4315 14.2216 10.4315 13.7784 10.7049 13.505L15.1596 9.05025C15.433 8.77689 15.8762 8.77689 16.1496 9.05025C16.423 9.32362 16.423 9.76684 16.1496 10.0402L12.1898 14L16.1496 17.9598C16.423 18.2332 16.423 18.6764 16.1496 18.9497C15.8762 19.2231 15.433 19.2231 15.1596 18.9497L10.7049 14.495ZM11.2 14.7H11.1999V13.3H11.2V14.7Z" fill="white"></path></svg></button>',
+    nextArrow: '<button type="button" class="custom-slick-next custom-slick-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" transform="matrix(-1 0 0 1 28 0)" fill="none"></circle><path d="M17.2949 14.495C17.5682 14.2216 17.5682 13.7784 17.2949 13.505L12.8401 9.05025C12.5667 8.77689 12.1235 8.77689 11.8502 9.05025C11.5768 9.32362 11.5768 9.76684 11.8502 10.0402L15.81 14L11.8502 17.9598C11.5768 18.2332 11.5768 18.6764 11.8502 18.9497C12.1235 19.2231 12.5667 19.2231 12.8401 18.9497L17.2949 14.495ZM16.7998 14.7H16.7999V13.3H16.7998V14.7Z" fill="white"></path></svg>      </button>',
+    asNavFor: '.product-thumbnail-gallery',
+      responsive: [
+        {
+          breakpoint: 990,
+          settings: {
+            arrows: true
+          }
+        }
+      ]
+  });
+  $('.product-thumbnail-gallery').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    asNavFor: '.product-media-gallery',
+    dots: false,
+    focusOnSelect: true,
+    arrows: false,
+    infinite: false,
+    responsive: [
+        {
+          breakpoint: 750,
+        }
+      ]
+  });
+</script>
+{% else %}
+
+
+
+
+  {%- content_for 'block',
+    type: '_product-media-gallery',
+    id: 'media-gallery',
+    closest.product: closest.product
+  -%}
+  {% endif %}  
+{% endcapture %}
+
+{% capture product_details %}
+  {% content_for 'block',
+    type: '_product-details',
+    id: 'product-details',
+    closest.product: closest.product
+  %}
+{% endcapture %}
+
+{% capture additional_blocks %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+{% if section.settings.enable_sticky_add_to_cart %}
+  {% liquid
+    assign current_variant = product.selected_or_first_available_variant
+    # Get the initial quantity based on quantity rules
+    assign initial_quantity = current_variant.quantity_rule.min | default: 1
+  %}
+
+  <sticky-add-to-cart
+    class="sticky-add-to-cart"
+    data-variant-available="{{ current_variant.available }}"
+    data-product-id="{{ product.id }}"
+    data-current-variant-id="{{ current_variant.id }}"
+    data-initial-quantity="{{ initial_quantity }}"
+    data-default-variant-title="{{ 'products.product.default_title' | t }}"
+  >
+    <div
+      class="sticky-add-to-cart__bar color-{{ settings.popover_color_scheme }}"
+      data-stuck="false"
+      ref="stickyBar"
+      role="region"
+      aria-label="{{ 'products.product.sticky_add_to_cart' | t }}"
+    >
+      {% liquid
+        assign image_to_show = current_variant.featured_image | default: product.featured_image
+      %}
+      {% if image_to_show %}
+        <div
+          class="sticky-add-to-cart__image"
+        >
+          {% assign image_alt = image_to_show.alt | default: product.title | escape %}
+          {{
+            image_to_show
+            | image_url: width: 120
+            | image_tag:
+              loading: 'lazy',
+              alt: image_alt,
+              class: 'sticky-add-to-cart__image-img',
+              data-testid: 'sticky-product-image',
+              srcset: null,
+              sizes: null,
+              ref: 'productImage'
+          }}
+        </div>
+      {% endif %}
+
+      {% liquid
+        assign has_single_option = false
+        if product.has_only_default_variant != true and product.options.size == 1
+          assign has_single_option = true
+        endif
+
+        if image_to_show == blank
+          assign has_image = false
+        else
+          assign has_image = true
+        endif
+      %}
+      <div
+        class="sticky-add-to-cart__info"
+        data-has-image="{{ has_image }}"
+        data-singleton="{{ product.has_only_default_variant }}"
+        data-single-option="{{ has_single_option }}"
+      >
+        <h3
+          class="sticky-add-to-cart__title"
+          data-testid="sticky-product-title"
+        >
+          {{ product.title | escape }}
+        </h3>
+        <div
+          class="sticky-add-to-cart__variant"
+          data-testid="sticky-variant-title"
+          {% if product.has_only_default_variant %}
+            style="display: none;"
+          {% endif %}
+        >
+          {% unless product.has_only_default_variant %}
+            {% if current_variant != blank %}
+              {% assign variant_title = current_variant.title | escape %}
+            {% endif %}
+            {{ variant_title }}
+          {% endunless %}
+        </div>
+      </div>
+
+      <div
+        class="sticky-add-to-cart__price"
+        data-testid="sticky-price-display"
+      >
+        {% render 'price', product_resource: product, show_sale_price_first: true %}
+      </div>
+
+      {% comment %} <button
+        type="button"
+        class="sticky-add-to-cart__button add-to-cart-button button button--primary"
+        ref="addToCartButton"
+        on:click="/handleAddToCartClick"
+        {% unless current_variant.available %}
+          disabled
+        {% endunless %}
+      > {% endcomment %}
+        <a href="#"
+        type="button"
+        class="sticky-add-to-cart__button add-to-cart-button button button--primary"
+        ref="addToCartButton"
+        {% unless current_variant.available %}
+          disabled
+        {% endunless %}>
+        <span
+          class="add-to-cart-text"
+        >
+          {% if current_variant.available %}
+            <span class="svg-wrapper add-to-cart-icon">
+              {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+            </span>
+          {% endif %}
+          <span class="add-to-cart-text__content">
+            <span>
+              {%- if current_variant.available -%}
+                {{- 'products.product.add_to_cart' | t -}}
+              {%- elsif current_variant == blank -%}
+                {{- 'products.product.unavailable' | t -}}
+              {%- else -%}
+                {{- 'products.product.sold_out' | t -}}
+              {%- endif -%}
+            </span>
+            <span
+              class="quantity-display"
+              ref="quantityDisplay"
+              {% if current_variant.available and initial_quantity > 1 %}
+                style="display: inline;"
+              {% else %}
+                style="display: none;"
+              {% endif %}
+            >
+              {{- ' (' -}}
+              <span ref="quantityNumber">{{- initial_quantity -}}</span>
+              {{- ')' -}}
+            </span>
+          </span>
+        </span>
+        <span class="add-to-cart__added">
+          <span class="svg-wrapper add-to-cart__added-icon">
+            {{- 'icon-checkmark-burst.svg' | inline_asset_content -}}
+          </span>
+        </span>
+      </a>
+      {% comment %} </button> {% endcomment %}
+    </div>
+  </sticky-add-to-cart>
+{% endif %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const anchor = document.getElementById('scroll-to-bundle');
+  const target = document.querySelector('.kaching-bundles'); // first element with this class
+
+  if (anchor && target) {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault(); // prevent page redirect
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+});
+
+</script>
+{% render 'product-information-content',
+  product_media_size: closest.product.media.size,
+  section_id: section.id,
+  settings: section.settings,
+  media_gallery: media_gallery,
+  product_details: product_details,
+  additional_blocks: additional_blocks
+%}
+
+{% stylesheet %}
+  .sticky-add-to-cart__bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%) translateY(calc(100% + 40px));
+    z-index: calc(var(--layer-sticky) - 1); /* Below sticky header */
+    display: block;
+    width: 600px;
+    border-radius: calc(
+      var(--style-border-radius-buttons-primary) + min(var(--padding-sm), var(--style-border-radius-buttons-primary))
+    );
+    box-shadow: var(--shadow-popover);
+    padding: var(--padding-sm);
+    /* Layout styling */
+    display: flex;
+    align-items: center;
+    gap: var(--gap-md);
+
+    @starting-style {
+      opacity: 0;
+      transform: translateX(-50%) translateY(calc(100% + 40px));
+    }
+
+    &::before {
+      --border: 2px;
+      content: '';
+      position: absolute;
+      inset: calc(var(--border) * -1);
+      background: linear-gradient(var(--color-background) 0 100%), linear-gradient(hsl(0 0% 0% / 0.15) 0 100%);
+      background-clip: content-box, border-box;
+      border: var(--border) solid #0000;
+      border-radius: inherit;
+      z-index: -1;
+      backdrop-filter: blur(20px) saturate(180%) brightness(1.5);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sticky-add-to-cart__bar {
+      transition-property: transform, opacity, display;
+      transition-duration: 0.3s;
+      transition-timing-function: var(--ease-out-quad);
+      transition-behavior: allow-discrete;
+    }
+  }
+
+  .sticky-add-to-cart__bar[data-stuck='true'] {
+    transform: translateX(-50%) translateY(0%);
+    opacity: 1;
+  }
+
+  sticky-add-to-cart:not([data-variant-available='true']) .sticky-add-to-cart__bar {
+    opacity: 0;
+    transform: translateX(-50%) translateY(calc(100% + 40px));
+    display: none;
+  }
+
+  .sticky-add-to-cart__info[data-has-image='false'] {
+    padding-left: var(--padding-lg);
+  }
+
+  .sticky-add-to-cart__image {
+    flex-shrink: 0;
+    aspect-ratio: 1;
+    height: var(--height-buy-buttons);
+    overflow: hidden;
+    border-radius: var(--style-border-radius-buttons-primary);
+    background: var(--color-background-secondary);
+  }
+
+  .sticky-add-to-cart__image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sticky-add-to-cart__info {
+    flex: 1;
+    min-width: 0; /* Allow text truncation */
+  }
+
+  .sticky-add-to-cart__title {
+    font-size: var(--font-paragraph-medium--size);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sticky-add-to-cart__variant {
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    font-size: var(--font-paragraph-small--size);
+    margin-top: var(--margin-3xs);
+  }
+
+  .sticky-add-to-cart__price {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .sticky-add-to-cart__button {
+    height: var(--height-buy-buttons);
+    position: relative;
+  }
+
+  /* Mobile adjustments */
+  @media screen and (max-width: 749px) {
+    .sticky-add-to-cart__bar {
+      bottom: 0;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+
+      &::before {
+        --border: 1px;
+      }
+
+      .add-to-cart-text__content {
+        display: none;
+      }
+    }
+
+    .sticky-add-to-cart__info[data-has-image='false'] {
+      padding-left: 0;
+    }
+
+    .sticky-add-to-cart__title {
+      font-size: var(--font-paragraph--size);
+    }
+
+    .sticky-add-to-cart__button {
+      padding: var(--padding-lg);
+    }
+
+    .sticky-add-to-cart__price {
+      font-size: var(--font-paragraph-small--size);
+    }
+
+    .sticky-add-to-cart__button {
+      width: var(--height-buy-buttons);
+    }
+
+    sticky-add-to-cart:not([data-variant-available='true']) .add-to-cart-text__content {
+      display: initial;
+    }
+
+    sticky-add-to-cart:not([data-variant-available='true']) .sticky-add-to-cart__button {
+      width: auto;
+    }
+  }
+
+  /* Small mobile - hide text content and compare price */
+  @media screen and (max-width: 389px) {
+    .sticky-add-to-cart__bar {
+      .compare-at-price {
+        display: none;
+      }
+    }
+
+    .sticky-add-to-cart__title {
+      display: none;
+    }
+
+    /* For product with only default variant show title */
+    .sticky-add-to-cart__info[data-singleton='true'] .sticky-add-to-cart__title {
+      display: block;
+    }
+
+    /* For single variant show title and variant, truncate both. variant should be identifiable with truncation */
+    .sticky-add-to-cart__info[data-single-option='true'] .sticky-add-to-cart__title {
+      display: block;
+    }
+    .sticky-add-to-cart__info[data-single-option='true'] .sticky-add-to-cart__variant {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.product_information",
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "main-calss",
+      "label": "Main Class"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "content-center-aligned",
+          "label": "t:options.page"
+        },
+        {
+          "value": "content-full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "content-center-aligned"
+    },
+    {
+      "type": "select",
+      "id": "desktop_media_position",
+      "label": "t:settings.media_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:options.left"
+        },
+        {
+          "value": "right",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "equal_columns",
+      "label": "t:settings.equal_columns",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "limit_details_width",
+      "label": "t:settings.limit_product_details_width",
+      "default": false,
+      "visible_if": "{{ section.settings.equal_columns }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_add_to_cart",
+      "label": "t:settings.enable_sticky_add_to_cart",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

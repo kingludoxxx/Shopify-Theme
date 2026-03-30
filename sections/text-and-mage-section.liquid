@@ -1,0 +1,411 @@
+<div class="cst-text-image-section cst-text-image-section-{{ section.id }}">
+  <div class="cst-page-width">
+    <div class="cst-text-image-section-grid">
+    {% if section.settings.image_position == "left" %}
+      <div class="cst-text-image-section-col">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | img_url : 'master' }}" alt="{{ section.settings.image.alt }}">
+        {% elsif section.settings.video_url != blank %}
+          <div class="video-wrapper">
+            {% if section.settings.video_url contains 'youtube.com' or section.settings.video_url contains 'youtu.be' %}
+              {% assign video_id = section.settings.video_url | split: 'v=' | last | split: '&' | first %}
+              {% if section.settings.video_url contains 'youtu.be' %}
+                {% assign video_id = section.settings.video_url | split: 'youtu.be/' | last | split: '?' | first %}
+              {% endif %}
+              <iframe 
+                src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1&mute=1&loop=1&playlist={{ video_id }}&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            {% elsif section.settings.video_url contains 'vimeo.com' %}
+              {% assign video_id = section.settings.video_url | split: 'vimeo.com/' | last | split: '?' | first %}
+              <iframe 
+                src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&muted=1&loop=1&background=1&controls=0" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            {% else %}
+              <video autoplay muted loop playsinline>
+                <source src="{{ section.settings.video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+      <div class="cst-text-image-section-col">
+        <h2 style="text-align: {{ section.settings.title_position }};">{{ section.settings.title }}</h2>        
+          {% if section.settings.checkbox_para %}
+          {% else %}
+          <div class="cst-text-image-section-content{% if section.settings.mobile_content %} hide-mobile{% endif %}" style="text-align: {{ section.settings.text_position }};">{{ section.settings.text }}</div>
+          {% endif %}  
+          {% if section.settings.image1 != blank %}<img class="{% if section.settings.mobile_content %} hide-mobile{% endif %}" src="{{ section.settings.image1 | img_url : 'master' }}" alt="{{ section.settings.image1.alt }}">{% endif %}
+          {% if section.settings.btn_text != blank %}
+            <a class="cst-text-image-button{% if section.settings.mobile_content %} hide-mobile{% endif %}" href="{{ section.settings.btn_link }}" style="">
+              {{ section.settings.btn_text }}</a>
+          {% endif %}
+          {% if section.settings.checkbox_para %}
+          <div class="cst-text-image-section-content{% if section.settings.mobile_content %} hide-mobile{% endif %}" style="text-align: {{ section.settings.text_position }};">{{ section.settings.text }}</div>          
+          {% else %}
+          {% endif %}        
+      </div>
+    {% if section.settings.image_position == "right" %}
+      <div class="cst-text-image-section-col">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | img_url : 'master' }}" alt="{{ section.settings.image.alt }}">
+        {% elsif section.settings.video_url != blank %}
+          <div class="video-wrapper">
+            {% if section.settings.video_url contains 'youtube.com' or section.settings.video_url contains 'youtu.be' %}
+              {% assign video_id = section.settings.video_url | split: 'v=' | last | split: '&' | first %}
+              {% if section.settings.video_url contains 'youtu.be' %}
+                {% assign video_id = section.settings.video_url | split: 'youtu.be/' | last | split: '?' | first %}
+              {% endif %}
+              <iframe 
+                src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1&mute=1&loop=1&playlist={{ video_id }}&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            {% elsif section.settings.video_url contains 'vimeo.com' %}
+              {% assign video_id = section.settings.video_url | split: 'vimeo.com/' | last | split: '?' | first %}
+              <iframe 
+                src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&muted=1&loop=1&background=1&controls=0" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            {% else %}
+              <video autoplay muted loop playsinline>
+                <source src="{{ section.settings.video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.mobile_content %}
+          <div class="cst-text-image-section-col-mobile-items">
+          {% if section.settings.btn_text != blank %}
+            <a class="cst-text-image-button" href="{{ section.settings.btn_link }}" style="">
+              {{ section.settings.btn_text }}</a>
+          {% endif %}
+          {% if section.settings.checkbox_para %}
+          <div class="cst-text-image-section-content" style="text-align: {{ section.settings.text_position }};">{{ section.settings.text }}</div>          
+          {% endif %}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+    </div>
+  </div>
+</div>
+<style>
+  .cst-text-image-section-{{ section.id }} { max-width: {{ section.settings.text_width }}px; }
+  .cst-text-image-section { padding: 10px 15px 10px 15px; margin: 0 auto; }
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: {{ section.settings.col_align }};
+        gap: 35px;
+  }
+  .cst-page-width {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+  /* Full Width/Height Video Wrapper Styles */
+  .cst-text-image-section-{{ section.id }} .video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  
+  .cst-text-image-section-{{ section.id }} .video-wrapper iframe,
+  .cst-text-image-section-{{ section.id }} .video-wrapper video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    border: none;
+    pointer-events: none;
+  }
+  
+  .cst-text-image-section-{{ section.id }} .video-wrapper video {
+    object-fit: cover;
+  }
+  
+  /* Hide YouTube/Vimeo controls and branding */
+  .cst-text-image-section-{{ section.id }} .video-wrapper iframe {
+    pointer-events: none;
+  }
+
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-content p strong {text-decoration: underline;}
+.cst-text-image-section-{{ section.id }} .custom_text h2.rich-text__heading.rte.inline-richtext.h1 {
+    font-size: 35px !important;
+    color: #2c2c2c;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 0px;
+    /*font-family: 'Neue Haas Grotesk Display Pro', sans-serif;*/
+}
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-content ul li:before{
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3E");
+  }
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-content ul {padding: 10px 0px 0px 0px; list-style: none;}
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-content p strong {background-color: {{ section.settings.text-strong-background }};}  
+  .cst-text-image-section-{{ section.id }} a.cst-text-image-button {
+      background: {{ section.settings.btn_color }}; 
+      color: {{ section.settings.btn_color_text }};
+      font-weight: 400;
+      text-transform: uppercase;
+      padding: 20px 30px;
+      border: 1px solid {{ section.settings.btn_color }};
+      border-radius: 10px;
+      margin: 0 auto;
+      {% if section.settings.alignside %}margin-left: unset;{% endif %}
+      margin-top: 24px;
+      display: table;
+      font-size: 20px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      outline: 0;
+      line-height: 1;
+      transition: all 0.3s ease-in-out;
+      width: 100%;
+      max-width: 420px;
+      font-family: "Lato", sans-serif;
+  } 
+  .cst-text-image-section-{{ section.id }} a.cst-text-image-button:hover{ background: {{ section.settings.btn_color_text }}; color: {{ section.settings.btn_color }}; }
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-content ul li {padding-left: 26px;position: relative; color: #2c2c2c; margin-bottom: 10px; }
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-col img{max-width: 100%; vertical-align: middle;}
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-col h2 {
+    margin: 0px;
+    letter-spacing: 0;
+    color: #2c2c2c;
+    font-size: 35px;
+    /*font-family: 'Neue Haas Grotesk Display Pro', sans-serif;*/
+    font-weight: 700;
+        max-width: 425px;
+}
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-content p {letter-spacing: 0px; margin: 10px 0px; color: #2c2c2c; }
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-col {padding: 18px;}
+  .cst-text-image-section-{{ section.id }} .cst-text-image-section-col-mobile-items{display: none;}
+  .cst-text-image-section-col img{
+    border-radius: 20px;
+}
+.cst-text-image-section-grid{
+align-items: center;
+}
+.cst-text-image-section-content p{
+font-size: 19px;
+padding-top: 20px;
+}
+  @media only screen and (max-width: 767px)  {
+    .cst-text-image-section-{{ section.id }} .hide-mobile {display: none !important;}
+    .cst-text-image-section-{{ section.id }} .cst-text-image-section-col-mobile-items{display: block;}
+    .cst-text-image-section-{{ section.id }} a.cst-text-image-button {padding: 17px 30px; font-size: 16px;}     
+    .cst-text-image-section-{{ section.id }} .cst-text-image-section-grid{grid-template-columns: 1fr;gap:0;}
+    .cst-text-image-section-{{ section.id }} .cst-text-image-section-col {padding: 15px;}
+    .cst-text-image-section-{{ section.id }} .cst-text-image-section-col h2 {font-size: 30px;}  
+    .cst-text-image-section-{{ section.id }} .cst-text-image-section {padding: 0px 15px;}
+    .cst-text-image-section-{{ section.id }} .custom_text h2.rich-text__heading.rte.inline-richtext.h1 {font-size: 30px !important;}
+    .cst-text-image-section-{{ section.id }} .video-wrapper {
+      min-height: 300px;
+    }
+  }
+</style>
+{% schema %}
+  {
+    "name": "Text & Image",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text_width",
+        "label": "Add The Width Here",
+        "default": "820"
+      },
+      {
+        "type": "select",
+        "id": "col_align",
+        "options": [
+          {
+            "value": "start",
+            "label": "Start"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "end",
+            "label": "End"
+          }
+        ],
+        "default": "start",
+        "label": "Column Alignment"
+      },
+      {
+        "type": "header",
+        "content": "Media (Image or Video)"
+      },
+      {
+        "type": "paragraph",
+        "content": "If image is added, it will display. Otherwise, video will show (autoplay, muted, loop, no controls)."
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image (Priority)"
+      },
+      {
+        "type": "text",
+        "id": "video_url",
+        "label": "Video URL (YouTube, Vimeo, or Direct MP4)",
+        "info": "Video will autoplay muted with no controls. Works with YouTube, Vimeo, or direct .mp4 files.",
+        "placeholder": "https://www.youtube.com/watch?v=..."
+      },
+      {
+        "type": "select",
+        "id": "image_position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left",
+        "label": "Media Position"
+      },      
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+        "type": "select",
+        "id": "title_position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left",
+        "label": "Heading Alignment"
+      },      
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Content"
+      },
+      {
+        "type": "select",
+        "id": "text_position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left",
+        "label": "Text Alignment"
+      },
+      {
+        "type": "checkbox",
+        "id": "checkbox_para",
+        "label": "Show Paragraph After Button",
+        "default": false
+      },            
+      {
+        "type": "color",
+        "id": "text-strong-background",
+        "label": "Text Strong Background"
+      },      
+      {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Second Image"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Label"
+      },
+      {
+        "type": "checkbox",
+        "id": "alignside",
+        "label": "Button Align Left",
+        "default": true
+      },      
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button Link"
+      },  
+      {
+        "type": "color",
+        "id": "btn_color",
+        "label": "Button Background Color",
+        "default": "#e18dbc"
+      },  
+      {
+        "type": "color",
+        "id": "btn_color_text",
+        "label": "Button Text Color",
+        "default": "#ffffff"
+      }, 
+      {
+        "type": "header",
+        "content": "Mobile Content"
+      },      
+      {
+        "type": "checkbox",
+        "id": "mobile_content",
+        "label": "Mobile Content Show After The Image",
+        "default": false
+      } 
+    ],
+  "presets": [
+    {
+      "name": "Text & Image",
+      "category": "custom"
+    }
+  ]
+  }
+{% endschema %}

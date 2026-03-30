@@ -1,0 +1,107 @@
+<style>
+    .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+        background-color: {{ section.settings.back_color }};
+    }
+    .main-iconn-text{
+    display:flex;
+    }
+    .cs_icon-text-main ul li{
+      margin: 0;
+      font-size: 15px;
+      font-family: Satoshi-Bold;
+      color: #2a2a2a;
+      letter-spacing: 1px;
+      line-height: normal;
+      margin: 0 0 5px;
+      text-transform: capitalize;
+      border-left: 2px solid #0d1b2a;
+      padding-left: 10px;
+      list-style: none;
+  }
+  .cs_icon-text-main ul{
+      margin: 0;
+      padding: 0;
+  }
+    @media screen and (max-width: 768px) {
+        .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.mbl_padding_top }}px;
+            padding-bottom: {{ section.settings.mbl_padding_bottom }}px;
+        }
+    }
+</style>
+
+<section class="icon-textt section-{{ section.id }}-padding">
+  <div class="main-iconn-text">
+    {% if block.settings.text %}
+      <div class="cs_icon-text-main">
+        {{ block.settings.text }}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "icon-text",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mbl_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Top Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mbl_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Bottom Padding",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "back_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "icon-text",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

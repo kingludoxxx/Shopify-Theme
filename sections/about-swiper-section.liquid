@@ -1,0 +1,282 @@
+<style>
+  .top-template--{{section.id}} .page-width {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 17px;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .top-template--{{section.id}} .page-width {
+      padding: 0 40px !important;
+    }
+  }
+
+  .top-template--{{section.id}} {
+    padding-top: 90px;
+    padding-bottom: 20px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  .plumper-main-text {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .about-heading {
+    margin: 0;
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-family: Open Sauce;
+  }
+  .about-des, .about-des p {
+    margin: 0;
+    color: #030712;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    font-family: Open Sauce;
+    padding-top: 16px;
+  }
+  .about-main {
+    align-items: flex-start;
+    background: #f3f4f6;
+    border: solid #1e5cfa;
+    border-radius: 0 24px 24px 0;
+    border-width: 0 0 0 2px;
+    column-gap: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 200px;
+    padding: 32px;
+    position: relative;
+    row-gap: 24px;
+    width: 100%;
+    margin-top: 40px;
+  }
+  .about-main-heading {
+    margin: 0;
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+    font-family: open sauce;
+  }
+  .about-writer {
+    margin: 0;
+    color: #030712;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+    font-family: open sauce;
+  }
+  .about-main2 {
+    max-width: 500px;
+    margin: 40px auto 0px;
+  }
+  .about-main2 img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
+  .ingridient-text {
+    max-width: 760px;
+    margin: 40px auto 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .ingridient-heading {
+    margin: 0;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-family: open sauce;
+  }
+  .ingridient-des {
+    margin: 0;
+    color: #030712;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    font-family: open sauce;
+    padding-top: 16px;
+  }
+
+  .ingridient-des p {
+    margin: 0;
+    color: #030712;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    font-family: open sauce;
+  }
+
+  .custom-about-swiper .mySwiper-venom2 {
+    overflow: visible;
+  }
+  .custom-about-swiper .custom-slider {
+    max-width: 760px;
+    margin: 64px auto 0px;
+  }
+  .custom-about-swiper .swiper-button-disabled {
+    opacity: 0.35;
+  }
+  .next-btns,
+  .pre-btns {
+    align-items: center;
+    background: #000;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    justify-content: center;
+    position: relative;
+    width: 40px;
+    cursor: pointer;
+  }
+  .next-btns svg,
+  .pre-btns svg {
+    width: 25px;
+    height: 25px;
+  }
+  .next-btns svg path,
+  .pre-btns svg path {
+    color: white;
+  }
+  @media (max-width: 768px) {
+    .top-template--{{section.id}} {
+      padding-top: 30px;
+      padding-bottom: 15px;
+    }
+    .about-main,
+    .plumper-main-text,
+    .about-main2 {
+      margin-top: 32px;
+    }
+    .plumper-main-text {
+      margin-top: 6px;
+    }
+    .ingridient-text {
+      margin: 32px auto 0px;
+    }
+    .custom-about-swiper .text-btn {
+      padding-right: 0px;
+    }
+    .about-main2 img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+</style>
+<section class="top-template--{{ section.id }} custom-about-swiper">
+  <div class="page-width">
+    <div class="plumper-main-text">
+      <div class="plumper-single-block">
+        <h3 class="about-heading">{{ section.settings.main_heading }}</h3>
+        <div class="about-des">
+          {{ section.settings.main_description }}
+        </div>
+
+        <div class="about-main">
+          <h3 class="about-main-heading">{{ section.settings.sub_heading }}</h3>
+          <p class="about-writer">{{ section.settings.author_name }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ingridient-text">
+      {% for block in section.blocks %}
+        <div class="ingridient-single-block">
+          <h3 class="ingridient-heading">{{ block.settings.ingridient_title }}</h3>
+          <div class="ingridient-des">
+            {{ block.settings.ingridient_description }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Swiper Section",
+  "tag": "section",
+  "class": "custom-about-swiper-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "What Are Hair Regrowth Systems, Really?"
+    },
+    {
+      "type": "richtext",
+      "id": "main_description",
+      "label": "Main Description",
+      "default": "<p>After 8 years battling my own hair loss and testing every product that claims to fix it, I'm still shocked by how many guys throw away hundreds of dollars on 'revolutionary' systems that are literally just expensive shampoo.</p><p>Here's the brutal truth nobody's telling you:</p><p>Real hair regrowth systems need to solve ONE critical problem—<strong>getting active ingredients past your skin and INTO your hair follicles.</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "I've spent 8 years researching hair loss solutions because my own hairline started disappearing at 29, and I'm done watching guys get scammed by products that literally defy physics."
+    },
+    {
+      "type": "text",
+      "id": "author_name",
+      "label": "Author Name",
+      "default": "Mike Patterson"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient_block",
+      "name": "Ingredient Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "ingridient_title",
+          "label": "Heading",
+          "default": "1. It Actually Reaches Your Hair Follicles"
+        },
+        {
+          "type": "richtext",
+          "id": "ingridient_description",
+          "label": "Description",
+          "default": "<p>Shampoos and serums can't penetrate deep enough. You need something that creates channels in your scalp so ingredients can actually GET to where your hair grows.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Swiper",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "ingredient_block"
+        },
+        {
+          "type": "ingredient_block"
+        },
+        {
+          "type": "ingredient_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

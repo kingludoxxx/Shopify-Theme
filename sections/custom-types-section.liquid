@@ -1,0 +1,255 @@
+<style data-shopify="">
+
+  .top-template--{{section.id}} * {
+    font-family: Open Sauce !important;
+    letter-spacing: 0;
+  }
+
+
+  ul {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+    line-height: 160%;
+    text-rendering: optimizeLegibility;
+  }
+
+  .top-template--{{section.id}} .page-width {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 17px;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .top-template--{{section.id}} .page-width {
+      padding: 0 40px !important;
+    }
+  }
+  .top-template--{{section.id}} {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+  .single-richtext p {
+    margin: 0;
+    color: #030712;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    padding: 0;
+  }
+  .top-template--template--{{section.id}}* {
+    color: #030712;
+}
+  .single-richtext p:empty {
+    display: block !important;
+  }
+  .single-richtext p:empty:before {
+    content: "\200b";
+  }
+  .single-richtext em {
+    font-style: normal;
+  }
+  {% comment %} .single-richtext p:has(em) {
+    display: flex;
+    gap: 4px;
+    align-items: baseline;
+  } {% endcomment %}
+  .custom-types-conent {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .types-single-block img {
+    max-width: 500px;
+    width: 100%;
+  }
+  .types-heading {
+    margin: 0;
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-family: Open Sauce;
+  }
+  .types-des {
+    margin: 0;
+    color: #030712;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Open Sauce;
+    line-height: 1.6;
+    padding-top: 16px;
+  }
+  .types-des p {
+    margin: 0;
+    color: #030712;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Open Sauce;
+    line-height: 1.6;
+  }
+  .types-single-block {
+    align-items: flex-start;
+    background: #f7f7f7;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 0;
+    column-gap: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px 0;
+    padding: 25px;
+    position: relative;
+    row-gap: 15px;
+    width: 100%;
+    margin-top: 16px;
+  }
+  .single-heading {
+    margin: 0;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-family: Open Sauce;
+    padding-bottom: 15px;
+  }
+  .single-btn {
+    align-items: center;
+    background: #000;
+    border-radius: 8px;
+    column-gap: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 8px 16px;
+    position: relative;
+    row-gap: 8px;
+    color: #fff !important;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Open Sauce;
+    text-decoration: none;
+  }
+  @media (max-width: 768px) {
+    .top-template--{{section.id}} {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    #shopify-section-template--25385463152939__5_reason_custom_types_3Rwfi8 .top-template--{{section.id}} {
+      padding-bottom: 20px;
+    }
+  }
+</style>
+<section class="top-template--{{ section.id }} custom-types">
+  <div class="page-width">
+    <div class="custom-types-conent">
+      <h3 class="types-heading">{{ section.settings.main_heading }}</h3>
+      <div class="types-des">
+        <p>{{ section.settings.main_description }}</p>
+      </div>
+
+      <div class="types-main">
+        {% for block in section.blocks %}
+          <div class="types-single-block">
+            <h3 class="single-heading">{{ block.settings.title }}</h3>
+
+            {% if block.settings.image != blank %}
+              <img 
+                src="{{ block.settings.image | image_url: width: 1200 }}" 
+                alt="{{ block.settings.title | escape }}" 
+                loading="lazy" 
+                width="auto" 
+                height="auto">
+            {% endif %}
+
+            <div class="single-richtext">
+              {{ block.settings.richtext }}
+            </div>
+
+            {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+              <a class="single-btn" href="{{ block.settings.button_link }}">
+                {{ block.settings.button_label }}
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Types",
+  "tag": "section",
+  "class": "custom-types-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "My Top 5 Hair Loss Treatments (Ranked by REAL Results)"
+    },
+    {
+      "type": "textarea",
+      "id": "main_description",
+      "label": "Main Description",
+      "default": "After testing 17 different systems over the years, on myself and with patients, here are the only 5 worth considering:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "treatment_block",
+      "name": "Treatment Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Treatment Title",
+          "default": "#1 Trevo Micro Infusion System"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Treatment Image"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Treatment Description",
+          "default": "<p>★★★★★ (4.9/5)<br><strong>My Experience:</strong> This system actually regrew visible hair after 3 months of use.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Check Out Trevo"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Types",
+      "category": "Custom Sections",
+      "blocks": [
+        { "type": "treatment_block" },
+        { "type": "treatment_block" },
+        { "type": "treatment_block" },
+        { "type": "treatment_block" },
+        { "type": "treatment_block" }
+      ]
+    }
+  ]
+}
+{% endschema %}

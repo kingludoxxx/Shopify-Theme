@@ -1,0 +1,122 @@
+<style data-shopify="">
+  @media (max-width: 575px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  .top-template--{{section.id}} * {
+    font-family: Open Sauce !important;
+    letter-spacing: 0;
+  }
+
+  .top-template--{{section.id}} .page-width {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 17px;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .top-template--{{section.id}} .page-width {
+      padding: 0 40px !important;
+    }
+  }
+
+  .top-template--{{section.id}} {
+    padding-top: 62px;
+    padding-bottom: 62px;
+    background-color: #000000;
+    overflow: hidden;
+  }
+  .nf-heading {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-family: Open Sauce;
+    color: #fff;
+    margin: 0;
+  }
+  .nf-des p {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Open Sauce;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0;
+  }
+  .nf-des p strong {
+    font-weight: 700;
+  }
+  .new-footer .single-btn {
+    background: #d02e2e;
+    color: #fff;
+  }
+  .nf-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    .top-template--{{section.id}} {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+</style>
+<section class="top-template--{{ section.id }} new-footer">
+  <div class="page-width">
+    <div class="nf-content">
+      <h3 class="nf-heading">{{ section.settings.heading }}</h3>
+      <div class="nf-des">
+        {{ section.settings.description }}
+      </div>
+
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a class="single-btn" href="{{ section.settings.button_link }}">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Limited Stock Notice",
+  "tag": "section",
+  "class": "new-footer-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Limited stock notice"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Trevo is currently offering <strong>up to 70% off</strong> through this page only—but stock is moving fast due to the steep discount.<br><br>This isn't available on their main site. When inventory runs out at this promotional price, it's gone.<br><br><strong>Don't wait.</strong> These deep-discount bundles sell out within days, and the next restock could take weeks.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "USE OFFER"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Limited Stock Notice",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

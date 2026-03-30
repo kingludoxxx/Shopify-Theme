@@ -1,0 +1,461 @@
+{%- liquid
+ assign upsell_product = block.settings.upsell_product
+  assign custom_desc = block.settings.description
+  assign selected_variant = upsell_product.selected_or_first_available_variant
+-%}
+
+{%- if upsell_product != blank -%}
+
+<product-upsell-item data-block-id="{{ block.id }}">
+  <div class="product-upsell" {{ block.shopify_attributes }}>
+    <div class="product-upsell__container">
+      
+      {%- if upsell_product.featured_media -%}
+        <div class="product-upsell__image">
+          <img 
+            src="{{ selected_variant.featured_media.preview_image.src | default: upsell_product.featured_media | image_url: width: 150 }}"
+            alt="{{ selected_variant.featured_media.alt | default: upsell_product.featured_media.alt | escape }}"
+            width="auto"
+            height="auto"
+            loading="lazy"
+            class="upsell-image"
+          >
+        </div>
+      {%- endif -%}
+
+      <div class="product-upsell__content">
+        <div class="product-upsell__title">
+          <h3>{{ upsell_product.title }}</h3>
+          <div class="product-upsell__price">
+            <span class="price">{{ selected_variant.price | money }}</span>
+            {%- if selected_variant.compare_at_price > selected_variant.price -%}
+              <span class="compare-price">{{ selected_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if custom_desc != blank -%}
+          <p class="product-upsell__desc">{{ custom_desc }}</p>
+        {%- elsif upsell_product.description != blank -%}
+          <p class="product-upsell__desc">{{ upsell_product.description | strip_html | truncate: 120 }}</p>
+        {%- endif -%}
+
+        {%- if upsell_product.has_only_default_variant == false -%}
+          <div class="product-upsell__variant-picker">
+            <select class="product-upsell__select" data-product-id="{{ upsell_product.id }}">
+              {%- for variant in upsell_product.variants -%}
+                <option 
+                    value="{{ variant.id }}"
+                    {% if variant.available == false %}disabled{% endif %}
+                    {% if variant.id == selected_variant.id %}selected{% endif %}
+                    data-price="{{ variant.price }}"
+                    data-compare="{{ variant.compare_at_price }}"
+                    {%- if variant.featured_image -%}
+                        data-image-src="https:{{ variant.featured_image.src | image_url: width: 150 }}"
+                    {%- endif -%}
+                    >
+                  {{ variant.title }}
+                  {%- if variant.available == false %} - Sold out{% endif -%}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <button 
+        type="button" 
+        class="product-upsell__add-btn button"
+        data-product-id="{{ upsell_product.id }}"
+        data-variant-id="{{ selected_variant.id }}"
+      >
+        <span>Add</span>
+        <div class="loading-overlay__spinner hidden">
+          <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66">
+            <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+          </svg>
+        </div>
+      </button>
+
+    </div>
+  </div>
+</product-upsell-item>
+
+<style>
+  .product-upsell {
+    border-radius: 0.5rem;
+    background:white;
+    border: 0.1rem solid rgba(0,0,0, 0.15);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+  }
+
+  .product-upsell__container {
+     display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    gap: 10px;
+  }
+
+  .product-upsell__image {
+      display: flex;
+      flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 0.3rem;
+    overflow: hidden;
+  }
+
+  .product-upsell__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-upsell__content {
+    flex-grow: 1;
+    min-width: 0;
+    line-height:17px;
+  }
+
+  .product-upsell__title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-upsell__title h3 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #373737;
+  }
+
+  .product-upsell__price {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .product-upsell__price .price {
+    display: block;
+    color: rgb(var(--color-foreground));
+  }
+
+  .product-upsell__price .compare-price {
+    display: block;
+    font-size: 1rem;
+    color: rgba(var(--color-foreground), 0.6);
+    text-decoration: line-through;
+    margin-top: 0.2rem;
+  }
+
+  .product-upsell__desc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #373737;
+  }
+
+  .product-upsell__variant-picker {
+    margin-top: 8px;
+  }
+
+  .product-upsell__select {
+    height: 36px;
+    padding: 0 10px;
+    font-size: 16px;
+    border: 1px solid rgba(0,0,0, 0.2);
+    border-radius: 0.5rem;
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    cursor: pointer;
+    min-width: 120px;
+  }
+  .product-upsell__select option{
+    font-size: 16px;
+  }
+  .product-upsell__add-btn {
+      flex-shrink: 0;
+    min-height: 40px;
+    min-width: 80px;
+    padding: 0 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #373737;
+    font-size: 16px;
+    border-radius: 30px;
+  }
+
+  .product-upsell__add-btn .loading-overlay__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.8rem;
+    height: 1.8rem;
+    display: none;
+  }
+
+  .product-upsell__add-btn .loading-overlay__spinner svg {
+    width: 100%;
+    height: 100%;
+    animation: rotator 1.4s linear infinite;
+  }
+
+  .product-upsell__add-btn .loading-overlay__spinner .path {
+    stroke: rgb(var(--color-button-text));
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: dash 1.4s ease-in-out infinite;
+  }
+
+  @keyframes rotator {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(270deg); }
+  }
+
+  @keyframes dash {
+    0% { stroke-dashoffset: 187; }
+    50% {
+      stroke-dashoffset: 46.75;
+      transform: rotate(135deg);
+    }
+    100% {
+      stroke-dashoffset: 187;
+      transform: rotate(450deg);
+    }
+  }
+
+  .product-upsell__add-btn.loading span {
+    visibility: hidden;
+  }
+
+  .product-upsell__add-btn.loading .loading-overlay__spinner {
+    display: block;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-upsell__container {
+      padding: 1rem;
+    }
+    
+    .product-upsell__image {
+      width: 3rem;
+      height: 5rem;
+    }
+    .product-upsell__image img{
+    width:50px;
+    height:50px;
+    }
+    .product-upsell__title h3 {
+      font-size: 12px;
+    }
+    
+    .product-upsell__desc {
+      font-size: 10px;
+    }
+    
+    .product-upsell__add-btn {
+      min-height: 1.6rem;
+      min-width: 4rem;
+      padding: 0 0.5rem;
+      font-size: 1.0rem;
+    }
+    
+    .product-upsell__add-btn .loading-overlay__spinner {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+    .product-upsell__price .price, .product-upsell__select, .product-upsell__select option {
+        font-size: 12px !important;
+    }
+    .product-upsell__select{
+        height: 2.6rem;
+    }
+    .product-upsell__price{
+        display: block !important;
+    }
+    .product-upsell__price .compare-price{
+        font-size: 10px !important;
+    }
+  }
+</style>
+{%- endif -%}
+<script>
+    if (!customElements.get('product-upsell-item')) {
+  class ProductUpsellItem extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      this.init();
+    }
+
+    init() {
+      const addBtn = this.querySelector('.product-upsell__add-btn');
+      const variantSelect = this.querySelector('.product-upsell__select');
+      const priceContainer = this.querySelector('.product-upsell__price');
+      const imageContainer = this.querySelector('.upsell-image');
+
+      if (variantSelect) {
+        variantSelect.addEventListener('change', (e) => {
+          const selectedOption = e.target.options[e.target.selectedIndex];
+          const variantId = e.target.value;
+          
+          addBtn.dataset.variantId = variantId;
+          
+          // Update price
+          const price = selectedOption.dataset.price;
+          const comparePrice = selectedOption.dataset.compare;
+          
+          priceContainer.querySelector('.price').textContent = this.formatMoney(price);
+          
+          let comparePriceEl = priceContainer.querySelector('.compare-price');
+          if (comparePrice && parseInt(comparePrice) > parseInt(price)) {
+            if (!comparePriceEl) {
+              comparePriceEl = document.createElement('span');
+              comparePriceEl.className = 'compare-price';
+              priceContainer.appendChild(comparePriceEl);
+            }
+            comparePriceEl.textContent = this.formatMoney(comparePrice);
+          } else if (comparePriceEl) {
+            comparePriceEl.remove();
+          }
+
+          // Update image
+          const imageSrc = selectedOption.dataset.imageSrc;
+          if (imageSrc && imageContainer) {
+            imageContainer.src = imageSrc;
+          }
+        });
+      }
+
+      if (addBtn) {
+        addBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.addToCart(addBtn);
+        });
+      }
+    }
+
+    async addToCart(btn) {
+      const variantId = btn.dataset.variantId;
+      
+      if (!variantId) {
+        alert('Please select a variant');
+        return;
+      }
+
+      btn.classList.add('loading');
+      btn.disabled = true;
+      
+      const spinner = btn.querySelector('.loading-overlay__spinner');
+      if (spinner) spinner.classList.remove('hidden');
+
+      try {
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: [{ id: parseInt(variantId), quantity: 1 }]
+          })
+        });
+
+        if (!response.ok) {
+          const data = await response.json();
+          throw new Error(data.description || 'Failed to add to cart');
+        }
+
+        // Success
+        const btnText = btn.querySelector('span');
+        const originalText = btnText.textContent;
+        btnText.textContent = '✓ Added!';
+        
+        // Refresh cart
+        this.refreshCart();
+        
+        setTimeout(() => {
+          btnText.textContent = originalText;
+        }, 2000);
+
+      } catch (error) {
+        console.error('Cart error:', error);
+        alert(error.message);
+      } finally {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        if (spinner) spinner.classList.add('hidden');
+      }
+    }
+
+    refreshCart() {
+    // Just refresh cart count/data, don't open drawer
+    fetch('/cart.js')
+        .then(r => r.json())
+        .then(cart => {
+        // Update cart count in header
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+            bubbles: true,
+            detail: { cart }
+        }));
+        
+        // Also trigger cart updated event (for some themes)
+        document.dispatchEvent(new CustomEvent('cart:updated'));
+        
+        // Update cart icon bubble if exists
+        const cartBubble = document.querySelector('cart-icon-bubble');
+        if (cartBubble) {
+            const bubble = cartBubble.querySelector('.cart-count-bubble span');
+            if (bubble) bubble.textContent = cart.item_count;
+        }
+        });
+    }
+
+    formatMoney(cents) {
+      return Shopify?.formatMoney ? 
+        Shopify.formatMoney(cents, theme?.moneyFormat || '${{amount}}') :
+        '$' + (parseFloat(cents) / 100).toFixed(2);
+    }
+  }
+
+  customElements.define('product-upsell-item', ProductUpsellItem);
+}
+    </script>
+    {% schema %}
+{
+  "name": "Product Upsell",
+  "tag": "section",
+  "settings": [
+    {
+  "type": "product",
+  "id": "upsell_product",
+  "label": "Upsell Product"
+},
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Custom Description",
+          "info": "Leave blank to use product description"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Product Upsell",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}

@@ -1,9 +1,315 @@
-<!DOCTYPE html>
-<html>
-<head>
-  {{ content_for_header }}
-</head>
-<body>
-  {{ content_for_layout }}
-</body>
+<!doctype html>
+<html
+  {% if request.design_mode %}
+    class="shopify-design-mode"
+  {% endif %}
+  lang="{{ request.locale.iso_code }}"
+>
+  <head>
+    <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','gbraid','wbraid','ttclid','ScCid','tblci','_tw','twclid','tw_source','epik'];
+      keys.forEach(function(key) {
+        var val = params.get(key);
+        if (val) localStorage.setItem('lasso_' + key, val);
+      });
+    })();
+    </script>
+    <style>
+      a.cart-items__title {
+    font-size: 15px;
+    font-weight: 800;
+}
+    </style>
+  {% render 'elevateab' %}
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+      >
+    {%- endif -%}
+
+    {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
+    {% if settings.transition_to_main_product or settings.page_transition_enabled %}
+      <link
+        rel="expect"
+        href="#MainContent"
+        blocking="render"
+        id="view-transition-render-blocker"
+      >
+    {% endif %}
+
+    {%- render 'meta-tags' -%}
+    {%- render 'stylesheets' -%}
+    {%- render 'fonts' -%}
+    {%- render 'scripts' -%}
+    {%- render 'theme-styles-variables' -%}
+    {%- render 'color-schemes' -%}
+
+    {% if request.design_mode %}
+      {%- render 'theme-editor' -%}
+    {% endif %}
+
+    {{ content_for_header }}
+
+    {% if product.id == 15532479545675 %}
+      <script src="https://app.zerocloak.com/secure.js/1sxffkpieg"></script>
+    {% endif %}
+  </head>
+
+  <body class="page-width-{{ settings.page_width }} template-{{ template | replace: '.', '-' | replace: '/', '-' }} card-hover-effect-{{ settings.card_hover_effect }}">
+    {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+ {% unless page.handle == '5rw-mr1' %}
+  <div id="header-group">
+    {% sections 'header-group' %}
+  </div>
+{% endunless %}
+
+
+    <script>
+      // Inline header height calculation to prevent layout shift
+      // Note: Updates in calculateHeaderGroupHeight() and updateTransparentHeaderOffset()utilities.js should be kept in sync with this function
+      (function setHeaderHeighCustomProperties() {
+        /*
+         * Header calculation functions for maintaining CSS variables
+         * Mimic calculateHeaderGroupHeight() in utilities.js
+         */
+        const header = document.querySelector('header-component');
+        const headerGroup = document.querySelector('#header-group');
+        const hasHeaderSection = headerGroup?.querySelector('.header-section');
+
+        if (!header || !headerGroup) return;
+
+        const headerHeight = header.offsetHeight;
+
+        // Calculate the total height of the header group
+        let headerGroupHeight = 0;
+        const children = headerGroup.children;
+        for (let i = 0; i < children.length; i++) {
+          const element = children[i];
+          if (element === header || !(element instanceof HTMLElement)) continue;
+          headerGroupHeight += element.offsetHeight;
+        }
+
+        // Check for transparent header special case
+        if (header.hasAttribute('transparent') && header.parentElement?.nextElementSibling) {
+          headerGroupHeight += headerHeight;
+        }
+
+        // Set CSS variables
+        document.body.style.setProperty('--header-height', `${headerHeight}px`);
+        document.body.style.setProperty('--header-group-height', `${headerGroupHeight}px`);
+
+        /**
+         * Updates CSS custom properties for transparent header offset calculation
+         * Mimic updateTransparentHeaderOffset() in utilities.js
+         */
+
+        if (!hasHeaderSection || !header?.hasAttribute('transparent')) {
+          document.body.style.setProperty('--transparent-header-offset-boolean', '0');
+          return;
+        }
+
+        const hasImmediateSection = hasHeaderSection.nextElementSibling?.classList.contains('shopify-section');
+
+        const shouldApplyOffset = !hasImmediateSection ? '1' : '0';
+        document.body.style.setProperty('--transparent-header-offset-boolean', shouldApplyOffset);
+      })();
+    </script>
+
+    <main
+      id="MainContent"
+      class="content-for-layout"
+      role="main"
+      data-page-transition-enabled="{{ settings.page_transition_enabled }}"
+      data-product-transition="{{ settings.transition_to_main_product }}"
+      data-template="{{ template }}"
+    >
+      {{ content_for_layout }}
+    </main>
+
+   {% unless page.handle == '5rw-mr1' %}
+  {% sections 'footer-group' %}
+{% endunless %}
+
+    {% render 'search-modal' %}
+
+    {% if settings.quick_add or settings.mobile_quick_add %}
+      {% render 'quick-add-modal' %}
+    {% endif %}
+
+
+  <script 
+  src="https://checkout.mineblock.co/shopify-scripts/elevate-script.js" 
+  data-store-id="6982707afa247c841ff8287e"
+  data-checkout-url="checkout.mineblock.co/checkout"
+  defer>
+  </script>
+  {% comment %} <script>
+(function () {
+  console.log('[Upsell] Direct Drawer Refresh Mode');
+  async function getCart() {
+    const res = await fetch('/cart.js');
+    return res.json();
+  }
+  async function refreshDrawer() {
+    const drawer = document.querySelector('cart-drawer-component');
+    if (!drawer) {
+      console.warn('[Upsell] Drawer not found');
+      return;
+  
+    }
+    console.log('[Upsell] Drawer instance:', drawer);
+    // Try known public methods used in OS2 themes
+    if (typeof drawer.renderContents === 'function') {
+      console.log('[Upsell] renderContents()');
+      const cart = await getCart();
+      drawer.renderContents(cart);
+    }
+    else if (typeof drawer.load === 'function') {
+      console.log('[Upsell] load()');
+      drawer.load();
+    }
+    else if (typeof drawer.refresh === 'function') {
+      console.log('[Upsell] refresh()');
+      drawer.refresh();
+    }
+    else {
+      console.warn('[Upsell] No public refresh method — forcing click on cart icon');
+      // Fallback: simulate theme cart icon click (forces internal refresh)
+      const cartButton = document.querySelector('[data-testid="cart-drawer-trigger"]');
+      if (cartButton) cartButton.click();
+    }
+    // Ensure open
+    if (typeof drawer.open === 'function') {
+      drawer.open();
+    } else {
+      drawer.setAttribute('open', '');
+    }
+  }
+  async function addUpsell(variantId, button) {
+    button.disabled = true;
+    const original = button.textContent;
+    button.textContent = 'Adding…';
+    try {
+      const res = await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({ id: variantId, quantity: 1 })
+      });
+      if (!res.ok) throw new Error('Add failed');
+      console.log('✅ Upsell added');
+      await refreshDrawer();
+      button.textContent = 'Added ✓';
+    } catch (err) {
+      console.error('[Upsell] Error:', err);
+      button.textContent = 'Error';
+    }
+    setTimeout(() => {
+      button.textContent = original;
+      button.disabled = false;
+    }, 1500);
+  }
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.cart-upsell__add');
+    if (!btn) return;
+    const wrapper = btn.closest('[data-upsell-item]');
+    if (!wrapper) return;
+    const select = wrapper.querySelector('.cart-upsell__variant');
+    const variantId = select ? select.value : btn.dataset.variantId;
+    if (!variantId) {
+      console.error('[Upsell] Variant ID missing');
+      return;
+    }
+    addUpsell(variantId, btn);
+  });
+})();
+</script>  {% endcomment %}
+<script>
+document.addEventListener('click', async function (e) {
+  const btn = e.target.closest('.cart-upsell__add');
+  if (!btn) return;
+  const item = btn.closest('[data-upsell-item]');
+  const select = item.querySelector('.cart-upsell__variant');
+  const variantId = select ? select.value : btn.dataset.variantId;
+  if (!variantId) return;
+  btn.disabled = true;
+  btn.textContent = 'Adding…';
+  try {
+    // 🛒 Add item
+    await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    });
+    console.log('✅ Upsell added');
+    // 🔍 Find cart items component
+    const cartComponent = document.querySelector('cart-items-component');
+    if (!cartComponent) {
+      console.warn('cart-items-component not found');
+      return;
+    }
+    const sectionId = cartComponent.dataset.sectionId;
+    if (!sectionId) {
+      console.warn('Section ID missing on cart-items-component');
+      return;
+    }
+    console.log('🔄 Refreshing section:', sectionId);
+    // 🔄 Request updated section HTML from Shopify
+    const res = await fetch(`/?sections=${sectionId}`);
+    const data = await res.json();
+    if (!data[sectionId]) {
+      console.warn('Section HTML not returned');
+      return;
+    }
+    // 🧩 Parse new HTML
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data[sectionId], 'text/html');
+    const newComponent = doc.querySelector('cart-items-component');
+    if (!newComponent) {
+      console.warn('New cart-items-component not found in response');
+      return;
+    }
+    // ♻️ Replace ONLY inner content (keeps drawer open)
+    cartComponent.innerHTML = newComponent.innerHTML;
+    console.log('🛒 Cart drawer content fully refreshed');
+    // 🧠 Let theme re-bind events if it uses Web Components lifecycle
+    if (cartComponent.connectedCallback) {
+      cartComponent.connectedCallback();
+    }
+  } catch (err) {
+    console.error('Upsell error:', err);
+  }
+  btn.disabled = false;
+  btn.textContent = 'Add';
+});
+</script>
+
+    <script>
+(function () {
+
+  // Define the specific pages and their redirects
+  const currentDomain = window.location.hostname;
+  const currentPath = window.location.pathname;
+
+  // If on mineblock.co/pages/list-v3, redirect to theminingjournal.co
+  if (currentDomain === "mineblock.co" && currentPath === "/pages/list-v3") {
+    window.location.replace("https://theminingjournal.co/pages/list-v3");
+  }
+
+  // If on theminingjournal.co/products/pdp-v3, redirect to mineblock.co/products/pdp-v3
+  if (currentDomain === "theminingjournal.co" && currentPath === "/products/pdp-v3") {
+    window.location.replace("https://mineblock.co/products/pdp-v3");
+  }
+
+})();
+</script>
+  
+    
+  </body>
 </html>

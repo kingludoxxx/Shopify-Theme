@@ -1,0 +1,378 @@
+{% comment %}
+  Section: Miner Results
+  Description: Displays real user mining results with statistics
+{% endcomment %}
+
+<style>
+  .miner-results-section {
+    background: #ffffff;
+    padding: 60px 20px;
+  }
+
+  .miner-results-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .miner-results-content {
+    flex: 1;
+    max-width: 650px;
+  }
+
+  .miner-results-title p{
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 24px;
+     font-family: Satoshi-Bold !important;
+    color: #000000;
+    font-weight: 700 !important;
+  }
+  .miner-results-description, .miner-results-subtitle, .stat-label{
+      font-size: 19px !important;
+    color: #1a1a1a !important;
+    font-weight: 400 !important;
+    font-family: Poppins !important;
+  }
+  .miner-results-title p strong{
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #1a61f9!important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+  }
+
+  .miner-results-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 32px;
+  }
+
+  .miner-results-subtitle {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 40px;
+  }
+
+  .miner-stat {
+    margin-bottom: 40px;
+  }
+
+  .miner-stat:last-child {
+    margin-bottom: 0;
+  }
+
+  .stat-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .stat-percentage {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333333;
+    flex: 1;
+  }
+
+  .stat-bar {
+    height: 24px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .stat-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8A8F9C 0%, #B1B1B1 100%);
+    border-radius: 12px;
+    transition: width 1s ease-out;
+  }
+
+  .miner-results-media {
+    flex: 1;
+    position: relative;
+  }
+
+  .miner-results-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+  }
+
+  .miner-results-video {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+  }
+  .mobile-view{
+    display: none;
+  }
+
+  @media (max-width: 968px) {
+    .miner-results-container {
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    .miner-results-content {
+      max-width: 100%;
+    }
+
+    .miner-results-title p{
+      font-size: 26px;
+    }
+
+    .stat-percentage {
+      font-size: 40px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .miner-results-section {
+      padding: 10px 20px;
+    }
+    .mobile-view{
+        display: block !important;
+    }
+    .desktop-view{
+        display: none !important;
+    }
+    .miner-results-title p{
+      font-size: 26px;
+    }
+    .miner-results-title p strong {
+    font-size: 26px;
+    }
+    .miner-results-subtitle{
+        margin-bottom: 0px !important;
+    }
+    .miner-results-container{
+        gap: 30px !important;
+    }
+    .miner-stats{
+        margin-top: 30px;
+    }
+    .stat-percentage {
+      font-size: 36px;
+    }
+
+    .stat-header {
+      {% comment %} flex-direction: column; {% endcomment %}
+      gap: 8px;
+    }
+  }
+</style>
+
+<div class="miner-results-section">
+  <div class="miner-results-container">
+    <div class="miner-results-content">
+      <div class="miner-results-title">{{ section.settings.title }}</div>
+      
+      {% if section.settings.description != blank %}
+        <p class="miner-results-description">{{ section.settings.description }}</p>
+      {% endif %}
+
+      {% if section.settings.subtitle != blank %}
+        <p class="miner-results-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+
+      <div class="miner-stats desktop-view">
+        {% for block in section.blocks %}
+          <div class="miner-stat">
+            <div class="stat-header">
+              <div class="stat-percentage">{{ block.settings.percentage }}%</div>
+              <div class="stat-label">{{ block.settings.label }}</div>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" style="width: {{ block.settings.percentage }}%;"></div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="miner-results-media">
+      {% if section.settings.media_type == 'video' and section.settings.video_url != blank %}
+        <video 
+          class="miner-results-video" 
+          {% if section.settings.video_autoplay %}autoplay{% endif %}
+          {% if section.settings.video_loop %}loop{% endif %}
+          {% if section.settings.video_muted %}muted{% endif %}
+          {% if section.settings.video_controls %}controls{% endif %}
+          playsinline
+        >
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      {% elsif section.settings.image != blank %}
+        <img 
+          class="miner-results-image" 
+          src="{{ section.settings.image | img_url: '800x' }}" 
+          alt="{{ section.settings.image.alt | default: section.settings.title }}"
+          loading="lazy"
+        >
+      {% else %}
+        <div style="background: #f0f0f0; aspect-ratio: 4/3; border-radius: 16px;"></div>
+      {% endif %}
+      
+      <div class="miner-stats mobile-view">
+        {% for block in section.blocks %}
+          <div class="miner-stat">
+            <div class="stat-header">
+              <div class="stat-percentage">{{ block.settings.percentage }}%</div>
+              <div class="stat-label">{{ block.settings.label }}</div>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-bar-fill" style="width: {{ block.settings.percentage }}%;"></div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Miner Results",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+      },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "After running MinerForge Pro miners for 60 days, these were the results:"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "Upload video to Shopify Files and paste the URL here"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "label": "Autoplay Video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "Loop Video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_muted",
+      "label": "Mute Video",
+      "default": true,
+      "info": "Video must be muted for autoplay to work"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_controls",
+      "label": "Show Video Controls",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "range",
+          "id": "percentage",
+          "label": "Percentage",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 93
+        },
+        {
+          "type": "textarea",
+          "id": "label",
+          "label": "Label",
+          "default": "Successfully connected to Bitcoin network and began mining attempts"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Miner Results",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "percentage": 93,
+            "label": "Successfully connected to Bitcoin network and began mining attempts"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "percentage": 100,
+            "label": "Experienced zero device failures or connectivity issues"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "percentage": 73,
+            "label": "Reported satisfaction with the plug-and-play setup process"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

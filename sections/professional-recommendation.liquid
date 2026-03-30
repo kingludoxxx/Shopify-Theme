@@ -1,0 +1,160 @@
+<style data-shopify="">
+  li {
+    margin-bottom: 0.25em;
+  }
+
+  body {
+    /* font-family: "Open Sans", sans-serif; */
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    text-transform: none;
+    color: #333333;
+    line-height: 1.6em;
+    overflow: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    /* background-color: #ffffff; */
+  }
+
+  @media (max-width: 575px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  .top-template--{{section.id}} * {
+    font-family: Open Sauce !important;
+    letter-spacing: 0;
+  }
+
+  .top-template--{{section.id}} .page-width {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 17px;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .top-template--{{section.id}} .page-width {
+      padding: 0 40px !important;
+    }
+  }
+
+  .top-template--{{section.id}} {
+    padding-top: 40px;
+    padding-bottom: 65px;
+    background-color: #f7f7f7;
+    overflow: hidden;
+  }
+  #shopify-section-template--25385463152939__5_reason_custom_benifits_zxefcB .top-template--{{section.id}} {
+    padding-bottom: 25px;
+  }
+  .nb-content {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .nb-heading {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-family: Open Sauce;
+    margin: 0;
+    color: #000;
+  }
+  .nb-des p {
+    margin: 0;
+    color: #030712;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    font-family: 'Open Sauce';
+  }
+  .new-benifits .single-btn {
+    font-size: 16px;
+    max-width: fit-content;
+    height: 42px;
+    background: #000;
+  }
+  .star-rating p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 21px;
+    font-family: 'Open Sauce';
+    letter-spacing: 0px;
+  }
+  @media (max-width: 768px) {
+    .top-template--{{section.id}} {
+      padding-top: 30px;
+      padding-bottom: 15px;
+    }
+    #shopify-section-template--25385463152939__5_reason_custom_benifits_YycfiV .top-template--{{section.id}} {
+      padding-bottom: 42px;
+    }
+    .new-benifits .single-btn {
+      max-width: 100%;
+    }
+    .nb-des p {
+      font-size: 16px;
+    }
+    .star-rating p {
+      text-align: center;
+    }
+  }
+</style>
+<section class="top-template--{{ section.id }} new-benifits">
+  <div class="page-width">
+    <div class="nb-content">
+      <h3 class="nb-heading">{{ section.settings.heading }}</h3>
+      <div class="nb-des">
+        {{ section.settings.description }}
+      </div>
+      {% if section.settings.label != blank %}
+      <a class="single-btn" style="width: fit-content;" href="{{section.settings.url }}">{{ section.settings.label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Professional",
+  "tag": "section",
+  "class": "new-benifits-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "My Professional Recommendation"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Only Trevo Micro Infusion System delivers:<br><br>✓ Medical-grade 24K gold microneedles (140 needles, not 12)<br>✓ Exact peptides and concentrations listed—no 'proprietary blend' BS<br>✓ Proper 1.5mm depth that actually reaches follicles<br>✓ One 10-minute session every 2 weeks (not twice daily forever)<br>✓ Actually regrows hair in thinning areas—not just 'reduces shedding'<br><br><strong>Skip everything else.</strong> They're either shampoos you rinse off in 2 minutes, cheap knockoff devices that break after 3 uses, or topicals that sit on your scalp surface while your follicles starve at 1.5–4mm depth.<br><br>At Trevo's current pricing, it's <strong>a fraction of the cost</strong> of a hair transplant ($4,000–$15,000) and actually works—unlike daily treatments that 86% of guys quit within a year.<br><br><strong>Start with:</strong> 3-Month Supply (Most Popular)<br><br><strong>Warning:</strong> You need to commit to the bi-weekly schedule. But if you're serious about regrowing hair instead of flushing money on products that break physics, this is the only system that makes sense.<br><br>You're losing 50–100 hairs every single day. The follicles you have right now are still alive. Still active. Still saveable.<br><br><strong>But only if you act while they're still there.</strong></p>"
+    },
+    {
+    "type": "url",
+    "label":"URL",
+    "id":"url"
+    },
+    {
+    "type": "text",
+    "label":"Button Label",
+    "id":"label",
+    "default":"Shop Now"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Professional Recommendation",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

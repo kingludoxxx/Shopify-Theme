@@ -1,0 +1,618 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "timer_banner_section_UjmQb3": {
+      "type": "timer-banner-section",
+      "custom_css": [
+        ".countdown-banner {background: url(https://cdn.shopify.com/s/files/1/0768/4787/4379/files/banner_1080x300_7cbedca3-9d42-427f-a475-ebbae0a60fb7_1.png?v=1770300738); color: #000; background-size: cover;}"
+      ],
+      "name": "Countdown Timer Banner",
+      "settings": {
+        "bg_color": "#f8931b",
+        "bg_text_color": "#ffffff",
+        "promo_text": "SAVE 30% OFF + FREE SHIPPING",
+        "end_date": "2028-12-30"
+      }
+    },
+    "7_reason_banner_JC7MjP": {
+      "type": "7-reason-banner",
+      "name": "7 Reason Banner",
+      "settings": {
+        "heading": "\"5 Reasons Why This $50 Device Tries to Win Bitcoin While You Sleep\"",
+        "heading_size": 38,
+        "heading_weight": "700",
+        "heading_color": "#2c2523",
+        "author_image": "shopify://shop_images/aaa3e390-cc12-403c-9c7f-ee00922a1cc6.jpg",
+        "author_name": "Mark T.",
+        "date": "Last Updated: Nov 19, 2025",
+        "content": "<p><strong>Summary:</strong> <strong>The Miner Forge Pro</strong> is a  device designed to run solo Bitcoin mining attempts from home, with a quick, plug-and-play setup that takes just minutes. Generating up to <strong>144 independent mining attempts per day</strong> once set up, without requiring constant interaction.</p>",
+        "content_size": 20,
+        "text_color": "#2c2523",
+        "link_color": "#fbb04c",
+        "container_width": 1200,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "background_color": "rgba(0,0,0,0)"
+      }
+    },
+    "text_and_mage_section_tjCpjG": {
+      "type": "text-and-mage-section",
+      "custom_css": [
+        ".cst-text-image-section-content p {font-size: 20px;}",
+        "@media (max-width: 600px) {.cst-text-image-section-content p {font-size: 16px; }}"
+      ],
+      "name": "Text & Image",
+      "settings": {
+        "text_width": "1200",
+        "col_align": "start",
+        "video_url": "https://goluvora.com/cdn/shop/videos/c/vp/8be1018b801f495195d5ec1ad37daa4a/8be1018b801f495195d5ec1ad37daa4a.HD-1080p-7.2Mbps-69985645.mp4?v=0",
+        "image_position": "left",
+        "title": "<strong>1. It Tries to Win the Full 3 BTC Block</strong>",
+        "title_position": "left",
+        "text": "<p>This is called solo mining. Unlike regular mining where thousands of people pool together and split the reward into tiny pieces, the Miner Forge Pro tries to win the entire 3 BTC block by itself.</p><p>The odds are extremely low. But if it succeeds, you keep all of it—around $300,000 worth of Bitcoin.</p><p>Every 10 minutes, the Bitcoin network releases a new block. This device competes for it from your desk, trying 144 times every single day.</p>",
+        "text_position": "left",
+        "checkbox_para": false,
+        "text-strong-background": "",
+        "btn_text": "",
+        "alignside": true,
+        "btn_link": "",
+        "btn_color": "#000000",
+        "btn_color_text": "#ffffff",
+        "mobile_content": false
+      }
+    },
+    "text_and_mage_section_URJHJj": {
+      "type": "text-and-mage-section",
+      "custom_css": [
+        ".cst-text-image-section-content p {font-size: 20px;}",
+        "@media (max-width: 600px) {.cst-text-image-section-content p {font-size: 16px; }}"
+      ],
+      "name": "Text & Image",
+      "settings": {
+        "text_width": "1200",
+        "col_align": "start",
+        "image": "shopify://shop_images/04_238bca61-3e67-4e63-90a0-068d13e4f704.jpg",
+        "video_url": "",
+        "image_position": "left",
+        "title": "<strong>2. It's Like an Infinite Lottery Ticket That Never Expires</strong>",
+        "title_position": "left",
+        "text": "<p>Most lottery tickets give you one chance, then they're worthless. The Miner Forge Pro keeps trying forever.</p><p>It attempts to solve a Bitcoin block every 10 minutes automatically. That's 144 chances every single day, for as long as you keep it plugged in.</p><p>And it costs about $1 per year in electricity to run 24/7. So you're basically getting 52,560 lottery attempts annually for the price of a coffee.</p>",
+        "text_position": "left",
+        "checkbox_para": false,
+        "text-strong-background": "",
+        "btn_text": "",
+        "alignside": true,
+        "btn_link": "",
+        "btn_color": "#000000",
+        "btn_color_text": "#ffffff",
+        "mobile_content": false
+      }
+    },
+    "text_and_mage_section_cFDFeB": {
+      "type": "text-and-mage-section",
+      "custom_css": [
+        ".cst-text-image-section-content p {font-size: 20px;}",
+        "@media (max-width: 600px) {.cst-text-image-section-content p {font-size: 16px; }}"
+      ],
+      "name": "Text & Image",
+      "settings": {
+        "text_width": "1200",
+        "col_align": "start",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/1d9fc1997aa1491c90c497892ebdf71b.mp4",
+        "image_position": "left",
+        "title": "<strong>3. Plug-and-Play Setup in Minutes – No Technical Configuration Required</strong>",
+        "title_position": "left",
+        "text": "<p>Setup is incredibly simple. Plug it into any USB-C port, scan the QR code with your phone, connect to your WiFi. Done.</p><p>No mining software to configure. No command line. No pool setup. No wallet configuration beyond entering your address.</p><p>You're mining solo within minutes of unboxing</p>",
+        "text_position": "left",
+        "checkbox_para": false,
+        "text-strong-background": "",
+        "btn_text": "",
+        "alignside": true,
+        "btn_link": "",
+        "btn_color": "#000000",
+        "btn_color_text": "#ffffff",
+        "mobile_content": false
+      }
+    },
+    "text_and_mage_section_wC9HwB": {
+      "type": "text-and-mage-section",
+      "custom_css": [
+        ".cst-text-image-section-content p {font-size: 20px;}",
+        "@media (max-width: 600px) {.cst-text-image-section-content p {font-size: 16px; }}"
+      ],
+      "name": "Text & Image",
+      "settings": {
+        "text_width": "1200",
+        "col_align": "start",
+        "image": "shopify://shop_images/reason-4.png",
+        "video_url": "",
+        "image_position": "left",
+        "title": "<strong>4. Runs on Just 1W via USB-C – Costs Pennies Per Month in Electricity</strong>",
+        "title_position": "left",
+        "text": "<p>This device pulls just 1 watt of power. You can run it off any USB-C port – laptop, phone charger, power bank, whatever. Electricity cost is roughly $0.11 per month running 24/7. That's 4,320 attempts at the block reward for the price of a candy bar. Compare that to traditional mining rigs pulling hundreds or thousands of watts.</p>",
+        "text_position": "left",
+        "checkbox_para": false,
+        "text-strong-background": "",
+        "btn_text": "",
+        "alignside": true,
+        "btn_link": "",
+        "btn_color": "#000000",
+        "btn_color_text": "#ffffff",
+        "mobile_content": false
+      }
+    },
+    "text_and_mage_section_a4gaPq": {
+      "type": "text-and-mage-section",
+      "custom_css": [
+        ".cst-text-image-section-content p {font-size: 20px;}",
+        "@media (max-width: 600px) {.cst-text-image-section-content p {font-size: 16px; }}"
+      ],
+      "name": "Text & Image",
+      "settings": {
+        "text_width": "1200",
+        "col_align": "start",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/95ac7ed931564c818a252e9d4aa5127f.mp4",
+        "image_position": "left",
+        "title": "<strong>5. Serious Hobbyists Run Various Devices to Multiply Their Chances</strong>",
+        "title_position": "left",
+        "text": "<p>Here's what experienced crypto hobbyists do: they don't run just one. They run 9, 12, or even 20+ various devices simultaneously. One device gives you 144 attempts per day at the block. Nine devices give you 1,296 attempts daily. At $0.11/month per device, running 9 costs under $1/month total while multiplying your odds ninefold. For the best results, hobbyists are combining both the more powerful Bitaxe Gamma Miners & The One Shot Miners.</p>",
+        "text_position": "left",
+        "checkbox_para": false,
+        "text-strong-background": "",
+        "btn_text": "",
+        "alignside": true,
+        "btn_link": "",
+        "btn_color": "#000000",
+        "btn_color_text": "#ffffff",
+        "mobile_content": false
+      }
+    },
+    "section_6H4ejL": {
+      "type": "section",
+      "blocks": {
+        "group_3qnLaY": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-4",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "solid",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_GNNmkC": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/PRODUCT_PAGE_4_97f9dcbd-7283-4657-b547-0b1651808561.webp",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 15,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_AebKpF": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<p><br/>\"I had been running my setup for 31.5 days when I checked the dashboard one morning and saw it had solved a block. 4,534 attempts later, it actually happened. I still can't believe it. The block reward was 3.12 BTC—I immediately verified it on the blockchain.\" <br/><br/></p><p><strong>- Mark .M <br/>Crypto Hobbyist, 5 Devices</strong></p><h4><strong>MINER FORGE PRO<br/></strong>verified buyer</h4>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 10,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_GNNmkC",
+            "text_AebKpF"
+          ]
+        },
+        "group_GKYQCh": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-3",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "solid",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 10,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_43dgUY": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/PRODUCT_PAGE_3_66508036-28d5-4112-adae-45e149afadbc.webp",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 15,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_cxz9ay": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<p><br/>\"After 16.3 days of mining, one of my devices found a block. I thought the display was broken at first. 2,360 transactions processed, and then it hit. I've been in crypto since 2017 and never expected this to actually work.\"<br/><br/><br/><strong>Sarah M. – October 2025<br/>Bitcoin Enthusiast, 2 Units</strong></p><h4><strong>MINER FORGE PRO<br/></strong>verified buyer</h4>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_43dgUY",
+            "text_cxz9ay"
+          ]
+        },
+        "group_PyNYE8": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-3",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "solid",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 10,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_kbqBBj": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/PRODUCT_PAGE_2_e442251f-a839-4394-830f-fcfb056a7fd2.webp",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 15,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_EHaDyD": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<p><br/>\"42.7 days of continuous mining across my setup. One morning I woke up to discover one had solved a block—5,892 transactions later. The 3.12 BTC reward was already in my wallet. The odds are insane, but someone has to win, and this time it was me.\"<br/><br/><strong>Marcus T. – September 2025<br/>Crypto Hobbyist, 5 Devices</strong></p><h4><strong>MINER FORGE PRO<br/></strong>verified buyer</h4>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_kbqBBj",
+            "text_EHaDyD"
+          ]
+        }
+      },
+      "block_order": [
+        "group_3qnLaY",
+        "group_GKYQCh",
+        "group_PyNYE8"
+      ],
+      "name": "t:names.multicolumn",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "7_reason_promo_section_yB4PLQ": {
+      "type": "7-reason-promo-section",
+      "custom_css": [
+        "@media (max-width: 600px) {.badge {font-size: 10px; width: 75%; text-wrap: auto; }}"
+      ],
+      "name": "7 Reason Promo",
+      "settings": {
+        "container_width": 1200,
+        "section_padding_top": 60,
+        "section_padding_bottom": 50,
+        "section_background": "#f4f7f6",
+        "badge_text": "NEW YEAR SALE - BEST PRICE EVER",
+        "badge_bg": "#000000",
+        "badge_text_color": "#ffffff",
+        "promo_image": "shopify://shop_images/IMG_3_1bcc2486-9ad0-49c9-a4e2-13b2f0358ce7.png",
+        "gift_text": "FREE SHIPPING TODAY",
+        "discount_line1": "GET 30% OFF",
+        "discount_line2": "FOR A LIMITED TIME ONLY!",
+        "description": "This limited time deal is in high demand and stock keeps selling out",
+        "button_text": "GET 30% DISCOUNT",
+        "button_link": "https://mineblock.co/products/pdp-v3",
+        "button_bg": "#1126a5",
+        "button_bg_hover": "#333333",
+        "button_text_color": "#ffffff",
+        "enable_countdown": true,
+        "countdown_label": "DEAL ENDING IN:",
+        "countdown_hour": 23,
+        "countdown_minute": 59,
+        "timer_color": "#ff0000",
+        "risk_label": "Sell-Out Risk:",
+        "risk_value": "High",
+        "risk_badge_bg": "#f4f7f6",
+        "risk_highlight_color": "#ff0000",
+        "guarantee_text": "Try it today with a 90-Day Money Back Guarantee!",
+        "background_color": "#ffffff",
+        "border_color": "#000000",
+        "text_color": "#2c2523",
+        "heading_color": "#2c2523",
+        "highlight_color": "#1a61f9",
+        "border_radius": 35,
+        "padding": 30
+      }
+    },
+    "sticky_add_to_cart_H3dUeM": {
+      "type": "sticky-add-to-cart",
+      "name": "Sticky Add To Cart",
+      "settings": {
+        "button_text": "GET 30% DISCOUNT",
+        "button_link": "https://mineblock.co/products/pdp-v3",
+        "bg_color": "#ffffff",
+        "button_color": "#1126a5",
+        "text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "timer_banner_section_UjmQb3",
+    "7_reason_banner_JC7MjP",
+    "text_and_mage_section_tjCpjG",
+    "text_and_mage_section_URJHJj",
+    "text_and_mage_section_cFDFeB",
+    "text_and_mage_section_wC9HwB",
+    "text_and_mage_section_a4gaPq",
+    "section_6H4ejL",
+    "7_reason_promo_section_yB4PLQ",
+    "sticky_add_to_cart_H3dUeM"
+  ]
+}

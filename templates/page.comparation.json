@@ -1,0 +1,436 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "comparation_header_section_NDbyeJ": {
+      "type": "comparation-header-section",
+      "custom_css": [
+        ".new-annoucment {background: #000;}"
+      ],
+      "name": "Comparation Header",
+      "settings": {
+        "img": "shopify://shop_images/Blockchain_Digest0.png",
+        "heading": ""
+      }
+    },
+    "section_BmYLjk": {
+      "type": "section",
+      "blocks": {
+        "text_gQnwCT": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Home &gt; Bitcoin Mining &gt; Best Solo BTC Miners </p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_tXLyjn": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h1><strong>Tested The Top 5 Most Viral Solo BTC Miners - Only 1 Actually Mined Bitcoin</strong></h1>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_pyGYr7": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p><strong>We tested all the top viral solo BTC miners </strong>— and only one truly delivered. This device produced the fastest hash rate, most reliable performance, and gave me a <strong>real chance to win a Bitcoin block (worth $300k USD). </strong>Within weeks, users reported consistent mining, smooth operation, and renewed hope in solo mining. If you want real results without complicated setups or wasted money, this is the solo miner that actually works.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_text_rtfeih": {
+          "type": "icon-text",
+          "name": "icon-text",
+          "settings": {
+            "padding_top": 10,
+            "padding_bottom": 10,
+            "mbl_padding_top": 10,
+            "mbl_padding_bottom": 10,
+            "back_color": "",
+            "text": "<p>By Crypto Influencer Jake  | Bitcoin Mining Expert| Updated: January 2026<br/><br/></p>"
+          },
+          "blocks": {}
+        },
+        "image_pCM9wG": {
+          "type": "image",
+          "name": "t:names.image",
+          "settings": {
+            "image": "shopify://shop_images/IMG1.png",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_gQnwCT",
+        "text_tXLyjn",
+        "text_pyGYr7",
+        "icon_text_rtfeih",
+        "image_pCM9wG"
+      ],
+      "custom_css": [
+        "rte-formatter p strong {background: #f8931b;}"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 10,
+        "padding-block-end": 10
+      }
+    },
+    "text_swiper_section_Ue7NdP": {
+      "type": "text-swiper-section",
+      "blocks": {
+        "slide_qTRPfF": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "slide_image": "shopify://shop_images/IMG1.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_qTRPfF"
+      ],
+      "disabled": true,
+      "name": "Custom Text Swiper",
+      "settings": {
+        "heading": "By Crypto Influencer Jake",
+        "author": "Bitcoin Mining Expert| Updated: January 2026"
+      }
+    },
+    "about_swiper_section_CC4rnU": {
+      "type": "about-swiper-section",
+      "blocks": {
+        "ingredient_block_z6RByN": {
+          "type": "ingredient_block",
+          "settings": {
+            "ingridient_title": "What Makes a REAL Solo BTC Miner Work?",
+            "ingridient_description": ""
+          }
+        },
+        "ingredient_block_kfgybH": {
+          "type": "ingredient_block",
+          "settings": {
+            "ingridient_title": "1. Easy Setup:",
+            "ingridient_description": "<p>Must work right out of the box, connect to WiFi in minutes, AND start mining without technical knowledge. Devices that need coding or complicated configs don't work. </p>"
+          }
+        },
+        "ingredient_block_EyNd4N": {
+          "type": "ingredient_block",
+          "settings": {
+            "ingridient_title": "2. Right Hash Power:",
+            "ingridient_description": "<p>Need honest hashrate you can verify - not 500GH claims that drop to 50GH, or numbers that sound good but mean nothing when tested.</p>"
+          }
+        },
+        "ingredient_block_gX4daJ": {
+          "type": "ingredient_block",
+          "settings": {
+            "ingridient_title": "3. Cheap to Run",
+            "ingridient_description": "<p>Consumes only a few kilowatts per month - we're talking $1-2 USD monthly on your electric bill, not $200+ like industrial rigs that kill your budget.</p>"
+          }
+        },
+        "ingredient_block_jAwce6": {
+          "type": "ingredient_block",
+          "settings": {
+            "ingridient_title": "4. Tries to Win Multiple Times Daily",
+            "ingridient_description": "<p>A real solo miner is like a lottery ticket that never expires - attempts to hit a Bitcoin block multiple times per day. Without this frequency, you're basically not even playing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_block_z6RByN",
+        "ingredient_block_kfgybH",
+        "ingredient_block_EyNd4N",
+        "ingredient_block_gX4daJ",
+        "ingredient_block_jAwce6"
+      ],
+      "custom_css": [
+        "hr {margin: 10px 0;}"
+      ],
+      "name": "About Swiper",
+      "settings": {
+        "main_heading": "What Is Solo BTC Mining, Really? ",
+        "main_description": "<p>After 5 years testing mining devices and watching people throw money at expensive mining setups that just don't work, I'm still shocked by how many don't know the real opportunity with solo Bitcoin mining</p><p>With solo mining, you're competing to solve a block and win the full Bitcoin block reward - currently worth $300k USD. It's why serious miners keep devices running 24/7. Why hobbyists treat it like a lottery ticket that never expires</p><p>But here's what most brands won't tell you: 90% of solo miners are just overpriced paperweights - or worse, cheap devices that break within weeks. They're counting on you being desperate enough to try anything.</p><p></p>",
+        "sub_heading": "\"I've spent years testing miners and helping people win at solo mining by finding devices that actually work. I'm tired of seeing people waste money on cheap hardware that never had a chance.\"",
+        "author_name": "Crypto Influencer Jake"
+      }
+    },
+    "custom_types_section_6VkaeY": {
+      "type": "custom-types-section",
+      "blocks": {
+        "treatment_block_KHNDgh": {
+          "type": "treatment_block",
+          "settings": {
+            "title": "#1 Miner Forge Pro by Mineblock",
+            "image": "shopify://shop_images/IMG2.png",
+            "richtext": "<p>⭐⭐⭐⭐⭐ (4.9/5)<strong><br/><br/>\"My miner finally hit a block - I can't believe I won\" - Mike D., crypto hobbyist<br/><br/></strong></p><p>After testing Miner Forge Pro extensively, I understand why people call it their lottery ticket that never expires.</p><p></p><p><strong>Specifications: Compact solo miner built for beginners: 500GH/s hash power, plug-and-play WiFi setup, runs on 15W power consumption, connects to Solo CK Pool automatically, OLED display shows real-time stats, silent operation, aluminum cooling case, open-source firmware.</strong></p><p></p><p><strong>Pros:</strong></p><p>✅ Only miner that's truly plug-and-play (WiFi setup in 5 minutes) </p><p>✅ Attempts to win $300k block 144 times per day</p><p>✅ Low power cost ($1-2/month) </p><p>✅ Runs 24/7 silently </p><p>✅ Real hashrate verified </p><p>✅ 90-day money-back guarantee (longest available) </p><p>✅ Currently 50% OFF ($59)<strong><br/><br/></strong></p><p><strong>Cons:</strong></p><p>❌ May work TOO well (people report buying multiple units to increase their chances of winning)</p><h2><strong>My Experience:</strong></h2><p><strong>This is the real deal</strong>. Unlike $200 overpriced rigs or cheap $30 Amazon junk, Miner Forge Pro was made for people who want a real shot at solo mining.<br/></p><p>Within <strong>2 WEEKS</strong>, I noticed something: consistent mining at advertised speeds. The device was actually working.</p><p><br/>By <strong>week 4</strong>, my miner was running flawlessly. No crashes, no overheating. It just kept trying to hit blocks, day after day.</p><p><br/>By <strong>week 8</strong>, I was completely hooked. The miner ran silently in the corner. I had a real chance at winning $300k.</p><p><strong><br/></strong>The device works because it's the <strong>ONLY ONE</strong> that does all three things:</p><p><br/><strong>Easy Setup</strong> (Plug-and-play WiFi): Connects in 5 minutes, no coding or technical knowledge needed<br/><br/><strong>Reliable Performance</strong> (500GH/s verified + proper cooling)</p><p><strong>Actually Mines Blocks</strong>: Tries to hit a Bitcoin block multiple times per day, every single day</p><p>Most cheap miners are missing 2 out of 3. Miner Forge Pro has everything at a price that makes sense.</p><p><br/><strong>Real Results:</strong> </p><p><strong><br/>Week 2:</strong> \"Consistent mining, device actually works as advertised\" </p><p><strong>Week 4:</strong> \"Running flawlessly, no crashes, still going strong\" </p><p><strong>Week 6:</strong> \"Electricity bill only $2 higher, totally worth it\" </p><p><strong>Week 8:</strong> \"Best $60 I spent, real shot at $300k block\"</p><p><strong>Conclusion:</strong> </p><p><strong>Only solo miner with everything you need</strong> - easy setup + reliable performance + actually tries to win blocks. Miners say it runs for months, costs almost nothing in electricity, gives them a real chance. At $59, it's the only complete solution - not $200 overpriced or $30 Amazon junk.<br/><br/><strong>I personally bought 5 devices and run them together</strong> to increase my chances. Simple, scalable, and fully under your control.</p><p><strong><br/>Conclusion:</strong> This is the ONLY formula that actually solves the delivery problem. Everything else is just swallowing capsules that break down in your stomach and hoping they magically absorb through your gut barrier.<br/></p><p></p>",
+            "button_label": "CHECK OUT MINER FORGE PRO",
+            "button_link": "https://mineblock.co/products/pdp-v1"
+          }
+        },
+        "treatment_block_9rTcEC": {
+          "type": "treatment_block",
+          "settings": {
+            "title": "#2 OneShotMiner",
+            "image": "shopify://shop_images/IMG5.png",
+            "richtext": "<p><strong>Specifications:</strong> custom firmware, cooling system, OLED display, aluminum case, power adapter, pool connection.<br/><br/></p><p><strong>Pros:</strong></p><p> ✅Has good components</p><p></p><p><strong>Cons:</strong> </p><p>❌ Too complicated to set up requires technical knowledge and manual configuration)</p><p>❌ Mystery specs hide real performance (can't verify if it mining or not) </p><p>❌ 10 features = too complicated (can't tell what's actually important) </p><p>❌ Generic tech brand (no crypto community)</p><p></p><p></p><p><strong>My Experience:</strong></p><p>OneShotMiner has good components, but two problems kill it: setup difficulty and transparency.<br/><br/></p><p>The setup process took over 2 hours with constant troubleshooting. Manual firmware flashing, WiFi config files, pool server settings - nothing was plug-and-play. Beginners would be completely lost.</p><p></p><p>The mystery specs are the killer. They won't tell you actual verified hashrate, real power consumption, or anything else you can check. Getting 500GH/s or 50GH/s? No way to know.</p><p></p><p>Three miners tried it for 8 weeks. All said: \"Setup was a nightmare, and I couldn't even verify if it was actually mining properly.\"</p><p></p><p>The positioning is wrong too. \"Advanced mining for serious hobbyists\" sounds like gatekeeping, not accessibility. Nobody wants a complicated setup - they want a shot at winning $300k.</p><p></p><p><strong>Conclusion:</strong> Right components, wrong setup experience, wrong transparency. Miner Forge Pro gives you the same performance with plug-and-play setup and verified hashrate you can actually check.</p>",
+            "button_label": "CHECK OUT ONE SHOT MINER",
+            "button_link": "https://oneshotminer.com/products/one-shot-pro-edition"
+          }
+        },
+        "treatment_block_QjfA8g": {
+          "type": "treatment_block",
+          "settings": {
+            "title": "#3 MinerOne Pro",
+            "image": "shopify://shop_images/IMG4.png",
+            "richtext": "<p><strong>Specifications:</strong> power adapter, pool connection<br/></p><p><strong>Pros:</strong> I could not find any</p><p><strong>Cons:</strong> </p><p>❌ Hidden subscription auto-renewal</p><p>❌ Mystery specs hide real performance (can't verify if it works) </p><p>❌ 10 features = too complicated (can't tell what's actually important) </p><p>❌ Sketchy seller with minimal online presence <br/> </p><p><strong><br/>My Experience:</strong></p><p>MinerOne Pro looks RIGHT on paper, but two problems kill it: sketchy seller and hidden subscriptions.</p><p><strong><br/></strong>The checkout process hides an auto-renewal subscription. You think you're buying once, then get charged monthly. Shady practice that immediately raises red flags.</p><p>The mystery specs are the killer. They won't tell you actual verified hashrate, real power consumption, or anything else you can check. Is it actually mining? Who knows.</p><p>Three miners tried it for 8 weeks. All said: \"Device seemed broken, couldn't verify it was mining, and the seller ignored support emails.\"</p><p>The positioning is wrong too. \"Professional-grade mining hardware\" sounds impressive, but nobody trusts a sketchy seller. People want reliable devices from transparent companies.</p><p><strong>Conclusion:</strong> Sketchy seller, hidden subscriptions, unverified performance. Miner Forge Pro gives you transparent pricing and verified hashrate from a trusted source.</p>",
+            "button_label": "CHECK OUT MINEONE",
+            "button_link": "https://mineonepro.com/"
+          }
+        },
+        "treatment_block_FGCdAi": {
+          "type": "treatment_block",
+          "settings": {
+            "title": "#4 NerdMiner",
+            "image": "shopify://shop_images/IMG4_1.png",
+            "richtext": "<p>⭐⭐☆☆☆ (2.3/5)<strong><br/><br/></strong></p><p><strong>Specifications:</strong> Basic DIY kit (ESP32 chip only), basic firmware, no case included, requires assembly, no display, no cooling, minimal documentation<br/><br/><strong>Pros:</strong> </p><p>✅ Cheap initial price </p><p><strong>Cons:</strong> </p><p>❌ Just a bare chip </p><p>❌ Extremely low hashrate (basically worthless for actual mining) </p><p>❌ NO proper components (just barebones DIY project) </p><p>❌ NO real chance at winning blocks (hashrate too low) </p><p>❌ Dropshipping seller with 1+ month shipping delays </p><p>❌ Sketchy seller with no support</p><p></p><p><strong><br/>My Experience:</strong></p><p><br/>NerdMiner is a dropshipping nightmare - and that's the problem. You order what looks like a miner, then wait over a month for a bare circuit board to arrive from overseas.</p><p></p><p>The seller has zero presence, no real support, and ships from China through sketchy fulfillment. When it finally arrives, it's just a basic chip with almost no mining power.</p><p></p><p>Without a proper case, cooling system, or real hashrate, your \"miner\" is basically a toy. The hashrate is so low you have essentially zero chance of ever hitting a block.</p><p></p><p>Four miners ordered it and waited 4-6 weeks for delivery. All four said: \"Waste of time and money. Barely hashes, and the seller disappeared after purchase.\"</p><p>One guy's exact words: \"Waited 6 weeks for junk that can't actually mine. Total scam.\"</p><p></p><p>It's like buying a lottery ticket with odds of 1 in 100 billion. Technically mining, but realistically worthless.</p><p></p><p><strong>Conclusion:</strong> Drop</p>",
+            "button_label": "",
+            "button_link": "https://freerangesupplements.com/"
+          }
+        },
+        "treatment_block_aDDXtT": {
+          "type": "treatment_block",
+          "disabled": true,
+          "settings": {
+            "title": "#5 Serene Herbs Paraclara",
+            "image": "shopify://shop_images/1_3e3dd4dd-580a-4693-b3e6-1c9f6abac2a1.webp",
+            "richtext": "<p>⭐☆☆☆☆ (1.5/5)<strong><br/></strong></p><p><strong><br/>What's In It:</strong> Black walnut, wormwood, pumpkin seed blend in capsules</p><p><strong><br/>Pros:<br/></strong> ✓ Natural botanicals are scientifically proven</p><p><strong><br/>Cons:<br/></strong> ✗ Capsules only—ingredients can't penetrate past stomach acid barrier<br/> ✗ Hidden $25/month \"subscription\" they auto-enroll you in<br/> ✗ Nearly impossible to cancel membership<br/> ✗ Customer service ghosts you<br/> ✗ Takes 4+ weeks to ship with zero tracking<br/> ✗ Inconsistent or nonexistent results</p><p><strong><br/>My Experience:</strong></p><p>This one pissed me off more than any other. They had <strong>legitimate ingredients</strong> and destroyed all credibility with shady business practices.</p><p><strong><br/>First:</strong> Got hit with a $25 \"VIP subscription\" charge I never authorized. Buried in microscopic print at checkout. Took <strong>11 days and 6 emails</strong> to cancel.</p><p><strong><br/>Second:</strong> Took over a month to receive the product. Zero tracking updates. </p><p><strong><br/>Third:</strong> When it finally arrived, I used it religiously for 12 weeks.</p><p><br/>Natural botanicals are backed by real science—<strong>but only if they reach your intestinal tissue</strong>. This is a capsule formula that breaks down in your stomach at 0.5mm penetration. Your intestinal walls are deep within your gut. The botanical compounds never reach where they need to work.</p><p><strong><br/>Results after 12 weeks and $174.99 spent</strong> ($49.99 product + $25 subscription × 3 months + shipping): Maybe slightly less bloating? </p><p><strong><br/>Conclusion:</strong> Good science ruined by  shady business practices.</p><p><br/>The hidden membership fee alone should disqualify this. The fact that natural botanicals can't penetrate to intestinal depth makes it ineffective anyway.</p>",
+            "button_label": "Check Out Sereneherbs",
+            "button_link": "https://sereneherbs.com/products/parasite-cleanser"
+          }
+        }
+      },
+      "block_order": [
+        "treatment_block_KHNDgh",
+        "treatment_block_9rTcEC",
+        "treatment_block_QjfA8g",
+        "treatment_block_FGCdAi",
+        "treatment_block_aDDXtT"
+      ],
+      "custom_css": [
+        "h1,h2,h3,h4,h5,h6 {color: #030712 !important;}"
+      ],
+      "name": "Custom Types",
+      "settings": {
+        "main_heading": "My Top 4 Solo BTC Miners (Ranked by REAL Results)",
+        "main_description": "After testing 15 popular solo crypto miners, here are the only 5 worth considering:"
+      }
+    },
+    "professional_recommendation_JpTVPw": {
+      "type": "professional-recommendation",
+      "custom_css": [
+        ".top-template--template--17465123700798__section_five_FH6WxB {padding-bottom: 25px;}"
+      ],
+      "name": "Professional Recommendation",
+      "settings": {
+        "heading": "The Truth About Solo BTC Miners",
+        "description": "<p>After testing 15 devices with crypto beginners and hobbyists, here's what I learned:</p><h2><strong>95% Are Missing Easy Setup</strong></h2><p>Without plug-and-play WiFi and automatic pool connection, your miner can't actually start mining. Only Miner Forge Pro has a true beginner-friendly setup.</p><h3><strong>Most Are Bare Boards (Incomplete) :</strong></h3><p><strong>OneShotMiner:</strong> 10 features (overcomplicated, specs unverified) </p><p><strong>MinerOne Pro:</strong> Sketchy seller (hidden subscriptions, no support) </p><p><strong>NerdMiner:</strong> DIY board only (no real mining power, dropshipped junk) </p><p><strong>Generic Amazon miners:</strong> Fake hashrate claims (break within weeks)</p><p><strong>Miner Forge Pro:</strong> Complete device covering all essentials.</p><p><strong>Nobody Cares About \"Hash Algorithm Optimization\"</strong></p><p>Miners don't want technical jargon. </p><p>They want:</p><ul><li>Real shot at winning $300k</li><li>Device that actually works</li><li>Simple plug-and-play setup</li><li>Runs reliably for months</li></ul><p>Miner Forge Pro delivers what actually matters.</p><h3><strong>Value vs Junk Matters</strong></h3><p><strong>OneShotMiner:</strong> Too complicated (frustrating setup, can't verify performance) </p><p><strong>MinerOne Pro:</strong> Sketchy seller (hidden fees, disappeared after sale) </p><p><strong>NerdMiner:</strong> $25 dropshipped board (6-week wait, worthless hashrate) </p><p><strong>Generic Amazon miners:</strong> $30-50 (fake specs, break immediately)</p><p><strong>Miner Forge Pro:</strong> $59 = quality + completeness + actually works</p>",
+        "url": "https://mineblock.co/products/pdp-v1",
+        "label": "SHOP NOW"
+      }
+    },
+    "professional_recommendation_C9hRhh": {
+      "type": "professional-recommendation",
+      "name": "Professional Recommendation",
+      "settings": {
+        "heading": "My Professional Recommendation",
+        "description": "<p>Only Miner Forge Pro delivers what solo miners actually need:</p><p><strong>Plug-and-play setup</strong> WiFi + UNIQUE simplicity</p><p><strong>Tries to win blocks</strong> (144 daily attempts )</p><p><strong>Cheap to run</strong> ($1-2/month electricity)</p><p><strong>No crashes or overheating</strong></p><p><strong>Complete device</strong> (verified 500GH/s hashrate)</p><p><strong>Transparent specs</strong> (no mystery performance claims)</p><p><strong>90-day guarantee</strong> (longest in category)</p><p><strong>$59 vs sketchy alternatives</strong> (better value than dropshipped junk)</p><p>Skip everything else. Cconsistent hashing, stable operation, confidence in their setup.</p><p><strong>How to use:</strong> Plug in, connect to WiFi, start mining</p><p><strong>What to expect:</strong> Hashing within minutes, stable operation within 2 weeks, running reliably for months</p><p><strong>Warning:</strong> You may start checking your miner obsessively hoping you hit that $300k block</p><p></p>",
+        "url": "https://mineblock.co/products/pdp-v1",
+        "label": "GET 50% OFF Miner Forge Pro"
+      }
+    },
+    "limited_stock_section_HWPRVn": {
+      "type": "limited-stock-section",
+      "name": "Limited Stock Notice",
+      "settings": {
+        "heading": "No BS\" 90-Day Money-Back Guarantee",
+        "description": "<p>Unlike most brands with short 30-day windows, Miner Forge Pro By Mineblock gives you a full 90 days to see real results. If your miner doesn't hash consistently, doesn't run reliably, or you're not satisfied with the device — get every penny back. No questions asked.</p><p></p><p>Crypto Influencer Jake personally tested every miner using his own funds. Results are based on 12-week trials with over 15 devices and feedback from 50+ hobbyists and beginners.</p>",
+        "button_text": "USE OFFER",
+        "button_link": "https://mineblock.co/products/pdp-v1"
+      }
+    },
+    "custom_liquid_wDn3K8": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<style>\n.shopify-section-group-footer-group {\n    display: none;\n}\n</style>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "comparation_header_section_NDbyeJ",
+    "section_BmYLjk",
+    "text_swiper_section_Ue7NdP",
+    "about_swiper_section_CC4rnU",
+    "custom_types_section_6VkaeY",
+    "professional_recommendation_JpTVPw",
+    "professional_recommendation_C9hRhh",
+    "limited_stock_section_HWPRVn",
+    "custom_liquid_wDn3K8"
+  ]
+}

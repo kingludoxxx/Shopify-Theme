@@ -1,0 +1,289 @@
+{% style %}
+  #reason-banner-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  #reason-banner-{{ section.id }} .container {
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    
+  }
+
+  #reason-banner-{{ section.id }} .heading {
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: {{ section.settings.heading_weight }};
+    color: {{ section.settings.heading_color }};
+    line-height: 1.3;
+    margin-bottom: 15px;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  #reason-banner-{{ section.id }} .author-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  #reason-banner-{{ section.id }} .author-image {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  #reason-banner-{{ section.id }} .author-info {
+    font-size: 16px;
+    line-height: 1.8;
+    color: {{ section.settings.text_color }};
+    letter-spacing: 0px;
+    font-family: var(--font-paragraph--family);
+    font-style: var(--font-paragraph--style);
+    font-weight: var(--font-paragraph--weight);
+  }
+
+  #reason-banner-{{ section.id }} .author-info strong {
+    font-weight: 700;
+  }
+
+  #reason-banner-{{ section.id }} .content {
+    font-size: {{ section.settings.content_size }}px;
+    line-height: 1.8;
+    color: {{ section.settings.text_color }};
+    font-family: 'Montserrat';
+    letter-spacing: 0px;
+    font-family: var(--font-paragraph--family);
+    font-style: var(--font-paragraph--style);
+    font-weight: var(--font-paragraph--weight);
+  }
+
+  #reason-banner-{{ section.id }} .content p {
+    margin-bottom: 1em;
+  }
+
+  #reason-banner-{{ section.id }} .content a {
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+  }
+
+  #reason-banner-{{ section.id }} .content a:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1024px) {
+    #reason-banner-{{ section.id }} .heading {
+      font-size: {{ section.settings.heading_size | times: 0.89 }}px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    #reason-banner-{{ section.id }} {
+      padding: {{ section.settings.padding_top | times: 0.7 }}px 0 {{ section.settings.padding_bottom | times: 0.7 }}px;
+    }
+
+    #reason-banner-{{ section.id }} .heading {
+      font-size: {{ section.settings.heading_size | times: 0.72 }}px;
+    }
+
+    #reason-banner-{{ section.id }} .author-row {
+      gap: 10px;
+    }
+
+    #reason-banner-{{ section.id }} .author-image {
+      width: 50px;
+      height: 50px;
+    }
+
+    #reason-banner-{{ section.id }} .author-info {
+      font-size: 12px;
+    }
+
+    #reason-banner-{{ section.id }} .content {
+      font-size: 16px;
+    }
+  }
+{% endstyle %}
+
+<section id="reason-banner-{{ section.id }}">
+  <div class="container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="author-row">
+      {%- if section.settings.author_image != blank -%}
+        <img 
+          src="{{ section.settings.author_image | image_url: width: 130 }}"
+          alt="{{ section.settings.author_name }}"
+          class="author-image"
+          width="65"
+          height="65"
+          loading="lazy"
+        >
+      {%- endif -%}
+
+      {%- if section.settings.author_name != blank or section.settings.date != blank -%}
+        <div class="author-info">
+          {%- if section.settings.author_name != blank -%}
+            <p>By <strong>{{ section.settings.author_name }}</strong></p>
+          {%- endif -%}
+          {%- if section.settings.date != blank -%}
+            <p>{{ section.settings.date }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.content != blank -%}
+      <div class="content">
+        {{ section.settings.content }}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "7 Reason Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How One Simple Creative Tool is Helping Seniors Rediscover Mental Sharpness – Without Expensive Medications"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "default": 36,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading Weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#2c2523"
+    },
+    {
+      "type": "header",
+      "content": "Author Info"
+    },
+    {
+      "type": "image_picker",
+      "id": "author_image",
+      "label": "Author Image"
+    },
+    {
+      "type": "text",
+      "id": "author_name",
+      "label": "Author Name",
+      "default": "Anna L."
+    },
+    {
+      "type": "text",
+      "id": "date",
+      "label": "Date",
+      "default": "Last Updated Nov 19, 2025"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p><strong>Summary: </strong>'I discovered a hidden talent at 72. I thought my creative days were over. Turns out, they were just beginning.' Elizabeth.</p><p>Her story is more than a personal triumph—it's part of a quiet revolution. With 42% of adults 65+ diving into creative activities, seniors are rewriting the script on aging.</p>"
+    },
+    {
+      "type": "range",
+      "id": "content_size",
+      "label": "Content Size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#2c2523"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#FBB04C"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container Width",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "default": 800,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "transparent"
+    }
+  ],
+  "presets": [
+    {
+      "name": "7 Reason Banner"
+    }
+  ]
+}
+{% endschema %}

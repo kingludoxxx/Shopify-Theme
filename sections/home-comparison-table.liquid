@@ -1,0 +1,448 @@
+{% style %}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}
+{% endstyle %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="comparison-wrapper-{{ section.id }}">
+      
+      {% if section.settings.heading != blank %}
+        <h2 class="comparison-heading-{{ section.id }}">
+          Why enthusiasts prefer <span class="highlight">the BM miners..</span>
+        </h2>
+      {% endif %}
+
+      <div class="table-container-{{ section.id }}"">
+        <table class="comp-table-{{ section.id }}">
+          <thead>
+            <tr>
+              <th class="empty-cell"></th>
+              <th class="brand-col">
+                {% if section.settings.your_logo != blank %}
+                  <div class="logo-wrap">
+                    <img src="{{ section.settings.your_logo | image_url: width: 200 }}" alt="{{ section.settings.your_brand_name }}" loading="lazy">
+                  </div>
+                {% endif %}
+                {% if section.settings.percentage_text != blank %}
+                  <div class="badge">{{ section.settings.percentage_text }}</div>
+                {% endif %}
+              </th>
+              <th class="comp-col">
+                {% if section.settings.competitor_logo != blank %}
+                  <img src="{{ section.settings.competitor_logo | image_url: width: 100 }}" alt="{{ section.settings.competitor_name }}" loading="lazy">
+                {% endif %}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              <tr>
+                <td class="feat-name">{{ block.settings.feature_name }}</td>
+                <td class="brand-cell">
+                  {% if block.settings.your_brand_has %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18">
+                      <path fill="white" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                    </svg>
+                  {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="16" height="16">
+                      <path fill="#999" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                    </svg>
+                  {% endif %}
+                </td>
+                <td class="comp-cell">
+                  {% if block.settings.competitor_has %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18">
+                      <path fill="white" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+                    </svg>
+                  {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="16" height="16">
+                      <path fill="#999" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                    </svg>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      {% if section.settings.disclaimer != blank %}
+        <p class="disclaimer-{{ section.id }}">{{ section.settings.disclaimer }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .comparison-wrapper-{{ section.id }} {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .comparison-wrapper-{{ section.id }} tbody tr:first-of-type td:first-child{
+    border-radius: 24px 0 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .comparison-wrapper-{{ section.id }} tbody tr:first-of-type td:last-child {
+    border-radius: 0 24px 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  .comparison-heading-{{ section.id }} {
+    text-align: center;
+    margin: 0;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: #2e2a39;
+    line-height: 1.2;
+  }
+
+  .comparison-heading-{{ section.id }} .highlight {
+    color: #1A61F9;
+    font-weight: 600;
+  }
+
+  .table-container-{{ section.id }} {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .comp-table-{{ section.id }} {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .comp-table-{{ section.id }} thead th {
+    padding: 1.4rem 0.5rem;
+    vertical-align: middle;
+    border: none;
+  }
+
+  .comp-table-{{ section.id }} .empty-cell {
+    background: transparent;
+    width: 40%;
+  }
+
+  .comp-table-{{ section.id }} .brand-col {
+    background: #2e2a39;
+    width: 30%;
+    border-radius: 24px 24px 0 0;
+    position: relative;
+  }
+
+  .comp-table-{{ section.id }} .comp-col {
+    background: white;
+    width: 30%;
+    border-radius: 0 24px 0 0;
+  }
+
+  .comp-table-{{ section.id }} .logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .comp-table-{{ section.id }} .logo-wrap img {
+    max-width: 70px;
+    height: auto;
+  }
+
+  .comp-table-{{ section.id }} .comp-col img {
+    max-width: 65px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .comp-table-{{ section.id }} .badge {
+    background: #6fdb4a;
+    color: white;
+    padding: 0.5rem 1.4rem;
+    border-radius: 24px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: inline-block;
+    letter-spacing: 0.02em;
+  }
+
+  .comp-table-{{ section.id }} tbody tr {
+    border: none;
+  }
+
+  .comp-table-{{ section.id }} tbody td {
+    padding: 1rem 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+  }
+
+  .comp-table-{{ section.id }} tbody tr:not(:last-child) td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 1px solid rgba(0, 0, 0, 0.06);
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .comp-table-{{ section.id }} .feat-name {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #5a5a5a;
+    background: white;
+  }
+
+  .comp-table-{{ section.id }} .brand-cell {
+    background: #2e2a39;
+  }
+
+  .comp-table-{{ section.id }} tbody tr:last-child .brand-cell {
+    border-radius: 0 0 24px 24px;
+  }
+
+  .comp-table-{{ section.id }} .comp-cell {
+    background: white;
+  }
+
+  .comp-table-{{ section.id }} tbody tr:last-child .comp-cell {
+    border-radius: 0 0 24px 0px;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .comp-table-{{ section.id }} tbody tr:last-child .feat-name {
+    border-radius: 0px 24px 0px 0px;
+    border-left: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .comp-table-{{ section.id }} .brand-cell svg,
+  .comp-table-{{ section.id }} .comp-cell svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .disclaimer-{{ section.id }} {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #999;
+    font-style: italic;
+    margin: 1rem 0 0 0;
+    max-width: 600px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .comparison-heading-{{ section.id }} {
+      font-size: 2.8rem;
+    }
+
+    .table-container-{{ section.id }} {
+      max-width: 100%;
+    }
+
+    .comp-table-{{ section.id }} thead th {
+      padding: 1.8rem 1rem;
+    }
+
+    .comp-table-{{ section.id }} tbody td {
+      padding: 1rem 1rem;
+    }
+
+    .comp-table-{{ section.id }} .feat-name {
+      font-size: 1rem;
+    }
+
+    .comp-table-{{ section.id }} .logo-wrap img {
+      max-width: 55px;
+    }
+
+    .comp-table-{{ section.id }} .comp-col img {
+      max-width: 50px;
+    }
+
+    .comp-table-{{ section.id }} .badge {
+      font-size: 1.4rem;
+      padding: 0.4rem 1.2rem;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .comparison-heading-{{ section.id }} {
+      font-size: 2.2rem;
+    }
+
+    .comparison-wrapper-{{ section.id }} {
+      gap: 1.5rem;
+    }
+
+    .comp-table-{{ section.id }} {
+      border-radius: 18px;
+    }
+
+    .comp-table-{{ section.id }} .brand-col {
+      border-radius: 18px 0 0 0;
+    }
+
+    .comp-table-{{ section.id }} .comp-col {
+      border-radius: 0 18px 0 0;
+    }
+
+    .comp-table-{{ section.id }} tbody tr:last-child .brand-cell {
+      border-radius: 0 0 0 18px;
+    }
+
+    .comp-table-{{ section.id }} tbody tr:last-child .comp-cell {
+      border-radius: 0 0 18px 0;
+    }
+
+    .comp-table-{{ section.id }} thead th {
+      padding: 1.4rem 0.8rem;
+    }
+
+    .comp-table-{{ section.id }} tbody td {
+      padding: 1rem 0.8rem;
+    }
+
+    .comp-table-{{ section.id }} .feat-name {
+      font-size: 1rem;
+    }
+
+    .comp-table-{{ section.id }} .logo-wrap img {
+      max-width: 45px;
+    }
+
+    .comp-table-{{ section.id }} .comp-col img {
+      max-width: 40px;
+    }
+
+    .comp-table-{{ section.id }} .badge {
+      font-size: 1.2rem;
+      padding: 0.3rem 1rem;
+    }
+
+    .comp-table-{{ section.id }} .brand-cell svg,
+    .comp-table-{{ section.id }} .comp-cell svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why enthusiasts prefer the OSM miners.."
+    },
+    {
+      "type": "image_picker",
+      "id": "your_logo",
+      "label": "Your Logo"
+    },
+    {
+      "type": "text",
+      "id": "percentage_text",
+      "label": "Badge Text",
+      "default": "↑↑↑↑↑"
+    },
+    {
+      "type": "image_picker",
+      "id": "competitor_logo",
+      "label": "Competitor Logo"
+    },
+    {
+      "type": "text",
+      "id": "competitor_name",
+      "label": "Competitor Name",
+      "default": "Others"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "*Disclaimer: For entertainment and hobbyist use only. Mining success is rare and not guaranteed."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_name",
+          "label": "Feature name",
+          "default": "Feature name"
+        },
+        {
+          "type": "checkbox",
+          "id": "your_brand_has",
+          "label": "Your brand has",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "competitor_has",
+          "label": "Competitor has",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        {"type": "feature", "settings": {"feature_name": "Passive setup", "your_brand_has": true, "competitor_has": false}},
+        {"type": "feature", "settings": {"feature_name": "Zero risk", "your_brand_has": true, "competitor_has": false}},
+        {"type": "feature", "settings": {"feature_name": "Anyone can start instantly", "your_brand_has": true, "competitor_has": false}},
+        {"type": "feature", "settings": {"feature_name": "Enjoyable & fun", "your_brand_has": true, "competitor_has": false}},
+        {"type": "feature", "settings": {"feature_name": "No market timing needed", "your_brand_has": true, "competitor_has": false}}
+      ]
+    }
+  ]
+}
+{% endschema %}

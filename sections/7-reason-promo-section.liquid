@@ -1,0 +1,604 @@
+{% style %}
+  #promo-box-{{ section.id }} {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_background }};
+  }
+
+  #promo-box-{{ section.id }} .promo-container {
+    max-width: {{ section.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  #promo-box-{{ section.id }} .promo-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    border: 3px dashed {{ section.settings.border_color }};
+    border-radius: {{ section.settings.border_radius }}px;
+    padding: {{ section.settings.padding }}px;
+    background: {{ section.settings.background_color }};
+    position: relative;
+  }
+
+  #promo-box-{{ section.id }} .badge {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: {{ section.settings.badge_bg }};
+    color: {{ section.settings.badge_text_color }};
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  #promo-box-{{ section.id }} .image-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #promo-box-{{ section.id }} .promo-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  #promo-box-{{ section.id }} .content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+  }
+
+  #promo-box-{{ section.id }} .gift-text {
+    font-size: 14px;
+    color: {{ section.settings.text_color }};
+    margin: 0;
+    letter-spacing: 0px;
+  }
+
+  #promo-box-{{ section.id }} .discount-text {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: {{ section.settings.heading_color }};
+    margin: 0;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  #promo-box-{{ section.id }} .discount-highlight {
+    color: {{ section.settings.highlight_color }};
+  }
+
+  #promo-box-{{ section.id }} .description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: {{ section.settings.text_color }};
+    margin: 0;
+    letter-spacing: 0px;
+  }
+
+  #promo-box-{{ section.id }} .cta-button {
+    background: {{ section.settings.button_bg }};
+    color: {{ section.settings.button_text_color }};
+    padding: 20px 35px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin: 10px auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+  }
+
+  #promo-box-{{ section.id }} .cta-button:hover {
+    background: {{ section.settings.button_bg_hover }};
+  }
+
+  #promo-box-{{ section.id }} .countdown-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0px;
+  }
+
+  #promo-box-{{ section.id }} .countdown-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: {{ section.settings.text_color }};
+  }
+
+  #promo-box-{{ section.id }} .countdown-timer {
+    display: flex;
+    gap: 8px;
+  }
+
+  #promo-box-{{ section.id }} .time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 10px;
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  #promo-box-{{ section.id }} .time-number {
+    font-size: 16px;
+    font-weight: 800;
+    color: {{ section.settings.timer_color }};
+    line-height: 1.3;
+  }
+
+  #promo-box-{{ section.id }} .time-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: {{ section.settings.timer_color }};
+    line-height: 1.8;
+  }
+
+  #promo-box-{{ section.id }} .risk-badge {
+    display: inline-block;
+    background: {{ section.settings.risk_badge_bg }};
+    padding: 8px 60px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    color: {{ section.settings.text_color }};
+    margin: 20px auto 0;
+  }
+
+  #promo-box-{{ section.id }} .risk-highlight {
+    color: {{ section.settings.risk_highlight_color }};
+  }
+
+  #promo-box-{{ section.id }} .guarantee {
+    font-size: 14px;
+    color: {{ section.settings.text_color }};
+    margin: 15px 0 0;
+    letter-spacing: 0px;
+  }
+
+  @media screen and (max-width: 767px) {
+    #promo-box-{{ section.id }} .promo-wrapper {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: {{ section.settings.padding | times: 0.7 }}px;
+    }
+
+    #promo-box-{{ section.id }} .badge {
+      font-size: 13px;
+      padding: 8px 15px;
+    }
+
+    #promo-box-{{ section.id }} .discount-text {
+      font-size: 28px;
+    }
+
+    #promo-box-{{ section.id }} .time-number {
+      font-size: 16px;
+    }
+
+    #promo-box-{{ section.id }} .time-label {
+      font-size: 12px;
+    }
+  }
+{% endstyle %}
+
+<section id="promo-box-{{ section.id }}">
+  <div class="promo-container">
+    <div class="promo-wrapper">
+      {%- if section.settings.badge_text != blank -%}
+        <div class="badge">{{ section.settings.badge_text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.promo_image != blank -%}
+        <div class="image-col">
+          <img 
+            src="{{ section.settings.promo_image | image_url: width: 600 }}"
+            alt="{{ section.settings.promo_image.alt | escape }}"
+            class="promo-image"
+            loading="lazy"
+            width="600"
+            height="auto"
+          >
+        </div>
+      {%- endif -%}
+
+      <div class="content-col">
+        {%- if section.settings.gift_text != blank -%}
+          <p class="gift-text">{{ section.settings.gift_text }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.discount_line1 != blank or section.settings.discount_line2 != blank -%}
+          <h2 class="discount-text">
+            {%- if section.settings.discount_line1 != blank -%}
+              <span class="discount-highlight">{{ section.settings.discount_line1 }}</span><br>
+            {%- endif -%}
+            {%- if section.settings.discount_line2 != blank -%}
+              {{ section.settings.discount_line2 }}
+            {%- endif -%}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <p class="description">{{ section.settings.description }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.button_text != blank and section.settings.button_link != blank -%}
+          <a href="{{ section.settings.button_link }}" class="cta-button">
+            {{ section.settings.button_text }} 
+            <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor">
+              <path fill="currentColor" d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path>
+            </svg>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.enable_countdown -%}
+          <div class="countdown-wrapper">
+            <span class="countdown-label">{{ section.settings.countdown_label }}</span>
+            <div class="countdown-timer" data-countdown-timer="{{ section.id }}">
+              <div class="time-unit">
+                <span class="time-number" data-hours>00</span>
+                <span class="time-label">HRS</span>
+              </div>
+              <div class="time-unit">
+                <span class="time-number" data-minutes>00</span>
+                <span class="time-label">MIN</span>
+              </div>
+              <div class="time-unit">
+                <span class="time-number" data-seconds>00</span>
+                <span class="time-label">SEC</span>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.risk_label != blank or section.settings.risk_value != blank -%}
+          <div class="risk-badge">
+            {{ section.settings.risk_label }} <span class="risk-highlight">{{ section.settings.risk_value }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.guarantee_text != blank -%}
+          <p class="guarantee">{{ section.settings.guarantee_text }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- if section.settings.enable_countdown -%}
+<script>
+(function() {
+  const sectionId = '{{ section.id }}';
+  const timer = document.querySelector('[data-countdown-timer="' + sectionId + '"]');
+  if (!timer) return;
+
+  const hoursEl = timer.querySelector('[data-hours]');
+  const minutesEl = timer.querySelector('[data-minutes]');
+  const secondsEl = timer.querySelector('[data-seconds]');
+  
+  const targetHour = {{ section.settings.countdown_hour }};
+  const targetMinute = {{ section.settings.countdown_minute }};
+  
+  function getSecondsUntilTarget() {
+    const now = new Date();
+    const target = new Date();
+    target.setHours(targetHour, targetMinute, 0, 0);
+    
+    if (target <= now) {
+      target.setDate(target.getDate() + 1);
+    }
+    
+    return Math.floor((target - now) / 1000);
+  }
+  
+  function updateTimer() {
+    let totalSeconds = getSecondsUntilTarget();
+    
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    
+    hoursEl.textContent = hours.toString().padStart(2, '0');
+    minutesEl.textContent = minutes.toString().padStart(2, '0');
+    secondsEl.textContent = seconds.toString().padStart(2, '0');
+  }
+  
+  updateTimer();
+  setInterval(updateTimer, 1000);
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "7 Reason Promo",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container Width",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "default": 1100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "🎄 HOLIDAY SALE - BEST PRICE EVER 🎅"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Badge Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_image",
+      "label": "Promo Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "gift_text",
+      "label": "Gift Text",
+      "default": "🎁 FREE GIFTS WITH YOU ORDER"
+    },
+    {
+      "type": "text",
+      "id": "discount_line1",
+      "label": "Discount Line 1 (Highlighted)",
+      "default": "GET 30% OFF"
+    },
+    {
+      "type": "text",
+      "id": "discount_line2",
+      "label": "Discount Line 2",
+      "default": "FOR A LIMITED TIME ONLY!"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "This limited time deal is in high demand and stock keeps selling out"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "GET 30% DISCOUNT"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover",
+      "label": "Button Hover Background",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Countdown Timer"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_countdown",
+      "label": "Enable Countdown",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countdown_label",
+      "label": "Countdown Label",
+      "default": "DEAL ENDING IN:"
+    },
+    {
+      "type": "range",
+      "id": "countdown_hour",
+      "label": "Reset Hour (24hr)",
+      "min": 0,
+      "max": 23,
+      "default": 23
+    },
+    {
+      "type": "range",
+      "id": "countdown_minute",
+      "label": "Reset Minute",
+      "min": 0,
+      "max": 59,
+      "default": 59
+    },
+    {
+      "type": "color",
+      "id": "timer_color",
+      "label": "Timer Color",
+      "default": "#FF0000"
+    },
+    {
+      "type": "header",
+      "content": "Risk Badge"
+    },
+    {
+      "type": "text",
+      "id": "risk_label",
+      "label": "Risk Label",
+      "default": "Sell-Out Risk:"
+    },
+    {
+      "type": "text",
+      "id": "risk_value",
+      "label": "Risk Value",
+      "default": "High"
+    },
+    {
+      "type": "color",
+      "id": "risk_badge_bg",
+      "label": "Risk Badge Background",
+      "default": "#F4F7F6"
+    },
+    {
+      "type": "color",
+      "id": "risk_highlight_color",
+      "label": "Risk Highlight Color",
+      "default": "#FF0000"
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "Try it today with a 60-Day Money Back Guarantee!"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Box Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#2c2523"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#2c2523"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color",
+      "default": "#FBB04C"
+    },
+    {
+      "type": "header",
+      "content": "Box Layout"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border Radius",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "default": 35,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Inner Padding",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "7 Reason Promo"
+    }
+  ]
+}
+{% endschema %}

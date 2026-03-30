@@ -1,0 +1,418 @@
+{% comment %}
+  MinerForge Pro Tabbed Section
+  Customizable for Shopify Sections
+{% endcomment %}
+
+<style>
+  .mf-section-{{ section.id }} {
+    --primary-blue: {{ section.settings.primary_color }};
+    --bg-light: #f4f6f8;
+    --text-dark: #000000;
+    --text-muted: #4b4b4b;
+    --tab-inactive-bg: #eaeae0;
+    --border-radius: 20px;
+    --transition: all 0.3s ease-in-out;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mf-header {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 40px;
+  }
+
+  .mf-header h2 {
+    font-size: clamp(24px, 5vw, 40px);
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+  }
+
+  .mf-header p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .mf-tabs-menu {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .mf-tab-trigger {
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: none;
+    background: var(--tab-inactive-bg);
+    color: var(--text-dark);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 14px;
+    font-family: 'Plus Jakarta Sans';
+    text-transform: uppercase;
+  }
+
+  .mf-tab-trigger.active {
+    background: #8E8E8E;
+    color: #ffffff;
+  }
+
+  .mf-tabs-content {
+    width: 100%;
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  .mf-tab-pane {
+    display: none;
+    animation: mfFadeIn 0.4s ease-out;
+  }
+
+  .mf-tab-pane.active {
+    display: flex;
+  }
+
+  @keyframes mfFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .mf-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 10px;
+    width: 100%;
+    min-height: 450px;
+  }
+
+  .mf-media-box {
+    flex: 1;
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    line-height: 0;
+    background: #000;
+  }
+
+  .mf-media-box img, 
+  .mf-media-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 10/10;
+  }
+
+  .mf-content-box {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .mf-content-box h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0A0A0A;
+    margin: 0;
+  }
+
+  .mf-content-box p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0;
+  }
+
+  .mf-steps-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .mf-step-card {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    text-align: left;
+  }
+
+  .mf-step-card h4 {
+    color: #8E8E8E;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .mf-step-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .mf-grid {
+      flex-direction: column;
+    }
+    .mf-media-box, .mf-content-box {
+      width: 100%;
+    }
+    .mf-content-box {
+      padding: 20px 10px;
+    }
+    .mf-steps-wrapper {
+      grid-template-columns: 1fr;
+    }
+    .mf-header h2{
+        font-size: 35px;
+    }
+  }
+</style>
+
+<div class="mf-section-{{ section.id }}">
+  <div class="mf-header">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+  </div>
+
+  <div class="mf-tabs-container">
+    <div class="mf-tabs-menu">
+      {% for block in section.blocks %}
+        {% if block.type == 'tab' %}
+          <button class="mf-tab-trigger {% if forloop.first %}active{% endif %}" 
+                  onclick="openMfTab(event, 'tab-{{ block.id }}')">
+            {{ block.settings.tab_label }}
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="mf-tabs-content">
+      {% for block in section.blocks %}
+        {% if block.type == 'tab' %}
+          <div id="tab-{{ block.id }}" class="mf-tab-pane {% if forloop.first %}active{% endif %}">
+            <div class="mf-grid">
+              <div class="mf-media-box">
+                {% if block.settings.media_type == 'video' %}
+                  {% if block.settings.video_url != blank %}
+                    <video autoplay muted loop playsinline>
+                      <source src="{{ block.settings.video_url }}" type="video/mp4">
+                    </video>
+                  {% endif %}
+                {% else %}
+                  {% if block.settings.image != blank %}
+                    <img src="{{ block.settings.image | img_url: '1000x' }}" alt="{{ block.settings.tab_heading }}">
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                {% endif %}
+              </div>
+              <div class="mf-content-box">
+                <h3>{{ block.settings.tab_heading }}</h3>
+                <p>{{ block.settings.tab_content }}</p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} <div class="mf-steps-wrapper">
+    <div class="mf-step-card">
+      <h4>{{ section.settings.step1_title }}</h4>
+      <p>{{ section.settings.step1_text }}</p>
+    </div>
+    <div class="mf-step-card">
+      <h4>{{ section.settings.step2_title }}</h4>
+      <p>{{ section.settings.step2_text }}</p>
+    </div>
+    <div class="mf-step-card">
+      <h4>{{ section.settings.step3_title }}</h4>
+      <p>{{ section.settings.step3_text }}</p>
+    </div>
+  </div> {% endcomment %}
+</div>
+
+<script>
+  function openMfTab(evt, tabId) {
+    const section = evt.currentTarget.closest('.mf-tabs-container');
+    const tabPanes = section.querySelectorAll('.mf-tab-pane');
+    const tabTriggers = section.querySelectorAll('.mf-tab-trigger');
+
+    tabPanes.forEach(pane => pane.classList.remove('active'));
+    tabTriggers.forEach(trigger => trigger.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    evt.currentTarget.classList.add('active');
+  }
+</script>
+
+{% schema %}
+{
+  "name": "MinerForge Tabs",
+  "settings": [
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Primary Accent Color",
+      "default": "#8E8E8E"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Why MinerForge Pro?"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Section Subheading",
+      "default": "Take your shot at winning Bitcoin with solo mining AI technology."
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Step 1 Title",
+      "default": "Step 1 - Setup"
+    },
+    {
+      "type": "textarea",
+      "id": "step1_text",
+      "label": "Step 1 Text",
+      "default": "Plug into any USB-C port and connect to Wi-Fi. It takes less than 2 minutes."
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Step 2 Title",
+      "default": "Step 2 - Auto-Mining"
+    },
+    {
+      "type": "textarea",
+      "id": "step2_text",
+      "label": "Step 2 Text",
+      "default": "The device runs 144 independent block attempts daily automatically."
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Step 3 Title",
+      "default": "Step 3 - Ownership"
+    },
+    {
+      "type": "textarea",
+      "id": "step3_text",
+      "label": "Step 3 Text",
+      "default": "If you solve a block, the reward goes directly to your wallet."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Mining Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Button Label",
+          "default": "How it works"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Video (MP4 URL)" }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Tab Image"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video File URL",
+          "info": "Upload to Shopify Files and paste URL here"
+        },
+        {
+          "type": "text",
+          "id": "tab_heading",
+          "label": "Tab Content Heading",
+          "default": "Plug, Set & Forget"
+        },
+        {
+          "type": "textarea",
+          "id": "tab_content",
+          "label": "Tab Content Text",
+          "default": "Our complete plug-and-play device combines professional-grade hardware with automated algorithms."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MinerForge Tabs",
+      "blocks": [
+        { "type": "tab", "settings": { "tab_label": "How it works" } },
+        { "type": "tab", "settings": { "tab_label": "The Tech" } },
+        { "type": "tab", "settings": { "tab_label": "Efficiency" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

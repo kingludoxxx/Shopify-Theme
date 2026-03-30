@@ -1,0 +1,1203 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "grid",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": true,
+            "icons_style": "none",
+            "slideshow_controls_style": "counter",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "right",
+            "thumbnail_width": 44,
+            "thumbnail_radius": 5,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": true,
+            "media_fit": "cover",
+            "media_radius": 20,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 20,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 8,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "h2",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "custom_liquid_JWieFQ": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "<div class=\"review-box-style-bottom\" style=\"font-size: 17px;\"><span class=\"stars\" style=\"    margin-bottom: 0 !important;\n    color: #f8931b;\n    font-size: 23px;\">★★★★★ </span>2492 reviews </div>"
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "disabled": true,
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "custom_liquid_JWieFQ",
+                "price_tVjtKg"
+              ]
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-primary--family)",
+                "font_size": "1.125rem",
+                "line_height": "normal",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "custom_liquid_BnVpqL": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "disabled": true,
+              "settings": {
+                "custom_liquid": "<div style=\"display: flex; align-items: start; justify-content: start; gap: 10px;\">\n<p style=\"background: #8E8E8E; color: white; padding: 10px 20px; border-radius: 50px; font-size: 16px;\" class=\"for-mob\">New Update</p>\n<p style=\"background: #8E8E8E; color: white; padding: 10px 20px; border-radius: 50px; margin-top: 0px; font-size: 16px;\" class=\"for-mob\">1W power</p>\n<p style=\"background: #8E8E8E; color: white; padding: 10px 20px; border-radius: 50px; margin-top: 0px; font-size: 16px;\" class=\"for-mob\">plug & play</p>\n</div>\n\n<style>\n@media (max-width: 600px){\n.for-mob{\n    padding: 10px 10px !important;\n    border-radius: 50px;\n    font-size: 14px !important;\n}}\n</style>"
+              },
+              "blocks": {}
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "disabled": true,
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "disabled": true,
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "bundle_selector_EerCDN": {
+              "type": "bundle-selector",
+              "name": "Bundle Selector",
+              "disabled": true,
+              "settings": {},
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "accordion_R4Kxk3": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "disabled": true,
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h5",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_HEQxbi": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "How Does it  Work?",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_pxiq3K": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>The <strong>Forge Pro</strong> is a <strong>plug-and-play computing device</strong> designed for independent, standalone operation. It allows users to interact with and observe how dedicated computing systems function without relying on external controllers, computers, or third-party services.</p><p></p><p>The device runs continuous, automated processing routines, providing a hands-on way to explore how specialized hardware operates in real-world conditions. All functionality is hardware-based and designed for learning, experimentation, and system observation.</p><p></p><p></p><p></p><h3><strong>Understanding the Operation</strong></h3><p></p><p><br/></p><p>Forge Pro is intended as an <strong>educational and experimental device</strong>. Its operation does not involve guaranteed outcomes, performance benchmarks, or results of any kind. Users should view the device as a way to better understand standalone computing behavior rather than as a performance-driven or outcome-based system.</p><p></p><p><br/><strong>Independent Operation:</strong> The device functions entirely on its own without shared resources or pooled systems.<br/><br/><strong>User Control:</strong> Configuration and operation remain fully under the user’s control at all times.<br/></p><p></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_pxiq3K"
+                  ]
+                },
+                "accordion_row_Y69yTw": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Is it safe for my network?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Bx6Jrn": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>The <strong>Forge Pro</strong> is designed with security as a top priority. It operates using <strong>read-only network data</strong> and requires only basic connectivity information to function. The device never requests sensitive credentials, private keys, access codes, or personal data, ensuring safe and isolated operation at all times.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Bx6Jrn"
+                  ]
+                },
+                "accordion_row_XkmTgk": {
+                  "type": "_accordion-row",
+                  "disabled": true,
+                  "settings": {
+                    "heading": "How Much Can I Win?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_8QNNLM": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Because solo mining is probability-based with no guarantees, outcomes are unpredictable but when blocks are solved, the rewards are substantial:</p><p><strong>If You Solve a Block:</strong> The full block reward is currently <strong>3.125 BTC</strong> (approximately <strong>$300,000</strong> at current prices). Unlike pool mining where rewards are split among thousands, you keep 100% of the prize.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_8QNNLM"
+                  ]
+                },
+                "accordion_row_hMgweK": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "Shipping and Delivery",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Xb4H9R": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><strong>Processing Time</strong></p><p>Orders are processed within <strong>1–2 business days</strong> (Monday—Friday, 9 AM—5 PM EST).</p><p>We currently offer the following shipping options:</p><ul><li>Standard Shipping (6–10 Working Days) — Free<br/></li><li>Priority Processing & Delivery Guarantee (5–8 Working Days) — $4.97</li></ul><p></p><p><br/></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Xb4H9R"
+                  ]
+                },
+                "accordion_row_YT4eBG": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "Tracking",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_7MPQmY": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Once your order ships, you will receive an email with a <strong>tracking number </strong>to follow your package.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_7MPQmY"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_HEQxbi",
+                "accordion_row_Y69yTw",
+                "accordion_row_XkmTgk",
+                "accordion_row_hMgweK",
+                "accordion_row_YT4eBG"
+              ]
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "text_aEtTtq",
+            "custom_liquid_BnVpqL",
+            "divider_VJhene",
+            "variant_picker_R3rGDr",
+            "bundle_selector_EerCDN",
+            "buy_buttons_eYQEYi",
+            "accordion_R4Kxk3"
+          ]
+        }
+      },
+      "custom_css": [
+        ".accordion .details__header {font-size: 17px; font-weight: 800;}"
+      ],
+      "settings": {
+        "main-calss": false,
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "miner_results_dFNEHk": {
+      "type": "miner-results",
+      "blocks": {
+        "stat_bLr4pM": {
+          "type": "stat",
+          "settings": {
+            "percentage": 100,
+            "label": "Experienced zero device failures or connectivity issues"
+          }
+        },
+        "stat_jmNfP4": {
+          "type": "stat",
+          "settings": {
+            "percentage": 93,
+            "label": "Successfully connected to the network and began normal device operation."
+          }
+        },
+        "stat_wxpjQf": {
+          "type": "stat",
+          "settings": {
+            "percentage": 73,
+            "label": "Reported satisfaction with the plug-and-play setup process"
+          }
+        }
+      },
+      "block_order": [
+        "stat_bLr4pM",
+        "stat_jmNfP4",
+        "stat_wxpjQf"
+      ],
+      "disabled": true,
+      "name": "Forge Results",
+      "settings": {
+        "title": "<p>How does it work?</p>",
+        "description": "<p>Our devices use AI-integrated system management to maintain consistent, automated operation during continuous processing tasks. Performance observations are based on real-world usage by individuals operating the Forge Pro under typical conditions.</p>",
+        "subtitle": "After operating Forge Pro devices continuously for 60 days, the following observations were recorded:",
+        "media_type": "video",
+        "image": "shopify://shop_images/img4_2365e090-1314-4dc5-acaf-bca359483ef1.jpg",
+        "video_url": "",
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "video_controls": false
+      }
+    },
+    "miner_ingredients_R3DFRq": {
+      "type": "miner-ingredients",
+      "blocks": {
+        "ingredient_dDV7FY": {
+          "type": "ingredient",
+          "settings": {
+            "badge": "PERFORMANCE",
+            "title": "ESP32-D0 Processing Chip",
+            "description": "An efficient, integrated chip optimized for processing algorithms.",
+            "link_url": "#",
+            "link_text": "Read more +"
+          }
+        },
+        "ingredient_TdjX8k": {
+          "type": "ingredient",
+          "settings": {
+            "badge": "EFFICIENCY",
+            "title": "Ultra-Low Power Design",
+            "description": "Consumes just 1W of power, costing only ~11 cents per month to run 24/7.",
+            "link_url": "#",
+            "link_text": "Read more +"
+          }
+        },
+        "ingredient_LVGpBG": {
+          "type": "ingredient",
+          "settings": {
+            "badge": "CONNECTIVITY",
+            "title": "2.4GHz Wi-Fi Integration",
+            "description": "Connects directly to online services without the need for an external controller or computer.",
+            "link_url": "#",
+            "link_text": "Read more +"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_dDV7FY",
+        "ingredient_TdjX8k",
+        "ingredient_LVGpBG"
+      ],
+      "disabled": true,
+      "name": "How to use",
+      "settings": {
+        "title": "Technical Performance & Reliability",
+        "description": "Our hardware is built for consistent uptime and reliable network connectivity, ensuring stable and continuous operation.",
+        "show_accordion": true,
+        "accordion_title": "View full technical specifications",
+        "accordion_content": "ESP32-D0 AI-enabled processing chip\n\t•\t2.4 GHz Wi-Fi connectivity module\n\t•\tUSB-C power input\n\t•\tLED status indicator\n\t•\tAluminum heat sink for thermal management\n\t•\tCustom embedded system firmware\n\t•\tOpen-source software support\n\t•\tCompact form factor (50 mm × 30 mm × 10 mm)"
+      }
+    },
+    "miner_tabs_section_pxqJpj": {
+      "type": "miner-tabs-section",
+      "blocks": {
+        "tab_H9GiKt": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "How It Works",
+            "media_type": "image",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/575f631273f54a8392d253f56a032134.mp4",
+            "tab_heading": "Seamless Setup",
+            "tab_content": "Our plug-and-play device is designed to connect directly to the Bitcoin network for educational and exploratory purposes. It allows users to observe network activity, understand how blockchain data is processed, and gain insight into how decentralized systems function in real time.\n\nUnlike traditional setups that require complex configuration or third-party services, Forge Pro operates independently as a self-contained device focused on learning, experimentation, and technical exploration. All activity performed by the device is non-custodial and transparent, with no guarantees of outcomes or results.\n\nNo technical expertise is required. Simply connect the device to your Wi-Fi network and enter a public Bitcoin address to enable network interaction features and begin exploring how the system operates."
+          }
+        },
+        "tab_jxceCY": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "The Tech",
+            "media_type": "image",
+            "video_url": "",
+            "tab_heading": "Advanced Architecture",
+            "tab_content": "Powered by the 2025 ESP32-D0 processing chip, the MinerForge Pro is engineered for high-efficiency computation in a compact form factor. Our proprietary firmware utilizes adaptive logic to target network block signatures efficiently.\n<br><br>\nExperience a streamlined mining interface with integrated hardware management designed specifically for the solo mining enthusiast."
+          }
+        },
+        "tab_4G9xpb": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Efficiency",
+            "media_type": "image",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/f49e392ae8ce4973af05a38149f875b8.mp4",
+            "tab_heading": "Eco-Friendly Design",
+            "tab_content": "The MinerForge Pro is designed for 24/7 operation with a focus on sustainability. Consuming just 1W of power (~0.72 kWh per month), it allows you to participate in the Bitcoin ecosystem for less than the cost of a standard LED light bulb.\n<br><br>\nEnjoy a silent, heat-free experience with minimal impact on your utility bill. It is a sustainable way to maintain a continuous connection to the Bitcoin network."
+          }
+        }
+      },
+      "block_order": [
+        "tab_H9GiKt",
+        "tab_jxceCY",
+        "tab_4G9xpb"
+      ],
+      "disabled": true,
+      "name": "Forge Tabs",
+      "settings": {
+        "primary_color": "#1a61f9",
+        "heading": "Why Forge Pro?",
+        "subheading": "Explore the Bitcoin network through interactive, educational technology.",
+        "step1_title": "",
+        "step1_text": "",
+        "step2_title": "",
+        "step2_text": "",
+        "step3_title": "",
+        "step3_text": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "miner_pioneer_steps_3Eeyx4": {
+      "type": "miner-pioneer-steps",
+      "disabled": true,
+      "name": "Forge Pioneer Steps",
+      "settings": {
+        "primary_color": "#1a61f9",
+        "heading": "Setup in minutes, plug and play",
+        "subheading": "Follow our simple guide to get your Forge Pro up and running.",
+        "step1_title": "Step 1 - Document your journey",
+        "step1_desc": "Take a photo of your setup. You’ll be pleasantly surprised at how easy it is to monitor your device’s activity in real time.",
+        "step2_title": "Step 2 - Connect to Wi-Fi",
+        "step2_desc": "Plug the device into a USB-C port. Enter your Wi-Fi credentials to establish a secure network connection.",
+        "step3_title": "Step 3 - Stick to it for 60 days",
+        "step3_desc": "Consistency matters. 93% of users reported more stable device operation after keeping their device running continuously for 60 days.",
+        "media_type": "image",
+        "image": "shopify://shop_images/img5.jpg",
+        "video_url": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "section_cF3GM6": {
+      "type": "section",
+      "blocks": {
+        "text_Tmzim4": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>Frequently asked questions</h3><p>Still have questions? Reach out to us anytime at <a href=\"mailto:support@mineblock.co\" title=\"mailto:support@mineblock.co\">support@mineblock.co</a> — we’re here to help.</p>",
+            "width": "fit-content",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_jG9Kw9": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_nyfWy9": {
+              "type": "_accordion-row",
+              "disabled": true,
+              "settings": {
+                "heading": "What are the chances of discovering a block?",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_ignjJx": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The mathematical probability of discovering a block with a single hobbyist device is <strong>extremely low</strong>. This device should be viewed as a \"lottery-style\" participant in the network. While individual hobbyists have successfully solved blocks in the past, it is not a predictable source of income.</p>",
+                    "width": "fit-content",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_ignjJx"
+              ]
+            },
+            "accordion_row_8QG6nw": {
+              "type": "_accordion-row",
+              "disabled": true,
+              "settings": {
+                "heading": "Does buying more miners improve my chances?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_K3WTgV": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes. Each device operates as an independent node attempting to solve a hash. Operating multiple devices increases your total hash rate, which proportionally increases your statistical probability of block discovery.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_K3WTgV"
+              ]
+            },
+            "accordion_row_DByEAY": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "disabled": true,
+              "settings": {
+                "heading": "What is my chance to win?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_qdaUBY": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>The chances are extremely low. Think of it like a global lottery. Your device continuously generates valid entries, and while odds depend on network difficulty, every single hash has a fair chance. People have already proven small devices can win.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_qdaUBY"
+              ]
+            },
+            "accordion_row_K7fLT6": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "disabled": true,
+              "settings": {
+                "heading": "Are there any hidden fees?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_Wj8UhR": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>No. There are no subscriptions or hidden costs. Once you purchase the hardware, you own it, and all hashing power is directed to your chosen address.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_Wj8UhR"
+              ]
+            },
+            "accordion_row_Lgiq6Q": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Do I need any technical skills to set this up?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_VgfGpw": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Not at all. Simply plug the device into power, connect to Wi-Fi once using your phone, and it’s ready to operate. No coding, no additional hardware, and no prior experience required.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_VgfGpw"
+              ]
+            },
+            "accordion_row_7j7ewC": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Do I need a computer to run this?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_rPUXVd": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>No. Everything runs directly on the device. You only need a smartphone, tablet, or computer for the initial Wi-Fi setup. After that, it works completely on its own.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_rPUXVd"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_nyfWy9",
+            "accordion_row_8QG6nw",
+            "accordion_row_DByEAY",
+            "accordion_row_K7fLT6",
+            "accordion_row_Lgiq6Q",
+            "accordion_row_7j7ewC"
+          ]
+        }
+      },
+      "block_order": [
+        "text_Tmzim4",
+        "accordion_jG9Kw9"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "p {font-size: 16px;}",
+        ".accordion .details__header {font-size: 18px;}"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 20,
+        "padding-block-end": 48
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h3>You may also like </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "disabled": true,
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "miner_results_dFNEHk",
+    "miner_ingredients_R3DFRq",
+    "miner_tabs_section_pxqJpj",
+    "miner_pioneer_steps_3Eeyx4",
+    "section_cF3GM6",
+    "product_recommendations_qggXJq"
+  ]
+}

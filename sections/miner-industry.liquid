@@ -1,0 +1,176 @@
+{% comment %}
+  MineBlock Trusted Industry Section
+  Design: Black Background, Rounded Corners, Group Image Layout
+{% endcomment %}
+
+<style>
+  .mb-industry-{{ section.id }} {
+    padding: 10px;
+    background-color: transparent;
+  }
+
+  @media (min-width: 768px) {
+    .mb-industry-{{ section.id }} {
+      padding: 32px 40px;
+    }
+  }
+
+  .mb-industry-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 38px;
+    background-color: #0B0B0B;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .mb-industry-container {
+      padding-top: 48px;
+      border-radius: 40px;
+    }
+  }
+
+  .mb-industry-container h2 {
+    max-width: 428px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 28px;
+    line-height: 1.1;
+    /* Using your requested bold font style */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+  }
+
+  @media (min-width: 768px) {
+    .mb-industry-container h2 {
+      font-size: 32px;
+      max-width: 500px;
+    }
+  }
+
+  .mb-industry-btn {
+    display: flex;
+    height: 56px;
+    width: fit-content;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0 40px;
+    margin-top: 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    font-family: inherit;
+  }
+
+  .mb-industry-btn:hover {
+    opacity: 0.7;
+  }
+
+  /* Image Spacing */
+  .mb-industry-media-desktop {
+    margin-top: 50px;
+    width: 100%;
+    display: block;
+  }
+
+  .mb-industry-media-mobile {
+    margin-top: 40px;
+    width: 100%;
+    display: none;
+  }
+
+  .mb-industry-media-desktop img,
+  .mb-industry-media-mobile img {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    .mb-industry-media-desktop { display: none; }
+    .mb-industry-media-mobile { display: block; }
+  }
+</style>
+
+<section class="mb-industry-{{ section.id }}">
+  <div class="mb-industry-container">
+    <h2>{{ section.settings.heading }}</h2>
+    
+    <a href="{{ section.settings.button_link }}" class="mb-industry-btn">
+      {{ section.settings.button_label }}
+    </a>
+
+    <!-- Desktop Group Image -->
+    <div class="mb-industry-media-desktop">
+      {% if section.settings.image_desktop != blank %}
+        <img src="{{ section.settings.image_desktop | img_url: '2000x' }}" alt="MineBlock Reviews Desktop">
+      {% else %}
+        <!-- Placeholder logic similar to competitor aspect ratio -->
+        <img src="https://cdn.shopify.com/s/files/1/0612/0351/3495/files/placeholder-desktop.png?v=123" alt="Reviews Placeholder" style="background: #1a1a1a; min-height: 400px;">
+      {% endif %}
+    </div>
+
+    <!-- Mobile Group Image -->
+    <div class="mb-industry-media-mobile">
+      {% if section.settings.image_mobile != blank %}
+        <img src="{{ section.settings.image_mobile | img_url: '800x' }}" alt="MineBlock Reviews Mobile">
+      {% else %}
+        <img src="https://cdn.shopify.com/s/files/1/0612/0351/3495/files/placeholder-mobile.png?v=123" alt="Reviews Placeholder" style="background: #1a1a1a; min-height: 300px;">
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Miner Industry Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted by the industry, chosen by customers"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Discover our Miners:"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Images (Collage Group)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Group Image",
+      "info": "Upload the wide collage containing miners and rephrased reviews."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Group Image",
+      "info": "Upload the vertical version of the collage for mobile."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Miner Industry Reviews"
+    }
+  ]
+}
+{% endschema %}

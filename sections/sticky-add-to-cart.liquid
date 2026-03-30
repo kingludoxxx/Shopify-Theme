@@ -1,0 +1,158 @@
+{% comment %} {% if product.available %}
+<div id="sticky-atc" class="sticky-atc">
+  <form method="post" action="/cart/add">
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+    <button type="submit" class="sticky-atc-btn">
+      {{ section.settings.button_text }}
+    </button>
+  </form>
+</div>
+{% endif %} {% endcomment %}
+
+
+<div id="sticky-atc" class="sticky-atc">
+    <a href="{{ section.settings.button_link }}" class="sticky-atc-btn">
+      {{ section.settings.button_text }}
+      <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor">
+              <path fill="currentColor" d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path>
+            </svg>
+    </a>
+</div>
+
+<style>
+    .sticky-atc {
+        background: {{ section.settings.bg_color }};
+        padding: 12px;
+        box-shadow: 0 -2px 12px rgba(0,0,0,.12);
+    }
+    .sticky-atc-btn {
+        width: 100%;
+        background: {{ section.settings.button_color }};
+        color: {{ section.settings.text_color }};
+        border: none;
+        cursor: pointer;
+        padding: 20px 35px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: background 0.2s;
+        margin: 0px auto;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;  
+    }
+
+    .sticky-atc-btn:hover {
+        background: #333333;
+    }
+</style>
+<script>
+         document.addEventListener('DOMContentLoaded', function() {
+        const sticky = document.querySelector('.cst-sticky-btn');
+        if (!sticky) {
+          console.warn("Sticky element with class 'sticky' not found.");
+          return;
+        }
+        // Set initial styles to hide the sticky without transitions
+        sticky.style.position = 'sticky';
+        sticky.style.bottom = '0';
+        sticky.style.width = '100%';
+        sticky.style.zIndex = '1000';
+        sticky.style.transform = 'translateY(100%)';
+        sticky.style.opacity = '0';
+        sticky.style.transition = 'none';
+        sticky.style.visibility = 'hidden';
+        // Enable transitions after a short delay to avoid flashing on load
+        setTimeout(() => {
+          sticky.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
+          sticky.style.visibility = 'visible';
+        }
+        		   , 100);
+        // Reduced delay for faster perceived load
+        const trigger = document.getElementById('shopify-section-template--28763113947467__text_and_mage_section_wC9HwB');
+        if (!trigger) {
+          console.warn("Trigger element with ID 'cc-id-FXiygOsSPFH8' not found.");
+          return;
+        }
+        // Use IntersectionObserver for better performance over scroll events
+        const observerOptions = {
+          root: null, // Viewport
+          rootMargin: '0px',
+          threshold: 0 // Detect any intersection change
+        };
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+        	if (!entry.isIntersecting && entry.boundingClientRect.bottom > 0) {
+        	  // Trigger is below viewport: hide sticky
+        	  sticky.style.transform = 'translateY(100%)';
+        	  sticky.style.opacity = '0';
+        	}
+        	else {
+        	  // Trigger is intersecting or above viewport: show sticky
+        	  sticky.style.transform = 'translateY(0)';
+        	  sticky.style.opacity = '1';
+        	}
+          }
+        				 );
+        }
+        										  , observerOptions);
+        // Start observing
+        observer.observe(trigger);
+        // Handle edge cases like initial load or resize
+        window.addEventListener('resize', () => {
+          // Re-evaluate on resize (debounced internally by observer)
+        }
+        					   );
+        // Optional: Disconnect observer on unload to clean up, but usually not necessary
+         }
+        					   );
+      </script>
+
+
+
+{% schema %}
+{
+  "name": "Sticky Add To Cart",
+  "class": "cst-sticky-btn",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "GET 30% DISCOUNT"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },    
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#1126a5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky Add To Cart"
+    }
+  ]
+}
+{% endschema %}

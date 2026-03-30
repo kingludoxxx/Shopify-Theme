@@ -1,0 +1,343 @@
+{% comment %}
+  MinerForge Pioneer Steps Section
+  Design: Vertical Timeline with Bullet Line + Featured Media
+{% endcomment %}
+
+<style>
+  .mf-steps-{{ section.id }} {
+    --primary-blue: {{ section.settings.primary_color }};
+    --bg-light: #f4f6f8;
+    --text-dark: #000000;
+    --text-muted: #4b4b4b;
+    --border-radius: 20px;
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: inherit;
+  }
+
+  /* --- HEADER --- */
+  .mf-steps-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+  .mf-steps-header h2 {
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+  }
+  .mf-steps-header p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  /* --- STEPS LAYOUT --- */
+  .mf-steps-grid {
+    display: flex;
+    align-items: stretch;
+    gap: 60px;
+    width: 100%;
+  }
+
+  .mf-steps-left {
+    flex: 1.2;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .mf-timeline-line {
+    width: 18px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mf-timeline-line img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .mf-steps-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+
+  .mf-step-item {
+    margin-bottom: 50px;
+  }
+
+  .mf-step-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .mf-step-item h4 {
+    color: #0A0A0A;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-transform: none;
+  }
+
+  .mf-step-item p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0;
+  }
+
+  .mf-steps-right {
+    flex: 1;
+  }
+
+  .mf-steps-media-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .mf-steps-media-wrapper img, 
+  .mf-steps-media-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 400px;
+  }
+
+  /* --- MOBILE RESPONSIVE --- */
+  @media (max-width: 768px) {
+    .mf-steps-grid {
+      flex-direction: column-reverse; /* Media first on mobile */
+      gap: 40px;
+    }
+
+    .mf-steps-left {
+      padding: 0 10px;
+      gap: 20px;
+    }
+
+    .mf-timeline-line {
+      width: 14px;
+    }
+
+    .mf-step-item h4 {
+      font-size: 18px;
+    }
+
+    .mf-step-item p {
+      font-size: 14px;
+    }
+
+    .mf-steps-media-wrapper img, 
+    .mf-steps-media-wrapper video {
+      min-height: 300px;
+    }
+    .mf-timeline-line img{
+        height: 315px;
+        margin-top: 10px;
+        object-fit: cover;
+    }
+    .mf-steps-{{ section.id }} {
+        padding: 30px 20px 60px;
+    }
+    .mf-steps-header h2{
+        font-size: 35px;
+    }
+  }
+</style>
+
+<section class="mf-steps-{{ section.id }}">
+  {% if section.settings.heading != blank or section.settings.subheading != blank %}
+    <div class="mf-steps-header">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+  {% endif %}
+
+  <div class="mf-steps-grid">
+    <!-- Steps List with Timeline -->
+    <div class="mf-steps-left">
+      <div class="mf-timeline-line">
+        {% if section.settings.timeline_image != blank %}
+          <img src="{{ section.settings.timeline_image | image_url }}" alt="Step Timeline">
+        {% else %}
+          <!-- Default fallback image based on your design -->
+          <img src="https://cdn.instant.so/sites/BCIFWWYLRJAI2pHr/assets/k2OisabChQSSrZEw/bullets.png" alt="Step Timeline">
+        {% endif %}
+      </div>
+      
+      <div class="mf-steps-list">
+        <div class="mf-step-item">
+          <h4>{{ section.settings.step1_title }}</h4>
+          <p>{{ section.settings.step1_desc }}</p>
+        </div>
+        <div class="mf-step-item">
+          <h4>{{ section.settings.step2_title }}</h4>
+          <p>{{ section.settings.step2_desc }}</p>
+        </div>
+        <div class="mf-step-item">
+          <h4>{{ section.settings.step3_title }}</h4>
+          <p>{{ section.settings.step3_desc }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Media -->
+    <div class="mf-steps-right">
+      <div class="mf-steps-media-wrapper">
+        {% if section.settings.media_type == 'video' %}
+          {% if section.settings.video_url != blank %}
+            <video autoplay muted loop playsinline>
+              <source src="{{ section.settings.video_url }}" type="video/mp4">
+            </video>
+          {% endif %}
+        {% else %}
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: '1200x' }}" alt="MinerForge Success Story">
+          {% else %}
+            <img src="https://cdn.instant.so/sites/BCIFWWYLRJAI2pHr/assets/afhWENCHxIx4O7Ex/60-daydesktop.webp" alt="Placeholder">
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MinerForge Pioneer Steps",
+  "settings": [
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Primary Blue Color",
+      "default": "#1A61F9"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Setup in minutes - start mining instantly"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Section Subheading",
+      "default": "Follow our simple guide to get your MinerForge Pro up and running."
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Step 1 Title",
+      "default": "Step 1 - Document your journey"
+    },
+    {
+      "type": "textarea",
+      "id": "step1_desc",
+      "label": "Step 1 Description",
+      "default": "Take a photo of your setup. You'll be pleasantly surprised at how easy it is to track your mining attempts in real-time."
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Step 2 Title",
+      "default": "Step 2 - Connect to Wi-Fi"
+    },
+    {
+      "type": "textarea",
+      "id": "step2_desc",
+      "label": "Step 2 Description",
+      "default": "Plug the device into a USB-C port. Enter your Wi-Fi credentials to link directly to the Bitcoin network safely."
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Step 3 Title",
+      "default": "Step 3 - Stick to it for 60 days"
+    },
+    {
+      "type": "textarea",
+      "id": "step3_desc",
+      "label": "Step 3 Description",
+      "default": "Consistency is key. 93% of our customers saw mining consistency improve after keeping their device running nonstop for 60 days."
+    },
+    {
+      "type": "header",
+      "content": "Visual Assets"
+    },
+    {
+      "type": "image_picker",
+      "id": "timeline_image",
+      "label": "Vertical Timeline Image",
+      "info": "Upload the long vertical line image with bullet points."
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Right Media Type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Video" }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Featured Right Image"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Featured Right Video URL",
+      "info": "Link to direct .mp4 file"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "MinerForge Pioneer Steps"
+    }
+  ]
+}
+{% endschema %}

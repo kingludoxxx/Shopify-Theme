@@ -1,0 +1,144 @@
+
+<style>
+.countdown-banner {
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.bg_text_color }};;
+    text-align: center;
+    padding: 12px 0px 12px 0px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+div#hours, div#minutes, div#seconds {
+    font-size: 20px;
+    color: #000;
+    font-weight: 600;
+}
+
+  .countdown-banner .timer {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+.countdown-box {
+    background: white;
+    color: black;
+    border-radius: 5px;
+    font-size: 12px;
+    min-width: 40px;
+    text-align: center;
+    height: 50px;
+}
+
+  .countdown-box span {
+    display: block;
+    font-size: 8px;
+    font-weight: normal;
+    margin-top: -6px;
+  }
+  @media only screen and (max-width: 767px) {
+  .countdown-banner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 0px 10px 0px;
+}
+.countdown-box {
+    min-width: 38px;
+    height: 45px;
+}
+.countdown-banner .timer {
+    gap: 4px;
+    justify-content: center;
+}
+h4.molly_richards, .date-content {
+    margin: 0px 0px 4px 0px;
+}
+}
+</style>
+
+
+<div class="countdown-banner">
+  <div class="promo-text">{{ section.settings.promo_text }}</div>
+  <div class="timer" id="countdown">
+    <div class="countdown-box">
+      <div id="hours">00</div><span>HRS</span>
+    </div>:
+    <div class="countdown-box">
+      <div id="minutes">00</div><span>MIN</span>
+    </div>:
+    <div class="countdown-box">
+      <div id="seconds">00</div><span>SEC</span>
+    </div> 
+  </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+    var endTime = new Date("{{ section.settings.end_date | date: '%Y-%m-%dT%H:%M:%S' }}").getTime();
+
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var distance = endTime - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdown").innerHTML = "Expired";
+        return;
+      }
+
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("hours").textContent = ("0" + hours).slice(-2);
+      document.getElementById("minutes").textContent = ("0" + minutes).slice(-2);
+      document.getElementById("seconds").textContent = ("0" + seconds).slice(-2);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Countdown Timer",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#E18DBC"
+    },
+    {
+      "type": "color",
+      "id": "bg_text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },      
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Promo Text",
+      "default": "SAVE UP TO 70% OFF + FREE GIFTS"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "Countdown End Date",
+      "default": "2025-07-30T00:00:00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown Timer Banner",
+      "category": "Promotion"
+    }
+  ]
+}
+{% endschema %}

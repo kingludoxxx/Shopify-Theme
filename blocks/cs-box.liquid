@@ -1,0 +1,321 @@
+<style>
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      background-color: {{ section.settings.back_color }};
+  }
+  .cs_free-text-main p{
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #fbfafa;
+    border-radius: 4px;
+    padding: 4px;
+    font-weight: 900;
+}
+.cs_free-text-main p strong{
+    font-weight: 900;
+}
+  @media screen and (max-width: 768px) {
+      .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.mbl_padding_top }}px;
+          padding-bottom: {{ section.settings.mbl_padding_bottom }}px;
+      }
+  }
+</style>
+
+<section class="section-{{ section.id }}-padding">
+  {% comment %} <div class="main-free-text">
+    <div class="cs_free-text-main">{{ block.settings.text }}</div>
+  </div> {% endcomment %}
+  {% assign country_code = localization.country.iso_code %}
+{% assign locale_code = request.locale.iso_code %}
+{% assign country_name = localization.country.name %}
+{% assign flag_url = '' %}
+
+{% if country_code == 'US' or locale_code == 'us' %}
+  {% assign flag_url = 'https://cdn.shopify.com/s/files/1/0934/6826/2699/files/flag.png?v=1758888651' %}
+{% elsif country_code == 'IN' or locale_code == 'in' %}
+  {% assign flag_url = '' %}
+{% else %}
+  {% assign flag_url = '' %}
+{% endif %}
+<div
+  class="product-info__block-item"
+  data-block-id="custom_country_detector_bPTXQB"
+  data-block-type="custom-country-detector"
+>
+  <style data-shopify="">
+    #locationinfop {
+      text-align: center;
+      font-size:16px;
+      font-weight: 500;
+      background-color: #fbfafa;
+      border-radius: 4px;
+      padding: 4px;
+    }
+
+    .shipping-text {
+      text-decoration: underline;
+      color: black;
+      font-weight: bold;
+    }
+
+    .location-error {
+      color: #666;
+      font-style: italic;
+    }
+  </style>
+  <is-land on:visible="" ready="">
+    <custom-country-detector>
+      <p id="locationinfop">
+        📦 | Free Shipping to
+        <span class="shipping-text">Bangladesh</span>
+      </p>
+    </custom-country-detector>
+
+    <script>
+      customElements.define(
+        'custom-country-detector',
+        class extends HTMLElement {
+          connectedCallback() {
+            this.initDOMElements(), (this.defaultEmoji = '\u{1F4E6}'), this.fetchLocationInfo();
+          }
+          disconnectedCallback() {
+            this.abortController && this.abortController.abort();
+          }
+          initDOMElements() {
+            this.element = this.querySelector('#locationinfop');
+          }
+          getCountryFlag(countryCode) {
+            return (
+              new Map([
+                ['US', '\u{1F1FA}\u{1F1F8}'],
+                ['CA', '\u{1F1E8}\u{1F1E6}'],
+                ['FR', '\u{1F1EB}\u{1F1F7}'],
+                ['NL', '\u{1F1F3}\u{1F1F1}'],
+                ['DE', '\u{1F1E9}\u{1F1EA}'],
+                ['GB', '\u{1F1EC}\u{1F1E7}'],
+                ['IT', '\u{1F1EE}\u{1F1F9}'],
+                ['ES', '\u{1F1EA}\u{1F1F8}'],
+                ['CN', '\u{1F1E8}\u{1F1F3}'],
+                ['JP', '\u{1F1EF}\u{1F1F5}'],
+                ['BR', '\u{1F1E7}\u{1F1F7}'],
+                ['IN', '\u{1F1EE}\u{1F1F3}'],
+                ['RU', '\u{1F1F7}\u{1F1FA}'],
+                ['ZA', '\u{1F1FF}\u{1F1E6}'],
+                ['AU', '\u{1F1E6}\u{1F1FA}'],
+                ['NZ', '\u{1F1F3}\u{1F1FF}'],
+                ['MX', '\u{1F1F2}\u{1F1FD}'],
+                ['AR', '\u{1F1E6}\u{1F1F7}'],
+                ['CL', '\u{1F1E8}\u{1F1F1}'],
+                ['CO', '\u{1F1E8}\u{1F1F4}'],
+                ['PE', '\u{1F1F5}\u{1F1EA}'],
+                ['VE', '\u{1F1FB}\u{1F1EA}'],
+                ['EC', '\u{1F1EA}\u{1F1E8}'],
+                ['GT', '\u{1F1EC}\u{1F1F9}'],
+                ['HN', '\u{1F1ED}\u{1F1F3}'],
+                ['SA', '\u{1F1F8}\u{1F1E6}'],
+                ['AE', '\u{1F1E6}\u{1F1EA}'],
+                ['TR', '\u{1F1F9}\u{1F1F7}'],
+                ['TH', '\u{1F1F9}\u{1F1ED}'],
+                ['MY', '\u{1F1F2}\u{1F1FE}'],
+                ['SG', '\u{1F1F8}\u{1F1EC}'],
+                ['ID', '\u{1F1EE}\u{1F1E9}'],
+                ['PH', '\u{1F1F5}\u{1F1ED}'],
+                ['VN', '\u{1F1FB}\u{1F1F3}'],
+                ['KR', '\u{1F1F0}\u{1F1F7}'],
+                ['KP', '\u{1F1F0}\u{1F1F5}'],
+                ['SE', '\u{1F1F8}\u{1F1EA}'],
+                ['NO', '\u{1F1F3}\u{1F1F4}'],
+                ['FI', '\u{1F1EB}\u{1F1EE}'],
+                ['DK', '\u{1F1E9}\u{1F1F0}'],
+                ['IS', '\u{1F1EE}\u{1F1F8}'],
+                ['IE', '\u{1F1EE}\u{1F1EA}'],
+                ['CH', '\u{1F1E8}\u{1F1ED}'],
+                ['PT', '\u{1F1F5}\u{1F1F9}'],
+                ['BE', '\u{1F1E7}\u{1F1EA}'],
+                ['LU', '\u{1F1F1}\u{1F1FA}'],
+                ['PL', '\u{1F1F5}\u{1F1F1}'],
+                ['CZ', '\u{1F1E8}\u{1F1FF}'],
+                ['SK', '\u{1F1F8}\u{1F1F0}'],
+                ['HU', '\u{1F1ED}\u{1F1FA}'],
+                ['AT', '\u{1F1E6}\u{1F1F9}'],
+                ['LI', '\u{1F1F1}\u{1F1EE}'],
+                ['GR', '\u{1F1EC}\u{1F1F7}'],
+                ['BG', '\u{1F1E7}\u{1F1EC}'],
+                ['RO', '\u{1F1F7}\u{1F1F4}'],
+                ['UA', '\u{1F1FA}\u{1F1E6}'],
+                ['BY', '\u{1F1E7}\u{1F1FE}'],
+                ['LT', '\u{1F1F1}\u{1F1F9}'],
+                ['LV', '\u{1F1F1}\u{1F1FB}'],
+                ['EE', '\u{1F1EA}\u{1F1EA}'],
+                ['MD', '\u{1F1F2}\u{1F1E9}'],
+                ['AM', '\u{1F1E6}\u{1F1F2}'],
+                ['GE', '\u{1F1EC}\u{1F1EA}'],
+                ['AZ', '\u{1F1E6}\u{1F1FF}'],
+                ['IR', '\u{1F1EE}\u{1F1F7}'],
+                ['IQ', '\u{1F1EE}\u{1F1F6}'],
+                ['SY', '\u{1F1F8}\u{1F1FE}'],
+                ['LB', '\u{1F1F1}\u{1F1E7}'],
+                ['JO', '\u{1F1EF}\u{1F1F4}'],
+                ['IL', '\u{1F1EE}\u{1F1F1}'],
+                ['EG', '\u{1F1EA}\u{1F1EC}'],
+                ['MA', '\u{1F1F2}\u{1F1E6}'],
+                ['DZ', '\u{1F1E9}\u{1F1FF}'],
+                ['TN', '\u{1F1F9}\u{1F1F3}'],
+                ['LY', '\u{1F1F1}\u{1F1FE}'],
+                ['GM', '\u{1F1EC}\u{1F1F2}'],
+                ['SN', '\u{1F1F8}\u{1F1F3}'],
+                ['MR', '\u{1F1F2}\u{1F1F7}'],
+                ['ML', '\u{1F1F2}\u{1F1F1}'],
+                ['GN', '\u{1F1EC}\u{1F1F3}'],
+                ['CI', '\u{1F1E8}\u{1F1EE}'],
+                ['BF', '\u{1F1E7}\u{1F1EB}'],
+                ['NE', '\u{1F1F3}\u{1F1EA}'],
+                ['TG', '\u{1F1F9}\u{1F1EC}'],
+                ['BJ', '\u{1F1E7}\u{1F1EF}'],
+                ['NG', '\u{1F1F3}\u{1F1EC}'],
+                ['CM', '\u{1F1E8}\u{1F1F2}'],
+                ['GA', '\u{1F1EC}\u{1F1E6}'],
+                ['CG', '\u{1F1E8}\u{1F1EC}'],
+                ['CD', '\u{1F1E8}\u{1F1E9}'],
+                ['AO', '\u{1F1E6}\u{1F1F4}'],
+                ['GW', '\u{1F1EC}\u{1F1FC}'],
+                ['SC', '\u{1F1F8}\u{1F1E8}'],
+                ['SD', '\u{1F1F8}\u{1F1E9}'],
+                ['RW', '\u{1F1F7}\u{1F1FC}'],
+                ['ET', '\u{1F1EA}\u{1F1F9}'],
+                ['SO', '\u{1F1F8}\u{1F1F4}'],
+                ['DJ', '\u{1F1E9}\u{1F1EF}'],
+                ['KE', '\u{1F1F0}\u{1F1EA}'],
+                ['TZ', '\u{1F1F9}\u{1F1FF}'],
+                ['UG', '\u{1F1FA}\u{1F1EC}'],
+                ['BI', '\u{1F1E7}\u{1F1EE}'],
+                ['MZ', '\u{1F1F2}\u{1F1FF}'],
+                ['ZM', '\u{1F1FF}\u{1F1F2}'],
+                ['MW', '\u{1F1F2}\u{1F1FC}'],
+                ['LS', '\u{1F1F1}\u{1F1F8}'],
+                ['BW', '\u{1F1E7}\u{1F1FC}'],
+                ['NA', '\u{1F1F3}\u{1F1E6}'],
+                ['SZ', '\u{1F1F8}\u{1F1FF}'],
+              ]).get(countryCode?.toUpperCase()) || this.defaultEmoji
+            );
+          }
+          setLocationInfo(countryCode, countryName) {
+            if (!this.element) {
+              console.error('Location info element not found');
+              return;
+            }
+            const sanitizedCountryName = this.sanitizeText(countryName),
+              flag = this.getCountryFlag(countryCode);
+            this.element.innerHTML = `
+        ${flag} | Free Shipping to 
+        <span class="shipping-text">${sanitizedCountryName}</span>
+      `;
+          }
+          sanitizeText(text) {
+            const div = document.createElement('div');
+            return (div.textContent = text), div.innerHTML;
+          }
+          showError(message = 'Unable to detect location') {
+            this.element &&
+              (this.element.innerHTML = `<span class="location-error">${this.defaultEmoji} | ${message}</span>`);
+          }
+          showLoading() {
+            this.element && (this.element.textContent = 'Detecting location...');
+          }
+          async fetchLocationInfo() {
+            try {
+              this.showLoading(), (this.abortController = new AbortController());
+              const timeoutId = setTimeout(() => this.abortController.abort(), 5e3),
+                response = await fetch('/browsing_context_suggestions.json', {
+                  signal: this.abortController.signal,
+                  headers: { Accept: 'application/json' },
+                });
+              if ((clearTimeout(timeoutId), !response.ok)) throw new Error(`HTTP error! status: ${response.status}`);
+              const data = await response.json();
+              if (!data?.detected_values?.country) throw new Error('Invalid response structure');
+              const { handle: countryCode, name: countryName } = data.detected_values.country;
+              if (!countryName) throw new Error('Country name not found in response');
+              this.setLocationInfo(countryCode, countryName);
+            } catch (error) {
+              console.error('Error fetching location info:', error),
+                error.name === 'AbortError'
+                  ? this.showError('Location detection timed out')
+                  : error.message.includes('HTTP error')
+                  ? this.showError('Unable to detect location')
+                  : this.showError();
+            }
+          }
+        }
+      );
+    </script>
+  </is-land>
+</div>
+</section>
+
+{% schema %}
+{
+  "name": "Free Shipping",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mbl_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Top Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mbl_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Bottom Padding",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "back_color",
+      "label": "Background Color"
+    },
+    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Free Shipping",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

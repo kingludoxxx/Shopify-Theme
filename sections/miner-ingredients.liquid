@@ -1,0 +1,492 @@
+{% comment %}
+  Section: Miner Ingredients
+  Description: Displays key components and technical specifications of the MinerForge Pro
+{% endcomment %}
+
+<style>
+  .miner-ingredients-section {
+    background: #ffffff;
+    padding: 40px 50px 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .ingredients-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .ingredients-title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .ingredients-description {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    max-width: 50%;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .ingredients-grid {
+    display: flex;
+    gap: 25px;
+    margin: 40px 0;
+    transition: all 325ms ease-in-out;
+  }
+
+  .ingredients-grid.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .ingredient-card {
+    background: linear-gradient(45deg, #ffffff 55%, #ececec);
+    border-radius: 25px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.31);
+    padding: 90px 0 0;
+    width: 33.33%;
+    min-height: 325px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .ingredient-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .ingredient-badge {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: #8E8E8E;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 50px;
+    text-transform: uppercase;
+  }
+
+  .ingredient-title {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 0 30px;
+    padding: 0 30px 0 0;
+  }
+
+  .ingredient-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    object-fit: cover;
+  }
+
+  .ingredient-description {
+    font-size: 13px;
+    font-weight: 500;
+    color: #000000;
+    margin: 10px 0 0 30px;
+    width: 45%;
+    line-height: 1.5;
+  }
+
+  .ingredient-link {
+    position: absolute;
+    bottom: 55px;
+    left: 30px;
+    color: #8E8E8E;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .ingredient-link:hover {
+    opacity: 0.7;
+  }
+
+  .ingredients-accordion {
+    max-width: 600px;
+    margin: 40px auto 0;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid #7a7a7a;
+  }
+
+  .accordion-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+  }
+
+  .accordion-title {
+    font-size: 25px;
+    margin: 0px;
+    font-weight: 500;
+    color: #7a7a7a;
+    text-align: left;
+    transition: color 125ms ease-in-out;
+  }
+
+  .accordion-button:hover .accordion-title,
+  .accordion-item.active .accordion-title {
+    color: #000000;
+  }
+
+  .accordion-icon {
+    width: 23px;
+    height: 32px;
+    color: #7a7a7a;
+    transition: all 125ms ease-in-out;
+  }
+
+  .accordion-button:hover .accordion-icon,
+  .accordion-item.active .accordion-icon {
+    color: #000000;
+  }
+
+  .accordion-item.active .accordion-icon {
+    transform: rotate(140deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 125ms ease-in-out;
+  }
+
+  .accordion-item.active .accordion-content {
+    max-height: 500px;
+  }
+
+  .accordion-text {
+    font-size: 15px;
+    font-weight: 400;
+    color: #000000;
+    padding: 0 0 24px;
+    margin: 30px 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .miner-ingredients-section {
+      padding: 0 50px 30px;
+      width: 100%;
+    }
+
+    .ingredients-grid {
+      height: 100%;
+    }
+
+    .ingredient-card {
+      height: auto;
+    }
+
+    .ingredient-title {
+      font-size: 20px;
+    }
+
+    .ingredient-image {
+      width: 140px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .miner-ingredients-section {
+      padding: 0 32px 32px;
+    }
+
+    .ingredients-title {
+      font-size: 40px;
+    }
+
+    .ingredients-description {
+      max-width: 80%;
+      font-size: 14px;
+    }
+
+    .ingredients-grid {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      gap: 15px;
+      padding: 0 0 20px;
+    }
+
+    .ingredient-card {
+      min-width: 280px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+
+    .accordion-title {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .miner-ingredients-section {
+      padding: 0 15px;
+    }
+
+    .ingredients-title {
+      font-size: 35px;
+      padding: 0 20px;
+    }
+
+    .ingredients-description {
+      max-width: 100%;
+      padding: 0 30px;
+    }
+
+    .ingredients-grid {
+      overflow-x: scroll;
+      gap: 10px;
+      margin: 20px 5px;
+      padding: 0 0px 20px;
+    }
+
+    .ingredient-card {
+      min-width: 260px;
+    }
+
+    .ingredient-title {
+      font-size: 18px;
+    }
+
+    .ingredient-image {
+      width: 120px;
+    }
+
+    .ingredient-description {
+      font-size: 12px;
+      width: 55%;
+    }
+
+    .accordion-title {
+      font-size: 18px;
+    }
+
+    .accordion-text {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="miner-ingredients-section">
+  <div class="ingredients-header">
+    <h2 class="ingredients-title">{{ section.settings.title }}</h2>
+    {% if section.settings.description != blank %}
+      <p class="ingredients-description">{{ section.settings.description }}</p>
+    {% endif %}
+  </div>
+
+  <div class="ingredients-grid fade-in">
+    {% for block in section.blocks %}
+      <div class="ingredient-card">
+        {% if block.settings.badge != blank %}
+          <div class="ingredient-badge">{{ block.settings.badge }}</div>
+        {% endif %}
+
+        <h3 class="ingredient-title">{{ block.settings.title }}</h3>
+
+        {% if block.settings.image != blank %}
+          <img 
+            class="ingredient-image" 
+            src="{{ block.settings.image | img_url: '300x' }}" 
+            alt="{{ block.settings.title }}"
+            loading="lazy"
+          >
+        {% endif %}
+
+        {% if block.settings.description != blank %}
+          <p class="ingredient-description">{{ block.settings.description }}</p>
+        {% endif %}
+
+        {% if block.settings.link_url != blank %}
+          <a href="{{ block.settings.link_url }}" class="ingredient-link" target="_blank" rel="noopener noreferrer">
+            {{ block.settings.link_text | default: 'Read more +' }}
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if section.settings.show_accordion %}
+    <div class="ingredients-accordion">
+      <div class="accordion-item" id="specs-accordion">
+        <button class="accordion-button" type="button" onclick="toggleAccordion()">
+          <h3 class="accordion-title">{{ section.settings.accordion_title }}</h3>
+          <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-text">
+            {{ section.settings.accordion_content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  function toggleAccordion() {
+    const item = document.getElementById('specs-accordion');
+    item.classList.toggle('active');
+  }
+
+  // Add fade-in animation on scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    const grid = document.querySelector('.ingredients-grid');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (grid) {
+      observer.observe(grid);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Miner Ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The Right Components For Reliable Mining"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "All our components are scientifically proven to deliver the best mining performance. The MinerForge Pro uses cutting-edge AI technology and enterprise-grade hardware to maximize your chances at solving Bitcoin blocks."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_accordion",
+      "label": "Show Accordion",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "accordion_title",
+      "label": "Accordion Title",
+      "default": "View full technical specifications"
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_content",
+      "label": "Accordion Content",
+      "default": "ESP32-D0 AI Chip, 2.4GHz WiFi Module, USB-C Power Delivery, LED Status Indicator, Aluminum Heat Sink, Custom Mining Firmware, Open-Source Software, Compact Form Factor (50mm x 30mm x 10mm), Power Consumption: 1W, Operating Temperature: 0-40°C, Network Protocol: Stratum V1, Hash Rate: Variable (AI-optimized), Memory: 520KB SRAM, Storage: 4MB Flash"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Component",
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge Text",
+          "default": "PERFORMANCE"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "ESP32-D0 AI Chip"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Advanced AI-integrated chip that delivers 30x more computational power than previous mining devices."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Component Image"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Read more +"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Miner Ingredients",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "badge": "PERFORMANCE",
+            "title": "ESP32-D0 AI Chip",
+            "description": "Advanced AI-integrated chip that delivers 30x more computational power than previous mining devices."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "badge": "EFFICIENCY",
+            "title": "Ultra-Low Power Design",
+            "description": "Consumes just 1W of power, costing only ~11 cents per month to run 24/7."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "badge": "CONNECTIVITY",
+            "title": "WiFi Integration",
+            "description": "Built-in 2.4GHz WiFi module connects directly to the Bitcoin network via your home network."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

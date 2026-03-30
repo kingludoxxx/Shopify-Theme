@@ -1,0 +1,124 @@
+<style>
+            @font-face {
+          font-family: 'Open Sauce';
+          src: url('//try-trevo.com/cdn/shop/t/9/assets/OpenSauceSans-Regular.woff2?v=122066459462501458141759823831') format('woff2');
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'Open Sauce';
+          src: url('//try-trevo.com/cdn/shop/t/9/assets/OpenSauceOne-Medium.woff2?v=3503052091082334461759823831') format('woff2');
+          font-weight: 500;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: 'Open Sauce';
+          src: url('//try-trevo.com/cdn/shop/t/9/assets/OpenSauceSans-ExtraBold.woff2?v=74209922743369947221759823831') format('woff2');
+          font-weight: 700;
+          font-style: normal;
+          font-display: swap;
+        }
+
+{% comment %} .shopify-section-group-header-group, .shopify-section-group-footer-group {
+    display: none;
+} {% endcomment %}
+  .top-template--{{section.id}} {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    {% comment %} background-color: #000000; {% endcomment %}
+    overflow: hidden;
+  }
+  .n-c-heading{
+    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .n-c-heading p{
+    font-family: Open Sauce !important;
+    margin: 0;
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -.02em !important;
+    line-height: 1.1;
+    text-transform: capitalize;
+  }
+  .n-c-heading-title-cs h2{
+      
+    font-family: Satoshi-Bold !important;
+    font-size: 32px !important;
+    color: #373737 !important;
+    font-weight: 700 !important;
+        text-align: center;
+        text-transform: inherit;
+  }
+  .n-c-heading-title-cs h2 em strong{
+          color: #1a61f9  !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+  }
+  @media (max-width: 768px) {
+    .top-template--{{section.id}} {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+    .n-c-heading p {
+      font-size: 35px;
+      line-height: 32px;
+    }
+  }
+  .page-width {
+        width: 100% !important;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px !important;
+}
+@media (max-width:767px) {
+  .page-width {
+    padding: 0 15px !important;
+  }
+  .n-c-heading-title-cs h2{
+    font-size: 26px !important;
+  }
+}
+</style>
+
+<section class="top-template--{{section.id}} new-annoucment">
+  <div class="page-width">
+    
+      <div class="n-c-heading">{% if section.settings.img != blank %}
+        <img src="{{section.settings.img | image_url }}" width="100%" style="max-width:220px;">
+    {% else %}
+      <div class="n-c-heading-title-cs">{{section.settings.heading}}</div>
+    {% endif %}</div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+"name":"Comparation Header",
+"settings":[
+    {
+    "type": "image_picker",
+    "label":"Image",
+    "id":"img"
+    },
+    {
+    "type": "richtext",
+    "label":"Heading",
+    "id":"heading"
+    }
+],
+"presets":[
+    {
+    "name":"Comparation Header"
+    }
+]
+
+}
+{% endschema %}

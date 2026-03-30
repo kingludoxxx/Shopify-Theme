@@ -1,0 +1,587 @@
+{%- comment -%}
+  MineBlock Bundle Selector (pdp-v3)
+  Main Miner Variant: 56571822506315
+  Mining Rig Gift Variant: 56555193368907
+{%- endcomment -%}
+
+<div class="mbb" data-mbb>
+  <!-- Tier cards -->
+  <div class="mbb__grid" role="radiogroup" aria-label="Choose your bundle">
+    <button type="button" class="mbb-card" data-tier="1" aria-checked="false">
+      <span class="mbb-badge is-empty"></span>
+      <span class="mbb-title">Buy 1 Miner</span>
+      <span class="mbb-sub">$59.99</span>
+    </button>
+
+    <button type="button" class="mbb-card is-pop is-selected" data-tier="2" aria-checked="true">
+      <span class="mbb-badge is-empty"></span>
+      <span class="mbb-title">Buy 2 Miners</span>
+      <span class="mbb-sub">$55 each</span>
+    </button>
+
+    <button type="button" class="mbb-card is-best" data-tier="3" aria-checked="false">
+      <span class="mbb-badge" id="mbb-badge-best">BEST SELLER</span>
+      <span class="mbb-title">Buy 3, get 1 free</span>
+      <span class="mbb-sub">$45 each</span>
+    </button>
+
+    <button type="button" class="mbb-card" data-tier="6" aria-checked="false">
+      <span class="mbb-badge is-empty"></span>
+      <span class="mbb-title">Buy 6, get 2 free</span>
+      <span class="mbb-sub">$40 each</span>
+    </button>
+
+    <button type="button" class="mbb-card" data-tier="12" aria-checked="false">
+      <span class="mbb-badge is-empty"></span>
+      <span class="mbb-title">Buy 12, get 4 free</span>
+      <span class="mbb-sub">$35 each</span>
+    </button>
+
+    <button type="button" class="mbb-card is-high" data-tier="18" aria-checked="false">
+      <span class="mbb-badge">HIGHEST CHANCES</span>
+      <span class="mbb-title">Buy 18, get 6 free</span>
+      <span class="mbb-sub">$33 each</span>
+    </button>
+  </div>
+
+  <!-- Gifts -->
+  <div class="mbb-gifts">
+    <div class="mbb-gifts__title">FREE GIFTS WITH YOUR ORDER</div>
+
+    <div class="mbb-gifts__grid">
+      <div class="mbb-gift" data-gift="ship">
+        <span class="mbb-pill">FREE <s>$4.97</s></span>
+        <div class="mbb-gift__img">
+          <img alt="Free Shipping" loading="lazy"
+            src="https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Free_shipping-3.jpg?v=1771465528">
+        </div>
+        <div class="mbb-gift__lbl">Free Shipping</div>
+        <div class="mbb-lock" aria-hidden="true">🔒</div>
+      </div>
+
+      <div class="mbb-gift" data-gift="rig">
+        <span class="mbb-pill">FREE <s>$24.99</s></span>
+        <div class="mbb-gift__img">
+          <img alt="Mining Rig" loading="lazy"
+            src="https://cdn.shopify.com/s/files/1/0768/4787/4379/files/MINING_RING-4.jpg?v=1771465528">
+        </div>
+        <div class="mbb-gift__lbl">Mining Rig</div>
+        <div class="mbb-lock" aria-hidden="true">🔒</div>
+      </div>
+
+      <div class="mbb-gift" data-gift="odds">
+        <span class="mbb-pill">FREE</span>
+        <div class="mbb-gift__img">
+          <img data-odds-img alt="Odds Boost" loading="lazy"
+            src="https://cdn.shopify.com/s/files/1/0768/4787/4379/files/2X_ODDS-3.jpg?v=1771465528">
+        </div>
+        <div class="mbb-gift__lbl">Odds Boost</div>
+        <div class="mbb-lock" aria-hidden="true">🔒</div>
+      </div>
+
+      <div class="mbb-gift" data-gift="cashback">
+        <span class="mbb-pill">FREE</span>
+        <div class="mbb-gift__img">
+          <img alt="10% Cashback" loading="lazy"
+            src="https://cdn.shopify.com/s/files/1/0768/4787/4379/files/10_Cashback-3.jpg?v=1771465528">
+        </div>
+        <div class="mbb-gift__lbl">10% Cashback</div>
+        <div class="mbb-lock" aria-hidden="true">🔒</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner above ATC -->
+  <div class="mbb-pricebar" data-mbb-pricebar>
+  <div class="mbb-pricebar__left">
+    <span class="mbb-compare" data-mbb-compare><s>$0.00</s></span>
+    <span class="mbb-total" data-mbb-total>$0.00</span>
+  </div>
+  <div class="mbb-pricebar__right">
+    <span class="mbb-save" data-mbb-save>You’re saving $0.00</span>
+  </div>
+</div>
+
+
+</div>
+
+<style>
+  /* container spacing */
+  .mbb{margin:0px;font-family: 'Manrope' ;}
+
+  /* grid */
+  .mbb__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  @media(min-width:900px){.mbb__grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+
+  /* cards */
+  .mbb-card{
+    border:2px solid #e1e1e1;border-radius:14px;padding:16px 14px;background:#fff;
+    text-align:center;cursor:pointer;position:relative;transition:all .18s ease;
+  }
+  .mbb-card.is-selected{
+    border-color:#111;background:rgba(237,237,237,1);
+  }
+
+  .mbb-title{
+    display:block;font-weight:700;font-size:14px;margin-top:8px;overflow:hidden;font-family: 'Manrope' !important; color: #000 !important;
+  }
+  .mbb-sub{
+    display:block;color:#2b2b2b;margin-top:4px;font-size:13px;
+    overflow:hidden;font-family: 'Manrope' !important; font-weight: 500;
+  }
+
+  .mbb-badge{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+    background:#1126a5;color:#fff;font-size:11px;padding:4px 8px;border-radius:6px;
+   
+  }
+  #mbb-badge-best {
+    background:rgb(255, 255, 255);color:#000;border:2px solid rgb(125, 125, 125);
+  }
+  .mbb-badge.is-empty{background:transparent;color:transparent}
+
+  /* gifts */
+  .mbb-gifts{margin-top:18px}
+  .mbb-gifts__title{text-align:center;font-weight:700;letter-spacing:.03em;font-size:14px}
+  .mbb-gifts__grid{margin-top:12px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .mbb-gift{
+    border:2px dashed #b9d9e6;border-radius:14px;padding:10px 8px;text-align:center;
+    position:relative;background:#fff;
+  }
+  .mbb-pill{
+    position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+    background:#f7eaa0;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:700;
+    white-space:nowrap; box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  border: 1px solid rgba(0,0,0,.06); color:#111;
+  }
+  /* make the strike price subtle + clean */
+  .mbb-pill s{
+    opacity: .85;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgba(0,0,0,.35);
+  }
+
+  .mbb-gift__img{height:74px;border-radius:10px;background:#fff;overflow:hidden;display:flex}
+  .mbb-gift__img img{width:100%;height:100%;object-fit:contain;display:block}
+
+  .mbb-gift__lbl{
+    margin-top:8px;font-weight:700;font-size:12px;overflow:hidden;
+  }
+
+  .mbb-lock{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:22px;background:rgba(0,0,0,.55);color:#fff;border-radius:12px;
+    opacity:0;pointer-events:none;
+  }
+  .mbb-gift.is-locked .mbb-lock{opacity:1}
+
+/* 1) Parent: only mark as locked, no opacity here */
+.mbb-gift.is-locked{
+  filter:none;          /* no grayscale on whole box */
+  opacity:1;            /* keep full opacity */
+   border-color: #d0d0d0;
+  background:#f7f7f7;
+}
+
+/* 2) Dim image + label only (NOT the pill) */
+.mbb-gift.is-locked .mbb-gift__img,
+.mbb-gift.is-locked .mbb-gift__lbl{
+  filter:grayscale(1);
+  opacity:.55;
+}
+
+/* 3) Pill stays colorful */
+.mbb-gift.is-locked .mbb-pill{
+  filter:none;
+  opacity:1;
+  z-index: 8;
+}
+
+
+    /* banner */
+
+  .mbb-pricebar{
+    margin-top:14px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:10px 0;
+    border-top:1px solid #e8e8e8;
+  }
+
+  .mbb-pricebar__left{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    min-width:0;
+  }
+
+  /* compare price: red + strike */
+  .mbb-compare{
+    color: #1225A5;
+    font-weight:700;
+    font-size:14px;
+    white-space:nowrap;
+  }
+  .mbb-compare s{
+    text-decoration-thickness:2px;
+  }
+
+  /* total: bold black */
+  .mbb-total{
+    color:#000;
+    font-weight:700;
+    font-size:16px;
+    white-space:nowrap;
+  }
+
+  /* savings: right aligned */
+  .mbb-save{
+    color:#000;
+    font-weight:600;
+    font-size:14px;
+    white-space:nowrap;
+    text-align:right;
+  }
+@media (max-width: 450px) {
+  .mbb-card{
+    padding:10px 10px 13px;
+    
+  }
+  
+  .mbb-gifts__grid {
+    gap: 4px !important;
+  }
+  .mbb-pill{
+  padding:1px 8px;font-size:9px;
+  }
+  .mbb-gift__lbl{
+   font-size:11px;
+   margin: 0px;
+  }
+  .mbb-badge{
+    
+    font-size:9px;padding:3px 5px;
+  }
+
+
+}
+  /* our bundle CTA */
+.mbb-cta-wrap{
+  margin-top:0px;
+}
+
+.mbb-cta{
+  width:100%;
+  border:none;
+  border-radius:999px;
+  padding:16px 24px;
+  background:#1225A5;
+  color:#fff;
+  font-weight:700;
+  font-size:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  cursor:pointer;
+  transition:background .15s ease, transform .1s ease, box-shadow .15s ease;
+}
+
+.mbb-cta-icon{
+  display:inline-flex;
+  width:20px;
+  height:20px;
+}
+
+.mbb-cta-icon svg{
+  width:100%;
+  height:100%;
+  stroke-width:1.7;
+}
+
+.mbb-cta:hover{
+  background:#0a177c;
+  transform:translateY(-1px);
+  box-shadow:0 10px 20px rgba(0,0,0,.16);
+}
+
+.mbb-cta:active{
+  transform:translateY(0);
+  box-shadow:none;
+}
+/* Tighten space between bundle pricebar and Add to Cart on pdp-v3 */
+body.template-product-pdp-v3 .buy-buttons-block {
+  display: block;            /* make sure span behaves like a block */
+  margin-top: -18px !important; /* tweak value: 0–8px depending on taste */
+}
+
+/* Make sure the inner button group doesn't add extra gap */
+body.template-product-pdp-v3 .product-form-buttons {
+  margin-top: 0 !important;
+}
+</style>
+
+<script>
+(function(){
+  if (window.__MB_BUNDLE_V7__) return;
+  window.__MB_BUNDLE_V7__ = true;
+
+  var WRAP = document.querySelector('[data-mbb]');
+  if (!WRAP) {
+    console.warn('[MB Bundle] wrapper [data-mbb] not found');
+    return;
+  }
+
+  // === HELPERS ===
+  function onReady(fn){
+    if (document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  // Use Shopify's money format so this works with Markets / currencies
+  var MONEY_FORMAT = {{ shop.money_format | json }};
+
+  function formatMoney(cents){
+    try {
+      if (window.Shopify && typeof Shopify.formatMoney === 'function'){
+        return Shopify.formatMoney(cents, MONEY_FORMAT);
+      }
+    } catch(e){}
+    var v = (cents / 100).toFixed(2);
+    return '$' + v;
+  }
+
+  // === VARIANTS BY TIER (dynamic from product.variants) ===
+  {% assign v1  = product.variants[0] %}
+  {% assign v2  = product.variants[1] %}
+  {% assign v3  = product.variants[2] %}
+  {% assign v6  = product.variants[3] %}
+  {% assign v12 = product.variants[4] %}
+  {% assign v18 = product.variants[5] %}
+
+  var VARIANTS_BY_TIER = {
+    1: {{ v1.id }},
+    2: {{ v2.id }},
+    3: {{ v3.id }},
+    6: {{ v6.id | default: v3.id }},
+    12: {{ v12.id | default: v3.id }},
+    18: {{ v18.id | default: v3.id }}
+  };
+
+  var RIG_VARIANT  = 56077888815435;   // Mining Rig variant
+
+  // === PRICE DATA BY TIER (in cents, dynamic from Shopify) ===
+  var PRICE_BY_TIER = {
+    1:  { price: {{ v1.price  | default: 0 | json }}, compare_at: {{ v1.compare_at_price  | default: 0 | json }} },
+    2:  { price: {{ v2.price  | default: 0 | json }}, compare_at: {{ v2.compare_at_price  | default: 0 | json }} },
+    3:  { price: {{ v3.price  | default: 0 | json }}, compare_at: {{ v3.compare_at_price  | default: 0 | json }} },
+    6:  { price: {{ v6.price  | default: 0 | json }}, compare_at: {{ v6.compare_at_price  | default: 0 | json }} },
+    12: { price: {{ v12.price | default: 0 | json }}, compare_at: {{ v12.compare_at_price | default: 0 | json }} },
+    18: { price: {{ v18.price | default: 0 | json }}, compare_at: {{ v18.compare_at_price | default: 0 | json }} }
+  };
+
+  // === TIERS CONFIG (non-price data only) ===
+  var TIERS = {
+    1:  { paidMiners: 1,  freeMiners: 0, rigs: 0, oddsX: 0,  cashback: false, oddsImg: "" },
+    2:  { paidMiners: 2,  freeMiners: 0, rigs: 0, oddsX: 0,  cashback: false, oddsImg: "" },
+    3:  { paidMiners: 3,  freeMiners: 1, rigs: 1, oddsX: 4,  cashback: false,
+          oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/4X_ODDS-3.jpg?v=1771465528" },
+    6:  { paidMiners: 6,  freeMiners: 2, rigs: 2, oddsX: 8,  cashback: true,
+          oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/8X_ODDS-3.jpg?v=1771465528" },
+    12: { paidMiners: 12, freeMiners: 4, rigs: 4, oddsX: 16, cashback: true,
+          oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/16X_ODDS-3.jpg?v=1771465528" },
+    18: { paidMiners: 18, freeMiners: 6, rigs: 6, oddsX: 24, cashback: true,
+          oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/24X_ODDS-3.jpg?v=1771465527" }
+  };
+
+  function getMbbWrap(){
+    if (WRAP && WRAP.isConnected) return WRAP;
+    WRAP = document.querySelector('[data-mbb]');
+    return WRAP;
+  }
+
+  /**
+   * Always resolve the live product form + inputs. The theme morphs the form after
+   * cart updates; stale references would update detached nodes so the next ATC
+   * submits the wrong variant or omits bundle rig line items.
+   */
+  function syncFormFields(optWrap){
+    var wrap = optWrap || getMbbWrap();
+    if (!wrap || !wrap.isConnected) return;
+
+    var section = wrap.closest('.shopify-section') || wrap.closest('section') || document;
+    var productForm =
+      section.querySelector('product-form form') ||
+      section.querySelector('form[action^="/cart/add"]');
+
+    if (!productForm){
+      console.warn('[MB Bundle] Product form not found near bundle.');
+      return;
+    }
+
+    var variantIdInput =
+      productForm.querySelector('input[name="id"][ref="variantId"]') ||
+      productForm.querySelector('input[name="id"]');
+
+    if (!variantIdInput){
+      console.warn('[MB Bundle] Variant ID input not found.');
+    }
+
+    var dynamicInputsWrap = productForm.querySelector('.mbb-dynamic-inputs');
+    if (!dynamicInputsWrap){
+      dynamicInputsWrap = document.createElement('div');
+      dynamicInputsWrap.className = 'mbb-dynamic-inputs';
+      dynamicInputsWrap.style.display = 'none';
+      productForm.appendChild(dynamicInputsWrap);
+    }
+
+    var tier   = +wrap.dataset.tier || 2;
+    var rigQty = +wrap.dataset.rigQty || 0;
+    var mainVariantId = VARIANTS_BY_TIER[tier] || VARIANTS_BY_TIER[2];
+
+    if (variantIdInput){
+      variantIdInput.value = String(mainVariantId);
+    }
+
+    // Single rig line per submit so Shopify can merge with the same variant + properties
+    // on later ATC clicks (quantity increases on one line). Line items only merge when
+    // every property value matches; do not add tier-unique or random properties here.
+    var html = '';
+    if (rigQty > 0){
+      html += '<input type="hidden" name="items[0][id]" value="'+ RIG_VARIANT +'">';
+      html += '<input type="hidden" name="items[0][quantity]" value="'+ rigQty +'">';
+      html += '<input type="hidden" name="items[0][properties][Bundle Gift]" value="Mining Rig">';
+      html += '<input type="hidden" name="items[0][properties][Bundle Type]" value="MineBlock PDP-v3">';
+    }
+
+    dynamicInputsWrap.innerHTML = html;
+    console.log('[MB Bundle] Synced form fields for tier', tier, 'rigQty', rigQty, 'mainVariantId', mainVariantId);
+  }
+
+  // Re-sync immediately before the theme builds FormData (morph-safe).
+  if (!window.__MB_BUNDLE_SUBMIT_SYNC__) {
+    window.__MB_BUNDLE_SUBMIT_SYNC__ = true;
+    document.addEventListener(
+      'submit',
+      function (ev) {
+        var form = ev.target;
+        if (!(form instanceof HTMLFormElement)) return;
+        var action = form.getAttribute('action') || '';
+        if (action.indexOf('cart/add') === -1) return;
+
+        var formSection = form.closest('.shopify-section');
+        if (!formSection) return;
+        var wrap = formSection.querySelector('[data-mbb]');
+        if (!wrap) return;
+
+        syncFormFields(wrap);
+      },
+      true
+    );
+  }
+
+  // === TIER SELECTION / UI + DATA ===
+  function setSelected(tier){
+    var wrap = getMbbWrap();
+    if (!wrap) return;
+
+    var t = TIERS[tier] || TIERS[2];
+    var priceData = PRICE_BY_TIER[tier] || PRICE_BY_TIER[2];
+    var priceCents   = priceData.price   || 0;
+    var compareCents = priceData.compare_at || 0;
+
+    var cards = wrap.querySelectorAll('.mbb-card');
+    cards.forEach(function(c){
+      var is = (+c.getAttribute('data-tier') === +tier);
+      c.classList.toggle('is-selected', is);
+      c.setAttribute('aria-checked', is ? 'true' : 'false');
+    });
+
+    var compareEl = wrap.querySelector('[data-mbb-compare]');
+    var totalEl   = wrap.querySelector('[data-mbb-total]');
+    var saveEl    = wrap.querySelector('[data-mbb-save]');
+    var giftShip  = wrap.querySelector('[data-gift="ship"]');
+    var giftRig   = wrap.querySelector('[data-gift="rig"]');
+    var giftOdds  = wrap.querySelector('[data-gift="odds"]');
+    var giftCash  = wrap.querySelector('[data-gift="cashback"]');
+    var oddsImgEl = wrap.querySelector('[data-odds-img]');
+
+    // Gift unlock rules
+    var unlockShip = tier >= 2;
+    var unlockOdds = tier >= 3;
+    var unlockRig  = (t.rigs || 0) > 0;
+    var unlockCash = !!t.cashback;
+
+    if (giftShip) giftShip.classList.toggle('is-locked', !unlockShip);
+    if (giftOdds) giftOdds.classList.toggle('is-locked', !unlockOdds);
+    if (giftRig)  giftRig.classList.toggle('is-locked',  !unlockRig);
+    if (giftCash) giftCash.classList.toggle('is-locked', !unlockCash);
+
+    if (oddsImgEl && t.oddsImg){
+      oddsImgEl.src = t.oddsImg;
+    }
+
+    // Price bar: use actual variant price/compare_at (Markets-safe)
+    if (totalEl){
+      totalEl.textContent = formatMoney(priceCents);
+    }
+
+    // For tier 1 or when no real discount, hide compare/save
+    var hasDiscount = tier !== 1 && compareCents > priceCents;
+    console.log("discount: " + hasDiscount);
+
+    if (!hasDiscount){
+      if (compareEl) compareEl.style.display = 'none';
+      if (saveEl)    saveEl.style.display    = 'none';
+    } else {
+      var savingsCents = compareCents - priceCents;
+      console.log(savingsCents);
+
+      if (compareEl){
+        compareEl.style.display = '';
+        compareEl.innerHTML = '<s>' + formatMoney(compareCents) + '</s>';
+      }
+      if (saveEl){
+        saveEl.style.display = '';
+        saveEl.textContent = "You're saving " + formatMoney(savingsCents);
+      }
+    }
+
+    wrap.dataset.tier   = String(tier);
+    wrap.dataset.rigQty = String(t.rigs || 0);
+
+    syncFormFields(wrap);
+  }
+
+  // Default selection: Buy 2 Miners
+  setSelected(2);
+
+  // Delegation: survives section morphs that replace card nodes
+  WRAP.addEventListener('click', function (ev) {
+    var root = ev.currentTarget;
+    var card = ev.target.closest('.mbb-card');
+    if (!card || !root.contains(card)) return;
+    setSelected(+card.getAttribute('data-tier'));
+  });
+
+  onReady(function(){
+    syncFormFields();
+  });
+
+})();
+</script>
+
+
+{% schema %}
+{
+  "name": "Bundle Selector",
+  "settings": [],
+  "presets": [{ "name": "Bundle Selector" }]
+}
+{% endschema %}

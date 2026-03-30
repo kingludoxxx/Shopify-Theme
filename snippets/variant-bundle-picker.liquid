@@ -1,0 +1,329 @@
+{%- doc -%}
+  Bundle & Save style variant picker (card layout). Used only for products 15420770681163, 15478310502731, and 15478310338891.
+  Renders vertically stacked cards with image, title, savings, price, and optional badges.
+{%- enddoc -%}
+
+{% assign block_settings = block.settings %}
+{% assign product_option = product_resource.options_with_values | first %}
+{% assign variant_override_image_url_56798009819467 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-1.png?v=1765567011" | default: '' %}
+{% assign variant_override_image_url_56798009852235 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-2.png?v=1765567044" | default: '' %}
+{% assign variant_override_image_url_56798009885003 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063" | default: '' %}
+
+{% assign variant_override_image_url_56317844947275 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/1_400d2077-668a-4da5-ad3e-f4c8d3f2843b.png?v=1773610453" | default: '' %}
+{% assign variant_override_image_url_56317844980043 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/2_f9b6aba0-a13a-4732-b230-3c270b07a5c5.png?v=1773610455" | default: '' %}
+{% assign variant_override_image_url_56317845012811 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/3_6312b2c4-4d1a-42a9-ad49-9fba54474a0c.png?v=1773610457" | default: '' %}
+{% assign variant_override_image_url_56317845307723 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_1.png?v=1773610130" | default: '' %}
+{% assign variant_override_image_url_56317845340491 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_2.png?v=1773610130" | default: '' %}
+{% assign variant_override_image_url_56317845373259 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_3.png?v=1773610130" | default: '' %}
+
+
+{% liquid
+  assign button_background_brightness = section.settings.color_scheme.settings.foreground | color_brightness
+  if button_background_brightness < 105
+    assign strikethrough_color_mix = '#000'
+  else
+    assign strikethrough_color_mix = '#fff'
+  endif
+%}
+
+<variant-picker
+  class="variant-picker variant-picker--bundle spacing-style variant-picker--{{ block_settings.alignment }}"
+  style="--color-strikethrough-mix: {{ strikethrough_color_mix }}; {% render 'spacing-style', settings: block_settings %}"
+  data-section-id="{{ section.id }}"
+  data-product-id="{{ product_resource.id }}"
+  data-block-id="{{ block.id }}"
+  data-product-url="{{ product_resource.url }}"
+  ref="mainVariantPicker"
+  {% if product.id == product_resource.id %}
+    data-template-product-match="true"
+  {% endif %}
+  {{ block.shopify_attributes }}
+  {% if request.visual_preview_mode %}
+    data-shopify-visual-preview
+  {% endif %}
+>
+  <form class="variant-picker__form variant-picker__form--bundle">
+    <div class="bundle-picker">
+      <h3 class="bundle-picker__heading">
+        <span class="bundle-picker__heading-line"></span>
+        <span class="bundle-picker__heading-text">BUNDLE & SAVE</span>
+        <span class="bundle-picker__heading-line"></span>
+      </h3>
+
+      <fieldset
+        class="variant-option variant-option--bundle-cards"
+        data-fieldset-index="0"
+        ref="fieldsets[]"
+      >
+        <legend class="visually-hidden">{{ product_option.name | escape }}</legend>
+
+        {%- for product_option_value in product_option.values -%}
+          {%- assign v = product_option_value.variant -%}
+          {%- assign savings = v.compare_at_price | minus: v.price -%}
+          {%- assign is_selected = product_option_value.selected -%}
+          {%- assign featured_media = v.featured_media | default: product_resource.featured_media -%}
+
+          <label
+            class="bundle-picker__card{% if is_selected %} bundle-picker__card--selected{% endif %}"
+          >
+            <input
+              type="radio"
+              name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}"
+              value="{{ product_option_value | escape }}"
+              aria-label="{{ product_option_value.name }}"
+              {% if product_option_value.available == false %}aria-disabled="true"{% endif %}
+              data-previous-checked="false"
+              data-fieldset-index="0"
+              data-input-index="{{ forloop.index0 }}"
+              data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
+              data-option-value-id="{{ product_option_value.id }}"
+              data-option-available="{{ product_option_value.available }}"
+              data-connected-product-url="{{ product_option_value.product_url }}"
+              {% if v.id %}data-variant-id="{{ v.id }}"{% endif %}
+              {% if is_selected %}
+                data-current-checked="true"
+                checked
+              {% else %}
+                data-current-checked="false"
+              {% endif %}
+            >
+
+            {%- comment -%} Top-right badge: Free Shipping (2nd), Best Value (3rd) {%- endcomment -%}
+            {%- if forloop.index == 2 -%}
+              <span class="bundle-picker__badge bundle-picker__badge--shipping">Free Shipping</span>
+            {%- elsif forloop.index == 3 -%}
+              <span class="bundle-picker__badge bundle-picker__badge--value">Best Value</span>
+            {%- endif -%}
+
+            <div class="bundle-picker__card-inner">
+              <div class="bundle-picker__card-media">
+                {% if v.id == 56798009819467 and variant_override_image_url_56798009819467 != blank %}
+                  <img src="{{ variant_override_image_url_56798009819467 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56798009852235 and variant_override_image_url_56798009852235 != blank %}
+                  <img src="{{ variant_override_image_url_56798009852235 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56798009885003 and variant_override_image_url_56798009885003 != blank %}
+                  <img src="{{ variant_override_image_url_56798009885003 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317844947275 and variant_override_image_url_56317844947275 != blank %}
+                  <img src="{{ variant_override_image_url_56317844947275 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317844980043 and variant_override_image_url_56317844980043 != blank %}
+                  <img src="{{ variant_override_image_url_56317844980043 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845012811 and variant_override_image_url_56317845012811 != blank %}
+                  <img src="{{ variant_override_image_url_56317845012811 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845307723 and variant_override_image_url_56317845307723 != blank %}
+                  <img src="{{ variant_override_image_url_56317845307723 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845340491 and variant_override_image_url_56317845340491 != blank %}
+                  <img src="{{ variant_override_image_url_56317845340491 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845373259 and variant_override_image_url_56317845373259 != blank %}
+                  <img src="{{ variant_override_image_url_56317845373259 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif featured_media %}
+                  {{ featured_media | image_url: width: 120 | image_tag: loading: 'lazy', widths: '80,120,160', class: 'bundle-picker__image' }}
+                {% endif %}
+              </div>
+              <div class="bundle-picker__card-body">
+                <div class="bundle-picker__card-title-row">
+                  <span class="bundle-picker__card-title">{{ product_option_value.name }}</span>
+                  {%- if forloop.index == 2 -%}
+                    <span class="bundle-picker__pill bundle-picker__pill--odds">2x ODDS</span>
+                  {%- elsif forloop.index == 3 -%}
+                    <span class="bundle-picker__pill bundle-picker__pill--odds">4x ODDS</span>
+                  {%- endif -%}
+                </div>
+                {% if savings > 0 %}
+                  <p class="bundle-picker__savings">You save {{ savings | money }}</p>
+                {% endif %}
+              </div>
+              <div class="bundle-picker__card-price">
+                <span class="bundle-picker__price-current">{{ v.price | money }}</span>
+                {% if v.compare_at_price > v.price %}
+                  <span class="bundle-picker__price-compare">{{ v.compare_at_price | money }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </label>
+        {%- endfor -%}
+      </fieldset>
+    </div>
+
+    <script type="application/json">
+      {{ product_resource.selected_or_first_available_variant | json }}
+    </script>
+  </form>
+</variant-picker>
+
+{% stylesheet %}
+  .variant-picker--bundle .bundle-picker {
+    width: 100%;
+  }
+
+  .bundle-picker__heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .bundle-picker__heading-line {
+    flex: 1;
+    height: 1px;
+    background: rgb(var(--color-foreground-rgb) / 0.3);
+  }
+
+  .bundle-picker__heading-text {
+    white-space: nowrap;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .variant-option--bundle-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .variant-option--bundle-cards legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .bundle-picker__card {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    background: rgb(237, 237, 237);
+    box-shadow: inset 0 0 0 1px var(--bar-border-color, rgba(0, 0, 0, .3));
+    border: 2px solid rgb(var(--color-variant-border));
+    border-radius: 8px;
+    padding: 1rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    padding: calc(10px * var(--block-spacing, 1)) calc(15px * var(--block-spacing, 1) + 5px);
+  }
+
+  .bundle-picker__card:hover {
+    border-color: rgb(var(--color-variant-hover-border));
+  }
+
+  /* Selected state from checked input only so JS selection shows one card (class would leave two selected) */
+  .bundle-picker__card:has(input:checked) {
+    border-color: rgb(var(--color-foreground-rgb));
+    border-width: 2px;
+    background: white;
+    box-shadow: inset 0 0 0 2px var(--bar-selected-border-color, #000);
+  }
+
+  .bundle-picker__card input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .bundle-picker__card-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 60px;
+  }
+
+  .bundle-picker__card-media {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .bundle-picker__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .bundle-picker__card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bundle-picker__card-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    line-height: 1;
+  }
+
+  .bundle-picker__card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .bundle-picker__pill {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background-color: rgba(217, 217, 217, 1);
+    color: black;
+    font-weight: 900;
+  }
+
+  .bundle-picker__savings {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    font-weight: 900;
+  }
+
+  .bundle-picker__card-price {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .bundle-picker__price-current {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .bundle-picker__price-compare {
+    display: block;
+    font-size: 0.8125rem;
+    color: rgb(var(--color-foreground-rgb) / 0.6);
+    text-decoration: line-through;
+  }
+
+  .bundle-picker__badge {
+    position: absolute;
+    top: -5px;
+    right: 0.75rem;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 14px;
+    border-radius: 5px;
+    color: #fff;
+    line-height: 1;
+    background: #1a61f9;
+  }
+
+  .bundle-picker__card:has([data-option-available='false']) {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+{% endstylesheet %}

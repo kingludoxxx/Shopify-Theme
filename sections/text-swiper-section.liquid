@@ -1,0 +1,254 @@
+<style>
+    .top-template--{{section.id}} {
+      padding-top: 64px;
+      padding-bottom: 10px;
+      background-color: #ffffff;
+          overflow: hidden;
+  }
+  .main-text{
+    align-items: flex-start;
+      column-gap: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 100%;
+      position: relative;
+      row-gap: 64px;
+      max-width: 1200px;
+     margin : 0 auto;
+  }
+  .des-main{
+        display: flex;
+      align-items: end;
+      gap: 64px;
+  }
+  .custom-des{
+    width: 80%;
+  }
+  .q-writer{
+    width: 100%;
+    text-align: left;
+    color: #4b5563;
+    margin: 0;
+    margin-top: 6px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    font-family: Open Sauce;
+  }
+  .text-heading{
+        margin: 0;
+      color: #000;
+      font-family: Open Sauce;
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.1;
+  }
+  .custom-des p{
+        margin: 0;
+      color: #4b5563;
+    font-family: Open Sauce;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-top: 24px;
+  }
+  .swiper-img{
+    max-width: 100%;
+      border-radius: 20px;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+  }
+  .custom-slider{
+    max-width: 1200px;
+    margin: 64px auto 0px;
+  }
+  .custom-slider .mySwiper-venom{
+    overflow: visible;
+  }
+  .next-btn, .pre-btn{
+    align-items: center;
+      background: #000;
+      border-radius: 20px;
+      border-style: solid;
+      border-width: 0;
+      display: flex;
+      flex-direction: row;
+      height: 40px;
+      justify-content: center;
+      position: relative;
+      width: 40px;
+    cursor: pointer;
+  }
+  .next-btn svg, .pre-btn svg{
+    width: 25px;
+    height: 25px;
+  }
+  .next-btn svg path, .pre-btn svg path{
+   color: white;
+  }
+  .text-btn{
+        display: flex;
+      justify-content: space-between;
+      align-items: center;
+     margin-top: 48px;
+  }
+  .slider-btn{
+        display: flex;
+      gap: 20px;
+  }
+  .date-text{
+    margin: 0;
+     color: #4b5563;
+    margin: 0;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+    font-family: Open Sauce;
+  }
+  .custom-text-swiper .swiper-button-disabled{
+    opacity: .35;
+  }
+   @media (max-width: 768px) {
+
+  .custom-slider{
+    margin: 24px auto 0px;
+  }
+
+  .top-template--{{section.id}} {
+      padding-top: 45px;
+      padding-bottom: 0px;
+  }
+  .des-main{
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+  }
+  .custom-des p {
+    font-size: 16px;
+  }
+  .custom-des {
+      width: 100%;
+  }
+  .q-writer {
+      width: 100%;
+      text-align: left;
+      font-size: 16px;
+      margin-top: 0;
+  }
+  .text-heading {
+    font-size: 32px;
+  }
+  .text-btn{
+    padding-right: 16px;
+  }
+  .swiper-img {
+      max-width: 100%;
+      border-radius: 20px;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+  }
+  }
+</style>
+
+<section class="top-template--{{ section.id }} custom-text-swiper">
+  <div class="page-width">
+    <div class="main-text">
+      <div class="custom-text-content">
+        <h3 class="text-heading">{{ section.settings.heading }}</h3>
+        <div class="des-main">
+          <p class="q-writer">{{ section.settings.author }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="custom-slider">
+      <div class="swiper mySwiper-venom">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.settings.slide_image != blank %}
+              <div class="swiper-slide">
+                <img
+                  class="swiper-img"
+                  src="{{ block.settings.slide_image | image_url: width: 1200 }}"
+                  alt="Slide image"
+                  loading="lazy"
+                >
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var swiper = new Swiper('.mySwiper-venom', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    speed: 500, // Duration of the transition between slides (in ms)
+    simulateTouch: true,
+    navigation: {
+      nextEl: '.next-btn',
+      prevEl: '.pre-btn',
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 1,
+      },
+    },
+  });
+</script>
+{% schema %}
+{
+  "name": "Custom Text Swiper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "I've Tested The TOP 5 Hair Loss Treatments - Only 1 Actually Regrew My Hair"
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author Name",
+      "default": "By Mike Patterson, Hair Loss Expert"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_image",
+          "label": "Slide Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Text Swiper",
+      "category": "Custom Sections",
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
