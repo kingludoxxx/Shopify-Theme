@@ -59,16 +59,6 @@
         <div class="mbb-lock" aria-hidden="true">🔒</div>
       </div>
 
-      <div class="mbb-gift" data-gift="rig">
-        <span class="mbb-pill">FREE <s>$24.99</s></span>
-        <div class="mbb-gift__img">
-          <img alt="Mining Rig" loading="lazy"
-            src="https://cdn.shopify.com/s/files/1/0768/4787/4379/files/MINING_RING-4.jpg?v=1771465528">
-        </div>
-        <div class="mbb-gift__lbl">Mining Rig</div>
-        <div class="mbb-lock" aria-hidden="true">🔒</div>
-      </div>
-
       <div class="mbb-gift" data-gift="odds">
         <span class="mbb-pill">FREE</span>
         <div class="mbb-gift__img">
@@ -143,7 +133,7 @@
   /* gifts */
   .mbb-gifts{margin-top:18px}
   .mbb-gifts__title{text-align:center;font-weight:700;letter-spacing:.03em;font-size:14px}
-  .mbb-gifts__grid{margin-top:12px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .mbb-gifts__grid{margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
   .mbb-gift{
     border:2px dashed #b9d9e6;border-radius:14px;padding:10px 8px;text-align:center;
     position:relative;background:#fff;
@@ -374,8 +364,6 @@ body.template-product-pdp-v3 .product-form-buttons {
     18: {{ v18.id | default: v3.id }}
   };
 
-  var RIG_VARIANT  = 56077888815435;   // Mining Rig variant
-
   // === PRICE DATA BY TIER (in cents, dynamic from Shopify) ===
   var PRICE_BY_TIER = {
     1:  { price: {{ v1.price  | default: 0 | json }}, compare_at: {{ v1.compare_at_price  | default: 0 | json }} },
@@ -388,15 +376,15 @@ body.template-product-pdp-v3 .product-form-buttons {
 
   // === TIERS CONFIG (non-price data only) ===
   var TIERS = {
-    1:  { paidMiners: 1,  freeMiners: 0, rigs: 0, oddsX: 0,  cashback: false, oddsImg: "" },
-    2:  { paidMiners: 2,  freeMiners: 0, rigs: 0, oddsX: 0,  cashback: false, oddsImg: "" },
-    3:  { paidMiners: 3,  freeMiners: 1, rigs: 1, oddsX: 4,  cashback: false,
+    1:  { paidMiners: 1,  freeMiners: 0, oddsX: 0,  cashback: false, oddsImg: "" },
+    2:  { paidMiners: 2,  freeMiners: 0, oddsX: 0,  cashback: false, oddsImg: "" },
+    3:  { paidMiners: 3,  freeMiners: 1, oddsX: 4,  cashback: false,
           oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/4X_ODDS-3.jpg?v=1771465528" },
-    6:  { paidMiners: 6,  freeMiners: 2, rigs: 2, oddsX: 8,  cashback: true,
+    6:  { paidMiners: 6,  freeMiners: 2, oddsX: 8,  cashback: true,
           oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/8X_ODDS-3.jpg?v=1771465528" },
-    12: { paidMiners: 12, freeMiners: 4, rigs: 4, oddsX: 16, cashback: true,
+    12: { paidMiners: 12, freeMiners: 4, oddsX: 16, cashback: true,
           oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/16X_ODDS-3.jpg?v=1771465528" },
-    18: { paidMiners: 18, freeMiners: 6, rigs: 6, oddsX: 24, cashback: true,
+    18: { paidMiners: 18, freeMiners: 6, oddsX: 24, cashback: true,
           oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/24X_ODDS-3.jpg?v=1771465527" }
   };
 
@@ -433,35 +421,14 @@ body.template-product-pdp-v3 .product-form-buttons {
       console.warn('[MB Bundle] Variant ID input not found.');
     }
 
-    var dynamicInputsWrap = productForm.querySelector('.mbb-dynamic-inputs');
-    if (!dynamicInputsWrap){
-      dynamicInputsWrap = document.createElement('div');
-      dynamicInputsWrap.className = 'mbb-dynamic-inputs';
-      dynamicInputsWrap.style.display = 'none';
-      productForm.appendChild(dynamicInputsWrap);
-    }
-
     var tier   = +wrap.dataset.tier || 2;
-    var rigQty = +wrap.dataset.rigQty || 0;
     var mainVariantId = VARIANTS_BY_TIER[tier] || VARIANTS_BY_TIER[2];
 
     if (variantIdInput){
       variantIdInput.value = String(mainVariantId);
     }
 
-    // Single rig line per submit so Shopify can merge with the same variant + properties
-    // on later ATC clicks (quantity increases on one line). Line items only merge when
-    // every property value matches; do not add tier-unique or random properties here.
-    var html = '';
-    if (rigQty > 0){
-      html += '<input type="hidden" name="items[0][id]" value="'+ RIG_VARIANT +'">';
-      html += '<input type="hidden" name="items[0][quantity]" value="'+ rigQty +'">';
-      html += '<input type="hidden" name="items[0][properties][Bundle Gift]" value="Mining Rig">';
-      html += '<input type="hidden" name="items[0][properties][Bundle Type]" value="MineBlock PDP-v3">';
-    }
-
-    dynamicInputsWrap.innerHTML = html;
-    console.log('[MB Bundle] Synced form fields for tier', tier, 'rigQty', rigQty, 'mainVariantId', mainVariantId);
+    console.log('[MB Bundle] Synced form fields for tier', tier, 'mainVariantId', mainVariantId);
   }
 
   // Re-sync immediately before the theme builds FormData (morph-safe).
@@ -507,7 +474,6 @@ body.template-product-pdp-v3 .product-form-buttons {
     var totalEl   = wrap.querySelector('[data-mbb-total]');
     var saveEl    = wrap.querySelector('[data-mbb-save]');
     var giftShip  = wrap.querySelector('[data-gift="ship"]');
-    var giftRig   = wrap.querySelector('[data-gift="rig"]');
     var giftOdds  = wrap.querySelector('[data-gift="odds"]');
     var giftCash  = wrap.querySelector('[data-gift="cashback"]');
     var oddsImgEl = wrap.querySelector('[data-odds-img]');
@@ -515,12 +481,10 @@ body.template-product-pdp-v3 .product-form-buttons {
     // Gift unlock rules
     var unlockShip = tier >= 2;
     var unlockOdds = tier >= 3;
-    var unlockRig  = (t.rigs || 0) > 0;
     var unlockCash = !!t.cashback;
 
     if (giftShip) giftShip.classList.toggle('is-locked', !unlockShip);
     if (giftOdds) giftOdds.classList.toggle('is-locked', !unlockOdds);
-    if (giftRig)  giftRig.classList.toggle('is-locked',  !unlockRig);
     if (giftCash) giftCash.classList.toggle('is-locked', !unlockCash);
 
     if (oddsImgEl && t.oddsImg){
@@ -554,7 +518,6 @@ body.template-product-pdp-v3 .product-form-buttons {
     }
 
     wrap.dataset.tier   = String(tier);
-    wrap.dataset.rigQty = String(t.rigs || 0);
 
     syncFormFields(wrap);
   }
