@@ -42,17 +42,28 @@ div#hours, div#minutes, div#seconds {
   }
   @media only screen and (max-width: 767px) {
   .countdown-banner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px 0px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 8px 10px;
+    gap: 8px;
+    font-size: 12px;
+}
+.countdown-banner .promo-text {
+    white-space: nowrap;
+    font-size: 11px;
 }
 .countdown-box {
-    min-width: 38px;
-    height: 45px;
+    min-width: 32px;
+    height: 38px;
+    font-size: 11px;
 }
 .countdown-banner .timer {
     gap: 4px;
     justify-content: center;
+}
+div#hours, div#minutes, div#seconds {
+    font-size: 16px;
 }
 h4.molly_richards, .date-content {
     margin: 0px 0px 4px 0px;
