@@ -2,15 +2,15 @@
 
 <style>
 /* ===== UPSELL WRAPPER ===== */
- .cart-upsell {
+.cart-upsell {
   margin-top: 30px;
- }
+}
 
 .cart-upsell__title {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 14px;
-  color: #111;
+  color: #c8a461;
   text-transform: capitalize;
 }
 
@@ -18,107 +18,121 @@
 .cart-upsell__item {
   display: flex;
   align-items: flex-start;
-  gap:8px;
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
+  gap: 10px;
+  background: #111;
+  border: 1px solid rgba(200,164,97,0.25);
   border-radius: 14px;
-  padding: 8px;
+  padding: 12px;
   margin-bottom: 14px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-  position:relative;
+  position: relative;
 }
 
 /* ===== IMAGE ===== */
 .cart-upsell__item img {
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
   object-fit: cover;
   border-radius: 10px;
-  background: #f6f6f6;
+  background: #1a1a1a;
   flex-shrink: 0;
 }
 
 /* ===== INFO ===== */
 .cart-upsell__info {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+}
+
+/* ===== TOP ROW: name + price ===== */
+.cart-upsell__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .cart-upsell__name {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  color: #111;
+  color: #c8a461;
+  font-style: italic;
   margin: 0;
+  line-height: 1.3;
 }
 
-/* Optional product description (if you add later) */
 .cart-upsell__desc {
-  font-size: 13px;
-  color: #666;
+  font-size: 12px;
+  color: #aaa;
   line-height: 1.4;
+  font-style: italic;
+  margin: 2px 0 0;
 }
 
-/* ===== PRICE (RIGHT SIDE LOOK) ===== */
+/* ===== PRICE ===== */
 .cart-upsell__price {
-    font-size: 12px;
-    font-weight: 600;
-    color: #111;
-    position: absolute;
-    right: 22px;
-    top: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #c8a461;
+  white-space: nowrap;
+  text-align: right;
+  flex-shrink: 0;
 }
 
 .cart-upsell__price del {
-  font-size: 13px;
-  color: #888;
-  margin-left: 6px;
+  display: block;
+  font-size: 11px;
+  color: #777;
   font-weight: 400;
+}
+
+/* ===== BOTTOM ROW: dropdown + button ===== */
+.cart-upsell__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  gap: 8px;
 }
 
 /* ===== VARIANT DROPDOWN ===== */
 .cart-upsell__variant {
-  margin-top: 4px;
-  background: #f2f2f2;
-  border: 1px solid #dcdcdc;
+  background: #1a1a1a;
+  border: 1px solid #333;
   border-radius: 8px;
   padding: 6px 10px;
-  font-size: 13px;
-  color: #111;
+  font-size: 12px;
+  color: #ddd;
   width: fit-content;
   outline: none;
+  -webkit-appearance: auto;
 }
 
-/* ===== ADD BUTTON (BLUE ROUNDED) ===== */
+/* ===== ADD BUTTON ===== */
 .cart-upsell__add {
-  margin-left: auto;
-  background: #0a3d91;
+  background: linear-gradient(135deg, #c8a461, #a07a3a);
   color: #fff;
   border: none;
   border-radius: 999px;
-  padding: 10px 22px;
-  font-size: 14px;
-  font-weight: 600;
+  padding: 8px 22px;
+  font-size: 13px;
+  font-weight: 700;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease;
   white-space: nowrap;
-  margin-top: 8px;
-  align-self: flex-start;
   flex-shrink: 0;
 }
 
 .cart-upsell__add:hover {
-  background: #082f70;
+  background: linear-gradient(135deg, #d4b06e, #b08a45);
 }
 
 .cart-upsell__add:active {
   transform: scale(0.97);
 }
-
-
-
-    </style>
+</style>
 {% assign upsell_collection = collections['upsell'] %}
 
 {% if upsell_collection and cart.item_count > 0 %}
@@ -137,39 +151,43 @@
         >
 
         <div class="cart-upsell__info">
-          <p class="cart-upsell__name">{{ product.title }}</p>
-
-          <div class="cart-upsell__price">
-            <span data-upsell-price>{{ variant.price | money }}</span>
-            {% if variant.compare_at_price > variant.price %}
-              <del data-upsell-compare>{{ variant.compare_at_price | money }}</del>
-            {% endif %}
+          <div class="cart-upsell__top">
+            <p class="cart-upsell__name">{{ product.title }}</p>
+            <div class="cart-upsell__price">
+              <span data-upsell-price>{{ variant.price | money }}</span>
+              {% if variant.compare_at_price > variant.price %}
+                <del data-upsell-compare>{{ variant.compare_at_price | money }}</del>
+              {% endif %}
+            </div>
           </div>
 
-          {% if product.variants.size > 1 %}
-            <select class="cart-upsell__variant" data-upsell-select>
-              {% for v in product.variants %}
-                <option
-                  value="{{ v.id }}"
-                  data-image="{{ v.featured_image | default: product.featured_image | image_url: width: 120 }}"
-                  data-price="{{ v.price | money }}"
-                  data-compare="{{ v.compare_at_price | money }}"
-                >
-                  {{ v.title }}
-                </option>
-              {% endfor %}
-            </select>
-          {% endif %}
+          <div class="cart-upsell__actions">
+            {% if product.variants.size > 1 %}
+              <select class="cart-upsell__variant" data-upsell-select>
+                {% for v in product.variants %}
+                  <option
+                    value="{{ v.id }}"
+                    data-image="{{ v.featured_image | default: product.featured_image | image_url: width: 120 }}"
+                    data-price="{{ v.price | money }}"
+                    data-compare="{{ v.compare_at_price | money }}"
+                  >
+                    {{ v.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            {% else %}
+              <span></span>
+            {% endif %}
+            <button
+              class="cart-upsell__add button"
+              data-variant-id="{{ variant.id }}"
+              type="button"
+              data-upsell-add
+            >
+              Add
+            </button>
+          </div>
         </div>
-
-        <button
-          class="cart-upsell__add button"
-          data-variant-id="{{ variant.id }}"
-          type="button"
-          data-upsell-add
-        >
-          Add
-        </button>
       </div>
     {% endfor %}
 
@@ -186,41 +204,45 @@
         >
 
         <div class="cart-upsell__info">
-          <p class="cart-upsell__name">{{ gamma.title }}</p>
-
-          <div class="cart-upsell__price">
-            <span data-upsell-price>{{ gamma_variant.price | money }}</span>
-            {% if gamma_variant.compare_at_price > gamma_variant.price %}
-              <del data-upsell-compare>{{ gamma_variant.compare_at_price | money }}</del>
-            {% endif %}
+          <div class="cart-upsell__top">
+            <p class="cart-upsell__name">{{ gamma.title }}</p>
+            <div class="cart-upsell__price">
+              <span data-upsell-price>{{ gamma_variant.price | money }}</span>
+              {% if gamma_variant.compare_at_price > gamma_variant.price %}
+                <del data-upsell-compare>{{ gamma_variant.compare_at_price | money }}</del>
+              {% endif %}
+            </div>
           </div>
 
           <p class="cart-upsell__desc">Boost your chances of winning by adding this upgraded miner to your order.</p>
 
-          {% if gamma.variants.size > 1 %}
-            <select class="cart-upsell__variant" data-upsell-select>
-              {% for v in gamma.variants %}
-                <option
-                  value="{{ v.id }}"
-                  data-image="{{ v.featured_image | default: gamma.featured_image | image_url: width: 120 }}"
-                  data-price="{{ v.price | money }}"
-                  data-compare="{{ v.compare_at_price | money }}"
-                >
-                  {{ v.title }}
-                </option>
-              {% endfor %}
-            </select>
-          {% endif %}
+          <div class="cart-upsell__actions">
+            {% if gamma.variants.size > 1 %}
+              <select class="cart-upsell__variant" data-upsell-select>
+                {% for v in gamma.variants %}
+                  <option
+                    value="{{ v.id }}"
+                    data-image="{{ v.featured_image | default: gamma.featured_image | image_url: width: 120 }}"
+                    data-price="{{ v.price | money }}"
+                    data-compare="{{ v.compare_at_price | money }}"
+                  >
+                    {{ v.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            {% else %}
+              <span></span>
+            {% endif %}
+            <button
+              class="cart-upsell__add button"
+              data-variant-id="{{ gamma_variant.id }}"
+              type="button"
+              data-upsell-add
+            >
+              Add
+            </button>
+          </div>
         </div>
-
-        <button
-          class="cart-upsell__add button"
-          data-variant-id="{{ gamma_variant.id }}"
-          type="button"
-          data-upsell-add
-        >
-          Add
-        </button>
       </div>
     {% endif %}
   </div>
