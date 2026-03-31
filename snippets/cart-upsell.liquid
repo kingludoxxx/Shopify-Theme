@@ -17,7 +17,7 @@
 /* ===== CARD ===== */
 .cart-upsell__item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap:8px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
@@ -103,7 +103,9 @@
   cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease;
   white-space: nowrap;
-  margin-top:35px;
+  margin-top: 8px;
+  align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .cart-upsell__add:hover {
