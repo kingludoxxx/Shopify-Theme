@@ -127,7 +127,6 @@
       {% assign variant = product.selected_or_first_available_variant %}
 
       <div class="cart-upsell__item" data-upsell-item>
-        {% comment %} Added data-upsell-image attribute {% endcomment %}
         <img
           src="{{ variant.featured_image | default: product.featured_image | image_url: width: 120 }}"
           alt="{{ product.title }}"
@@ -139,7 +138,6 @@
           <p class="cart-upsell__name">{{ product.title }}</p>
 
           <div class="cart-upsell__price">
-             {% comment %} We add a data attribute here to update the price too {% endcomment %}
             <span data-upsell-price>{{ variant.price | money }}</span>
             {% if variant.compare_at_price > variant.price %}
               <del data-upsell-compare>{{ variant.compare_at_price | money }}</del>
@@ -149,13 +147,11 @@
           {% if product.variants.size > 1 %}
             <select class="cart-upsell__variant" data-upsell-select>
               {% for v in product.variants %}
-                {% comment %} 
-                  We store the variant image and price in data attributes 
-                {% endcomment %}
-                <option 
-                  value="{{ v.id }}" 
+                <option
+                  value="{{ v.id }}"
                   data-image="{{ v.featured_image | default: product.featured_image | image_url: width: 120 }}"
                   data-price="{{ v.price | money }}"
+                  data-compare="{{ v.compare_at_price | money }}"
                 >
                   {{ v.title }}
                 </option>
@@ -174,6 +170,57 @@
         </button>
       </div>
     {% endfor %}
+
+    {%- comment -%} ── Gamma Miner Upsell (hardcoded) ── {%- endcomment -%}
+    {% assign gamma = all_products['bitaxe-gamma'] %}
+    {% if gamma and gamma.available %}
+      {% assign gamma_variant = gamma.selected_or_first_available_variant %}
+      <div class="cart-upsell__item" data-upsell-item>
+        <img
+          src="{{ gamma_variant.featured_image | default: gamma.featured_image | image_url: width: 120 }}"
+          alt="{{ gamma.title }}"
+          loading="lazy"
+          data-upsell-image
+        >
+
+        <div class="cart-upsell__info">
+          <p class="cart-upsell__name">{{ gamma.title }}</p>
+
+          <div class="cart-upsell__price">
+            <span data-upsell-price>{{ gamma_variant.price | money }}</span>
+            {% if gamma_variant.compare_at_price > gamma_variant.price %}
+              <del data-upsell-compare>{{ gamma_variant.compare_at_price | money }}</del>
+            {% endif %}
+          </div>
+
+          <p class="cart-upsell__desc">Boost your chances of winning by adding this upgraded miner to your order.</p>
+
+          {% if gamma.variants.size > 1 %}
+            <select class="cart-upsell__variant" data-upsell-select>
+              {% for v in gamma.variants %}
+                <option
+                  value="{{ v.id }}"
+                  data-image="{{ v.featured_image | default: gamma.featured_image | image_url: width: 120 }}"
+                  data-price="{{ v.price | money }}"
+                  data-compare="{{ v.compare_at_price | money }}"
+                >
+                  {{ v.title }}
+                </option>
+              {% endfor %}
+            </select>
+          {% endif %}
+        </div>
+
+        <button
+          class="cart-upsell__add button"
+          data-variant-id="{{ gamma_variant.id }}"
+          type="button"
+          data-upsell-add
+        >
+          Add
+        </button>
+      </div>
+    {% endif %}
   </div>
 {% endif %}
 
@@ -209,6 +256,13 @@
     var priceTag = itemContainer.querySelector('[data-upsell-price]');
     if (newPrice && priceTag) {
       priceTag.textContent = newPrice;
+    }
+
+    // 4. Update Compare-at price
+    var newCompare = selectedOption.getAttribute('data-compare');
+    var compareTag = itemContainer.querySelector('[data-upsell-compare]');
+    if (compareTag && newCompare) {
+      compareTag.textContent = newCompare;
     }
   });
 
