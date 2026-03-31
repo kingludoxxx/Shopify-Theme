@@ -2,50 +2,29 @@
   Cart Upsell — Mining Rig
   Shows a "You May Also Like" upsell card in the cart page
   with variant dropdown (1 Slot / 2 Slots / 4 Slots) and Add button.
+  Uses AJAX product API to avoid all_products limitations.
 {%- endcomment -%}
 
-{%- assign rig = all_products['mining-rig-limited-item'] -%}
-
-{%- if rig != blank and cart.item_count > 0 -%}
+{%- unless cart.empty? -%}
 <div class="section color-{{ section.settings.color_scheme }}">
-  <div class="cart-upsell-rig" style="{% render 'spacing-style', settings: section.settings %}">
+  <div class="cart-upsell-rig" id="cart-upsell-rig" style="display:none;{% render 'spacing-style', settings: section.settings %}">
     <h3 class="cart-upsell-rig__heading">You May Also Like</h3>
 
     <div class="cart-upsell-rig__card">
       <div class="cart-upsell-rig__img">
-        <img
-          src="{{ rig.featured_image | image_url: width: 200 }}"
-          alt="{{ rig.title }}"
-          width="80"
-          height="80"
-          loading="lazy"
-        >
+        <img id="rig-upsell-img" src="" alt="Mining Rig" width="80" height="80" loading="lazy">
       </div>
 
       <div class="cart-upsell-rig__info">
-        <div class="cart-upsell-rig__title">{{ rig.title }}</div>
+        <div class="cart-upsell-rig__title" id="rig-upsell-title">Mining Rig</div>
         <div class="cart-upsell-rig__variant-row">
-          <select class="cart-upsell-rig__select" id="rig-variant-select">
-            {%- for variant in rig.variants -%}
-              <option
-                value="{{ variant.id }}"
-                data-price="{{ variant.price }}"
-                {% if forloop.first %}selected{% endif %}
-              >
-                {{ variant.title }}
-              </option>
-            {%- endfor -%}
-          </select>
+          <select class="cart-upsell-rig__select" id="rig-variant-select"></select>
         </div>
       </div>
 
       <div class="cart-upsell-rig__right">
-        <span class="cart-upsell-rig__price" id="rig-upsell-price">
-          {{ rig.price | money }}
-        </span>
-        <button type="button" class="cart-upsell-rig__btn" id="rig-upsell-add">
-          Add
-        </button>
+        <span class="cart-upsell-rig__price" id="rig-upsell-price"></span>
+        <button type="button" class="cart-upsell-rig__btn" id="rig-upsell-add">Add</button>
       </div>
     </div>
   </div>
@@ -203,33 +182,70 @@
 
 <script>
 (function(){
-  var MONEY_FORMAT = {{ shop.money_format | json }};
+  var PRODUCT_HANDLE = 'mining-rig-limited-item';
+  var wrapper  = document.getElementById('cart-upsell-rig');
+  var imgEl    = document.getElementById('rig-upsell-img');
+  var titleEl  = document.getElementById('rig-upsell-title');
+  var selectEl = document.getElementById('rig-variant-select');
+  var priceEl  = document.getElementById('rig-upsell-price');
+  var addBtn   = document.getElementById('rig-upsell-add');
+
+  if (!wrapper || !selectEl || !priceEl || !addBtn) return;
 
   function formatMoney(cents){
     try {
       if (window.Shopify && typeof Shopify.formatMoney === 'function'){
-        return Shopify.formatMoney(cents, MONEY_FORMAT);
+        return Shopify.formatMoney(cents, {{ shop.money_format | json }});
       }
     } catch(e){}
     return '$' + (cents / 100).toFixed(2);
   }
 
-  var select = document.getElementById('rig-variant-select');
-  var priceEl = document.getElementById('rig-upsell-price');
-  var addBtn = document.getElementById('rig-upsell-add');
+  // Fetch product via AJAX API
+  fetch('/products/' + PRODUCT_HANDLE + '.js')
+    .then(function(res){ return res.json(); })
+    .then(function(product){
+      // Set image
+      if (imgEl && product.featured_image){
+        imgEl.src = product.featured_image.replace(/(\.\w+)(\?|$)/, '_200x$1$2');
+        imgEl.alt = product.title;
+      }
 
-  if (!select || !priceEl || !addBtn) return;
+      // Set title
+      if (titleEl) titleEl.textContent = product.title;
 
-  // Update price when variant changes
-  select.addEventListener('change', function(){
-    var opt = select.options[select.selectedIndex];
+      // Populate variant dropdown
+      product.variants.forEach(function(v, i){
+        var opt = document.createElement('option');
+        opt.value = v.id;
+        opt.textContent = v.title;
+        opt.setAttribute('data-price', v.price);
+        if (i === 0) opt.selected = true;
+        selectEl.appendChild(opt);
+      });
+
+      // Set initial price
+      if (product.variants.length > 0){
+        priceEl.textContent = formatMoney(product.variants[0].price);
+      }
+
+      // Show the section
+      wrapper.style.display = '';
+    })
+    .catch(function(err){
+      console.warn('[Cart Upsell] Could not load product:', err);
+    });
+
+  // Update price on variant change
+  selectEl.addEventListener('change', function(){
+    var opt = selectEl.options[selectEl.selectedIndex];
     var price = parseInt(opt.getAttribute('data-price'), 10);
     priceEl.textContent = formatMoney(price);
   });
 
   // Add to cart via AJAX
   addBtn.addEventListener('click', function(){
-    var variantId = select.value;
+    var variantId = selectEl.value;
     addBtn.classList.add('is-adding');
     addBtn.textContent = 'Adding...';
 
@@ -244,7 +260,6 @@
       addBtn.classList.add('is-added');
       addBtn.textContent = 'Added ✓';
 
-      // Refresh cart to show new item
       setTimeout(function(){
         window.location.reload();
       }, 600);
@@ -256,7 +271,7 @@
   });
 })();
 </script>
-{%- endif -%}
+{%- endunless -%}
 
 {% schema %}
 {
