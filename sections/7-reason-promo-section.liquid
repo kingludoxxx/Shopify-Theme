@@ -297,14 +297,10 @@
   
   function getSecondsUntilTarget() {
     const now = new Date();
-    const target = new Date();
-    target.setHours(targetHour, targetMinute, 0, 0);
-    
-    if (target <= now) {
-      target.setDate(target.getDate() + 1);
-    }
-    
-    return Math.floor((target - now) / 1000);
+    const msSinceMidnight = now.getHours() * 3600000 + now.getMinutes() * 60000 + now.getSeconds() * 1000 + now.getMilliseconds();
+    const tenHoursMs = 10 * 3600000;
+    const msInCycle = msSinceMidnight % tenHoursMs;
+    return Math.floor((tenHoursMs - msInCycle) / 1000);
   }
   
   function updateTimer() {
