@@ -50,66 +50,36 @@
     }
 </style>
 <script>
-         document.addEventListener('DOMContentLoaded', function() {
-        const sticky = document.querySelector('.cst-sticky-btn');
-        if (!sticky) {
-          console.warn("Sticky element with class 'sticky' not found.");
-          return;
-        }
-        // Set initial styles to hide the sticky without transitions
-        sticky.style.position = 'sticky';
-        sticky.style.bottom = '0';
-        sticky.style.width = '100%';
-        sticky.style.zIndex = '1000';
+  document.addEventListener('DOMContentLoaded', function() {
+    var sticky = document.querySelector('.cst-sticky-btn');
+    if (!sticky) return;
+
+    sticky.style.position = 'sticky';
+    sticky.style.bottom = '0';
+    sticky.style.width = '100%';
+    sticky.style.zIndex = '1000';
+    sticky.style.transform = 'translateY(100%)';
+    sticky.style.opacity = '0';
+    sticky.style.transition = 'none';
+    sticky.style.visibility = 'hidden';
+
+    setTimeout(function() {
+      sticky.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
+      sticky.style.visibility = 'visible';
+    }, 100);
+
+    // Show sticky bar after scrolling 400px
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        sticky.style.transform = 'translateY(0)';
+        sticky.style.opacity = '1';
+      } else {
         sticky.style.transform = 'translateY(100%)';
         sticky.style.opacity = '0';
-        sticky.style.transition = 'none';
-        sticky.style.visibility = 'hidden';
-        // Enable transitions after a short delay to avoid flashing on load
-        setTimeout(() => {
-          sticky.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
-          sticky.style.visibility = 'visible';
-        }
-        		   , 100);
-        // Reduced delay for faster perceived load
-        const trigger = document.getElementById('shopify-section-template--28763113947467__text_and_mage_section_wC9HwB');
-        if (!trigger) {
-          console.warn("Trigger element with ID 'cc-id-FXiygOsSPFH8' not found.");
-          return;
-        }
-        // Use IntersectionObserver for better performance over scroll events
-        const observerOptions = {
-          root: null, // Viewport
-          rootMargin: '0px',
-          threshold: 0 // Detect any intersection change
-        };
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-        	if (!entry.isIntersecting && entry.boundingClientRect.bottom > 0) {
-        	  // Trigger is below viewport: hide sticky
-        	  sticky.style.transform = 'translateY(100%)';
-        	  sticky.style.opacity = '0';
-        	}
-        	else {
-        	  // Trigger is intersecting or above viewport: show sticky
-        	  sticky.style.transform = 'translateY(0)';
-        	  sticky.style.opacity = '1';
-        	}
-          }
-        				 );
-        }
-        										  , observerOptions);
-        // Start observing
-        observer.observe(trigger);
-        // Handle edge cases like initial load or resize
-        window.addEventListener('resize', () => {
-          // Re-evaluate on resize (debounced internally by observer)
-        }
-        					   );
-        // Optional: Disconnect observer on unload to clean up, but usually not necessary
-         }
-        					   );
-      </script>
+      }
+    });
+  });
+</script>
 
 
 
