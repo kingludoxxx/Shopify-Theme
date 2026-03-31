@@ -178,40 +178,75 @@
 {% endif %}
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const upsellContainer = document.querySelector('[data-cart-upsell]');
+(function(){
+  if (window.__MB_CART_UPSELL__) return;
+  window.__MB_CART_UPSELL__ = true;
 
-    if (upsellContainer) {
-      upsellContainer.addEventListener('change', function(e) {
-        if (e.target.matches('[data-upsell-select]')) {
-          const select = e.target;
-          const selectedOption = select.options[select.selectedIndex];
-          const itemContainer = select.closest('[data-upsell-item]');
-          
-          // 1. Update Image
-          const newImage = selectedOption.getAttribute('data-image');
-          const imgTag = itemContainer.querySelector('[data-upsell-image]');
-          if (newImage && imgTag) {
-            imgTag.src = newImage;
-          }
+  // Delegate from document so it survives drawer morphs/re-renders
+  document.addEventListener('change', function(e) {
+    if (!e.target.matches('[data-upsell-select]')) return;
 
-          // 2. Update Add Button ID
-          const newVariantId = select.value;
-          const addButton = itemContainer.querySelector('[data-upsell-add]');
-          if (addButton) {
-            addButton.setAttribute('data-variant-id', newVariantId);
-          }
+    var select = e.target;
+    var selectedOption = select.options[select.selectedIndex];
+    var itemContainer = select.closest('[data-upsell-item]');
+    if (!itemContainer) return;
 
-          // 3. Update Price (Optional but recommended)
-          const newPrice = selectedOption.getAttribute('data-price');
-          const priceTag = itemContainer.querySelector('[data-upsell-price]');
-          if (newPrice && priceTag) {
-            priceTag.textContent = newPrice;
-          }
-        }
-      });
+    // 1. Update Image
+    var newImage = selectedOption.getAttribute('data-image');
+    var imgTag = itemContainer.querySelector('[data-upsell-image]');
+    if (newImage && imgTag) {
+      imgTag.src = newImage;
+    }
+
+    // 2. Update Add Button variant ID
+    var addButton = itemContainer.querySelector('[data-upsell-add]');
+    if (addButton) {
+      addButton.setAttribute('data-variant-id', select.value);
+    }
+
+    // 3. Update Price dynamically
+    var newPrice = selectedOption.getAttribute('data-price');
+    var priceTag = itemContainer.querySelector('[data-upsell-price]');
+    if (newPrice && priceTag) {
+      priceTag.textContent = newPrice;
     }
   });
+
+  // Add to cart via AJAX — also delegated from document
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('[data-upsell-add]');
+    if (!btn) return;
+
+    var variantId = btn.getAttribute('data-variant-id');
+    if (!variantId) return;
+
+    btn.textContent = 'Adding...';
+    btn.style.opacity = '0.7';
+    btn.style.pointerEvents = 'none';
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ id: parseInt(variantId, 10), quantity: 1 }] })
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(){
+      btn.textContent = 'Added ✓';
+      btn.style.background = '#27ae60';
+      btn.style.opacity = '1';
+
+      // Refresh cart drawer
+      setTimeout(function(){
+        window.location.reload();
+      }, 600);
+    })
+    .catch(function(){
+      btn.textContent = 'Add';
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = '';
+    });
+  });
+})();
 </script>
 
 
