@@ -365,6 +365,7 @@ body.template-product-pdp-v3 .product-form-buttons {
   };
 
   // === PRICE DATA BY TIER (in cents, dynamic from Shopify) ===
+
   var PRICE_BY_TIER = {
     1:  { price: {{ v1.price  | default: 0 | json }}, compare_at: {{ v1.compare_at_price  | default: 0 | json }} },
     2:  { price: {{ v2.price  | default: 0 | json }}, compare_at: {{ v2.compare_at_price  | default: 0 | json }} },
