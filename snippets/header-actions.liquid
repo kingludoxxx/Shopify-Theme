@@ -676,3 +676,30 @@
     }
   }
 {% endstylesheet %}
+
+<script>
+// Optimistic cart drawer: open immediately on Add to Cart click, don't wait for fetch
+(function(){
+  if (window.__MB_OPTIMISTIC_DRAWER__) return;
+  window.__MB_OPTIMISTIC_DRAWER__ = true;
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('[name="add"], .add-to-cart-button, [data-testid="add-to-cart-button"]');
+    if (!btn) return;
+
+    // Small delay to let the form submit start, then open drawer
+    setTimeout(function(){
+      var drawer = document.querySelector('cart-drawer-component');
+      if (drawer && typeof drawer.showDialog === 'function') {
+        drawer.showDialog();
+      } else if (drawer) {
+        // Fallback: find and open the dialog directly
+        var dialog = drawer.querySelector('dialog');
+        if (dialog && !dialog.open) {
+          dialog.showModal();
+        }
+      }
+    }, 150);
+  });
+})();
+</script>
