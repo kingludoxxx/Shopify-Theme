@@ -377,7 +377,8 @@ body.template-product-pdp-v3 .product-form-buttons {
   // === TIERS CONFIG (non-price data only) ===
   var TIERS = {
     1:  { paidMiners: 1,  freeMiners: 0, oddsX: 0,  cashback: false, oddsImg: "" },
-    2:  { paidMiners: 2,  freeMiners: 0, oddsX: 0,  cashback: false, oddsImg: "" },
+    2:  { paidMiners: 2,  freeMiners: 0, oddsX: 2,  cashback: false,
+          oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/2X_ODDS-3.jpg?v=1771465528" },
     3:  { paidMiners: 3,  freeMiners: 1, oddsX: 4,  cashback: false,
           oddsImg: "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/4X_ODDS-3.jpg?v=1771465528" },
     6:  { paidMiners: 6,  freeMiners: 2, oddsX: 8,  cashback: true,
@@ -480,7 +481,7 @@ body.template-product-pdp-v3 .product-form-buttons {
 
     // Gift unlock rules
     var unlockShip = tier >= 2;
-    var unlockOdds = tier >= 3;
+    var unlockOdds = tier >= 2;
     var unlockCash = !!t.cashback;
 
     if (giftShip) giftShip.classList.toggle('is-locked', !unlockShip);
