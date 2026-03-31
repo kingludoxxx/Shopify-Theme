@@ -596,7 +596,7 @@
       "settings": {
         "button_text": "GET 58% DISCOUNT",
         "button_link": "shopify://products/pdp-v1",
-        "bg_color": "#ffffff",
+        "bg_color": "#d9d9d9",
         "button_color": "#1126a5",
         "text_color": "#ffffff"
       }
