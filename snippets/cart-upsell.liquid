@@ -224,21 +224,67 @@
     btn.style.opacity = '0.7';
     btn.style.pointerEvents = 'none';
 
+    // Get section IDs for Section Rendering API
+    var sectionIds = [];
+    document.querySelectorAll('cart-items-component').forEach(function(el) {
+      if (el.dataset && el.dataset.sectionId) {
+        sectionIds.push(el.dataset.sectionId);
+      }
+    });
+
+    var body = {
+      items: [{ id: parseInt(variantId, 10), quantity: 1 }]
+    };
+    if (sectionIds.length > 0) {
+      body.sections = sectionIds.join(',');
+      body.sections_url = window.location.pathname;
+    }
+
     fetch('/cart/add.js', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: [{ id: parseInt(variantId, 10), quantity: 1 }] })
+      body: JSON.stringify(body)
     })
     .then(function(res){ return res.json(); })
-    .then(function(){
+    .then(function(response){
       btn.textContent = 'Added ✓';
       btn.style.background = '#27ae60';
       btn.style.opacity = '1';
 
-      // Refresh cart drawer
+      // Let the theme morph the cart drawer with updated sections
+      if (response.sections) {
+        Object.keys(response.sections).forEach(function(sectionId) {
+          var comp = document.querySelector('cart-items-component[data-section-id="' + sectionId + '"]');
+          if (comp && comp.dispatchEvent) {
+            comp.dispatchEvent(new CustomEvent('cart-update', {
+              bubbles: true,
+              detail: { data: response, sectionId: sectionId }
+            }));
+          }
+        });
+      }
+
+      // Fallback: if no sections returned, just fetch fresh cart HTML
+      if (!response.sections) {
+        fetch(window.location.pathname + '?sections=' + sectionIds.join(','))
+          .then(function(r){ return r.json(); })
+          .then(function(sections) {
+            sectionIds.forEach(function(sid) {
+              if (sections[sid]) {
+                var container = document.querySelector('[id="shopify-section-' + sid + '"]');
+                if (container) container.innerHTML = sections[sid];
+              }
+            });
+          });
+      }
+
+      // Reset button after short delay
       setTimeout(function(){
-        window.location.reload();
-      }, 600);
+        btn.textContent = 'Add';
+        btn.style.background = '';
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = '';
+      }, 1500);
     })
     .catch(function(){
       btn.textContent = 'Add';
