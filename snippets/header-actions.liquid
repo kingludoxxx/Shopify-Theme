@@ -677,3 +677,15 @@
   }
 {% endstylesheet %}
 
+<style>
+  /* Prevent visual jump on mobile when cart drawer opens */
+  @media (max-width: 749px) {
+    .cart-drawer__dialog::backdrop {
+      animation-duration: 0.15s !important;
+    }
+    .cart-drawer__dialog {
+      --animation-speed: 0.15s !important;
+    }
+  }
+</style>
+
