@@ -566,7 +566,7 @@
         "discount_line1": "GET UP TO 58% OFF",
         "discount_line2": "LIMITED TIME ONLY!",
         "description": "This limited time deal is in high demand and stock keeps selling out",
-        "button_text": "GET 58% DISCOUNT",
+        "button_text": "YES, GET 58% OFF",
         "button_link": "shopify://products/pdp-v1",
         "button_bg": "#1126a5",
         "button_bg_hover": "#333333",
@@ -594,7 +594,7 @@
       "type": "sticky-add-to-cart",
       "name": "Sticky Add To Cart",
       "settings": {
-        "button_text": "GET 58% DISCOUNT",
+        "button_text": "YES, GET 58% OFF",
         "button_link": "shopify://products/pdp-v1",
         "bg_color": "#d9d9d9",
         "button_color": "#1126a5",
