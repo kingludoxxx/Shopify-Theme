@@ -182,9 +182,7 @@
                   class="cart-drawer__items"
                 >
                   {% render 'cart-products', drawer_context: 'drawer' %}
-                  {% unless template.suffix == 'pdp-v3' %}
-                    {% render 'cart-upsell' %}
-                  {% endunless %}
+                  {% render 'cart-upsell' %}
                 </scroll-hint>
 
                 <div
