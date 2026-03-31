@@ -63,14 +63,6 @@
         "padding-block-end": 0
       }
     },
-    "cart-upsell-rig": {
-      "type": "cart-upsell-rig",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "padding-block-start": 24,
-        "padding-block-end": 0
-      }
-    },
     "product_list_NNFgcy": {
       "type": "product-list",
       "blocks": {
@@ -268,7 +260,6 @@
   },
   "order": [
     "cart-section",
-    "cart-upsell-rig",
     "product_list_NNFgcy"
   ]
 }
