@@ -572,7 +572,7 @@
         "button_bg_hover": "#333333",
         "button_text_color": "#ffffff",
         "enable_countdown": true,
-        "countdown_label": "DEAL ENDING IN:",
+        "countdown_label": "DEAL ENDS IN:",
         "countdown_hour": 23,
         "countdown_minute": 59,
         "timer_color": "#ff0000",
