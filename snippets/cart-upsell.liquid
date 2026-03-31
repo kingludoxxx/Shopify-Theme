@@ -247,9 +247,9 @@
     })
     .then(function(res){ return res.json(); })
     .then(function(response){
-      btn.textContent = 'Added ✓';
-      btn.style.background = '#27ae60';
+      btn.textContent = 'Add';
       btn.style.opacity = '1';
+      btn.style.pointerEvents = '';
 
       // Let the theme morph the cart drawer with updated sections
       if (response.sections) {
@@ -278,13 +278,6 @@
           });
       }
 
-      // Reset button after short delay
-      setTimeout(function(){
-        btn.textContent = 'Add';
-        btn.style.background = '';
-        btn.style.opacity = '1';
-        btn.style.pointerEvents = '';
-      }, 1500);
     })
     .catch(function(){
       btn.textContent = 'Add';
