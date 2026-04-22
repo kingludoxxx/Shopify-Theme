@@ -6,6 +6,9 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    {% if template.name == 'page' and template.suffix == 'comparation' %}
+      <style>#header-group { display: none !important; }</style>
+    {% endif %}
     {% if request.host == 'www.theminingjournal.co' or request.host == 'theminingjournal.co' %}
       {% if request.path contains '/pages/comparation' %}
         <script>history.replaceState(null, '', '/comparison');</script>
