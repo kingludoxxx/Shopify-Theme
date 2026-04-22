@@ -13,6 +13,9 @@
           .template-page-comparation h1,
           .shopify-section h1 { font-size: 28px !important; line-height: 1.2 !important; }
         }
+        @media (min-width: 768px) {
+          .template-page-comparation .shopify-section img { max-height: 480px !important; width: 100% !important; object-fit: cover !important; object-position: center !important; }
+        }
       </style>
     {% endif %}
     {% if request.host == 'www.theminingjournal.co' or request.host == 'theminingjournal.co' %}
