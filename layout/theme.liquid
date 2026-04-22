@@ -6,6 +6,11 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    {% if request.host == 'www.theminingjournal.co' or request.host == 'theminingjournal.co' %}
+      {% unless request.path contains '/pages/comparation' %}
+        <script>window.location.replace('/pages/comparation');</script>
+      {% endunless %}
+    {% endif %}
     <script>
     (function() {
       var params = new URLSearchParams(window.location.search);
