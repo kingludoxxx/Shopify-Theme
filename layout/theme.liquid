@@ -7,7 +7,13 @@
 >
   <head>
     {% if template.name == 'page' and template.suffix == 'comparation' %}
-      <style>#header-group { display: none !important; }</style>
+      <style>
+        #header-group { display: none !important; }
+        @media (max-width: 767px) {
+          .template-page-comparation h1,
+          .shopify-section h1 { font-size: 28px !important; line-height: 1.2 !important; }
+        }
+      </style>
     {% endif %}
     {% if request.host == 'www.theminingjournal.co' or request.host == 'theminingjournal.co' %}
       {% if request.path contains '/pages/comparation' %}
