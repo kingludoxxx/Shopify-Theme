@@ -7,9 +7,11 @@
 >
   <head>
     {% if request.host == 'www.theminingjournal.co' or request.host == 'theminingjournal.co' %}
-      {% unless request.path contains '/pages/comparation' %}
+      {% if request.path contains '/pages/comparation' %}
+        <script>history.replaceState(null, '', '/comparison');</script>
+      {% else %}
         <script>window.location.replace('/pages/comparation');</script>
-      {% endunless %}
+      {% endif %}
     {% endif %}
     <script>
     (function() {
