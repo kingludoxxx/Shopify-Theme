@@ -77,6 +77,13 @@
     margin: 0 auto;
     padding: 0 20px !important;
 }
+  .n-c-logo {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+  }
+
 @media (max-width:767px) {
   .page-width {
     padding: 0 15px !important;
@@ -84,17 +91,18 @@
   .n-c-heading-title-cs h2{
     font-size: 26px !important;
   }
+  .n-c-logo {
+    max-width: 180px;
+  }
 }
 </style>
 
 <section class="top-template--{{section.id}} new-annoucment">
   <div class="page-width">
     
-      <div class="n-c-heading">{% if section.settings.img != blank %}
-        <img src="{{section.settings.img | image_url }}" width="100%" style="max-width:220px;">
-    {% else %}
-      <div class="n-c-heading-title-cs">{{section.settings.heading}}</div>
-    {% endif %}</div>
+      <div class="n-c-heading">
+        <img src="{{ 'TheMiningJournal-logo.png' | asset_url }}" alt="The Mining Journal" class="n-c-logo">
+      </div>
 
   </div>
 </section>
