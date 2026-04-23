@@ -1,0 +1,7 @@
+# Local agent workspace scaffolding — not part of the Shopify theme
+CLAUDE.md
+tasks/
+logs/
+
+# macOS
+.DS_Store
