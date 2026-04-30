@@ -163,8 +163,19 @@
   }
 
   /* === Popup ========================================================= */
-  .mb-mtype-popup { position: fixed; inset: 0; z-index: 9999; display: none; }
-  .mb-mtype-popup:not([hidden]) { display: block; }
+  /* Use flexbox for true horizontal+vertical centering — matches the
+     competitor's modal where the panel sits in the middle of the viewport. */
+  .mb-mtype-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  .mb-mtype-popup:not([hidden]) { display: flex; }
 
   .mb-mtype-popup__backdrop {
     position: absolute; inset: 0;
@@ -174,8 +185,8 @@
 
   .mb-mtype-popup__panel {
     position: relative;
+    width: 100%;
     max-width: 1100px;
-    margin: 6vh auto 4vh;
     background: #fff;
     border-radius: 16px;
     padding: 36px 28px 28px;
@@ -186,7 +197,6 @@
   }
   @media (max-width: 740px) {
     .mb-mtype-popup__panel {
-      margin: 4vw;
       padding: 36px 18px 22px;
       border-radius: 14px;
       max-height: 92vh;
@@ -268,6 +278,77 @@
   if (window.__MB_MINER_TYPE_V5_INSTALLED__) return;
   window.__MB_MINER_TYPE_V5_INSTALLED__ = true;
 
+  // Cache the page's *original* main hero image src so we can restore it
+  // when the user switches back to the page's native product (Miner Forge PRO).
+  var ORIGINAL_HERO_SRC = null;
+
+  function findHeroImage() {
+    // Try, in order of specificity, to locate the big main product image.
+    // We're looking for the FIRST visible <img> inside the main product
+    // section that's not a thumbnail.
+    var candidates = [
+      'media-gallery img.product-media__image',
+      'media-gallery img:not([class*="thumbnail"]):not([class*="thumb"])',
+      'slideshow-component img:not([class*="thumb"])',
+      'product-media-gallery img',
+      '[id^="shopify-section-template"][id*="__main"] img'
+    ];
+    for (var i = 0; i < candidates.length; i++) {
+      var el = document.querySelector(candidates[i]);
+      if (el && el.tagName === 'IMG') return el;
+    }
+    return null;
+  }
+
+  function captureOriginalHero() {
+    if (ORIGINAL_HERO_SRC !== null) return;
+    var img = findHeroImage();
+    if (img && img.src) {
+      ORIGINAL_HERO_SRC = img.src;
+      // Also stash on the element itself so we don't lose it if Shopify
+      // reorders / morphs the DOM later.
+      img.setAttribute('data-mb-original-src', img.src);
+    }
+  }
+
+  function pickFeaturedUrl(handle) {
+    var data = window.MB_MINER_DATA || {};
+    var entry = data[handle];
+    if (!entry) return null;
+    var fi = entry.featuredImage;
+    if (!fi) return null;
+    // featuredImage from /products/X.js is an object {src,alt,...}; from Liquid it's a URL string.
+    if (typeof fi === 'string') return fi;
+    if (fi.src) {
+      var src = fi.src;
+      // protocol-relative URLs from Shopify need https://
+      if (src.indexOf('//') === 0) src = 'https:' + src;
+      return src;
+    }
+    return null;
+  }
+
+  function swapHero(handle) {
+    captureOriginalHero();
+    var img = findHeroImage();
+    if (!img) {
+      console.warn('[MB Mtype] No hero image element found to swap');
+      return;
+    }
+    if (handle === 'pdp-v5') {
+      // Restore the page's original Miner Forge PRO hero.
+      var orig = img.getAttribute('data-mb-original-src') || ORIGINAL_HERO_SRC;
+      if (orig) img.src = orig;
+      return;
+    }
+    var newSrc = pickFeaturedUrl(handle);
+    if (newSrc) {
+      img.src = newSrc;
+    } else {
+      console.log('[MB Mtype] Featured image not yet hydrated for', handle, '- will retry on hydration event');
+    }
+  }
+
   function openPopup() {
     var popup = document.querySelector('[data-mb-popup]');
     if (!popup) return;
@@ -282,8 +363,12 @@
     document.body.classList.remove('mb-mtype-popup-open');
   }
 
+  // Track which miner the user clicked, so when its data finishes
+  // hydrating asynchronously we can apply the image even though the
+  // change event already fired earlier.
+  var PENDING_HANDLE = null;
+
   document.addEventListener('click', function (ev) {
-    // Pill click → swap miner
     var pill = ev.target.closest('.mb-mtype__pill');
     if (pill) {
       var handle = pill.dataset.handle;
@@ -296,10 +381,14 @@
           p.setAttribute('aria-checked', isActive ? 'true' : 'false');
         });
       }
+      PENDING_HANDLE = handle;
       // Tell the bundle (and anyone else) which miner is active now.
       document.dispatchEvent(new CustomEvent('mb:miner-changed', {
         detail: { handle: handle }
       }));
+      // Also swap the hero image. If image not yet hydrated, the
+      // 'mb:miner-hydrated' listener below will retry once it's ready.
+      swapHero(handle);
       return;
     }
 
@@ -314,12 +403,30 @@
     }
   });
 
+  // When the bundle finishes fetching a non-current product's data, apply
+  // its hero image if that miner is the one the user wants to see.
+  document.addEventListener('mb:miner-hydrated', function (ev) {
+    var handle = ev && ev.detail && ev.detail.handle;
+    if (!handle) return;
+    if (PENDING_HANDLE === handle) {
+      swapHero(handle);
+    }
+  });
+
   document.addEventListener('keydown', function (ev) {
     if (ev.key === 'Escape') {
       var popup = document.querySelector('[data-mb-popup]');
       if (popup && !popup.hasAttribute('hidden')) closePopup();
     }
   });
+
+  // Capture the original hero src once the DOM is ready so we can restore
+  // it when the user comes back to Miner Forge PRO.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', captureOriginalHero);
+  } else {
+    captureOriginalHero();
+  }
 })();
 </script>
 
