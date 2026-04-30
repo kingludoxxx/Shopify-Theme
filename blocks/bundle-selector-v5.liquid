@@ -386,11 +386,16 @@
         3: 56317845373259,
         6: 56317845373259   /* fallback: tier 3 (no Buy 6 variant exists for titan-max) */
       },
+      /* Operator-set Titan Max pricing (Option 3 — round-number deal):
+         Buy 1     $997    / $1,500 = save $503    (33% off)
+         Buy 2     $1,800  / $3,000 = save $1,200  (40% off)
+         Buy 3+1   $2,700  / $6,000 = save $3,300  (55% off)
+         Tier 6 falls back to tier 3 (Titan Max has no Buy 6+2 variant). */
       prices: {
-        1: { price: 150000, compare_at: 270000 },
-        2: { price: 300000, compare_at: 540000 },
-        3: { price: 450000, compare_at: 1080000 },
-        6: { price: 450000, compare_at: 1080000 }   /* fallback: tier 3 */
+        1: { price: 99700,  compare_at: 150000 },
+        2: { price: 180000, compare_at: 300000 },
+        3: { price: 270000, compare_at: 600000 },
+        6: { price: 270000, compare_at: 600000 }   /* fallback: tier 3 */
       }
     }
   };
