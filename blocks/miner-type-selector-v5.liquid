@@ -278,15 +278,18 @@
   if (window.__MB_MINER_TYPE_V5_INSTALLED__) return;
   window.__MB_MINER_TYPE_V5_INSTALLED__ = true;
 
-  // The Shopify slideshow component renders ALL slides as <img> elements
-  // with class "product-media__image" — not just the visible one. Swapping
-  // only the first <img>.src doesn't change what's on screen because the
-  // visible slide is one of the others. We swap ALL of them at once and
-  // also hide the thumbnail strip + carousel arrows when a non-current
-  // miner is selected, so the user sees a single image with no stale
-  // pdp-v5 slides.
+  // Shopify's slideshow component renders the gallery's media as a set
+  // of <img class="product-media__image"> elements — typically duplicated
+  // (one set for the main slide-area, another for the thumbnail strip).
+  // To present each non-current miner's *full* gallery (so the visitor
+  // can scroll thumbnails like on that miner's own product page), we
+  // pre-fetched each product's `images` array into MINER_DATA and now
+  // distribute those URLs across whatever gallery slots the page renders.
+  //
+  // The pdp-v5 gallery is the canonical layout — its slot count and
+  // ordering. When a non-current miner is selected we cycle that miner's
+  // images through those slots; when more slots than images, we wrap.
   var ORIGINAL_HERO_SRCS = null;   // array of original src strings, one per <img>
-  var THUMBS_HIDDEN_BY_US = false;
 
   function findAllHeroImages() {
     return document.querySelectorAll('media-gallery img.product-media__image, slideshow-component img.product-media__image');
@@ -297,68 +300,50 @@
     var imgs = findAllHeroImages();
     if (!imgs.length) return;
     ORIGINAL_HERO_SRCS = [];
-    imgs.forEach(function(img, i){
+    imgs.forEach(function(img){
       ORIGINAL_HERO_SRCS.push(img.src || '');
       img.setAttribute('data-mb-original-src', img.src || '');
     });
   }
 
-  function setThumbsHidden(hidden) {
-    // Selectors covering Shopify's slideshow thumbnails / carousel buttons.
-    var selectors = [
-      'media-gallery [ref="thumbnails"]',
-      'media-gallery .slideshow__thumbnails',
-      'media-gallery slideshow-thumbnails',
-      'slideshow-component slideshow-thumbnails',
-      'media-gallery [class*="thumbnail"]',
-      'media-gallery [aria-label*="Previous"]',
-      'media-gallery [aria-label*="Next"]',
-      'slideshow-component [aria-label*="Previous"]',
-      'slideshow-component [aria-label*="Next"]'
-    ];
-    selectors.forEach(function(sel){
-      document.querySelectorAll(sel).forEach(function(el){
-        if (hidden) {
-          if (!el.hasAttribute('data-mb-was-hidden-original')) {
-            el.setAttribute('data-mb-was-hidden-original', el.style.display || '');
-          }
-          el.style.display = 'none';
-        } else {
-          var orig = el.getAttribute('data-mb-was-hidden-original');
-          if (orig !== null) {
-            el.style.display = orig;
-            el.removeAttribute('data-mb-was-hidden-original');
-          }
-        }
-      });
-    });
-    THUMBS_HIDDEN_BY_US = hidden;
-  }
-
-  function pickFeaturedUrl(handle) {
+  function pickImagesForHandle(handle) {
     var data = window.MB_MINER_DATA || {};
     var entry = data[handle];
     if (!entry) return null;
+    if (Array.isArray(entry.images) && entry.images.length) return entry.images;
+    // Fallback: just the featured image as a single-element array
     var fi = entry.featuredImage;
     if (!fi) return null;
-    if (typeof fi === 'string') return fi;
+    if (typeof fi === 'string') return [fi];
     if (fi.src) {
       var src = fi.src;
       if (src.indexOf('//') === 0) src = 'https:' + src;
-      return src;
+      return [src];
     }
     return null;
+  }
+
+  // Pair gallery <img> elements by index across slides + thumbnails so the
+  // mainstage and the thumbnail strip stay in sync with each other.
+  // Each "slot" gets one image from the active miner's array (cycling).
+  function distributeImagesToGallery(images) {
+    var imgs = findAllHeroImages();
+    if (!imgs.length || !images || !images.length) return;
+    imgs.forEach(function(img, i){
+      img.src = images[i % images.length];
+      img.removeAttribute('srcset');   // strip srcset so our src isn't overridden
+    });
   }
 
   function swapHero(handle) {
     captureOriginalHeroes();
     var imgs = findAllHeroImages();
     if (!imgs.length) {
-      console.warn('[MB Mtype] No hero images found to swap');
+      console.warn('[MB Mtype] No gallery images found');
       return;
     }
     if (handle === 'pdp-v5') {
-      // Restore the page's original Miner Forge PRO hero on every slide.
+      // Restore the page's original Miner Forge PRO gallery slot-by-slot.
       imgs.forEach(function(img, i){
         var orig = img.getAttribute('data-mb-original-src');
         if (orig === null && ORIGINAL_HERO_SRCS && ORIGINAL_HERO_SRCS[i] !== undefined) {
@@ -366,26 +351,17 @@
         }
         if (orig) {
           img.src = orig;
-          img.removeAttribute('srcset');   // remove any srcset that would override our src
+          img.removeAttribute('srcset');
         }
       });
-      setThumbsHidden(false);
       return;
     }
-    var newSrc = pickFeaturedUrl(handle);
-    if (!newSrc) {
-      console.log('[MB Mtype] No featured image available for', handle);
+    var images = pickImagesForHandle(handle);
+    if (!images) {
+      console.log('[MB Mtype] No images yet for', handle, '- waiting for hydration');
       return;
     }
-    // Set EVERY slide's image to the active miner's hero so whichever slide
-    // is currently visible (or scrolled to) shows the right image.
-    imgs.forEach(function(img){
-      img.src = newSrc;
-      img.removeAttribute('srcset');
-    });
-    // Hide thumbnails + carousel arrows so the user can't accidentally
-    // navigate to other (now-stale) slides while a non-current miner is selected.
-    setThumbsHidden(true);
+    distributeImagesToGallery(images);
   }
 
   function openPopup() {
@@ -442,9 +418,11 @@
     }
   });
 
-  // When the bundle finishes fetching a non-current product's data, apply
-  // its hero image if that miner is the one the user wants to see.
-  document.addEventListener('mb:miner-hydrated', function (ev) {
+  // When the bundle finishes fetching a non-current product's full image
+  // array, populate the gallery if that miner is the one the user wants
+  // to see. This handles the race where the user clicks Bitaxe / Titan
+  // Max before the background fetch has resolved.
+  document.addEventListener('mb:miner-images-hydrated', function (ev) {
     var handle = ev && ev.detail && ev.detail.handle;
     if (!handle) return;
     if (PENDING_HANDLE === handle) {

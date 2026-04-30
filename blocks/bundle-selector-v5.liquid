@@ -390,8 +390,42 @@ body.template-product-pdp-v5 .mbb-card.is-high {
     }
   };
 
+  // Bake in pdp-v5's full media list (for the gallery image-swap feature).
+  // The other two miners' image arrays are hydrated asynchronously from
+  // /products/HANDLE.js below.
+  MINER_DATA['pdp-v5'].images = [
+    {%- for media in mb_self.media -%}
+      {%- if media.preview_image -%}
+        {{ media.preview_image | image_url: width: 1500 | json }}{%- unless forloop.last -%},{%- endunless -%}
+      {%- elsif media.src -%}
+        {{ media.src | image_url: width: 1500 | json }}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+  ];
+
+  // Hydrate full image arrays for the two non-current miners so the
+  // miner-type selector can populate the entire media gallery (slides
+  // + thumbnails) when the user switches miner — not just the featured
+  // image. Fetched once on page load and cached on MINER_DATA.
+  ['bitaxe-gamma', 'titan-max'].forEach(function(handle){
+    fetch('/products/' + handle + '.js', { credentials: 'same-origin' })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(p){
+        if (!p) return;
+        var imgs = (p.images || []).map(function(s){
+          return (typeof s === 'string' && s.indexOf('//') === 0) ? 'https:' + s : s;
+        });
+        MINER_DATA[handle].images = imgs;
+        console.log('[MB Bundle] Hydrated', imgs.length, 'images for', handle);
+        document.dispatchEvent(new CustomEvent('mb:miner-images-hydrated', {
+          detail: { handle: handle, images: imgs }
+        }));
+      })
+      .catch(function(err){ console.warn('[MB Bundle] image hydrate failed for', handle, err); });
+  });
+
   // Expose the data store on window so the miner-type selector can read
-  // featured images without its own data layer.
+  // featured images / image arrays without its own data layer.
   window.MB_MINER_DATA = MINER_DATA;
 
   // Active miner — defaults to the page's primary product.
