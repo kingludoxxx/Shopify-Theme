@@ -433,12 +433,11 @@
   // featured images / image arrays without its own data layer.
   window.MB_MINER_DATA = MINER_DATA;
 
-  // Active miner on first render. Per operator's split-test setup, when a
-  // visitor lands on /products/pdp-v5 (a Miner Forge PRO product page),
-  // the Bitaxe Gamma Shot pill is auto-selected as the default — the
-  // Miner Forge PRO pill is still clickable, just not pre-active.
-  // Mutated by the 'mb:miner-changed' event from the miner-type selector.
-  var ACTIVE_MINER = 'bitaxe-gamma';
+  // Active miner on first render. The page's primary product is Miner
+  // Forge PRO 2.0 (the v5 product itself), so the Miner Forge PRO pill
+  // is pre-selected by default. Mutated by the 'mb:miner-changed' event
+  // from the miner-type selector when the visitor clicks another pill.
+  var ACTIVE_MINER = 'pdp-v5';
 
   // Direct references — re-pointed in the event handler when miner changes.
   var VARIANTS_BY_TIER = MINER_DATA[ACTIVE_MINER].variantIds;
@@ -607,12 +606,12 @@
     syncFormFields(wrap);
   }
 
-  // Initial render. The default ACTIVE_MINER is Bitaxe Gamma Shot
-  // (operator-configured for the v5 split test), so we render Bitaxe's
-  // bundle data and default-select tier 1 (Buy 1) to match what visitors
-  // see on the standalone /products/bitaxe-gamma page.
+  // Initial render. Default ACTIVE_MINER is Miner Forge PRO; default
+  // bundle tier is 2 (Buy 2 Miners) — the v5 page's intended landing
+  // selection. Other miners default to tier 1 (Buy 1) when switched in,
+  // matching their standalone product pages.
   renderAllTiers();
-  var initialTier = (ACTIVE_MINER === 'pdp-v5') ? 3 : 1;
+  var initialTier = (ACTIVE_MINER === 'pdp-v5') ? 2 : 1;
   setSelected(initialTier);
 
   // Delegated click handler — survives section morphs that replace

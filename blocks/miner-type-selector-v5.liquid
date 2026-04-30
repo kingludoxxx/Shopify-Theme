@@ -27,10 +27,10 @@
 <div class="mb-mtype" data-mb-mtype>
   <div class="mb-mtype__label">Choose your miner</div>
   <div class="mb-mtype__pills" role="radiogroup" aria-label="Choose your miner">
-    <button type="button" class="mb-mtype__pill" data-handle="pdp-v5" aria-checked="false">
+    <button type="button" class="mb-mtype__pill is-active" data-handle="pdp-v5" aria-checked="true">
       Miner Forge PRO
     </button>
-    <button type="button" class="mb-mtype__pill is-active" data-handle="bitaxe-gamma" aria-checked="true">
+    <button type="button" class="mb-mtype__pill" data-handle="bitaxe-gamma" aria-checked="false">
       Bitaxe Gamma Shot
     </button>
     <button type="button" class="mb-mtype__pill" data-handle="titan-max" aria-checked="false">
@@ -340,7 +340,7 @@
   function initialBulletSwap() {
     var activePill = document.querySelector('.mb-mtype__pill.is-active');
     var handle = activePill && activePill.dataset.handle;
-    swapBulletsToMiner(handle || 'bitaxe-gamma');
+    swapBulletsToMiner(handle || 'pdp-v5');
   }
 
   // Shopify's slideshow component renders the gallery's media as a set
