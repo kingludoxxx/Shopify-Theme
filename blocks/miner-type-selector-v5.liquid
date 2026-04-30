@@ -292,7 +292,12 @@
   var ORIGINAL_HERO_SRCS = null;   // array of original src strings, one per <img>
 
   function findAllHeroImages() {
-    return document.querySelectorAll('media-gallery img.product-media__image, slideshow-component img.product-media__image');
+    // Cast a wide net: every <img> inside the gallery component(s).
+    // Shopify renders ~20 of them (5 main slides + 5 thumbnail-strip
+    // images + lazy/duplicated variants). Swapping the .product-media__image
+    // subset (only ~10) leaves the visible thumbnails stale, so we target
+    // every img in the gallery host elements.
+    return document.querySelectorAll('media-gallery img, slideshow-component img');
   }
 
   function captureOriginalHeroes() {
