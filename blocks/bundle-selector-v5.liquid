@@ -580,6 +580,15 @@
       var imgEl = wrap.querySelector('[data-tier-img="' + tier + '"]');
       if (imgEl && imgSrc) imgEl.src = imgSrc;
     });
+
+    // Hide the Buy 6 (tier 6) card for miners that don't have a real
+    // Buy 6 + 2 free variant. Bitaxe Gamma Shot and Titan Max each only
+    // have 3 variants (Buy 1 / Buy 2 / Buy 3+1) in Shopify, so showing
+    // Buy 6 would just fall back to tier-3 prices and confuse the visitor.
+    var tier6Row = wrap.querySelector('.mbb-row[data-tier="6"]');
+    if (tier6Row) {
+      tier6Row.style.display = (ACTIVE_MINER === 'pdp-v5') ? '' : 'none';
+    }
   }
 
   // === TIER SELECTION ===
