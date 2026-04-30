@@ -335,9 +335,7 @@ body.template-product-pdp-v5 .mbb-card.is-high {
   //   variants[1] = tier 2
   //   variants[2] = tier 3 (3 + 1 free)
   //   variants[3] = tier 6 (6 + 2 free)   ← only pdp-v5 has this
-  //
-  {%- assign mb_self = closest.product -%}
-
+  {% assign mb_self = closest.product %}
   var MINER_DATA = {
     'pdp-v5': {
       handle: 'pdp-v5',
