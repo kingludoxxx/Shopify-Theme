@@ -547,8 +547,12 @@ body.template-product-pdp-v5 .mbb-card.is-high {
 
   // V5: react to the Miner Type Selector switching active product.
   // Repoints VARIANTS_BY_TIER and PRICE_BY_TIER to the new miner's data,
-  // then re-runs setSelected() with the current tier so price bar + ATC
-  // variant ID reflect the new miner.
+  // resets to tier 1 (Buy 1) so the displayed price matches what the user
+  // would see on that miner's own product page (where the default-shown
+  // price is always the single-unit price), then re-runs setSelected().
+  // Exception: when switching back to the page's primary product (pdp-v5),
+  // we keep the bundle on tier 2 (Buy 2 Miners) which is the v5 default
+  // / "popular" tier for Miner Forge PRO.
   document.addEventListener('mb:miner-changed', function (ev) {
     var handle = ev && ev.detail && ev.detail.handle;
     if (!handle || !MINER_DATA[handle]) {
@@ -560,10 +564,9 @@ body.template-product-pdp-v5 .mbb-card.is-high {
     VARIANTS_BY_TIER = MINER_DATA[handle].variantIds;
     PRICE_BY_TIER    = MINER_DATA[handle].prices;
 
-    var wrap = getMbbWrap();
-    var currentTier = wrap ? (+wrap.dataset.tier || 2) : 2;
-    setSelected(currentTier);
-    console.log('[MB Bundle] Switched to miner:', handle, 'at tier', currentTier, 'variantId', VARIANTS_BY_TIER[currentTier], 'price', PRICE_BY_TIER[currentTier]);
+    var resetTier = (handle === 'pdp-v5') ? 2 : 1;
+    setSelected(resetTier);
+    console.log('[MB Bundle] Switched to miner:', handle, 'reset to tier', resetTier, 'variantId', VARIANTS_BY_TIER[resetTier], 'price', PRICE_BY_TIER[resetTier]);
   });
 
   onReady(function(){

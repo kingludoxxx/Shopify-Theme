@@ -278,37 +278,61 @@
   if (window.__MB_MINER_TYPE_V5_INSTALLED__) return;
   window.__MB_MINER_TYPE_V5_INSTALLED__ = true;
 
-  // Cache the page's *original* main hero image src so we can restore it
-  // when the user switches back to the page's native product (Miner Forge PRO).
-  var ORIGINAL_HERO_SRC = null;
+  // The Shopify slideshow component renders ALL slides as <img> elements
+  // with class "product-media__image" — not just the visible one. Swapping
+  // only the first <img>.src doesn't change what's on screen because the
+  // visible slide is one of the others. We swap ALL of them at once and
+  // also hide the thumbnail strip + carousel arrows when a non-current
+  // miner is selected, so the user sees a single image with no stale
+  // pdp-v5 slides.
+  var ORIGINAL_HERO_SRCS = null;   // array of original src strings, one per <img>
+  var THUMBS_HIDDEN_BY_US = false;
 
-  function findHeroImage() {
-    // Try, in order of specificity, to locate the big main product image.
-    // We're looking for the FIRST visible <img> inside the main product
-    // section that's not a thumbnail.
-    var candidates = [
-      'media-gallery img.product-media__image',
-      'media-gallery img:not([class*="thumbnail"]):not([class*="thumb"])',
-      'slideshow-component img:not([class*="thumb"])',
-      'product-media-gallery img',
-      '[id^="shopify-section-template"][id*="__main"] img'
-    ];
-    for (var i = 0; i < candidates.length; i++) {
-      var el = document.querySelector(candidates[i]);
-      if (el && el.tagName === 'IMG') return el;
-    }
-    return null;
+  function findAllHeroImages() {
+    return document.querySelectorAll('media-gallery img.product-media__image, slideshow-component img.product-media__image');
   }
 
-  function captureOriginalHero() {
-    if (ORIGINAL_HERO_SRC !== null) return;
-    var img = findHeroImage();
-    if (img && img.src) {
-      ORIGINAL_HERO_SRC = img.src;
-      // Also stash on the element itself so we don't lose it if Shopify
-      // reorders / morphs the DOM later.
-      img.setAttribute('data-mb-original-src', img.src);
-    }
+  function captureOriginalHeroes() {
+    if (ORIGINAL_HERO_SRCS !== null) return;
+    var imgs = findAllHeroImages();
+    if (!imgs.length) return;
+    ORIGINAL_HERO_SRCS = [];
+    imgs.forEach(function(img, i){
+      ORIGINAL_HERO_SRCS.push(img.src || '');
+      img.setAttribute('data-mb-original-src', img.src || '');
+    });
+  }
+
+  function setThumbsHidden(hidden) {
+    // Selectors covering Shopify's slideshow thumbnails / carousel buttons.
+    var selectors = [
+      'media-gallery [ref="thumbnails"]',
+      'media-gallery .slideshow__thumbnails',
+      'media-gallery slideshow-thumbnails',
+      'slideshow-component slideshow-thumbnails',
+      'media-gallery [class*="thumbnail"]',
+      'media-gallery [aria-label*="Previous"]',
+      'media-gallery [aria-label*="Next"]',
+      'slideshow-component [aria-label*="Previous"]',
+      'slideshow-component [aria-label*="Next"]'
+    ];
+    selectors.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        if (hidden) {
+          if (!el.hasAttribute('data-mb-was-hidden-original')) {
+            el.setAttribute('data-mb-was-hidden-original', el.style.display || '');
+          }
+          el.style.display = 'none';
+        } else {
+          var orig = el.getAttribute('data-mb-was-hidden-original');
+          if (orig !== null) {
+            el.style.display = orig;
+            el.removeAttribute('data-mb-was-hidden-original');
+          }
+        }
+      });
+    });
+    THUMBS_HIDDEN_BY_US = hidden;
   }
 
   function pickFeaturedUrl(handle) {
@@ -317,11 +341,9 @@
     if (!entry) return null;
     var fi = entry.featuredImage;
     if (!fi) return null;
-    // featuredImage from /products/X.js is an object {src,alt,...}; from Liquid it's a URL string.
     if (typeof fi === 'string') return fi;
     if (fi.src) {
       var src = fi.src;
-      // protocol-relative URLs from Shopify need https://
       if (src.indexOf('//') === 0) src = 'https:' + src;
       return src;
     }
@@ -329,24 +351,41 @@
   }
 
   function swapHero(handle) {
-    captureOriginalHero();
-    var img = findHeroImage();
-    if (!img) {
-      console.warn('[MB Mtype] No hero image element found to swap');
+    captureOriginalHeroes();
+    var imgs = findAllHeroImages();
+    if (!imgs.length) {
+      console.warn('[MB Mtype] No hero images found to swap');
       return;
     }
     if (handle === 'pdp-v5') {
-      // Restore the page's original Miner Forge PRO hero.
-      var orig = img.getAttribute('data-mb-original-src') || ORIGINAL_HERO_SRC;
-      if (orig) img.src = orig;
+      // Restore the page's original Miner Forge PRO hero on every slide.
+      imgs.forEach(function(img, i){
+        var orig = img.getAttribute('data-mb-original-src');
+        if (orig === null && ORIGINAL_HERO_SRCS && ORIGINAL_HERO_SRCS[i] !== undefined) {
+          orig = ORIGINAL_HERO_SRCS[i];
+        }
+        if (orig) {
+          img.src = orig;
+          img.removeAttribute('srcset');   // remove any srcset that would override our src
+        }
+      });
+      setThumbsHidden(false);
       return;
     }
     var newSrc = pickFeaturedUrl(handle);
-    if (newSrc) {
-      img.src = newSrc;
-    } else {
-      console.log('[MB Mtype] Featured image not yet hydrated for', handle, '- will retry on hydration event');
+    if (!newSrc) {
+      console.log('[MB Mtype] No featured image available for', handle);
+      return;
     }
+    // Set EVERY slide's image to the active miner's hero so whichever slide
+    // is currently visible (or scrolled to) shows the right image.
+    imgs.forEach(function(img){
+      img.src = newSrc;
+      img.removeAttribute('srcset');
+    });
+    // Hide thumbnails + carousel arrows so the user can't accidentally
+    // navigate to other (now-stale) slides while a non-current miner is selected.
+    setThumbsHidden(true);
   }
 
   function openPopup() {
@@ -420,12 +459,12 @@
     }
   });
 
-  // Capture the original hero src once the DOM is ready so we can restore
-  // it when the user comes back to Miner Forge PRO.
+  // Capture the original hero srcs once the DOM is ready so we can restore
+  // them when the user comes back to Miner Forge PRO.
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', captureOriginalHero);
+    document.addEventListener('DOMContentLoaded', captureOriginalHeroes);
   } else {
-    captureOriginalHero();
+    captureOriginalHeroes();
   }
 })();
 </script>
