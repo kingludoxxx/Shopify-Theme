@@ -159,9 +159,22 @@
     box-shadow: none;
   }
 
-  @media (max-width: 450px) {
-    .mb-mtype__pill { font-size: 12px; padding: 10px 8px; min-width: 90px; }
-    .mb-mtype__diff-btn { font-size: 13px; padding: 9px 18px; }
+  /* Mobile: stack the variant pills vertically — one full-width pill
+     per row, matching the operator's reference layout. Bigger touch
+     targets, easier to tap on narrow screens. */
+  @media (max-width: 600px) {
+    .mb-mtype__pills {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mb-mtype__pill {
+      width: 100%;
+      min-width: 0;
+      flex: none;
+      font-size: 16px;
+      padding: 16px 14px;
+    }
+    .mb-mtype__diff-btn { font-size: 13px; padding: 10px 22px; }
   }
 
   /* === Popup ========================================================= */
