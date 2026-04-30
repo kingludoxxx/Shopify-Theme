@@ -319,18 +319,29 @@
   function swapBulletsToMiner(handle) {
     var copy = BULLETS_BY_MINER[handle];
     if (!copy) return;
-    // Shopify renders product-details (and its child icon-text block)
-    // twice on this template — once via `content_for 'block'` and once
-    // via `content_for 'blocks'`. We only want one bullets list visible:
-    // populate the first .cs_icon-text-main, hide the remaining ones.
-    var wraps = document.querySelectorAll('.cs_icon-text-main');
-    if (!wraps.length) {
-      console.warn('[MB Mtype] .cs_icon-text-main not found — bullets did not swap');
+    // The custom-richtext block (description "Take your shot at winning...")
+    // and the icon-text block (the ✓ bullet list) BOTH render with the
+    // same `.cs_icon-text-main` wrapper class. We only want to touch the
+    // bullets, so filter to wraps whose content already contains a
+    // checkmark glyph (✓) — the description has no checkmarks.
+    //
+    // Shopify renders the icon-text block twice on this template (via
+    // `content_for 'block'` and `content_for 'blocks'`), so we update the
+    // first matching wrap and hide the host sections of the rest.
+    var allWraps = document.querySelectorAll('.cs_icon-text-main');
+    var bulletWraps = [];
+    for (var w = 0; w < allWraps.length; w++) {
+      if ((allWraps[w].textContent || '').indexOf('✓') !== -1) {
+        bulletWraps.push(allWraps[w]);
+      }
+    }
+    if (!bulletWraps.length) {
+      console.warn('[MB Mtype] No .cs_icon-text-main bullet wraps found');
       return;
     }
-    wraps[0].innerHTML = copy;
-    for (var i = 1; i < wraps.length; i++) {
-      var hostSection = wraps[i].closest('.icon-textt') || wraps[i].parentElement;
+    bulletWraps[0].innerHTML = copy;
+    for (var i = 1; i < bulletWraps.length; i++) {
+      var hostSection = bulletWraps[i].closest('.icon-textt') || bulletWraps[i].parentElement;
       if (hostSection) hostSection.style.display = 'none';
     }
   }
