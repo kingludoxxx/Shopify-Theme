@@ -24,8 +24,8 @@
   <div class="mbb__rows" role="radiogroup" aria-label="Choose your bundle">
 
     <button type="button" class="mbb-row" data-tier="1" aria-checked="false">
-      <span class="mbb-row__imgs" data-stack="1">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+      <span class="mbb-row__imgs">
+        <img class="mbb-row__img" data-tier-img="1" src="" alt="Buy 1 Miner" loading="lazy" width="120" height="120">
       </span>
       <span class="mbb-row__main">
         <span class="mbb-row__title-line">
@@ -40,9 +40,8 @@
     </button>
 
     <button type="button" class="mbb-row" data-tier="2" aria-checked="false">
-      <span class="mbb-row__imgs" data-stack="2">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+      <span class="mbb-row__imgs">
+        <img class="mbb-row__img" data-tier-img="2" src="" alt="Buy 2 Miners" loading="lazy" width="120" height="120">
       </span>
       <span class="mbb-row__main">
         <span class="mbb-row__title-line">
@@ -59,10 +58,8 @@
 
     <button type="button" class="mbb-row is-selected" data-tier="3" aria-checked="true">
       <span class="mbb-row__corner-badge">Best Value</span>
-      <span class="mbb-row__imgs" data-stack="3">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+      <span class="mbb-row__imgs">
+        <img class="mbb-row__img" data-tier-img="3" src="" alt="Buy 3, get 1 free" loading="lazy" width="120" height="120">
       </span>
       <span class="mbb-row__main">
         <span class="mbb-row__title-line">
@@ -79,10 +76,8 @@
 
     <button type="button" class="mbb-row" data-tier="6" aria-checked="false">
       <span class="mbb-row__corner-badge">Highest Chances</span>
-      <span class="mbb-row__imgs" data-stack="3">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
-        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+      <span class="mbb-row__imgs">
+        <img class="mbb-row__img" data-tier-img="6" src="" alt="Buy 6, get 2 free" loading="lazy" width="120" height="120">
       </span>
       <span class="mbb-row__main">
         <span class="mbb-row__title-line">
@@ -152,44 +147,22 @@
   .mbb-row:hover:not(.is-selected) { border-color: #999; }
   .mbb-row:focus-visible { outline: 2px solid #1126a5; outline-offset: 2px; }
 
-  /* Image stack */
+  /* Tier card image (single composite per tier — 1, 2, or 3 miners
+     pre-rendered into one image, sourced from MINER_DATA[handle].bundleImages) */
   .mbb-row__imgs {
     position: relative;
     width: 110px;
-    height: 80px;
+    height: 88px;
     flex-shrink: 0;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .mbb-row__img {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-  }
-  /* 2-image stack */
-  .mbb-row__imgs[data-stack="2"] .mbb-row__img:nth-child(1) {
-    transform: translate(-72%, -50%) rotate(-3deg);
-    z-index: 1;
-  }
-  .mbb-row__imgs[data-stack="2"] .mbb-row__img:nth-child(2) {
-    transform: translate(-28%, -50%) rotate(3deg);
-    z-index: 2;
-  }
-  /* 3-image stack */
-  .mbb-row__imgs[data-stack="3"] .mbb-row__img:nth-child(1) {
-    transform: translate(-85%, -50%) rotate(-6deg);
-    z-index: 1;
-  }
-  .mbb-row__imgs[data-stack="3"] .mbb-row__img:nth-child(2) {
-    transform: translate(-50%, -50%);
-    z-index: 3;
-  }
-  .mbb-row__imgs[data-stack="3"] .mbb-row__img:nth-child(3) {
-    transform: translate(-15%, -50%) rotate(6deg);
-    z-index: 2;
+    display: block;
   }
 
   /* Middle column */
@@ -343,11 +316,24 @@
   //   variants[2] = tier 3 (3 + 1 free)
   //   variants[3] = tier 6 (6 + 2 free)   ← only pdp-v5 has this
   {% assign mb_self = closest.product %}
+  // bundleImages: per-tier composite image (1, 2, 3 miners stacked) used
+  // ONLY in the bundle cards — separate from `featuredImage` which is the
+  // page hero. URLs are the same composites already used by
+  // /products/pdp-v1 (Kaching-Bundles-*), /products/bitaxe-gamma
+  // (1_/2_/3_*), and /products/titan-max (Bundle_Images_*).
+  // Tier 6 has no dedicated composite for any miner, so it falls back
+  // to the tier-3 image (3 stacked miners).
   var MINER_DATA = {
     'pdp-v5': {
       handle: 'pdp-v5',
       label: 'Miner Forge PRO',
       featuredImage: {{ mb_self.featured_image | image_url: width: 1080 | json }},
+      bundleImages: {
+        1: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-1.png?v=1765567011',
+        2: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-2.png?v=1765567044',
+        3: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063',
+        6: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063'
+      },
       variantIds: {
         1: {{ mb_self.variants[0].id | default: 0 | json }},
         2: {{ mb_self.variants[1].id | default: mb_self.variants[0].id | json }},
@@ -365,6 +351,12 @@
       handle: 'bitaxe-gamma',
       label: 'Bitaxe Gamma Shot',
       featuredImage: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Image_1.webp?v=1775669027',
+      bundleImages: {
+        1: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/1_400d2077-668a-4da5-ad3e-f4c8d3f2843b.png?v=1773610453',
+        2: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/2_f9b6aba0-a13a-4732-b230-3c270b07a5c5.png?v=1773610455',
+        3: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/3_6312b2c4-4d1a-42a9-ad49-9fba54474a0c.png?v=1773610457',
+        6: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/3_6312b2c4-4d1a-42a9-ad49-9fba54474a0c.png?v=1773610457'
+      },
       variantIds: {
         1: 56317844947275,
         2: 56317844980043,
@@ -382,6 +374,12 @@
       handle: 'titan-max',
       label: 'Titan Max',
       featuredImage: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Image_2.webp?v=1775669054',
+      bundleImages: {
+        1: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_1.png?v=1773610130',
+        2: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_2.png?v=1773610130',
+        3: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_3.png?v=1773610130',
+        6: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_3.png?v=1773610130'
+      },
       variantIds: {
         1: 56317845307723,
         2: 56317845340491,
@@ -435,13 +433,14 @@
   // featured images / image arrays without its own data layer.
   window.MB_MINER_DATA = MINER_DATA;
 
-  // Active miner — defaults to the page's primary product.
-  // Mutated by the 'mb:miner-changed' event (dispatched from the miner-type selector block).
-  var ACTIVE_MINER = 'pdp-v5';
+  // Active miner on first render. Per operator's split-test setup, when a
+  // visitor lands on /products/pdp-v5 (a Miner Forge PRO product page),
+  // the Bitaxe Gamma Shot pill is auto-selected as the default — the
+  // Miner Forge PRO pill is still clickable, just not pre-active.
+  // Mutated by the 'mb:miner-changed' event from the miner-type selector.
+  var ACTIVE_MINER = 'bitaxe-gamma';
 
   // Direct references — re-pointed in the event handler when miner changes.
-  // No Proxy / getter funkiness; just plain object references that the rest
-  // of the code reads from.
   var VARIANTS_BY_TIER = MINER_DATA[ACTIVE_MINER].variantIds;
   var PRICE_BY_TIER    = MINER_DATA[ACTIVE_MINER].prices;
 
@@ -532,18 +531,18 @@
     if (!wrap) return;
     var data = MINER_DATA[ACTIVE_MINER];
     if (!data) return;
-    var prices = data.prices || {};
+    var prices       = data.prices || {};
+    var bundleImages = data.bundleImages || {};
 
-    // Pick a hero image URL for the active miner (first item from images
-    // array if available, else featuredImage). Normalize protocol-relative.
-    var heroSrc = '';
+    // Fallback hero image if a tier doesn't have a dedicated composite.
+    var fallbackHero = '';
     if (Array.isArray(data.images) && data.images.length) {
-      heroSrc = data.images[0];
+      fallbackHero = data.images[0];
     } else {
-      heroSrc = data.featuredImage || '';
+      fallbackHero = data.featuredImage || '';
     }
-    if (heroSrc && typeof heroSrc !== 'string' && heroSrc.src) heroSrc = heroSrc.src;
-    if (typeof heroSrc === 'string' && heroSrc.indexOf('//') === 0) heroSrc = 'https:' + heroSrc;
+    if (fallbackHero && typeof fallbackHero !== 'string' && fallbackHero.src) fallbackHero = fallbackHero.src;
+    if (typeof fallbackHero === 'string' && fallbackHero.indexOf('//') === 0) fallbackHero = 'https:' + fallbackHero;
 
     [1, 2, 3, 6].forEach(function(tier){
       var p = prices[tier] || { price: 0, compare_at: 0 };
@@ -574,15 +573,12 @@
         }
       }
 
-      // Update images on this tier card (whatever the data-stack count says).
-      if (heroSrc) {
-        var tierRow = wrap.querySelector('.mbb-row[data-tier="' + tier + '"]');
-        if (tierRow) {
-          tierRow.querySelectorAll('.mbb-row__img').forEach(function(img){
-            img.src = heroSrc;
-          });
-        }
-      }
+      // Tier-specific composite image (1, 2, or 3 miners stacked into one
+      // pre-rendered PNG). Falls back to the active miner's general hero
+      // image if no composite is mapped for this tier.
+      var imgSrc = bundleImages[tier] || fallbackHero;
+      var imgEl = wrap.querySelector('[data-tier-img="' + tier + '"]');
+      if (imgEl && imgSrc) imgEl.src = imgSrc;
     });
   }
 
@@ -602,12 +598,13 @@
     syncFormFields(wrap);
   }
 
-  // Initial render: paint all 4 tiers with the page's primary product
-  // (pdp-v5 / Miner Forge PRO) data, then default-select the "Best Value"
-  // tier (Buy 3 get 1 free) — that's the visually-emphasized default in
-  // this layout.
+  // Initial render. The default ACTIVE_MINER is Bitaxe Gamma Shot
+  // (operator-configured for the v5 split test), so we render Bitaxe's
+  // bundle data and default-select tier 1 (Buy 1) to match what visitors
+  // see on the standalone /products/bitaxe-gamma page.
   renderAllTiers();
-  setSelected(3);
+  var initialTier = (ACTIVE_MINER === 'pdp-v5') ? 3 : 1;
+  setSelected(initialTier);
 
   // Delegated click handler — survives section morphs that replace
   // .mbb-row nodes after cart updates.

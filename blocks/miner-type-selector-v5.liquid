@@ -25,12 +25,12 @@
 {%- assign mb_tm = all_products['titan-max'] -%}
 
 <div class="mb-mtype" data-mb-mtype>
-  <div class="mb-mtype__label">Miner</div>
+  <div class="mb-mtype__label">Choose your miner</div>
   <div class="mb-mtype__pills" role="radiogroup" aria-label="Choose your miner">
-    <button type="button" class="mb-mtype__pill is-active" data-handle="pdp-v5" aria-checked="true">
+    <button type="button" class="mb-mtype__pill" data-handle="pdp-v5" aria-checked="false">
       Miner Forge PRO
     </button>
-    <button type="button" class="mb-mtype__pill" data-handle="bitaxe-gamma" aria-checked="false">
+    <button type="button" class="mb-mtype__pill is-active" data-handle="bitaxe-gamma" aria-checked="true">
       Bitaxe Gamma Shot
     </button>
     <button type="button" class="mb-mtype__pill" data-handle="titan-max" aria-checked="false">
@@ -97,6 +97,7 @@
     color: #000;
     margin-bottom: 10px;
     letter-spacing: .01em;
+    text-align: center;
   }
   .mb-mtype__pills {
     display: flex;
@@ -163,11 +164,15 @@
   }
 
   /* === Popup ========================================================= */
-  /* Use flexbox for true horizontal+vertical centering — matches the
-     competitor's modal where the panel sits in the middle of the viewport. */
+  /* Flexbox centering on a fixed-positioned full-viewport overlay so the
+     panel sits perfectly in the middle of the screen, both horizontally
+     and vertically, regardless of scroll position or parent layout. */
   .mb-mtype-popup {
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 9999;
     display: none;
     align-items: center;
@@ -178,7 +183,11 @@
   .mb-mtype-popup:not([hidden]) { display: flex; }
 
   .mb-mtype-popup__backdrop {
-    position: absolute; inset: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: rgba(0, 0, 0, .65);
     backdrop-filter: blur(2px);
   }
@@ -187,6 +196,7 @@
     position: relative;
     width: 100%;
     max-width: 1100px;
+    margin: auto;            /* belt-and-suspenders centering on top of flex */
     background: #fff;
     border-radius: 16px;
     padding: 36px 28px 28px;
