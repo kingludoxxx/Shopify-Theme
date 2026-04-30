@@ -1,279 +1,286 @@
 {%- comment -%}
   MineBlock Bundle Selector — V5 (split test for /products/pdp-v5)
-  Forked from blocks/bundle-selector.liquid on 2026-04-29.
-  Differences vs original:
-    - Bundle reduced to 4 tiers (1, 2, 3, 6); tiers 12 & 18 removed.
-    - HIGHEST CHANCES badge moved from tier 18 onto tier 6.
-    - "Included with your order" gifts section removed entirely.
-    - JS dataset and price tables trimmed to match.
-  Do NOT edit blocks/bundle-selector.liquid expecting these changes
-  to take effect on pdp-v5; this file is the source of truth for v5.
+  ----------------------------------------------------------------
+  Vertical-stack card layout (matches the operator's preferred design,
+  same look the existing pdp-v1/v2 templates use). Four tiers:
+
+    Tier 1: Buy 1 Miner       — no inline badge, no corner badge
+    Tier 2: Buy 2 Miners      — "2x ODDS" inline badge
+    Tier 3: Buy 3, get 1 free — "4x ODDS" inline badge + "Best Value" corner badge (default-selected)
+    Tier 6: Buy 6, get 2 free — "8x ODDS" inline badge + "Highest Chances" corner badge
+
+  Each card shows: stack of N product images on the left, title +
+  inline ODDS pill + savings text in the middle, current price +
+  compare-at strikethrough on the right. Selected card gets a black
+  border on a white background; non-selected sit on a subtle gray.
+
+  All prices are pulled from MINER_DATA so when the visitor switches
+  miner via the pill selector above, every tier's price + savings +
+  product image updates in place.
 {%- endcomment -%}
 
 <div class="mbb" data-mbb>
-  <!-- Tier cards -->
-  <div class="mbb__grid" role="radiogroup" aria-label="Choose your bundle">
-    <button type="button" class="mbb-card" data-tier="1" aria-checked="false">
-      <span class="mbb-badge is-empty"></span>
-      <span class="mbb-title">Buy 1 Miner</span>
-      <span class="mbb-sub">&nbsp;</span>
+  <div class="mbb__heading"><span>BUNDLE &amp; SAVE</span></div>
+  <div class="mbb__rows" role="radiogroup" aria-label="Choose your bundle">
+
+    <button type="button" class="mbb-row" data-tier="1" aria-checked="false">
+      <span class="mbb-row__imgs" data-stack="1">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+      </span>
+      <span class="mbb-row__main">
+        <span class="mbb-row__title-line">
+          <span class="mbb-row__title">Buy 1 Miner</span>
+        </span>
+        <span class="mbb-row__sub" data-tier-saved-wrap="1">You save <span data-tier-saved="1">$0.00</span></span>
+      </span>
+      <span class="mbb-row__price">
+        <span class="mbb-row__price-current" data-tier-price="1">$0.00</span>
+        <s class="mbb-row__price-compare" data-tier-compare="1">$0.00</s>
+      </span>
     </button>
 
-    <button type="button" class="mbb-card is-pop is-selected" data-tier="2" aria-checked="true">
-      <span class="mbb-badge is-empty"></span>
-      <span class="mbb-title">Buy 2 Miners</span>
-      <span class="mbb-sub">Save 21%</span>
+    <button type="button" class="mbb-row" data-tier="2" aria-checked="false">
+      <span class="mbb-row__imgs" data-stack="2">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+      </span>
+      <span class="mbb-row__main">
+        <span class="mbb-row__title-line">
+          <span class="mbb-row__title">Buy 2 Miners</span>
+          <span class="mbb-row__odds">2x ODDS</span>
+        </span>
+        <span class="mbb-row__sub" data-tier-saved-wrap="2">You save <span data-tier-saved="2">$0.00</span></span>
+      </span>
+      <span class="mbb-row__price">
+        <span class="mbb-row__price-current" data-tier-price="2">$0.00</span>
+        <s class="mbb-row__price-compare" data-tier-compare="2">$0.00</s>
+      </span>
     </button>
 
-    <button type="button" class="mbb-card is-best" data-tier="3" aria-checked="false">
-      <span class="mbb-badge" id="mbb-badge-best">BEST SELLER</span>
-      <span class="mbb-title">Buy 3, get 1 free</span>
-      <span class="mbb-sub">Save 36%</span>
+    <button type="button" class="mbb-row is-selected" data-tier="3" aria-checked="true">
+      <span class="mbb-row__corner-badge">Best Value</span>
+      <span class="mbb-row__imgs" data-stack="3">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+      </span>
+      <span class="mbb-row__main">
+        <span class="mbb-row__title-line">
+          <span class="mbb-row__title">Buy 3, get 1 free</span>
+          <span class="mbb-row__odds">4x ODDS</span>
+        </span>
+        <span class="mbb-row__sub" data-tier-saved-wrap="3">You save <span data-tier-saved="3">$0.00</span></span>
+      </span>
+      <span class="mbb-row__price">
+        <span class="mbb-row__price-current" data-tier-price="3">$0.00</span>
+        <s class="mbb-row__price-compare" data-tier-compare="3">$0.00</s>
+      </span>
     </button>
 
-    <button type="button" class="mbb-card is-high" data-tier="6" aria-checked="false">
-      <span class="mbb-badge">HIGHEST CHANCES</span>
-      <span class="mbb-title">Buy 6, get 2 free</span>
-      <span class="mbb-sub">Save 43%</span>
+    <button type="button" class="mbb-row" data-tier="6" aria-checked="false">
+      <span class="mbb-row__corner-badge">Highest Chances</span>
+      <span class="mbb-row__imgs" data-stack="3">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+        <img class="mbb-row__img" src="" alt="" loading="lazy" width="70" height="70">
+      </span>
+      <span class="mbb-row__main">
+        <span class="mbb-row__title-line">
+          <span class="mbb-row__title">Buy 6, get 2 free</span>
+          <span class="mbb-row__odds">8x ODDS</span>
+        </span>
+        <span class="mbb-row__sub" data-tier-saved-wrap="6">You save <span data-tier-saved="6">$0.00</span></span>
+      </span>
+      <span class="mbb-row__price">
+        <span class="mbb-row__price-current" data-tier-price="6">$0.00</span>
+        <s class="mbb-row__price-compare" data-tier-compare="6">$0.00</s>
+      </span>
     </button>
+
   </div>
-
-  <!-- Banner above ATC -->
-  <div class="mbb-pricebar" data-mbb-pricebar>
-  <div class="mbb-pricebar__left">
-    <span class="mbb-compare" data-mbb-compare><s>$0.00</s></span>
-    <span class="mbb-total" data-mbb-total>$0.00</span>
-  </div>
-  <div class="mbb-pricebar__right">
-    <span class="mbb-save" data-mbb-save>You’re saving $0.00</span>
-  </div>
-</div>
-
-
 </div>
 
 <style>
-  /* container spacing */
-  .mbb{margin:0px;font-family: 'Manrope' ;}
+  .mbb { font-family: 'Manrope', sans-serif; margin: 0; }
 
-  /* grid */
-  .mbb__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-  @media(min-width:900px){.mbb__grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+  .mbb__heading {
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    margin: 8px 0 14px;
+    color: #000;
+  }
+  .mbb__heading::before,
+  .mbb__heading::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 18%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .mbb__heading::before { margin-right: 14px; }
+  .mbb__heading::after  { margin-left: 14px; }
 
-  /* cards */
-  .mbb-card{
-    border:2px solid #e1e1e1;border-radius:14px;padding:16px 14px;background:#fff;
-    text-align:center;cursor:pointer;position:relative;transition:all .18s ease;
-  }
-  .mbb-card.is-selected{
-    border-color:#111;background:rgba(237,237,237,1);
+  .mbb__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .mbb-title{
-    display:block;font-weight:700;font-size:14px;margin-top:8px;overflow:hidden;font-family: 'Manrope' !important; color: #000 !important;
+  .mbb-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: center;
+    border: 2px solid #e3e3e3;
+    border-radius: 14px;
+    padding: 14px 18px 14px 10px;
+    background: #f5f5f5;
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease;
+    font-family: 'Manrope', sans-serif;
+    width: 100%;
+    text-align: left;
   }
-  .mbb-sub{
-    display:block;color:#2b2b2b;margin-top:4px;font-size:13px;
-    overflow:hidden;font-family: 'Manrope' !important; font-weight: 500;
+  .mbb-row.is-selected {
+    background: #fff;
+    border-color: #000;
+  }
+  .mbb-row:hover:not(.is-selected) { border-color: #999; }
+  .mbb-row:focus-visible { outline: 2px solid #1126a5; outline-offset: 2px; }
+
+  /* Image stack */
+  .mbb-row__imgs {
+    position: relative;
+    width: 110px;
+    height: 80px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .mbb-row__img {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+  }
+  /* 2-image stack */
+  .mbb-row__imgs[data-stack="2"] .mbb-row__img:nth-child(1) {
+    transform: translate(-72%, -50%) rotate(-3deg);
+    z-index: 1;
+  }
+  .mbb-row__imgs[data-stack="2"] .mbb-row__img:nth-child(2) {
+    transform: translate(-28%, -50%) rotate(3deg);
+    z-index: 2;
+  }
+  /* 3-image stack */
+  .mbb-row__imgs[data-stack="3"] .mbb-row__img:nth-child(1) {
+    transform: translate(-85%, -50%) rotate(-6deg);
+    z-index: 1;
+  }
+  .mbb-row__imgs[data-stack="3"] .mbb-row__img:nth-child(2) {
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+  .mbb-row__imgs[data-stack="3"] .mbb-row__img:nth-child(3) {
+    transform: translate(-15%, -50%) rotate(6deg);
+    z-index: 2;
   }
 
-  .mbb-badge{
-    position:absolute;top:-12px;left:50%;transform:translateX(-50%);
-    background:#1126a5;color:#fff;font-size:11px;padding:4px 8px;border-radius:6px;
-   
+  /* Middle column */
+  .mbb-row__main { min-width: 0; }
+  .mbb-row__title-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
   }
-  #mbb-badge-best {
-    background:rgb(255, 255, 255);color:#000;border:2px solid rgb(125, 125, 125);
+  .mbb-row__title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #000;
+    line-height: 1.2;
+    font-family: 'Manrope', sans-serif !important;
   }
-  .mbb-badge.is-empty{background:transparent;color:transparent}
+  .mbb-row__odds {
+    display: inline-block;
+    background: #e9e9e9;
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+  .mbb-row__sub {
+    display: block;
+    color: #555;
+    font-size: 14px;
+    margin-top: 4px;
+    font-weight: 500;
+  }
 
-  /* gifts */
-  .mbb-gifts{margin-top:18px}
-  .mbb-gifts__title{text-align:center;font-weight:700;letter-spacing:.03em;font-size:14px}
-  .mbb-gifts__grid{margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-  .mbb-gift{
-    border:2px dashed #b9d9e6;border-radius:14px;padding:10px 8px;text-align:center;
-    position:relative;background:#fff;
+  /* Right column (price) */
+  .mbb-row__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
   }
-  .mbb-pill{
-    position:absolute;top:-10px;left:50%;transform:translateX(-50%);
-    background:#f7eaa0;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:700;
-    white-space:nowrap; box-shadow: 0 2px 8px rgba(0,0,0,.08);
-  border: 1px solid rgba(0,0,0,.06); color:#111;
+  .mbb-row__price-current {
+    font-weight: 700;
+    font-size: 22px;
+    color: #000;
+    line-height: 1.1;
+    white-space: nowrap;
   }
-  /* make the strike price subtle + clean */
-  .mbb-pill s{
-    opacity: .85;
+  .mbb-row__price-compare {
+    color: #999;
+    font-size: 14px;
     text-decoration-thickness: 2px;
-    text-decoration-color: rgba(0,0,0,.35);
+    white-space: nowrap;
   }
 
-  .mbb-gift__img{height:74px;border-radius:10px;background:#fff;overflow:hidden;display:flex}
-  .mbb-gift__img img{width:100%;height:100%;object-fit:contain;display:block}
-
-  .mbb-gift__lbl{
-    margin-top:8px;font-weight:700;font-size:12px;overflow:hidden;
+  /* Corner badge (Best Value / Highest Chances) */
+  .mbb-row__corner-badge {
+    position: absolute;
+    top: -11px;
+    right: 18px;
+    background: #1126a5;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 5;
+    letter-spacing: 0.01em;
   }
 
-  .mbb-lock{
-    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    font-size:22px;background:rgba(0,0,0,.55);color:#fff;border-radius:12px;
-    opacity:0;pointer-events:none;
-  }
-  .mbb-gift.is-locked .mbb-lock{opacity:1}
-
-/* 1) Parent: only mark as locked, no opacity here */
-.mbb-gift.is-locked{
-  filter:none;          /* no grayscale on whole box */
-  opacity:1;            /* keep full opacity */
-   border-color: #d0d0d0;
-  background:#f7f7f7;
-}
-
-/* 2) Dim image + label only (NOT the pill) */
-.mbb-gift.is-locked .mbb-gift__img,
-.mbb-gift.is-locked .mbb-gift__lbl{
-  filter:grayscale(1);
-  opacity:.55;
-}
-
-/* 3) Pill stays colorful */
-.mbb-gift.is-locked .mbb-pill{
-  filter:none;
-  opacity:1;
-  z-index: 8;
-}
-
-
-    /* banner */
-
-  .mbb-pricebar{
-    margin-top:14px;
-    background:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    padding:10px 0;
-    border-top:1px solid #e8e8e8;
+  /* Mobile */
+  @media (max-width: 480px) {
+    .mbb__heading { font-size: 14px; margin: 4px 0 12px; letter-spacing: 0.04em; }
+    .mbb__heading::before, .mbb__heading::after { width: 12%; }
+    .mbb-row { padding: 12px 14px 12px 4px; gap: 8px; }
+    .mbb-row__imgs { width: 76px; height: 64px; }
+    .mbb-row__img { width: 50px; height: 50px; }
+    .mbb-row__title { font-size: 14px; }
+    .mbb-row__odds { font-size: 10px; padding: 2px 8px; }
+    .mbb-row__sub { font-size: 12px; margin-top: 3px; }
+    .mbb-row__price-current { font-size: 16px; }
+    .mbb-row__price-compare { font-size: 12px; }
+    .mbb-row__corner-badge { font-size: 10px; padding: 3px 10px; right: 12px; top: -9px; }
   }
 
-  .mbb-pricebar__left{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    min-width:0;
-  }
-
-  /* compare price: red + strike */
-  .mbb-compare{
-    color: #1225A5;
-    font-weight:700;
-    font-size:14px;
-    white-space:nowrap;
-  }
-  .mbb-compare s{
-    text-decoration-thickness:2px;
-  }
-
-  /* total: bold black */
-  .mbb-total{
-    color:#000;
-    font-weight:700;
-    font-size:16px;
-    white-space:nowrap;
-  }
-
-  /* savings: right aligned */
-  .mbb-save{
-    color:#000;
-    font-weight:600;
-    font-size:14px;
-    white-space:nowrap;
-    text-align:right;
-  }
-@media (max-width: 450px) {
-  .mbb-card{
-    padding:10px 10px 13px;
-    
-  }
-  
-  .mbb-gifts__grid {
-    gap: 4px !important;
-  }
-  .mbb-pill{
-  padding:1px 8px;font-size:9px;
-  }
-  .mbb-gift__lbl{
-   font-size:11px;
-   margin: 0px;
-  }
-  .mbb-badge{
-    
-    font-size:9px;padding:3px 5px;
-  }
-
-
-}
-  /* our bundle CTA */
-.mbb-cta-wrap{
-  margin-top:0px;
-}
-
-.mbb-cta{
-  width:100%;
-  border:none;
-  border-radius:999px;
-  padding:16px 24px;
-  background:#1225A5;
-  color:#fff;
-  font-weight:700;
-  font-size:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  cursor:pointer;
-  transition:background .15s ease, transform .1s ease, box-shadow .15s ease;
-}
-
-.mbb-cta-icon{
-  display:inline-flex;
-  width:20px;
-  height:20px;
-}
-
-.mbb-cta-icon svg{
-  width:100%;
-  height:100%;
-  stroke-width:1.7;
-}
-
-.mbb-cta:hover{
-  background:#0a177c;
-  transform:translateY(-1px);
-  box-shadow:0 10px 20px rgba(0,0,0,.16);
-}
-
-.mbb-cta:active{
-  transform:translateY(0);
-  box-shadow:none;
-}
-/* Tighten space between bundle pricebar and Add to Cart on pdp-v5 */
-body.template-product-pdp-v5 .buy-buttons-block {
-  display: block;            /* make sure span behaves like a block */
-  margin-top: -18px !important; /* tweak value: 0–8px depending on taste */
-}
-
-/* Make sure the inner button group doesn't add extra gap */
-body.template-product-pdp-v5 .product-form-buttons {
-  margin-top: 0 !important;
-}
-
-/* Make HIGHEST CHANCES card visually distinct (matches former tier-18 emphasis) */
-body.template-product-pdp-v5 .mbb-card.is-high {
-  border-color: #1126a5;
-}
+  /* Tighten gap between bundle and Add to Cart on pdp-v5 */
+  body.template-product-pdp-v5 .buy-buttons-block { display: block; margin-top: 6px !important; }
+  body.template-product-pdp-v5 .product-form-buttons { margin-top: 0 !important; }
 </style>
 
 <script>
@@ -514,83 +521,108 @@ body.template-product-pdp-v5 .mbb-card.is-high {
     );
   }
 
-  // === TIER SELECTION / UI + DATA ===
+  // === RENDER PER-TIER PRICES + IMAGES ===
+  // Re-runs whenever the active miner changes. Iterates all 4 tiers and
+  // updates each card's price, compare-at strike, "You save $X" text,
+  // and the stack of product images. Hides "You save" entirely when the
+  // active miner has no compare-at on that tier (e.g., Miner Forge PRO's
+  // single-unit variant has no discount).
+  function renderAllTiers(){
+    var wrap = getMbbWrap();
+    if (!wrap) return;
+    var data = MINER_DATA[ACTIVE_MINER];
+    if (!data) return;
+    var prices = data.prices || {};
+
+    // Pick a hero image URL for the active miner (first item from images
+    // array if available, else featuredImage). Normalize protocol-relative.
+    var heroSrc = '';
+    if (Array.isArray(data.images) && data.images.length) {
+      heroSrc = data.images[0];
+    } else {
+      heroSrc = data.featuredImage || '';
+    }
+    if (heroSrc && typeof heroSrc !== 'string' && heroSrc.src) heroSrc = heroSrc.src;
+    if (typeof heroSrc === 'string' && heroSrc.indexOf('//') === 0) heroSrc = 'https:' + heroSrc;
+
+    [1, 2, 3, 6].forEach(function(tier){
+      var p = prices[tier] || { price: 0, compare_at: 0 };
+      var priceCents   = p.price || 0;
+      var compareCents = p.compare_at || 0;
+      var savedCents   = compareCents - priceCents;
+
+      var priceEl     = wrap.querySelector('[data-tier-price="' + tier + '"]');
+      var compareEl   = wrap.querySelector('[data-tier-compare="' + tier + '"]');
+      var savedEl     = wrap.querySelector('[data-tier-saved="' + tier + '"]');
+      var savedWrapEl = wrap.querySelector('[data-tier-saved-wrap="' + tier + '"]');
+
+      if (priceEl)   priceEl.textContent = formatMoney(priceCents);
+      if (compareEl) {
+        if (compareCents > priceCents) {
+          compareEl.style.display = '';
+          compareEl.textContent = formatMoney(compareCents);
+        } else {
+          compareEl.style.display = 'none';
+        }
+      }
+      if (savedEl && savedWrapEl) {
+        if (savedCents > 0) {
+          savedWrapEl.style.display = '';
+          savedEl.textContent = formatMoney(savedCents);
+        } else {
+          savedWrapEl.style.display = 'none';
+        }
+      }
+
+      // Update images on this tier card (whatever the data-stack count says).
+      if (heroSrc) {
+        var tierRow = wrap.querySelector('.mbb-row[data-tier="' + tier + '"]');
+        if (tierRow) {
+          tierRow.querySelectorAll('.mbb-row__img').forEach(function(img){
+            img.src = heroSrc;
+          });
+        }
+      }
+    });
+  }
+
+  // === TIER SELECTION ===
+  // Visual highlight + form variant ID sync. Doesn't touch prices; those
+  // live inside each tier card and are managed by renderAllTiers().
   function setSelected(tier){
     var wrap = getMbbWrap();
     if (!wrap) return;
-
-    var t = TIERS[tier] || TIERS[2];
-    var priceData = PRICE_BY_TIER[tier] || PRICE_BY_TIER[2];
-    var priceCents   = priceData.price   || 0;
-    var compareCents = priceData.compare_at || 0;
-
-    var cards = wrap.querySelectorAll('.mbb-card');
-    cards.forEach(function(c){
-      var is = (+c.getAttribute('data-tier') === +tier);
-      c.classList.toggle('is-selected', is);
-      c.setAttribute('aria-checked', is ? 'true' : 'false');
+    var rows = wrap.querySelectorAll('.mbb-row');
+    rows.forEach(function(r){
+      var is = (+r.getAttribute('data-tier') === +tier);
+      r.classList.toggle('is-selected', is);
+      r.setAttribute('aria-checked', is ? 'true' : 'false');
     });
-
-    var compareEl = wrap.querySelector('[data-mbb-compare]');
-    var totalEl   = wrap.querySelector('[data-mbb-total]');
-    var saveEl    = wrap.querySelector('[data-mbb-save]');
-
-    // V5: gifts UI removed — no gift unlock / odds-image swap to do.
-
-    // Price bar: use actual variant price/compare_at (Markets-safe)
-    if (totalEl){
-      totalEl.textContent = formatMoney(priceCents);
-    }
-
-    // Show discount whenever compare-at > price, on every tier.
-    // (The original v3 bundle blocked tier 1 because Miner Forge PRO's
-    // single-unit variant has no compare price, but Bitaxe and Titan Max
-    // both have compare-at-price on tier 1, and on those miners we want
-    // the strikethrough + savings to render.)
-    var hasDiscount = compareCents > priceCents;
-    console.log("discount: " + hasDiscount, "tier", tier, "price", priceCents, "compare", compareCents);
-
-    if (!hasDiscount){
-      if (compareEl) compareEl.style.display = 'none';
-      if (saveEl)    saveEl.style.display    = 'none';
-    } else {
-      var savingsCents = compareCents - priceCents;
-      console.log(savingsCents);
-
-      if (compareEl){
-        compareEl.style.display = '';
-        compareEl.innerHTML = '<s>' + formatMoney(compareCents) + '</s>';
-      }
-      if (saveEl){
-        saveEl.style.display = '';
-        saveEl.textContent = "You're saving " + formatMoney(savingsCents);
-      }
-    }
-
-    wrap.dataset.tier   = String(tier);
-
+    wrap.dataset.tier = String(tier);
     syncFormFields(wrap);
   }
 
-  // Default selection: Buy 2 Miners
-  setSelected(2);
+  // Initial render: paint all 4 tiers with the page's primary product
+  // (pdp-v5 / Miner Forge PRO) data, then default-select the "Best Value"
+  // tier (Buy 3 get 1 free) — that's the visually-emphasized default in
+  // this layout.
+  renderAllTiers();
+  setSelected(3);
 
-  // Delegation: survives section morphs that replace card nodes
+  // Delegated click handler — survives section morphs that replace
+  // .mbb-row nodes after cart updates.
   WRAP.addEventListener('click', function (ev) {
-    var root = ev.currentTarget;
-    var card = ev.target.closest('.mbb-card');
-    if (!card || !root.contains(card)) return;
-    setSelected(+card.getAttribute('data-tier'));
+    var row = ev.target.closest('.mbb-row');
+    if (!row || !ev.currentTarget.contains(row)) return;
+    setSelected(+row.getAttribute('data-tier'));
   });
 
-  // V5: react to the Miner Type Selector switching active product.
-  // Repoints VARIANTS_BY_TIER and PRICE_BY_TIER to the new miner's data,
-  // resets to tier 1 (Buy 1) so the displayed price matches what the user
-  // would see on that miner's own product page (where the default-shown
-  // price is always the single-unit price), then re-runs setSelected().
-  // Exception: when switching back to the page's primary product (pdp-v5),
-  // we keep the bundle on tier 2 (Buy 2 Miners) which is the v5 default
-  // / "popular" tier for Miner Forge PRO.
+  // React to the Miner Type Selector switching active product.
+  // Repoints data references, re-renders all tier cards (prices + images),
+  // and resets the highlighted tier:
+  //   - pdp-v5 (Miner Forge PRO)  → tier 3 (Best Value, the v5 default)
+  //   - bitaxe-gamma / titan-max  → tier 1 (matches each miner's standalone
+  //     product page, where Buy 1 is the default-shown price)
   document.addEventListener('mb:miner-changed', function (ev) {
     var handle = ev && ev.detail && ev.detail.handle;
     if (!handle || !MINER_DATA[handle]) {
@@ -602,9 +634,17 @@ body.template-product-pdp-v5 .mbb-card.is-high {
     VARIANTS_BY_TIER = MINER_DATA[handle].variantIds;
     PRICE_BY_TIER    = MINER_DATA[handle].prices;
 
-    var resetTier = (handle === 'pdp-v5') ? 2 : 1;
+    renderAllTiers();
+    var resetTier = (handle === 'pdp-v5') ? 3 : 1;
     setSelected(resetTier);
     console.log('[MB Bundle] Switched to miner:', handle, 'reset to tier', resetTier, 'variantId', VARIANTS_BY_TIER[resetTier], 'price', PRICE_BY_TIER[resetTier]);
+  });
+
+  // Once the other miners' image arrays come back from /products/HANDLE.js,
+  // re-render so their tier cards get populated images even if the user
+  // never clicks a different miner pill.
+  document.addEventListener('mb:miner-images-hydrated', function () {
+    if (ACTIVE_MINER !== 'pdp-v5') renderAllTiers();
   });
 
   onReady(function(){
