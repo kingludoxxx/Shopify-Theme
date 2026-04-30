@@ -501,18 +501,13 @@
       swapHero(handle);
       // And swap the bullet points so the spec list matches the miner.
       swapBulletsToMiner(handle);
-      // Mobile UX: smoothly scroll the gallery into view so the visitor
-      // sees the new miner's image without manually scrolling up. Matches
-      // the competitor's mobile interaction. On desktop the image is
-      // typically already visible so the scroll is essentially a no-op.
+      // Mobile UX: smoothly scroll the page to the very top so the
+      // entire new-miner image is visible (the gallery sits just below
+      // the sticky announcement bar + header — using scrollIntoView
+      // with `block: 'start'` aligned the gallery's top to the viewport
+      // top, which left it partially covered by the sticky header).
       if (window.innerWidth <= 900) {
-        var gallery = document.querySelector('media-gallery, slideshow-component')
-          || document.querySelector('[id^="shopify-section-template"][id*="__main"]');
-        if (gallery && typeof gallery.scrollIntoView === 'function') {
-          gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       return;
     }
