@@ -319,18 +319,22 @@ body.template-product-pdp-v5 .mbb-card.is-high {
   //   - 'titan-max'     Titan Max
   //
   // Strategy:
-  //   - The CURRENT product (the one the page is rendered for) is baked in
-  //     via Liquid using `closest.product` — that's always reliable.
-  //   - The OTHER two products are fetched at runtime from /products/HANDLE.js
-  //     because Shopify's `all_products[handle]` Liquid object is unreliable
-  //     (returns nil/empty in some store configurations, which produced
-  //     $0.00 prices in our first version).
+  //   - The CURRENT product is rendered via Liquid (`closest.product`).
+  //   - The OTHER two products' variant IDs, prices, and featured image
+  //     URLs are HARDCODED — values were pulled directly from the live
+  //     /products/<handle>.js endpoints. Hardcoding eliminates every
+  //     async failure mode (CORS / preview restrictions / fetch errors)
+  //     that produced $0.00 prices in earlier versions.
+  //   - If the operator changes prices in Shopify Admin, this file must
+  //     be updated to reflect them (or the v5 split test re-tooled to
+  //     fetch). For a short-lived split test, hardcoding is the right
+  //     trade-off — pure reliability.
   //
-  // Variant ordering convention (operator must keep this in Shopify Admin):
+  // Variant ordering convention:
   //   variants[0] = tier 1 (single)
   //   variants[1] = tier 2
   //   variants[2] = tier 3 (3 + 1 free)
-  //   variants[3] = tier 6 (6 + 2 free)   ← optional; falls back to [2] if absent
+  //   variants[3] = tier 6 (6 + 2 free)   ← only pdp-v5 has this
   //
   {%- assign mb_self = closest.product -%}
 
@@ -338,7 +342,6 @@ body.template-product-pdp-v5 .mbb-card.is-high {
     'pdp-v5': {
       handle: 'pdp-v5',
       label: 'Miner Forge PRO',
-      ready: true,
       featuredImage: {{ mb_self.featured_image | image_url: width: 1080 | json }},
       variantIds: {
         1: {{ mb_self.variants[0].id | default: 0 | json }},
@@ -356,97 +359,54 @@ body.template-product-pdp-v5 .mbb-card.is-high {
     'bitaxe-gamma': {
       handle: 'bitaxe-gamma',
       label: 'Bitaxe Gamma Shot',
-      ready: false,
-      featuredImage: null,
-      variantIds: { 1: 0, 2: 0, 3: 0, 6: 0 },
+      featuredImage: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Image_1.webp?v=1775669027',
+      variantIds: {
+        1: 56317844947275,
+        2: 56317844980043,
+        3: 56317845012811,
+        6: 56317845012811   /* fallback: tier 3 (no Buy 6 variant exists for bitaxe-gamma) */
+      },
       prices: {
-        1: { price: 0, compare_at: 0 },
-        2: { price: 0, compare_at: 0 },
-        3: { price: 0, compare_at: 0 },
-        6: { price: 0, compare_at: 0 }
+        1: { price: 29999, compare_at: 49998 },
+        2: { price: 59998, compare_at: 99996 },
+        3: { price: 89997, compare_at: 199992 },
+        6: { price: 89997, compare_at: 199992 }   /* fallback: tier 3 */
       }
     },
     'titan-max': {
       handle: 'titan-max',
       label: 'Titan Max',
-      ready: false,
-      featuredImage: null,
-      variantIds: { 1: 0, 2: 0, 3: 0, 6: 0 },
+      featuredImage: 'https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Image_2.webp?v=1775669054',
+      variantIds: {
+        1: 56317845307723,
+        2: 56317845340491,
+        3: 56317845373259,
+        6: 56317845373259   /* fallback: tier 3 (no Buy 6 variant exists for titan-max) */
+      },
       prices: {
-        1: { price: 0, compare_at: 0 },
-        2: { price: 0, compare_at: 0 },
-        3: { price: 0, compare_at: 0 },
-        6: { price: 0, compare_at: 0 }
+        1: { price: 150000, compare_at: 270000 },
+        2: { price: 300000, compare_at: 540000 },
+        3: { price: 450000, compare_at: 1080000 },
+        6: { price: 450000, compare_at: 1080000 }   /* fallback: tier 3 */
       }
     }
   };
 
-  // Fetch the other two products' data from Shopify's product JSON endpoint.
-  // This is reliable across store configurations and bypasses the
-  // `all_products` Liquid limitation.
-  function hydrateMiner(handle) {
-    return fetch('/products/' + handle + '.js', { credentials: 'same-origin' })
-      .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-      .then(function(p){
-        var v = p.variants || [];
-        var entry = MINER_DATA[handle];
-        function vId(i, fallback){ return (v[i] && v[i].id) || fallback || 0; }
-        function vPrice(i, fallback){ return (v[i] && typeof v[i].price === 'number') ? v[i].price : (fallback || 0); }
-        function vCompare(i, fallback){
-          if (v[i] && typeof v[i].compare_at_price === 'number') return v[i].compare_at_price;
-          return fallback || 0;
-        }
-        entry.featuredImage = (p.featured_image || (p.images && p.images[0]) || null);
-        entry.variantIds = {
-          1: vId(0),
-          2: vId(1, vId(0)),
-          3: vId(2, vId(1, vId(0))),
-          6: vId(3, vId(2, vId(1, vId(0))))
-        };
-        entry.prices = {
-          1: { price: vPrice(0), compare_at: vCompare(0) },
-          2: { price: vPrice(1, vPrice(0)), compare_at: vCompare(1, vCompare(0)) },
-          3: { price: vPrice(2, vPrice(1, vPrice(0))), compare_at: vCompare(2, vCompare(1, vCompare(0))) },
-          6: { price: vPrice(3, vPrice(2, vPrice(1, vPrice(0)))), compare_at: vCompare(3, vCompare(2, vCompare(1, vCompare(0)))) }
-        };
-        entry.ready = true;
-        console.log('[MB Bundle] Hydrated miner', handle, entry);
-        // If user already selected this miner before fetch finished, re-render now.
-        if (ACTIVE_MINER === handle) {
-          var w = getMbbWrap();
-          if (w) setSelected(+w.dataset.tier || 2);
-        }
-        // Tell the selector block that an image is now available, in case
-        // the swap-to-image was queued before fetch resolved.
-        document.dispatchEvent(new CustomEvent('mb:miner-hydrated', {
-          detail: { handle: handle, featuredImage: entry.featuredImage }
-        }));
-      })
-      .catch(function(err){
-        console.warn('[MB Bundle] Failed to hydrate miner', handle, err);
-      });
-  }
-
-  // Kick off async hydration for the two non-current miners.
-  hydrateMiner('bitaxe-gamma');
-  hydrateMiner('titan-max');
-
-  // Expose the data store on window so other blocks (the miner-type selector)
-  // can read featured images / labels without their own fetch calls.
+  // Expose the data store on window so the miner-type selector can read
+  // featured images without its own data layer.
   window.MB_MINER_DATA = MINER_DATA;
 
   // Active miner — defaults to the page's primary product.
   // Mutated by the 'mb:miner-changed' event (dispatched from the miner-type selector block).
   var ACTIVE_MINER = 'pdp-v5';
 
-  function currentVariants() { return MINER_DATA[ACTIVE_MINER].variantIds; }
-  function currentPrices()   { return MINER_DATA[ACTIVE_MINER].prices; }
+  // Direct references — re-pointed in the event handler when miner changes.
+  // No Proxy / getter funkiness; just plain object references that the rest
+  // of the code reads from.
+  var VARIANTS_BY_TIER = MINER_DATA[ACTIVE_MINER].variantIds;
+  var PRICE_BY_TIER    = MINER_DATA[ACTIVE_MINER].prices;
 
-  // Backwards-compat shims so the existing setSelected() / syncFormFields() code
-  // keeps working without rewriting every reference.
-  Object.defineProperty(window, '__MB_V5_BUNDLE_PROXY_INSTALLED__', { value: true, writable: false });
-  var VARIANTS_BY_TIER = new Proxy({}, { get: function(_, k){ return currentVariants()[k]; } });
-  var PRICE_BY_TIER    = new Proxy({}, { get: function(_, k){ return currentPrices()[k]; } });
+  console.log('[MB Bundle] Initialized with miner data', MINER_DATA);
 
   // === TIERS CONFIG (non-price data only) ===
   // Gifts removed in V5; setSelected() doesn't depend on these fields anymore.
@@ -588,8 +548,9 @@ body.template-product-pdp-v5 .mbb-card.is-high {
   });
 
   // V5: react to the Miner Type Selector switching active product.
-  // Updates ACTIVE_MINER, then re-runs setSelected() with the current
-  // tier so price bar + ATC variant ID reflect the new miner.
+  // Repoints VARIANTS_BY_TIER and PRICE_BY_TIER to the new miner's data,
+  // then re-runs setSelected() with the current tier so price bar + ATC
+  // variant ID reflect the new miner.
   document.addEventListener('mb:miner-changed', function (ev) {
     var handle = ev && ev.detail && ev.detail.handle;
     if (!handle || !MINER_DATA[handle]) {
@@ -598,11 +559,13 @@ body.template-product-pdp-v5 .mbb-card.is-high {
     }
     if (handle === ACTIVE_MINER) return;
     ACTIVE_MINER = handle;
+    VARIANTS_BY_TIER = MINER_DATA[handle].variantIds;
+    PRICE_BY_TIER    = MINER_DATA[handle].prices;
 
     var wrap = getMbbWrap();
     var currentTier = wrap ? (+wrap.dataset.tier || 2) : 2;
     setSelected(currentTier);
-    console.log('[MB Bundle] Switched to miner:', handle, 'at tier', currentTier);
+    console.log('[MB Bundle] Switched to miner:', handle, 'at tier', currentTier, 'variantId', VARIANTS_BY_TIER[currentTier], 'price', PRICE_BY_TIER[currentTier]);
   });
 
   onReady(function(){
