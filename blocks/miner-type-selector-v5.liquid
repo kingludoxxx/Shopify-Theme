@@ -1,0 +1,332 @@
+{%- comment -%}
+  Miner Type Selector V5 (split test for /products/pdp-v5)
+  ----------------------------------------------------------
+  Renders 3 pill buttons that let the visitor switch between three
+  Mineblock products IN-PLACE on the pdp-v5 page (no navigation):
+    - 'pdp-v5'        Miner Forge PRO  (page native)
+    - 'bitaxe-gamma'  Bitaxe Gamma Shot
+    - 'titan-max'     Titan Max
+
+  Click on a pill dispatches a `mb:miner-changed` CustomEvent that
+  blocks/bundle-selector-v5.liquid listens for to swap variant IDs +
+  prices in its bundle UI.
+
+  Below the pills, a "What's the difference?" button opens a modal
+  with one column per miner (image + title + 1-sentence description).
+  Image src is pulled live from each product's featured_image so it
+  stays in sync with whatever the operator sets in Shopify Admin.
+
+  Mineblock theme colors only — no orange-gradient styling from
+  the competitor reference.
+{%- endcomment -%}
+
+{%- assign mb_v5 = all_products['pdp-v5'] -%}
+{%- assign mb_bx = all_products['bitaxe-gamma'] -%}
+{%- assign mb_tm = all_products['titan-max'] -%}
+
+<div class="mb-mtype" data-mb-mtype>
+  <div class="mb-mtype__label">Miner</div>
+  <div class="mb-mtype__pills" role="radiogroup" aria-label="Choose your miner">
+    <button type="button" class="mb-mtype__pill is-active" data-handle="pdp-v5" aria-checked="true">
+      Miner Forge PRO
+    </button>
+    <button type="button" class="mb-mtype__pill" data-handle="bitaxe-gamma" aria-checked="false">
+      Bitaxe Gamma Shot
+    </button>
+    <button type="button" class="mb-mtype__pill" data-handle="titan-max" aria-checked="false">
+      Titan Max
+    </button>
+  </div>
+
+  <button type="button" class="mb-mtype__diff-btn" data-mb-open-popup>
+    What's the difference?
+  </button>
+</div>
+
+<div class="mb-mtype-popup" data-mb-popup hidden role="dialog" aria-modal="true" aria-labelledby="mb-mtype-popup-title">
+  <div class="mb-mtype-popup__backdrop" data-mb-popup-close aria-hidden="true"></div>
+  <div class="mb-mtype-popup__panel" role="document">
+    <button type="button" class="mb-mtype-popup__close" data-mb-popup-close aria-label="Close">&times;</button>
+    <h2 id="mb-mtype-popup-title" class="mb-mtype-popup__sr">Compare miners</h2>
+    <div class="mb-mtype-popup__cols">
+      <div class="mb-mtype-popup__col">
+        {% if mb_v5.featured_image %}
+          <img class="mb-mtype-popup__img"
+               src="{{ mb_v5.featured_image | image_url: width: 480 }}"
+               alt="Miner Forge PRO"
+               loading="lazy" width="480" height="480">
+        {% endif %}
+        <h3 class="mb-mtype-popup__title">Miner Forge PRO</h3>
+        <p class="mb-mtype-popup__desc">Entry-level Bitcoin solo-mining device, designed for learning and small-scale experimentation.</p>
+      </div>
+
+      <div class="mb-mtype-popup__col">
+        {% if mb_bx.featured_image %}
+          <img class="mb-mtype-popup__img"
+               src="{{ mb_bx.featured_image | image_url: width: 480 }}"
+               alt="Bitaxe Gamma Shot"
+               loading="lazy" width="480" height="480">
+        {% endif %}
+        <h3 class="mb-mtype-popup__title">Bitaxe Gamma Shot</h3>
+        <p class="mb-mtype-popup__desc">Mid-tier miner running at 1.2 TH/s &mdash; over a trillion hash attempts per second to solve the block.</p>
+      </div>
+
+      <div class="mb-mtype-popup__col">
+        {% if mb_tm.featured_image %}
+          <img class="mb-mtype-popup__img"
+               src="{{ mb_tm.featured_image | image_url: width: 480 }}"
+               alt="Titan Max"
+               loading="lazy" width="480" height="480">
+        {% endif %}
+        <h3 class="mb-mtype-popup__title">Titan Max</h3>
+        <p class="mb-mtype-popup__desc">Top-tier home miner reaching up to 5 TH/s &mdash; five trillion hash attempts per second to solve the block.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* === Miner type selector =========================================== */
+  .mb-mtype {
+    margin: 18px 0 14px;
+    font-family: 'Manrope', sans-serif;
+  }
+  .mb-mtype__label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    letter-spacing: .01em;
+  }
+  .mb-mtype__pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .mb-mtype__pill {
+    flex: 1 1 0;
+    min-width: 110px;
+    padding: 12px 14px;
+    border-radius: 999px;
+    border: 2px solid rgba(0, 0, 0, .18);
+    background: #fff;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #000;
+    transition: background .15s ease, border-color .15s ease, color .15s ease;
+    text-align: center;
+  }
+  .mb-mtype__pill:hover {
+    border-color: #1126a5;
+  }
+  .mb-mtype__pill.is-active {
+    background: #1126a5;
+    color: #fff;
+    border-color: #1126a5;
+  }
+  .mb-mtype__pill:focus-visible {
+    outline: 2px solid #1126a5;
+    outline-offset: 2px;
+  }
+
+  .mb-mtype__diff-btn {
+    margin: 14px 0 0;
+    display: inline-block;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 999px;
+    background: #1126a5;
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: background .15s ease, transform .1s ease, box-shadow .15s ease;
+  }
+  .mb-mtype__diff-btn:hover {
+    background: #0a177c;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .18);
+  }
+  .mb-mtype__diff-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  @media (max-width: 450px) {
+    .mb-mtype__pill { font-size: 12px; padding: 10px 8px; min-width: 90px; }
+    .mb-mtype__diff-btn { font-size: 13px; padding: 9px 18px; }
+  }
+
+  /* === Popup ========================================================= */
+  .mb-mtype-popup { position: fixed; inset: 0; z-index: 9999; display: none; }
+  .mb-mtype-popup:not([hidden]) { display: block; }
+
+  .mb-mtype-popup__backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0, 0, 0, .65);
+    backdrop-filter: blur(2px);
+  }
+
+  .mb-mtype-popup__panel {
+    position: relative;
+    max-width: 1100px;
+    margin: 6vh auto 4vh;
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 28px 28px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .4);
+    font-family: 'Manrope', sans-serif;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+  @media (max-width: 740px) {
+    .mb-mtype-popup__panel {
+      margin: 4vw;
+      padding: 36px 18px 22px;
+      border-radius: 14px;
+      max-height: 92vh;
+    }
+  }
+
+  .mb-mtype-popup__close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    line-height: 1;
+    color: #000;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: background .15s ease;
+  }
+  .mb-mtype-popup__close:hover { background: rgba(0, 0, 0, .07); }
+
+  .mb-mtype-popup__sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
+  }
+
+  .mb-mtype-popup__cols {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  @media (min-width: 740px) {
+    .mb-mtype-popup__cols { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  }
+
+  .mb-mtype-popup__col {
+    text-align: center;
+  }
+
+  .mb-mtype-popup__img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    margin: 0 auto 14px;
+    display: block;
+    background: #f7f7f7;
+  }
+
+  .mb-mtype-popup__title {
+    color: #1126a5;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+
+  .mb-mtype-popup__desc {
+    color: #2b2b2b;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Lock body scroll while popup is open */
+  body.mb-mtype-popup-open { overflow: hidden; }
+</style>
+
+<script>
+(function () {
+  if (window.__MB_MINER_TYPE_V5_INSTALLED__) return;
+  window.__MB_MINER_TYPE_V5_INSTALLED__ = true;
+
+  function openPopup() {
+    var popup = document.querySelector('[data-mb-popup]');
+    if (!popup) return;
+    popup.removeAttribute('hidden');
+    document.body.classList.add('mb-mtype-popup-open');
+  }
+
+  function closePopup() {
+    var popup = document.querySelector('[data-mb-popup]');
+    if (!popup) return;
+    popup.setAttribute('hidden', '');
+    document.body.classList.remove('mb-mtype-popup-open');
+  }
+
+  document.addEventListener('click', function (ev) {
+    // Pill click → swap miner
+    var pill = ev.target.closest('.mb-mtype__pill');
+    if (pill) {
+      var handle = pill.dataset.handle;
+      if (!handle) return;
+      var wrap = pill.closest('[data-mb-mtype]');
+      if (wrap) {
+        wrap.querySelectorAll('.mb-mtype__pill').forEach(function (p) {
+          var isActive = p === pill;
+          p.classList.toggle('is-active', isActive);
+          p.setAttribute('aria-checked', isActive ? 'true' : 'false');
+        });
+      }
+      // Tell the bundle (and anyone else) which miner is active now.
+      document.dispatchEvent(new CustomEvent('mb:miner-changed', {
+        detail: { handle: handle }
+      }));
+      return;
+    }
+
+    if (ev.target.closest('[data-mb-open-popup]')) {
+      openPopup();
+      return;
+    }
+
+    if (ev.target.closest('[data-mb-popup-close]')) {
+      closePopup();
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape') {
+      var popup = document.querySelector('[data-mb-popup]');
+      if (popup && !popup.hasAttribute('hidden')) closePopup();
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Miner Type Selector V5",
+  "settings": [],
+  "presets": [{ "name": "Miner Type Selector V5" }]
+}
+{% endschema %}
