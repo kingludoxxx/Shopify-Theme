@@ -90,6 +90,7 @@
   .mb-mtype {
     margin: 18px 0 14px;
     font-family: 'Manrope', sans-serif;
+    text-align: center;   /* centers the "What's the difference?" button */
   }
   .mb-mtype__label {
     font-size: 14px;
@@ -288,6 +289,47 @@
   if (window.__MB_MINER_TYPE_V5_INSTALLED__) return;
   window.__MB_MINER_TYPE_V5_INSTALLED__ = true;
 
+  // === Per-miner bullet copy =========================================
+  // The product page's existing icon-text block contains the static
+  // bullets. We don't replace the block (operator wants the original
+  // ✓/<em>/<strong> icon styling preserved); instead we swap its inner
+  // HTML when the visitor clicks a different miner pill. Each miner's
+  // copy uses the same <p><em>✓</em> <strong>...</strong></p> shape so
+  // the existing site-wide CSS continues to style them.
+  var BULLETS_BY_MINER = {
+    'pdp-v5':
+      '<p><em>✓</em> <strong>Get a chance to win 3 BTC ($300,000)</strong></p>' +
+      '<p><em>✓</em> <strong>Costs just $1/year to run</strong></p>' +
+      '<p><em>✓</em> <strong>Plug in, set &amp; forget</strong></p>' +
+      '<p><em>✓</em> <strong>Lifetime warranty</strong></p>',
+    'bitaxe-gamma':
+      '<p><em>✓</em> <strong>Get a chance to win 3 BTC ($300,000)</strong></p>' +
+      '<p><em>✓</em> <strong>Costs just $20/year to run</strong></p>' +
+      '<p><em>✓</em> <strong>720 automatic attempts to solve a block</strong></p>' +
+      '<p><em>✓</em> <strong>Plug in, set &amp; forget</strong></p>' +
+      '<p><em>✓</em> <strong>Lifetime warranty</strong></p>',
+    'titan-max':
+      '<p><em>✓</em> <strong>Get a chance to win 3 BTC ($300,000)</strong></p>' +
+      '<p><em>✓</em> <strong>2280 automatic attempts to solve a block</strong></p>' +
+      '<p><em>✓</em> <strong>4.8 TH/s of consistent Bitcoin mining output</strong></p>' +
+      '<p><em>✓</em> <strong>4 &times; Antminer S21 Pro ASIC chips</strong></p>' +
+      '<p><em>✓</em> <strong>Lifetime warranty</strong></p>'
+  };
+
+  function swapBulletsToMiner(handle) {
+    var copy = BULLETS_BY_MINER[handle];
+    if (!copy) return;
+    // The icon-text block renders inside .cs_icon-text-main (see
+    // blocks/icon-text.liquid). On pdp-v5 there's exactly one such
+    // wrapper inside the product-details column.
+    var bulletWrap = document.querySelector('.cs_icon-text-main');
+    if (!bulletWrap) {
+      console.warn('[MB Mtype] .cs_icon-text-main not found — bullets did not swap');
+      return;
+    }
+    bulletWrap.innerHTML = copy;
+  }
+
   // Shopify's slideshow component renders the gallery's media as a set
   // of <img class="product-media__image"> elements — typically duplicated
   // (one set for the main slide-area, another for the thumbnail strip).
@@ -419,6 +461,8 @@
       // Also swap the hero image. If image not yet hydrated, the
       // 'mb:miner-hydrated' listener below will retry once it's ready.
       swapHero(handle);
+      // And swap the bullet points so the spec list matches the miner.
+      swapBulletsToMiner(handle);
       return;
     }
 
