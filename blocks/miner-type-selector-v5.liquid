@@ -319,15 +319,28 @@
   function swapBulletsToMiner(handle) {
     var copy = BULLETS_BY_MINER[handle];
     if (!copy) return;
-    // The icon-text block renders inside .cs_icon-text-main (see
-    // blocks/icon-text.liquid). On pdp-v5 there's exactly one such
-    // wrapper inside the product-details column.
-    var bulletWrap = document.querySelector('.cs_icon-text-main');
-    if (!bulletWrap) {
+    // Shopify renders product-details (and its child icon-text block)
+    // twice on this template — once via `content_for 'block'` and once
+    // via `content_for 'blocks'`. We only want one bullets list visible:
+    // populate the first .cs_icon-text-main, hide the remaining ones.
+    var wraps = document.querySelectorAll('.cs_icon-text-main');
+    if (!wraps.length) {
       console.warn('[MB Mtype] .cs_icon-text-main not found — bullets did not swap');
       return;
     }
-    bulletWrap.innerHTML = copy;
+    wraps[0].innerHTML = copy;
+    for (var i = 1; i < wraps.length; i++) {
+      var hostSection = wraps[i].closest('.icon-textt') || wraps[i].parentElement;
+      if (hostSection) hostSection.style.display = 'none';
+    }
+  }
+
+  // Run the dedupe on page load too — without it the duplicate bullet
+  // list is visible until the visitor clicks a miner pill.
+  function initialBulletSwap() {
+    var activePill = document.querySelector('.mb-mtype__pill.is-active');
+    var handle = activePill && activePill.dataset.handle;
+    swapBulletsToMiner(handle || 'bitaxe-gamma');
   }
 
   // Shopify's slideshow component renders the gallery's media as a set
@@ -497,11 +510,16 @@
   });
 
   // Capture the original hero srcs once the DOM is ready so we can restore
-  // them when the user comes back to Miner Forge PRO.
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', captureOriginalHeroes);
-  } else {
+  // them when the user comes back to Miner Forge PRO. Also run the initial
+  // bullets swap (dedupe + populate to active miner).
+  function onDomReady() {
     captureOriginalHeroes();
+    initialBulletSwap();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onDomReady);
+  } else {
+    onDomReady();
   }
 })();
 </script>
