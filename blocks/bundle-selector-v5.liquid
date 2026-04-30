@@ -508,9 +508,13 @@ body.template-product-pdp-v5 .mbb-card.is-high {
       totalEl.textContent = formatMoney(priceCents);
     }
 
-    // For tier 1 or when no real discount, hide compare/save
-    var hasDiscount = tier !== 1 && compareCents > priceCents;
-    console.log("discount: " + hasDiscount);
+    // Show discount whenever compare-at > price, on every tier.
+    // (The original v3 bundle blocked tier 1 because Miner Forge PRO's
+    // single-unit variant has no compare price, but Bitaxe and Titan Max
+    // both have compare-at-price on tier 1, and on those miners we want
+    // the strikethrough + savings to render.)
+    var hasDiscount = compareCents > priceCents;
+    console.log("discount: " + hasDiscount, "tier", tier, "price", priceCents, "compare", compareCents);
 
     if (!hasDiscount){
       if (compareEl) compareEl.style.display = 'none';
