@@ -215,6 +215,7 @@
             "icon_text_J6RLLQ": {
               "type": "icon-text",
               "name": "icon-text",
+              "disabled": true,
               "settings": {
                 "padding_top": 10,
                 "padding_bottom": 10,
@@ -222,6 +223,19 @@
                 "mbl_padding_bottom": 10,
                 "back_color": "",
                 "text": "<p><em>✓</em> <strong>Get a chance to win 3 BTC ($300,000)</strong></p><p><em>✓</em> <strong>Costs just $20/year to run</strong></p><p><em>✓</em> <strong>720 automatic attempts to solve a block</strong></p><p><em>✓</em> <strong>Plug in, set & forget</strong></p><p><em>✓</em> <strong>Lifetime warranty</strong></p>"
+              },
+              "blocks": {}
+            },
+            "icon_text_VUngdY": {
+              "type": "icon-text",
+              "name": "icon-text",
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "",
+                "text": "<p><em>✓</em> <strong>Get a shot at solving a block of 3 BTC</strong></p><p><em>✓</em><strong> Runs on just 1W via USB-C</strong></p><p><em>✓</em> <strong>Plug in, set & forget</strong></p><p><em>✓</em> <strong>Lifetime warranty</strong></p>"
               },
               "blocks": {}
             },
@@ -645,6 +659,7 @@
             "text_aEtTtq",
             "custom_richtext_TUeUAc",
             "icon_text_J6RLLQ",
+            "icon_text_VUngdY",
             "custom_liquid_BnVpqL",
             "divider_VJhene",
             "variant_picker_R3rGDr",
