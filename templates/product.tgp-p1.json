@@ -249,7 +249,6 @@
             },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
-              "disabled": true,
               "settings": {
                 "variant_style": "buttons",
                 "show_swatches": false,
@@ -883,12 +882,12 @@
     },
     "comparation_header_section_NjRwU3": {
       "type": "comparation-header-section",
+      "disabled": true,
       "custom_css": [],
       "name": "Comparation Header",
       "settings": {
         "heading": "<h2>Recent Solo Mining <em><strong>Success Stories</strong></em></h2>"
-      },
-      "disabled": true
+      }
     },
     "section_qiKg4T": {
       "type": "section",
@@ -1575,6 +1574,7 @@
     },
     "comparation_header_section_wCDMid": {
       "type": "comparation-header-section",
+      "disabled": true,
       "custom_css": [
         "h2 {color: white; text-align: center;}",
         ".n-c-heading-title-cs strong {color: #1a61f9;}"
@@ -1582,8 +1582,7 @@
       "name": "Comparation Header",
       "settings": {
         "heading": "<h2>Loved By <strong>10.000 + Customers</strong></h2>"
-      },
-      "disabled": true
+      }
     },
     "section_9HFF6z": {
       "type": "section",
