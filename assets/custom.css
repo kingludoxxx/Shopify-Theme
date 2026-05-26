@@ -403,6 +403,17 @@ label.variant-option__button-label.cst-variant-option--label {
 label.variant-option__button-label.cst-variant-option--label:before {
     content: unset;
 }
+.cst-variant-option--bundle-model label.variant-option__button-label.cst-variant-option--label{
+        justify-content: center;
+    align-items: center;
+}
+.cst-variant-option--bundle-model label.variant-option__button-label.cst-variant-option--label .bundle-left {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 @media only screen and (max-width: 989px){
     .custom-testimonials-box { grid-template-columns: 60px 1fr; }
