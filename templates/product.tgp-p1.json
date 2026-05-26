@@ -355,9 +355,14 @@
               "name": "Payment Icons Bar",
               "settings": {
                 "icon": "shopify://shop_images/amex.svg",
-                "text": "128-bit SSL encryption",
-                "bg_color": "#2d2d2d",
-                "text_color": "#ffffff"
+                "icon2": "shopify://shop_images/Maestro.svg",
+                "icon3": "shopify://shop_images/visa.svg",
+                "icon4": "shopify://shop_images/shop_pay.svg",
+                "icon5": "shopify://shop_images/mastercard.svg",
+                "icon6": "shopify://shop_images/discover.svg",
+                "icon7": "shopify://shop_images/apple_pay.svg",
+                "icon8": "shopify://shop_images/gpay.svg",
+                "text": "128-bit SSL encryption"
               },
               "blocks": {}
             },
