@@ -274,15 +274,35 @@
               },
               "blocks": {}
             },
+            "custom_variants_option_zXhC6V": {
+              "type": "custom_variants_option",
+              "name": "Custom Variants",
+              "settings": {
+                "text1": "",
+                "bt_text1": "",
+                "bt_price1": "",
+                "text2": "",
+                "bt_text2": "",
+                "bt_price2": "",
+                "bt_Compare2": "",
+                "text3": "",
+                "bt_text3": "",
+                "bt_price3": "",
+                "bt_Compare3": ""
+              },
+              "blocks": {}
+            },
             "miner_type_selector_v5_a1B2c3": {
               "type": "miner-type-selector-v5",
               "name": "Miner Type Selector V5",
+              "disabled": true,
               "settings": {},
               "blocks": {}
             },
             "bundle_selector_EerCDN": {
               "type": "bundle-selector-v5",
               "name": "Bundle Selector V5",
+              "disabled": true,
               "settings": {},
               "blocks": {}
             },
@@ -663,6 +683,7 @@
             "custom_liquid_BnVpqL",
             "divider_VJhene",
             "variant_picker_R3rGDr",
+            "custom_variants_option_zXhC6V",
             "miner_type_selector_v5_a1B2c3",
             "bundle_selector_EerCDN",
             "buy_buttons_eYQEYi",
