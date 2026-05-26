@@ -1,0 +1,81 @@
+<div class="product-icons">
+    <div class="product-icon-item">    
+      {% if block.settings.icon != blank %}
+        <img src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.heading }}" width="24" height="24" >
+      {% endif %}
+      {% if block.settings.heading != blank %}
+        <span>{{ block.settings.heading }}</span>
+      {% endif %}
+    </div>
+    <div class="product-icon-item">    
+      {% if block.settings.icon1 != blank %}
+        <img src="{{ block.settings.icon1 | image_url }}" alt="{{ block.settings.heading1 }}" width="24" height="24" >
+      {% endif %}
+      {% if block.settings.heading1 != blank %}
+        <span>{{ block.settings.heading1 }}</span>
+      {% endif %}
+    </div>    
+</div>
+
+<style>
+.product-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  {% comment %} padding: 10px 20px; {% endcomment %}
+}
+
+.product-icon-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.product-icon-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 749px){
+    .product-icons {flex-wrap: wrap; gap: 10px; padding: 5px 0px;}
+}    
+</style>
+
+{% schema %}
+{
+  "name": "Custom Product Icons",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Icon"
+    },
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Text",
+        "default": "Secure Checkout"
+    },
+    {
+        "type": "image_picker",
+        "id": "icon1",
+        "label": "Icon"
+    },
+    {
+        "type": "text",
+        "id": "heading1",
+        "label": "Text",
+        "default": "90 day  money back guarantee"
+    }    
+  ],
+  "presets": [
+    {
+      "name": "Custom Product Icons",
+    }
+  ]
+}
+{% endschema %}

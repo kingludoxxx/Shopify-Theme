@@ -1,0 +1,176 @@
+<div class="bundle-save-wrapper">
+  <div class="bundle-title">BUNDLE & SAVE</div>
+  <div class="bundle-option active">
+    <div class="bundle-left">
+      <img src="{{ block.settings.image1 | img_url : 'master' }}" alt="{{ block.settings.image1.alt }}">
+      <div class="bundle-info">
+        <h3>{{  block.settings.text1 }}</h3>
+        <p>{{  block.settings.bt_text1 }}</p>
+      </div>
+    </div>
+
+    <div class="bundle-right">
+      <div class="bundle-price">{{ block.settings.bt_price1 }}</div>
+      <div class="bundle-old-price">{{ block.settings.bt_Compare1 }}</div>
+    </div>
+  </div>
+  <div class="bundle-option">
+    <div class="bundle-tag">{{ block.settings.bundle_tag1 }}</div>
+    <div class="bundle-left">
+      <img src="{{ block.settings.image2 | img_url : 'master' }}" alt="{{ block.settings.image2.alt }}">
+      <div class="bundle-info">
+        <h3> {{  block.settings.text2 }}
+          {% comment %} <span class="bundle-badge">{{ block.settings.bt_text2 }}</span> {% endcomment %}
+        </h3>
+        <p>{{ block.settings.bt_text2 }}</p>
+      </div>
+    </div>
+    <div class="bundle-right">
+      <div class="bundle-price">{{ block.settings.bt_price2 }}</div>
+      <div class="bundle-old-price">{{ block.settings.bt_Compare2 }}</div>
+    </div>
+  </div>
+  <div class="bundle-option">
+    <div class="bundle-tag">{{ block.settings.bundle_tag2 }}</div>
+    <div class="bundle-left">
+      <img src="{{ block.settings.image3 | img_url : 'master' }}" alt="{{ block.settings.image3.alt }}">
+      <div class="bundle-info">
+        <h3> {{ block.settings.text3 }}
+          {% comment %} <span class="bundle-badge">{{ block.settings.bt_text3 }}</span> {% endcomment %}
+        </h3>
+        <p>{{ block.settings.bt_text3 }}</p>
+      </div>
+    </div>
+    <div class="bundle-right">
+      <div class="bundle-price">{{ block.settings.bt_price3 }}</div>
+      <div class="bundle-old-price">{{ block.settings.bt_Compare3 }}</div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.bundle-option').forEach(option => {
+  option.addEventListener('click', () => {
+
+    // remove active from all
+    document.querySelectorAll('.bundle-option')
+      .forEach(el => el.classList.remove('active'));
+
+    // add active to clicked one
+    option.classList.add('active');
+
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom Variants",
+  "settings": [
+    {
+      "type": "text",
+      "id": "bundle_tag1",
+      "label": "Bundle Tag 1",
+      "default": "Free Shipping"
+    }, 
+    {
+      "type": "text",
+      "id": "bundle_tag2",
+      "label": "Bundle Tag 2",
+      "default": "HIGHEST CHANCES"
+    },       
+    {
+      "type": "header",
+      "content": "Bundle 1 Content"
+    },     
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text1",
+      "label": "Bundle Title"
+    },
+    {
+      "type": "text",
+      "id": "bt_text1",
+      "label": "Bundle Title Bottom Text"
+    },
+    {
+      "type": "text",
+      "id": "bt_price1",
+      "label": "Bundle Regular Price"
+    },  
+    {
+      "type": "text",
+      "id": "bt_Compare1",
+      "label": "Bundle Compare Price"
+    },              
+    {
+      "type": "header",
+      "content": "Bundle 2 Content"
+    },       
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text2",
+      "label": "Bundle Title"
+    },
+    {
+      "type": "text",
+      "id": "bt_text2",
+      "label": "Bundle Title Bottom Text"
+    }, 
+    {
+      "type": "text",
+      "id": "bt_price2",
+      "label": "Bundle Regular Price"
+    },   
+    {
+      "type": "text",
+      "id": "bt_Compare2",
+      "label": "Bundle Compare Price"
+    },          
+    {
+      "type": "header",
+      "content": "Bundle 3 Content"
+    },          
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "Image"
+    },        
+    {
+      "type": "text",
+      "id": "text3",
+      "label": "Bundle Title"
+    },
+    {
+      "type": "text",
+      "id": "bt_text3",
+      "label": "Bundle Title Bottom Text"
+    },   
+    {
+      "type": "text",
+      "id": "bt_price3",
+      "label": "Bundle Regular Price"
+    },
+    {
+      "type": "text",
+      "id": "bt_Compare3",
+      "label": "Bundle Compare Price"
+    },            
+],
+"presets": [
+    {
+      "name": "Custom Variants",
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+<div class="custom-inventory-box section-{{ block.id }}-padding">
+    <div class="custom-inventory-text">{{ block.settings.content }}</div>
+</div>
+<style>
+    .section-{{ block.id }}-padding {
+        padding: {{ block.settings.padding_top }}px;
+        background-color: {{ block.settings.back_color }};
+    }
+
+    .custom-inventory-box{border-radius: 10px;}
+    .custom-inventory-text{font-size: 14px;}
+
+    @media screen and (max-width: 768px) {
+        .section-{{ block.id }}-padding {
+            padding: {{ block.settings.mbl_padding_top }}px;
+        }
+    }
+</style>
+{% schema %}
+{
+  "name": "Custom Inventory",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mbl_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Padding",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "back_color",
+      "label": "Background Color"
+    },    
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+    }, 
+],
+"presets": [
+    {
+      "name": "Custom Inventory",
+    }
+  ]
+}
+{% endschema %}

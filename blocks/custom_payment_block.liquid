@@ -1,0 +1,152 @@
+{% schema %}
+{
+  "name": "Payment Icons Bar",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Payment Icon"
+    }, 
+    {
+        "type": "image_picker",
+        "id": "icon2",
+        "label": "Payment Icon"
+    },
+    {
+        "type": "image_picker",
+        "id": "icon3",
+        "label": "Payment Icon"
+    },          
+    {
+        "type": "image_picker",
+        "id": "icon4",
+        "label": "Payment Icon"
+    },    
+    {
+        "type": "image_picker",
+        "id": "icon5",
+        "label": "Payment Icon"
+    },    
+    {
+        "type": "image_picker",
+        "id": "icon6",
+        "label": "Payment Icon"
+    },    
+    {
+        "type": "image_picker",
+        "id": "icon7",
+        "label": "Payment Icon"
+    },    
+    {
+        "type": "image_picker",
+        "id": "icon8",
+        "label": "Payment Icon"
+    },    
+    {
+        "type": "image_picker",
+        "id": "icon9",
+        "label": "Payment Icon"
+    },    
+    {
+        "type": "image_picker",
+        "id": "icon10",
+        "label": "Payment Icon"
+    },    
+    {
+        "type": "image_picker",
+        "id": "icon11",
+        "label": "Payment Icon"
+    },    
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "128-bit SSL encryption"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Payment Icons Bar"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="payment-bar">
+  <div class="payment-bar__inner">
+    <div class="payment-bar__left">
+      <span class="lock-icon">🔒</span> {{ block.settings.text }}
+    </div>
+    <span class="center-line">|</span>
+    <div class="payment-bar__right">
+        {% if block.settings.icon != blank %}
+          <img src="{{ block.settings.icon | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon2 != blank %}
+          <img src="{{ block.settings.icon2 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon3 != blank %}
+          <img src="{{ block.settings.icon3 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon4 != blank %}
+          <img src="{{ block.settings.icon4 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon5 != blank %}
+          <img src="{{ block.settings.icon5 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon6 != blank %}
+          <img src="{{ block.settings.icon6 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon7 != blank %}
+          <img src="{{ block.settings.icon7 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon8 != blank %}
+          <img src="{{ block.settings.icon8 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon9 != blank %}
+          <img src="{{ block.settings.icon9 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon10 != blank %}
+          <img src="{{ block.settings.icon10 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}
+        {% if block.settings.icon11 != blank %}
+          <img src="{{ block.settings.icon11 | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
+        {% endif %}                                                                                
+    </div>
+  </div>
+</div>
+
+<style>
+.payment-bar {width: 100%;}
+.payment-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.payment-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.payment-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.payment-bar__right img {
+  display: block;
+  object-fit: contain;
+  border-radius: 3px;
+  padding: 2px;
+}
+.lock-icon {font-size: 14px;}
+
+@media screen and (max-width: 767px) {
+    .center-line{display: none;}
+    .payment-bar__inner {justify-content: center; text-align: center; padding: 5px 0px; }
+}
+</style>
