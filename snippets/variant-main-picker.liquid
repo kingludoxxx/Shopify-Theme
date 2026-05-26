@@ -162,7 +162,7 @@
                 {% assign longest_value = product_option_value.size %}
               {% endif %}
               <label
-                class="variant-option__button-label cst-variant-option--label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}"
+                class="{{ fieldset_index }} variant-option__button-label cst-variant-option--label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}"
               >
                 {% if product_option.name == "Bundle" %}
                   {% if fieldset_index == 2 %}<div class="bundle-tag">Free Shipping</div>{%- endif %}
