@@ -355,7 +355,9 @@
               "name": "Custom Product Icons",
               "settings": {
                 "icon": "shopify://shop_images/lock_icon_5b225365-20d5-4702-887d-069c747bc792.svg",
-                "heading": "Secure Checkout"
+                "heading": "Secure Checkout",
+                "icon1": "shopify://shop_images/Money-Back_Guarantee_Icon_f68172c8-bb8c-4d6f-b2df-44d960e1bfe1.png",
+                "heading1": "90 day  money back guarantee"
               },
               "blocks": {}
             },
