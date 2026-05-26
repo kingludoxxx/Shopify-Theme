@@ -406,7 +406,7 @@ body .cst-variant-option--bundle-model , body .cst-variant-option--bundle-bundle
 }
 label.variant-option__button-label.cst-variant-option--label:after,
 label.variant-option__button-label.cst-variant-option--label:before {
-    content: unset;
+    content: unset !important;
 }
 .variant-option--equal-width-buttons.cst-variant-option--bundle-model {
     display: grid;
