@@ -1,22 +1,12 @@
 <div class="product-icons">
-  {% for block in section.blocks %}
-    <div class="product-icon-item">
-      
+    <div class="product-icon-item">    
       {% if block.settings.icon != blank %}
-        <img
-          src="{{ block.settings.icon | image_url }}"
-          alt="{{ block.settings.heading }}"
-          width="24"
-          height="24"
-        >
+        <img src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.heading }}" width="24" height="24" >
       {% endif %}
-
       {% if block.settings.heading != blank %}
         <span>{{ block.settings.heading }}</span>
       {% endif %}
-
     </div>
-  {% endfor %}
 </div>
 
 <style>
