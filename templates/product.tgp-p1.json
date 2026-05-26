@@ -698,6 +698,12 @@
               },
               "blocks": {}
             },
+            "custom_testimonial_cnQkYx": {
+              "type": "custom-testimonial",
+              "name": "Custom Testimonials",
+              "settings": {},
+              "blocks": {}
+            },
             "cs_slect_product_VwJwbh": {
               "type": "cs-slect-product",
               "name": "Slected Product",
@@ -734,6 +740,7 @@
             "payment_icons_P7KmUB",
             "accordion_R4Kxk3",
             "custom_upsell_KwwX6b",
+            "custom_testimonial_cnQkYx",
             "cs_slect_product_VwJwbh"
           ]
         }
