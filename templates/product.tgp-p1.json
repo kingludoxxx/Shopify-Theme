@@ -243,10 +243,8 @@
               "type": "custom_inventory",
               "name": "Custom Inventory",
               "settings": {
-                "padding_top": 10,
-                "padding_bottom": 10,
-                "mbl_padding_top": 10,
-                "mbl_padding_bottom": 10,
+                "padding_top": 14,
+                "mbl_padding_top": 14,
                 "back_color": "#e8f5e2",
                 "content": "<p><strong>Inventory Alert:</strong>Due to unprecedented global demand, we only have a limited restock of our battle-tested Essential Edition. Available now for immediate dispatch.</p>"
               },
