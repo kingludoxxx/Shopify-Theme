@@ -154,7 +154,7 @@
             <legend>
               {{ product_option.name | escape -}}:
               {%- if variant_style == 'swatch' -%}<span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
-              {% else %} {{ product_option.selected_value }}{%- endif %}
+              {% else %} <span>{{ product_option.selected_value }}</span>{%- endif %}
             </legend>
             {%- endif %}
             {%- for product_option_value in product_option.values -%}
