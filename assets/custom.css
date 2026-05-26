@@ -404,6 +404,7 @@ body .cst-variant-option--bundle-model , body .cst-variant-option--bundle-bundle
     background: #f3f3f3;
     border-color: #00000021;
 }
+label.variant-option__button-label.cst-variant-option--label:after,
 label.variant-option__button-label.cst-variant-option--label:before {
     content: unset;
 }
