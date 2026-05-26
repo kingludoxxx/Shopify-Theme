@@ -299,11 +299,11 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 .bundle-option:hover {border-color: #000; transform: translateY(-1px);}
 .bundle-left {display: flex; align-items: center; gap: 16px;}
 .bundle-left img {width: 58px; height: auto;}
-.bundle-info h3 {margin: 0; font-size: 20px;  line-height: 1.1; color: #111;}
+.bundle-info h3 {margin: 0; font-size: 20px;  line-height: 1.1;}
 .bundle-info p {margin: 0px; color: #555; font-size: 14px; font-weight: 600;}
 .custom-product-main-class .accordion .details__header { padding: 16px 0px;}
 .bundle-right { text-align: right;}
-.bundle-price { font-size: 20px; line-height: 24px; font-weight: 600; color: #111;}
+.bundle-price { font-size: 20px; line-height: 24px; font-weight: 600;}
 .bundle-old-price {font-size: 16px; line-height: 20px; color: #999; text-decoration: line-through; margin-top: 4px;}
 .bundle-tag {
     position: absolute;
