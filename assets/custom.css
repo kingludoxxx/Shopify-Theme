@@ -276,6 +276,11 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
     border: 1px solid #f7f7f7;
     margin-top: 20px;
 }
-.custom-testimonial-text p {
-    font-size: 14px;
+.custom-testimonial-text p {font-size: 14px;}
+.custom-testimonials-image img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
