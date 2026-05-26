@@ -304,6 +304,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 .custom-product-main-class .accordion .details__header { padding: 16px 0px;}
 .bundle-right { text-align: right;}
 .bundle-price { font-size: 20px; line-height: 24px; font-weight: 600;}
+span.product-variant-selected {font-weight: 500;}
 .bundle-old-price {font-size: 16px; line-height: 20px; color: #999; text-decoration: line-through; margin-top: 4px;}
 .bundle-tag {
     position: absolute;
