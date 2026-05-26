@@ -217,6 +217,7 @@
                   </span>
 
                   {{product_option_value.variant.price | money }}
+                  {{product_option_value.variant.compare_at_price | money }}
 
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
