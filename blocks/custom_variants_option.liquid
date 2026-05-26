@@ -19,10 +19,9 @@
   <div class="bundle-option">
     <div class="bundle-tag">Free Shipping</div>
     <div class="bundle-left">
-      <img src="YOUR-IMAGE.png" alt="">
+      <img src="{{ block.settings.image2 | img_url : 'master' }}" alt="{{ block.settings.image2.alt }}">
       <div class="bundle-info">
-        <h3>
-          Buy 2 Miners
+        <h3> Buy 2 Miners
           <span class="bundle-badge">2x ODDS</span>
         </h3>
         <p>You save $90.01</p>
@@ -37,10 +36,9 @@
   <div class="bundle-option">
     <div class="bundle-tag">Best Value</div>
     <div class="bundle-left">
-      <img src="YOUR-IMAGE.png" alt="">
+      <img src="{{ block.settings.image3 | img_url : 'master' }}" alt="{{ block.settings.image3.alt }}">
       <div class="bundle-info">
-        <h3>
-          Buy 3, get 1 free
+        <h3> Buy 3, get 1 free
           <span class="bundle-badge">4x ODDS</span>
         </h3>
         <p>You save $220.01</p>
