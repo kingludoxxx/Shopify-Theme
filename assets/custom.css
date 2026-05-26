@@ -305,5 +305,6 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 
 @media only screen and (max-width: 989px){
     .custom-testimonials-box { grid-template-columns: 60px 1fr; }
-    
+    .custom-testimonials-image img {max-width: 60px; height: 60px;}    
+
 }
