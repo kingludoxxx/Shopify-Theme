@@ -385,6 +385,10 @@ label.variant-option__button-label.cst-variant-option--label {
     display: flex;
     flex-direction: column;
 }
+.cst-variant-option--bundle-model , .cst-variant-option--bundle-bundle{
+    gap: 20px;
+}
+
 .cst-variant-option--bundle-bundle span.variant-option__button-label__text,
 .cst-variant-option--bundle-model span.variant-option__button-label__text {
     margin: 0;
