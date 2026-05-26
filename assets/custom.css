@@ -422,6 +422,12 @@ label.variant-option__button-label.cst-variant-option--label:before {
 
 
 @media only screen and (max-width: 989px){
+    .cst-variant-option--bundle-bundle span.variant-option__button-label__text, .cst-variant-option--bundle-model span.variant-option__button-label__text {
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        text-wrap: unset;
+    }    
     .custom-testimonials-box { grid-template-columns: 60px 1fr; }
     .custom-testimonials-image img {max-width: 60px; height: 60px;}    
 
