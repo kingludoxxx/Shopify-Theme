@@ -16,6 +16,11 @@
 {% assign variant_override_image_url_56317845340491 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_2.png?v=1773610130" | default: '' %}
 {% assign variant_override_image_url_56317845373259 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_3.png?v=1773610130" | default: '' %}
 
+{% comment %} Signature Edition (product 15538599559499) bundle images {% endcomment %}
+{% assign variant_override_image_url_56573140566347 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-1.png?v=1765567011" | default: '' %}
+{% assign variant_override_image_url_56573140599115 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-2.png?v=1765567044" | default: '' %}
+{% assign variant_override_image_url_56573140631883 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063" | default: '' %}
+
 
 {% liquid
   assign button_background_brightness = section.settings.color_scheme.settings.foreground | color_brightness
@@ -115,6 +120,12 @@
                   <img src="{{ variant_override_image_url_56317845340491 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif v.id == 56317845373259 and variant_override_image_url_56317845373259 != blank %}
                   <img src="{{ variant_override_image_url_56317845373259 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56573140566347 and variant_override_image_url_56573140566347 != blank %}
+                  <img src="{{ variant_override_image_url_56573140566347 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56573140599115 and variant_override_image_url_56573140599115 != blank %}
+                  <img src="{{ variant_override_image_url_56573140599115 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56573140631883 and variant_override_image_url_56573140631883 != blank %}
+                  <img src="{{ variant_override_image_url_56573140631883 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif featured_media %}
                   {{ featured_media | image_url: width: 120 | image_tag: loading: 'lazy', widths: '80,120,160', class: 'bundle-picker__image' }}
                 {% endif %}
