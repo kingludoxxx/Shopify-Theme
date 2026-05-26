@@ -620,16 +620,15 @@
         window.ProductModel.loadShopifyXR();
       </script>
     {%- endif -%}
-{{ block.settings.image }}
-{{ block.settings.image }}
+
 {% if block.settings.image != blank %}
   <div class="custom-testimonials-box">
     <div class="custom-testimonials-image">
-      <img src="{{ section.settings.image | img_src : 'master' }}" alt="{{ settings.image.alt }}">
+      <img src="{{ block.settings.image | img_src : 'master' }}" alt="{{ block.settings.image.alt }}">
     </div>
     <div class="custom-testimonials-content">
-      <div class="custom-testimonials-content"><span>{{ section.settings.name }}</span></div>
-      <div class="custom-testimonial-text">{{ settings.content }}</div>
+      <div class="custom-testimonials-content"><span>{{ block.section.settings.name }}</span></div>
+      <div class="custom-testimonial-text">{{ block.settings.content }}</div>
     </div>
   </div>
 {% endif %}
