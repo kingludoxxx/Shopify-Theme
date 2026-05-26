@@ -22,9 +22,9 @@
       <img src="{{ block.settings.image2 | img_url : 'master' }}" alt="{{ block.settings.image2.alt }}">
       <div class="bundle-info">
         <h3> {{  block.settings.text2 }}
-          <span class="bundle-badge">{{ block.settings.bt_text2 }}</span>
+          {% comment %} <span class="bundle-badge">{{ block.settings.bt_text2 }}</span> {% endcomment %}
         </h3>
-        <p>You save $90.01</p>
+        <p>{{ block.settings.bt_text2 }}</p>
       </div>
     </div>
     <div class="bundle-right">
@@ -39,9 +39,9 @@
       <img src="{{ block.settings.image3 | img_url : 'master' }}" alt="{{ block.settings.image3.alt }}">
       <div class="bundle-info">
         <h3> {{ block.settings.text3 }}
-          <span class="bundle-badge">{{ block.settings.bt_text3 }}</span>
+          {% comment %} <span class="bundle-badge">{{ block.settings.bt_text3 }}</span> {% endcomment %}
         </h3>
-        <p>You save $220.01</p>
+        <p>{{ block.settings.bt_text3 }}</p>
       </div>
     </div>
     <div class="bundle-right">
