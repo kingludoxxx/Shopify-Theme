@@ -206,11 +206,17 @@
                   {% if product_option_value.available == true %}
                     <span class="variant-option__button-label__pill" data-key="variant-option-pill"></span>
                   {% endif %}
+                  <div class="bundle-left" bis_skin_checked="1">
+                    <img src="{{ product_option_value.variant.featured_image | img_url : 'master' }}" alt="{{ product_option_value.variant.featured_image.alt }}">
+                    <div class="bundle-info" bis_skin_checked="1">
+                      <span class="variant-option__button-label__text" data-key="variant-option-text">
+                        {{- product_option_value | escape -}}
+                      </span>
+                      <p>$94 each</p>
+                    </div>
+                  </div>
+                  
 
-                  <img src="{{ product_option_value.variant.featured_image | img_url : 'master' }}" alt="{{ product_option_value.variant.featured_image.alt }}">
-                  <span class="variant-option__button-label__text" data-key="variant-option-text">
-                    {{- product_option_value | escape -}}
-                  </span>
 
                   <div class="cst-variant-prices">
                     <span class="cst-variant-regulat-prices">{{ product_option_value.variant.price | money }}</span>
