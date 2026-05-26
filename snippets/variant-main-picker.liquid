@@ -148,11 +148,15 @@
             ref="fieldsets[]"
             {{ option_id_attribute }}
           >
-            <legend class="bundle-title">
+            {% if product_option.name == "Bundle" %}
+              <div class="bundle-title" bis_skin_checked="1">BUNDLE &amp; SAVE</div>
+              {% else %}
+            <legend>
               {{ product_option.name | escape -}}
               {%- if variant_style == 'swatch' -%}<span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
               {% else %}{{ product_option.selected_value }}{%- endif %}
             </legend>
+            {%- endif %}
             {%- for product_option_value in product_option.values -%}
               {% if product_option_value.size > longest_value and option_id_attribute %}
                 {% assign longest_value = product_option_value.size %}
