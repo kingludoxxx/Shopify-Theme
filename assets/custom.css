@@ -418,10 +418,11 @@ label.variant-option__button-label.cst-variant-option--label:before {
     justify-content: center;
     align-items: center;
 }
-.cst-variant-option--bundle-bundle {margin-bottom: 20px;}
+body .cst-variant-option--bundle-bundle {margin-bottom: 20px;}
 
 
 @media only screen and (max-width: 989px){
+    .bundle-info p {margin: 0px;}    
     .cst-variant-option--bundle-bundle span.variant-option__button-label__text, .cst-variant-option--bundle-model span.variant-option__button-label__text {
         font-size: 18px;
         line-height: 20px;
