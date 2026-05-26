@@ -310,6 +310,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 label.variant-option__button-label.cst-variant-option--label {
     justify-content: space-between;
     padding: 14px 20px;
+    border: 2px solid #222;
 }
 .cst-variant-option--bundle-model .bundle-right {
     display: flex;
