@@ -1,0 +1,115 @@
+{% schema %}
+{
+  "name": "Payment Icons Bar",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Payment Icon"
+    },   
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "128-bit SSL encryption"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#2d2d2d"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Payment Icons Bar"
+    }
+  ]
+}
+{% endschema %}
+
+<div
+  class="payment-bar"
+  style="
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+  "
+>
+  <div class="payment-bar__inner">
+
+    <div class="payment-bar__left">
+      <span class="lock-icon">🔒</span>
+      {{ section.settings.text }}
+    </div>
+
+    <div class="payment-bar__right">
+      {% for block in section.blocks %}
+        {% if block.settings.icon != blank %}
+          <img
+            src="{{ block.settings.icon | image_url }}"
+            alt="Payment Icon"
+            width="38"
+            height="24"
+            loading="lazy"
+          >
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<style>
+.payment-bar {
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.payment-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.payment-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.payment-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.payment-bar__right img {
+  display: block;
+  object-fit: contain;
+  border-radius: 3px;
+  background: #fff;
+  padding: 2px;
+}
+
+.lock-icon {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .payment-bar__inner {
+    justify-content: center;
+    text-align: center;
+  }
+}
+</style>
