@@ -97,21 +97,6 @@
         data-testid="product-information-media"
       >
         {{ media_gallery }}
-
-{% if settings.image != blank %}
-  <div class="custom-testimonials-box">
-    <div class="custom-testimonials-image">
-      <img src="{{ settings.image | img_src : 'master' }}" alt="{{ settings.image.alt }}">
-    </div>
-    <div class="custom-testimonials-content">
-      <div class="custom-testimonials-content"><span>{{ settings.name }}</span></div>
-      <div class="custom-testimonial-text">{{ settings.content }}</div>
-    </div>
-  </div>
-  </div>
-{% endif %}
-
-
       </div>
     {% endcapture %}
 
@@ -128,6 +113,7 @@
 
 
 
+</div>
 
 {% stylesheet %}
   .product-information {
