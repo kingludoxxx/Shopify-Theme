@@ -166,7 +166,7 @@
               >
                 {% if product_option.name == "Bundle" %}
                   {% if fieldset_index == 2 %}<div class="bundle-tag">Free Shipping</div>{%- endif %}
-                  <div class="bundle-tag">HIGHEST CHANCES</div>
+                  {% if fieldset_index == 3 %}<div class="bundle-tag">HIGHEST CHANCES</div>{%- endif %}
                 {%- endif %}
                 <input
                   type="radio"
