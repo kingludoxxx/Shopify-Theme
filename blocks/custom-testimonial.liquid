@@ -1,4 +1,4 @@
-  <div class="custom-testimonials-box desktop-version">
+  <div class="custom-testimonials-box block-version">
     <div class="custom-testimonials-image">
       <img src="{{ block.settings.image | img_url : 'master' }}" alt="{{ block.settings.image.alt }}">
     </div>
@@ -21,6 +21,21 @@
     </div>
   </div>
 
+
+<style>
+{% if block.settings.for_desktop %}
+    .custom-testimonials-box block-version{
+        display: none;
+    }
+{%  endif %}
+
+@media only screen and (max-width: 749px){
+    .custom-testimonials-box block-version{
+        display: block;
+    }
+}
+
+</style>
 {% schema %}
 {
   "name": "Custom Testimonials",
@@ -32,7 +47,8 @@
     {
       "type": "checkbox",
       "id": "for_desktop",
-      "label": "Testimonial Image"
+      "label": "Hide on Desktop",
+      "default": true
     },      
     {
       "type": "image_picker",
