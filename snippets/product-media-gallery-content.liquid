@@ -622,9 +622,15 @@
     {%- endif -%}
 
 {% if section.settings.image != blank %}
+  {%- assign testimonial_img_value = section.settings.image -%}
+  {%- if testimonial_img_value contains 'http' -%}
+    {%- assign testimonial_img_src = testimonial_img_value -%}
+  {%- else -%}
+    {%- assign testimonial_img_src = testimonial_img_value | img_url : 'master' -%}
+  {%- endif -%}
   <div class="custom-testimonials-box desktop-version">
     <div class="custom-testimonials-image">
-      <img src="{{ section.settings.image | img_url : 'master' }}" alt="{{ section.settings.image.alt }}">
+      <img src="{{ testimonial_img_src }}" alt="{{ section.settings.image.alt | default: 'Customer testimonial' }}">
     </div>
     <div class="custom-testimonials-content">
       <div class="custom-testimonials-content-inner">
