@@ -382,6 +382,9 @@ label.variant-option__button-label.cst-variant-option--label {
     border: 2px solid #222;
     overflow: visible;
 }
+body .variant-option__button-label:not(.variant-option__button-label--has-swatch):has([data-option-available=false]) {
+    border-width: 2px
+}
 .bundle-right {
     display: flex;
     flex-direction: column;
