@@ -701,7 +701,11 @@
             "custom_testimonial_cnQkYx": {
               "type": "custom-testimonial",
               "name": "Custom Testimonials",
-              "settings": {},
+              "settings": {
+                "image": "shopify://shop_images/1777376257490_thumbnail.png",
+                "name": "Daniel W.",
+                "content": "<p><strong>Always Connected When Everything Fails</strong>A survival-grade emergency radio that could make the difference when everything goes silent. I didn’t take chances—I got one for every family member, my parents, and close friends. In real emergencies, staying informed and powered isn’t optional, so I made sure we’re never left disconnected when it matters most.</p>"
+              },
               "blocks": {}
             },
             "cs_slect_product_VwJwbh": {
