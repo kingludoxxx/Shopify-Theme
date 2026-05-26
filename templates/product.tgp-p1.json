@@ -278,9 +278,9 @@
               "type": "custom_variants_option",
               "name": "Custom Variants",
               "settings": {
-                "text1": "",
-                "bt_text1": "",
-                "bt_price1": "",
+                "text1": "1 miner 99.99",
+                "bt_text1": "99.99 each",
+                "bt_price1": "99.99",
                 "text2": "",
                 "bt_text2": "",
                 "bt_price2": "",
