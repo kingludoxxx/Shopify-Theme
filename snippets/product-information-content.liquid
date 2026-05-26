@@ -111,14 +111,14 @@
 
   {{ additional_blocks }}
 
-{% if block.settings.image != blank %}
+{% if section.settings.image != blank %}
   <div class="custom-testimonials-box">
     <div class="custom-testimonials-image">
-      <img src="{{ block.settings.image | img_src : 'master' }}" alt="{{ block.settings.image.alt }}">
+      <img src="{{ section.settings.image | img_src : 'master' }}" alt="{{ section.settings.image.alt }}">
     </div>
     <div class="custom-testimonials-content">
-      <div class="custom-testimonials-content"><span>{{ block.settings.name }}</span></div>
-      <div class="custom-testimonial-text">{{ block.settings.content }}</div>
+      <div class="custom-testimonials-content"><span>{{ section.settings.name }}</span></div>
+      <div class="custom-testimonial-text">{{ section.settings.content }}</div>
     </div>
   </div>
 {% endif %}
