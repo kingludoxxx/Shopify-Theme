@@ -308,7 +308,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 }
 
 label.variant-option__button-label.cst-variant-option--label {
-    justify-content: start;
+    justify-content: space-between;
 }
 
 @media only screen and (max-width: 989px){
