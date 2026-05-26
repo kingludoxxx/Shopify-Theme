@@ -1,8 +1,8 @@
-<div class="custom-inventory-box section-{{ section.id }}-padding">
+<div class="custom-inventory-box section-{{ block.id }}-padding">
     <div class="custom-inventory-text">{{ block.settings.content }}</div>
 </div>
 <style>
-    .section-{{ section.id }}-padding {
+    .section-{{ block.id }}-padding {
         padding-top: {{ section.settings.padding_top }}px;
         padding-bottom: {{ section.settings.padding_bottom }}px;
         background-color: {{ section.settings.back_color }};
@@ -12,7 +12,7 @@
     .custom-inventory-text{font-size: 14px;}
 
     @media screen and (max-width: 768px) {
-        .section-{{ section.id }}-padding {
+        .section-{{ block.id }}-padding {
             padding-top: {{ section.settings.mbl_padding_top }}px;
             padding-bottom: {{ section.settings.mbl_padding_bottom }}px;
         }
