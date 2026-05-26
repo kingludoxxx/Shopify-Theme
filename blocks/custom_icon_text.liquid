@@ -7,6 +7,14 @@
         <span>{{ block.settings.heading }}</span>
       {% endif %}
     </div>
+    <div class="product-icon-item">    
+      {% if block.settings.icon1 != blank %}
+        <img src="{{ block.settings.icon1 | image_url }}" alt="{{ block.settings.heading1 }}" width="24" height="24" >
+      {% endif %}
+      {% if block.settings.heading1 != blank %}
+        <span>{{ block.settings.heading1 }}</span>
+      {% endif %}
+    </div>    
 </div>
 
 <style>
@@ -48,7 +56,18 @@
         "id": "heading",
         "label": "Text",
         "default": "Secure Checkout"
-    }
+    },
+    {
+        "type": "image_picker",
+        "id": "icon1",
+        "label": "Icon"
+    },
+    {
+        "type": "text",
+        "id": "heading1",
+        "label": "Text",
+        "default": "Secure Checkout"
+    }    
   ],
   "presets": [
     {
