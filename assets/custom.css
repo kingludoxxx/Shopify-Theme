@@ -434,7 +434,7 @@ body .cst-variant-option--bundle-bundle {margin-bottom: 20px;}
 
 
 @media only screen and (max-width: 749px){
-    body .cst-variant-option--bundle-model, body .cst-variant-option--bundle-bundle {gap: 14px;}    
+    body .cst-variant-option--bundle-model, body .cst-variant-option--bundle-bundle {row-gap: 14px; column-gap: 10px;}    
     .custom-testimonials-box.desktop-version{ display: none; }  
     .custom-testimonials-image img{max-width: 150px; height: 150px; margin: 0 auto; margin-bottom: 10px;}
     .product-information__media {padding-left: 10px; padding-right: 10px;}
