@@ -3,9 +3,9 @@
 </div>
 <style>
     .section-{{ block.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-        background-color: {{ section.settings.back_color }};
+        padding-top: {{ block.settings.padding_top }}px;
+        padding-bottom: {{ block.settings.padding_bottom }}px;
+        background-color: {{ block.settings.back_color }};
     }
 
     .custom-inventory-box{border-radius: 10px;}
@@ -13,8 +13,8 @@
 
     @media screen and (max-width: 768px) {
         .section-{{ block.id }}-padding {
-            padding-top: {{ section.settings.mbl_padding_top }}px;
-            padding-bottom: {{ section.settings.mbl_padding_bottom }}px;
+            padding-top: {{ block.settings.mbl_padding_top }}px;
+            padding-bottom: {{ block.settings.mbl_padding_bottom }}px;
         }
     }
 </style>
