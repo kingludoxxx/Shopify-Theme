@@ -325,6 +325,7 @@ label.variant-option__button-label.cst-variant-option--label {
 .variant-option__button-label.cst-variant-option--label:has(:checked){
     color: #000000;
     background: #f3f3f3;
+    border-color: #f2f2f2;
 }
 @media only screen and (max-width: 989px){
     .custom-testimonials-box { grid-template-columns: 60px 1fr; }
