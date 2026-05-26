@@ -5,17 +5,7 @@
   block_id: block.id,
   block_shopify_attributes: block.shopify_attributes
 %}
-{% if section.settings.image != blank %}
-  <div class="custom-testimonials-box">
-    <div class="custom-testimonials-image">
-      <img src="{{ section.settings.image | img_src : 'master' }}" alt="{{ settings.image.alt }}">
-    </div>
-    <div class="custom-testimonials-content">
-      <div class="custom-testimonials-content"><span>{{ settings.name }}</span></div>
-      <div class="custom-testimonial-text">{{ settings.content }}</div>
-    </div>
-  </div>
-{% endif %}
+
 {% schema %}
 {
   "name": "t:names.product_media",
