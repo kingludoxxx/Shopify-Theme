@@ -210,10 +210,15 @@
                     <img src="{{ product_option_value.variant.featured_image | img_url : 'master' }}" alt="{{ product_option_value.variant.featured_image.alt }}">
                     <div class="bundle-info" bis_skin_checked="1">
                       <span class="variant-option__button-label__text" data-key="variant-option-text">
-                        {{ product_option_value.variant.metafields.custom.product_bundle_custom_title.value }}
-                        {{- product_option_value | escape -}}
+                        {% if product_option_value.variant.metafields.custom.product_bundle_custom_title.value != blank %}
+                          {{ product_option_value.variant.metafields.custom.product_bundle_custom_title.value }}
+                        {% else %}
+                          {{- product_option_value | escape -}}
+                        {% endif %}
                       </span>
-                      <p>$94 each {{ product_option_value.variant.metafields.custom.product_bundle_each_price.value | money }} each</p>
+                      {% if product_option_value.variant.metafields.custom.product_bundle_each_price.value != blank %}
+                        <p>$94 each {{ product_option_value.variant.metafields.custom.product_bundle_each_price.value | money }} each</p>
+                      {% endif %}
                     </div>
                   </div>
                   
