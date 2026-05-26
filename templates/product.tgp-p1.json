@@ -16,8 +16,6 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "name": "Daniel W.",
-            "content": "<p><strong>Always Connected When Everything Fails</strong>A survival-grade emergency radio that could make the difference when everything goes silent. I didn’t take chances—I got one for every family member, my parents, and close friends. In real emergencies, staying informed and powered isn’t optional, so I made sure we’re never left disconnected when it matters most.</p>",
             "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 4,
@@ -740,6 +738,8 @@
         ".add-to-cart-button,.product-upsell__add-btn,.custom-product-main-class .add-to-cart-button {background-color: #1126a5;}"
       ],
       "settings": {
+        "name": "",
+        "content": "<p><strong>Always Connected When Everything Fails</strong>A survival-grade emergency radio that could make the difference when everything goes silent. I didn’t take chances—I got one for every family member, my parents, and close friends. In real emergencies, staying informed and powered isn’t optional, so I made sure we’re never left disconnected when it matters most.</p>",
         "main-calss": true,
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
