@@ -428,10 +428,8 @@ label.variant-option__button-label.cst-variant-option--label:before {
         text-align: center;
         text-wrap: unset;
     }   
-    .bundle-price {
-        font-size: 18px;
-        line-height: 20px;
-    }     
+    .bundle-price {font-size: 18px; line-height: 20px;  }     
+    .bundle-old-price {font-size: 14px; line-height: 20px;}    
     .custom-testimonials-box { grid-template-columns: 60px 1fr; }
     .custom-testimonials-image img {max-width: 60px; height: 60px;}    
 
