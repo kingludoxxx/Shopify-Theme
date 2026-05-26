@@ -263,6 +263,7 @@
             },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
+              "disabled": true,
               "settings": {
                 "variant_style": "buttons",
                 "show_swatches": false,
@@ -278,8 +279,10 @@
               "type": "custom_variants_option",
               "name": "Custom Variants",
               "settings": {
+                "bundle_tag1": "Free Shipping",
+                "bundle_tag2": "HIGHEST CHANCES",
                 "image1": "shopify://shop_images/Kaching-Bundles-Kaching-Bundles-1_ec1d4c76-640c-4fa7-92cb-2a1417f662f7.webp",
-                "text1": "1 miner 99.99",
+                "text1": "1 miner",
                 "bt_text1": "$99.99 each",
                 "bt_price1": "$99.99",
                 "bt_Compare1": "$169.99",
