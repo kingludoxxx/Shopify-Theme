@@ -302,7 +302,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
     object-fit: cover;
 }
 
-
+.cst-variant-option--bundle-model .bundle-info p,
 .cst-variant-option--bundle-model .cst-variant-prices.bundle-right {
     display: none;
 }
