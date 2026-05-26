@@ -5,10 +5,10 @@
   block_id: block.id,
   block_shopify_attributes: block.shopify_attributes
 %}
-{% if settings.image != blank %}
+{% if section.settings.image != blank %}
   <div class="custom-testimonials-box">
     <div class="custom-testimonials-image">
-      <img src="{{ settings.image | img_src : 'master' }}" alt="{{ settings.image.alt }}">
+      <img src="{{ section.settings.image | img_src : 'master' }}" alt="{{ settings.image.alt }}">
     </div>
     <div class="custom-testimonials-content">
       <div class="custom-testimonials-content"><span>{{ settings.name }}</span></div>
