@@ -273,8 +273,12 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
     align-items: center;
     gap: 3px;
     justify-content: space-between;
+    margin-bottom: 5px;
 }
-
+.custom-testimonials-content-inner span {
+    font-size: 15px;
+    font-weight: 500;
+}
 .custom-testimonials-content-inner svg {
     width: 16px;
     fill: rgba(242, 92, 38, 1);
