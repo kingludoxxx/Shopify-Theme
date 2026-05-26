@@ -272,7 +272,8 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 }
 
 .custom-testimonials-content-inner svg {
-    width: 18px;
+    width: 16px;
+    fill: rgba(242, 92, 38, 1);
 }
 .custom-testimonials-box {
     display: grid;
