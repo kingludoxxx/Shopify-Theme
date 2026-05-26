@@ -272,6 +272,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
     display: flex;
     align-items: center;
     gap: 3px;
+    justify-content: space-between;
 }
 
 .custom-testimonials-content-inner svg {
