@@ -218,8 +218,8 @@
                           {% if product_option_value.variant.metafields.custom.product_bundle_custom_title.value != blank %}
                             {{ product_option_value.variant.metafields.custom.product_bundle_custom_title.value }}
                           {% comment %} {% endif %} {% endcomment %}
-                        {% comment %} {% elsif product_option.name == "Model" %}
-                          {{- product_option_value | escape -}}   {% endcomment %}
+                        {% elsif product_option.name == "Model" %}
+                          {{- product_option_value | escape -}}  
                         {% else %}
                           {{- product_option_value | escape -}}                            
                         {% endif %}                                                
