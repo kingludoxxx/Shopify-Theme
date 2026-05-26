@@ -203,9 +203,6 @@
                     mode: 'unscaled'
                   %}
                 {% else %}
-                  {% if product_option_value.available == true %}
-                    <span class="variant-option__button-label__pill" data-key="variant-option-pill"></span>
-                  {% endif %}
                   <div class="bundle-left" bis_skin_checked="1">
                     <img src="{{ product_option_value.variant.featured_image | img_url : 'master' }}" alt="{{ product_option_value.variant.featured_image.alt }}">
                     <div class="bundle-info" bis_skin_checked="1">
@@ -216,8 +213,6 @@
                     </div>
                   </div>
                   
-
-
                   <div class="cst-variant-prices">
                     <span class="cst-variant-regulat-prices">{{ product_option_value.variant.price | money }}</span>
                     <span class="cst-variant-compare-prices">{{ product_option_value.variant.compare_at_price | money }}</span>
