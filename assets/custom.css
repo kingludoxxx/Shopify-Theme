@@ -327,6 +327,10 @@ label.variant-option__button-label.cst-variant-option--label {
     background: #f3f3f3;
     border-color: #00000021;
 }
+label.variant-option__button-label.cst-variant-option--label:before {
+    content: unset;
+}
+
 @media only screen and (max-width: 989px){
     .custom-testimonials-box { grid-template-columns: 60px 1fr; }
     .custom-testimonials-image img {max-width: 60px; height: 60px;}    
