@@ -21,4 +21,37 @@
     </div>
   </div>
 
- 
+{% schema %}
+{
+  "name": "Custom Testimonials",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Icon"
+    },
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Text",
+        "default": "Secure Checkout"
+    },
+    {
+        "type": "image_picker",
+        "id": "icon1",
+        "label": "Icon"
+    },
+    {
+        "type": "text",
+        "id": "heading1",
+        "label": "Text",
+        "default": "90 day  money back guarantee"
+    }    
+  ],
+  "presets": [
+    {
+      "name": "Custom Testimonials",
+    }
+  ]
+}
+{% endschema %}   
