@@ -281,14 +281,15 @@
                 "text1": "1 miner 99.99",
                 "bt_text1": "99.99 each",
                 "bt_price1": "99.99",
-                "text2": "",
-                "bt_text2": "",
-                "bt_price2": "",
-                "bt_Compare2": "",
-                "text3": "",
+                "bt_Compare1": "",
+                "text2": "2 miners",
+                "bt_text2": "94 each",
+                "bt_price2": "189.99",
+                "bt_Compare2": "299.99",
+                "text3": "Buy 3 get 1 free",
                 "bt_text3": "",
-                "bt_price3": "",
-                "bt_Compare3": ""
+                "bt_price3": "249.99",
+                "bt_Compare3": "449.99"
               },
               "blocks": {}
             },
