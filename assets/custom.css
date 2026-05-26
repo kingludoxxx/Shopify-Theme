@@ -400,7 +400,7 @@ label.variant-option__button-label.cst-variant-option--label {
 label.variant-option__button-label.cst-variant-option--label:before {
     content: unset;
 }
-.cst-variant-option--bundle-model {
+.variant-option--equal-width-buttons.cst-variant-option--bundle-model {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
