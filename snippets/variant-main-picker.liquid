@@ -217,7 +217,7 @@
                         {% endif %}
                       </span>
                       {% if product_option_value.variant.metafields.custom.product_bundle_each_price.value != blank %}
-                        <p>$94 each {{ product_option_value.variant.metafields.custom.product_bundle_each_price.value | money }} each</p>
+                        <p>{{ product_option_value.variant.metafields.custom.product_bundle_each_price.value | money }} each</p>
                       {% endif %}
                     </div>
                   </div>
