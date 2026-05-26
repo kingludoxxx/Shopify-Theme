@@ -273,7 +273,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
   display: flex;
   align-items: center;
   text-align: center;
-  font-weight: 700;
+  font-weight:600;
   font-size: 20px;
   margin-bottom: 0px;
   color: #111;
@@ -428,6 +428,7 @@ label.variant-option__button-label.cst-variant-option--label:before {
         text-align: center;
         text-wrap: unset;
     }   
+    .bundle-title {font-size: 16px;}    
     .bundle-price {font-size: 18px; line-height: 20px;  }     
     .bundle-old-price {font-size: 14px; line-height: 20px;}    
     .custom-testimonials-box { grid-template-columns: 60px 1fr; }
