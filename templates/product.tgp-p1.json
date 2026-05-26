@@ -16,9 +16,6 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "image": "shopify://shop_images/1777376257490_thumbnail.png",
-            "name": "",
-            "content": "",
             "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 4,
@@ -292,7 +289,7 @@
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
-                "variant_style": "buttons",
+                "variant_style": "bundle",
                 "show_swatches": false,
                 "alignment": "left",
                 "padding-block-start": 0,
