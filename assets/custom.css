@@ -310,7 +310,10 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 label.variant-option__button-label.cst-variant-option--label {
     justify-content: space-between;
 }
-
+.cst-variant-option--bundle-model .bundle-right {
+    display: flex;
+    flex-direction: column;
+}
 @media only screen and (max-width: 989px){
     .custom-testimonials-box { grid-template-columns: 60px 1fr; }
     .custom-testimonials-image img {max-width: 60px; height: 60px;}    
