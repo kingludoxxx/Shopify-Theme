@@ -75,7 +75,9 @@
 <div class="payment-bar">
   <div class="payment-bar__inner">
     <div class="payment-bar__left">
-      <span class="lock-icon">🔒</span> {{ block.settings.text }}</div>
+      <span class="lock-icon">🔒</span> {{ block.settings.text }}
+    </div>
+    <span class="center-line">|</span>
     <div class="payment-bar__right">
         {% if block.settings.icon != blank %}
           <img src="{{ block.settings.icon | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
