@@ -34,34 +34,19 @@
 }
 {% endschema %}
 
-<div
-  class="payment-bar"
-  style="
-    background: {{ section.settings.bg_color }};
-    color: {{ section.settings.text_color }};
-  "
->
+<div class="payment-bar" style=" background: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
   <div class="payment-bar__inner">
-
     <div class="payment-bar__left">
       <span class="lock-icon">🔒</span>
       {{ section.settings.text }}
     </div>
-
     <div class="payment-bar__right">
       {% for block in section.blocks %}
         {% if block.settings.icon != blank %}
-          <img
-            src="{{ block.settings.icon | image_url }}"
-            alt="Payment Icon"
-            width="38"
-            height="24"
-            loading="lazy"
-          >
+          <img src="{{ block.settings.icon | image_url }}" alt="Payment Icon" width="38" height="24" loading="lazy">
         {% endif %}
       {% endfor %}
     </div>
-
   </div>
 </div>
 
