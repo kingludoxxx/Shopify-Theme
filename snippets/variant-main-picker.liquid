@@ -210,6 +210,7 @@
                     <img src="{{ product_option_value.variant.featured_image | img_url : 'master' }}" alt="{{ product_option_value.variant.featured_image.alt }}">
                     <div class="bundle-info" bis_skin_checked="1">
                       <span class="variant-option__button-label__text" data-key="variant-option-text">
+                        {{ product_option_value.variant.metafields.custom.product_bundle_custom_title.value }}
                         {{- product_option_value | escape -}}
                       </span>
                       <p>$94 each</p>
