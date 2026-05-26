@@ -265,7 +265,15 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 }
 
 
+.custom-testimonials-content-inner {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
 
+.custom-testimonials-content-inner svg {
+    width: 18px;
+}
 .custom-testimonials-box {
     display: grid;
     grid-template-columns: 150px 1fr;
