@@ -350,6 +350,17 @@
               },
               "block_order": []
             },
+            "custom_payment_block_p8TpnT": {
+              "type": "custom_payment_block",
+              "name": "Payment Icons Bar",
+              "settings": {
+                "icon": "shopify://shop_images/amex.svg",
+                "text": "128-bit SSL encryption",
+                "bg_color": "#2d2d2d",
+                "text_color": "#ffffff"
+              },
+              "blocks": {}
+            },
             "custom_icon_text_WPTzLy": {
               "type": "custom_icon_text",
               "name": "Custom Product Icons",
@@ -711,6 +722,7 @@
             "miner_type_selector_v5_a1B2c3",
             "bundle_selector_EerCDN",
             "buy_buttons_eYQEYi",
+            "custom_payment_block_p8TpnT",
             "custom_icon_text_WPTzLy",
             "cs_ris_h36Uay",
             "cs_box_FQhqCJ",
