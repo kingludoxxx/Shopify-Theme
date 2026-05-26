@@ -209,17 +209,14 @@
                       data-key="variant-option-pill"
                     ></span>
                   {% endif %}
-                  <span
-                    class="variant-option__button-label__text"
-                    data-key="variant-option-text"
-                  >
+                  <span class="variant-option__button-label__text" data-key="variant-option-text">
                     {{- product_option_value | escape -}}
                   </span>
 
                   <div class="cst-variant-prices">
-                  <span class="cst-variant-regulat-prices"></div>{{product_option_value.variant.price | money }}</span>
-                  <span class="cst-variant-compare-prices">{{product_option_value.variant.compare_at_price | money }}</span>
-
+                    <span class="cst-variant-regulat-prices">{{product_option_value.variant.price | money }}</span>
+                    <span class="cst-variant-compare-prices">{{product_option_value.variant.compare_at_price | money }}</span>
+                  </div>
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
