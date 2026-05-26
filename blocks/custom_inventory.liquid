@@ -3,8 +3,7 @@
 </div>
 <style>
     .section-{{ block.id }}-padding {
-        padding-top: {{ block.settings.padding_top }}px;
-        padding-bottom: {{ block.settings.padding_bottom }}px;
+        padding: {{ block.settings.padding_top }}px;
         background-color: {{ block.settings.back_color }};
     }
 
@@ -13,8 +12,7 @@
 
     @media screen and (max-width: 768px) {
         .section-{{ block.id }}-padding {
-            padding-top: {{ block.settings.mbl_padding_top }}px;
-            padding-bottom: {{ block.settings.mbl_padding_bottom }}px;
+            padding: {{ block.settings.mbl_padding_top }}px;
         }
     }
 </style>
@@ -29,17 +27,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "Padding Top",
-      "default": 10
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Padding Bottom",
+      "label": "Padding",
       "default": 10
     },
     {
@@ -49,17 +37,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "label": "Mobile Top Padding",
-      "default": 10
-    },
-    {
-      "type": "range",
-      "id": "mbl_padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Mobile Bottom Padding",
+      "label": "Mobile Padding",
       "default": 10
     },
     {
