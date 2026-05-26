@@ -13,18 +13,6 @@
       "label": "Text",
       "default": "128-bit SSL encryption"
     },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#2d2d2d"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#ffffff"
-    }
   ],
   "presets": [
     {
@@ -34,7 +22,7 @@
 }
 {% endschema %}
 
-<div class="payment-bar" style=" background: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
+<div class="payment-bar">
   <div class="payment-bar__inner">
     <div class="payment-bar__left">
       <span class="lock-icon">🔒</span>
