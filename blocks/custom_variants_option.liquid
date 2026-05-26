@@ -1,0 +1,192 @@
+<div class="bundle-save-wrapper">
+  <div class="bundle-title">BUNDLE & SAVE</div>
+  <!-- OPTION 1 -->
+  <div class="bundle-option">
+    <div class="bundle-left">
+      <img src="YOUR-IMAGE.png" alt="">
+      <div class="bundle-info">
+        <h3>Buy 1 Miner</h3>
+        <p>You save $40.01</p>
+      </div>
+    </div>
+
+    <div class="bundle-right">
+      <div class="bundle-price">$59.99</div>
+      <div class="bundle-old-price">$100.00</div>
+    </div>
+  </div>
+  <!-- OPTION 2 -->
+  <div class="bundle-option">
+    <div class="bundle-tag">Free Shipping</div>
+    <div class="bundle-left">
+      <img src="YOUR-IMAGE.png" alt="">
+      <div class="bundle-info">
+        <h3>
+          Buy 2 Miners
+          <span class="bundle-badge">2x ODDS</span>
+        </h3>
+        <p>You save $90.01</p>
+      </div>
+    </div>
+    <div class="bundle-right">
+      <div class="bundle-price">$109.99</div>
+      <div class="bundle-old-price">$200.00</div>
+    </div>
+  </div>
+  <!-- OPTION 3 -->
+  <div class="bundle-option">
+    <div class="bundle-tag">Best Value</div>
+    <div class="bundle-left">
+      <img src="YOUR-IMAGE.png" alt="">
+      <div class="bundle-info">
+        <h3>
+          Buy 3, get 1 free
+          <span class="bundle-badge">4x ODDS</span>
+        </h3>
+        <p>You save $220.01</p>
+      </div>
+    </div>
+    <div class="bundle-right">
+      <div class="bundle-price">$179.99</div>
+      <div class="bundle-old-price">$400.00</div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+.bundle-save-wrapper {
+  font-family: Arial, sans-serif;
+  max-width: 680px;
+  margin: 20px auto;
+}
+
+.bundle-title {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 34px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.bundle-title::before,
+.bundle-title::after {
+  content: "";
+  flex: 1;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.bundle-title::before {
+  margin-right: 15px;
+}
+
+.bundle-title::after {
+  margin-left: 15px;
+}
+
+.bundle-option {
+  border: 2px solid #222;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  position: relative;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bundle-option:hover {
+  border-color: #000;
+  transform: translateY(-1px);
+}
+
+.bundle-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bundle-left img {
+  width: 58px;
+  height: auto;
+}
+
+.bundle-info h3 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.1;
+  color: #111;
+}
+
+.bundle-info p {
+  margin: 6px 0 0;
+  color: #666;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.bundle-badge {
+  display: inline-block;
+  background: #e9e9e9;
+  color: #333;
+  font-size: 16px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+.bundle-right {
+  text-align: right;
+}
+
+.bundle-price {
+  font-size: 38px;
+  font-weight: 700;
+  color: #111;
+}
+
+.bundle-old-price {
+  font-size: 24px;
+  color: #999;
+  text-decoration: line-through;
+  margin-top: 4px;
+}
+
+.bundle-tag {
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  background: #1f5fff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Custom Variants",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:content.resource_reference_product_media"
+    },
+
+],
+"presets": [
+    {
+      "name": "Custom Variants",
+    }
+  ]
+}
+{% endschema %}
