@@ -1,7 +1,7 @@
 <div class="bundle-save-wrapper">
   <div class="bundle-title">BUNDLE & SAVE</div>
   <!-- OPTION 1 -->
-  <div class="bundle-option">
+  <div class="bundle-option active">
     <div class="bundle-left">
       <img src="{{ block.settings.image1 | img_url : 'master' }}" alt="{{ block.settings.image1.alt }}">
       <div class="bundle-info">
@@ -170,6 +170,20 @@
 }
 </style>
 
+<script>
+document.querySelectorAll('.bundle-option').forEach(option => {
+  option.addEventListener('click', () => {
+
+    // remove active from all
+    document.querySelectorAll('.bundle-option')
+      .forEach(el => el.classList.remove('active'));
+
+    // add active to clicked one
+    option.classList.add('active');
+
+  });
+});
+</script>
 
 {% schema %}
 {
