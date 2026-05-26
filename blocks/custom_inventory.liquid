@@ -1,19 +1,16 @@
+<div class="custom-inventory-box">
+    <div class="custom-inventory-text">{{ block.settings.content }}</div>
+</div>
+
 {% schema %}
 {
-  "name": "Custom Variants",
+  "name": "Custom Inventory",
   "settings": [
     {
-      "type": "text",
-      "id": "bundle_tag1",
-      "label": "Bundle Tag 1",
-      "default": "Free Shipping"
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
     }, 
-    {
-      "type": "text",
-      "id": "bundle_tag2",
-      "label": "Bundle Tag 2",
-      "default": "HIGHEST CHANCES"
-    },
 ],
 "presets": [
     {
