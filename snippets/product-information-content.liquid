@@ -111,7 +111,7 @@
 
   {{ additional_blocks }}
 
-
+{% if block.settings.image != blank %}
   <div class="custom-testimonials-box">
     <div class="custom-testimonials-image">
       <img src="{{ block.settings.image | img_src : 'master' }}" alt="{{ block.settings.image.alt }}">
@@ -120,7 +120,7 @@
       <div class="custom-testimonial-text">{{ block.settings.content }}</div>
     </div>    
   </div>
-
+{% endif %}
 </div>
 
 {% stylesheet %}
