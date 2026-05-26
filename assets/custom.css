@@ -379,6 +379,7 @@ label.variant-option__button-label.cst-variant-option--label {
     justify-content: space-between;
     padding: 14px 20px;
     border: 2px solid #222;
+    overflow: visible;
 }
 .bundle-right {
     display: flex;
