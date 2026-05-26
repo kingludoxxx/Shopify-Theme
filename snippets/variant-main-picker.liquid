@@ -214,12 +214,12 @@
                     <img src="{{ product_option_value.variant.featured_image | img_url : 'master' }}" alt="{{ product_option_value.variant.featured_image.alt }}">
                     <div class="bundle-info" bis_skin_checked="1">
                       <span class="variant-option__button-label__text" data-key="variant-option-text">
-                        {% if product_option.name == "Bundle" %}
+                        {% comment %} {% if product_option.name == "Bundle" %} {% endcomment %}
                           {% if product_option_value.variant.metafields.custom.product_bundle_custom_title.value != blank %}
                             {{ product_option_value.variant.metafields.custom.product_bundle_custom_title.value }}
-                          {% endif %}
-                        {% elsif product_option.name == "Model" %}
-                          {{- product_option_value | escape -}}  
+                          {% comment %} {% endif %} {% endcomment %}
+                        {% comment %} {% elsif product_option.name == "Model" %}
+                          {{- product_option_value | escape -}}   {% endcomment %}
                         {% else %}
                           {{- product_option_value | escape -}}                            
                         {% endif %}                                                
