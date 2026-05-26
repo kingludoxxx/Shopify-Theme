@@ -68,6 +68,14 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "custom_inventory_wUpCAQ": {
+              "type": "custom_inventory",
+              "name": "Custom Inventory",
+              "settings": {
+                "content": "<p><strong>Inventory Alert:</strong>Due to unprecedented global demand, we only have a limited restock of our battle-tested Essential Edition. Available now for immediate dispatch.</p>"
+              },
+              "blocks": {}
+            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -701,6 +709,7 @@
             }
           },
           "block_order": [
+            "custom_inventory_wUpCAQ",
             "group_icgrde",
             "text_aEtTtq",
             "custom_richtext_TUeUAc",
