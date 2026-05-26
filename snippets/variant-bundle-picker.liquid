@@ -152,7 +152,7 @@
                 {%- elsif v.id == 56573140631883 and each_text_override_56573140631883 != blank -%}
                   <p class="bundle-picker__each">{{ each_text_override_56573140631883 }}</p>
                 {%- endif -%}
-                {% if savings > 0 %}
+                {% if savings > 0 and product_resource.id != 15538599559499 %}
                   <p class="bundle-picker__savings">You save {{ savings | money }}</p>
                 {% endif %}
               </div>
