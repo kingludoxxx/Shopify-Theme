@@ -353,6 +353,7 @@
             "cs_ris_h36Uay": {
               "type": "cs-ris",
               "name": "risk-free",
+              "disabled": true,
               "settings": {
                 "padding_top": 10,
                 "padding_bottom": 10,
@@ -367,6 +368,7 @@
             "cs_box_FQhqCJ": {
               "type": "cs-box",
               "name": "Free Shipping",
+              "disabled": true,
               "settings": {
                 "padding_top": 10,
                 "padding_bottom": 10,
@@ -380,6 +382,7 @@
             "payment_icons_P7KmUB": {
               "type": "payment-icons",
               "name": "t:names.payment_icons",
+              "disabled": true,
               "settings": {
                 "horizontal_alignment": "center",
                 "gap": 10,
@@ -660,6 +663,7 @@
             "custom_upsell_KwwX6b": {
               "type": "custom-upsell",
               "name": "Product Upsell",
+              "disabled": true,
               "settings": {
                 "upsell_product": "mining-rig-limited-item",
                 "description": ""
