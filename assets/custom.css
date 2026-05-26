@@ -300,7 +300,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 .bundle-left {display: flex; align-items: center; gap: 16px;}
 .bundle-left img {width: 58px; height: auto;}
 .bundle-info h3 {margin: 0; font-size: 20px;  line-height: 1.1; color: #111;}
-.bundle-info p {margin: 6px 0 0; color: #555; font-size: 14px; font-weight: 600;}
+.bundle-info p {color: #555; font-size: 14px; font-weight: 600;}
 
 {% comment %} .bundle-badge {
   display: inline-block;
@@ -426,7 +426,7 @@ body .cst-variant-option--bundle-bundle {margin-bottom: 20px;}
 
 @media only screen and (max-width: 989px){
     label.variant-option__button-label.cst-variant-option--label {padding: 12px 20px;}    
-    .bundle-info p {margin: 0px;}    
+    /* .bundle-info p {margin: 0px;}     */
     .cst-variant-option--bundle-bundle span.variant-option__button-label__text, .cst-variant-option--bundle-model span.variant-option__button-label__text {
         font-size: 18px;
         line-height: 20px;
