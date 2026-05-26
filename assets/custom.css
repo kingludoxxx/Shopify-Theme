@@ -369,10 +369,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
     height: 150px;
     object-fit: cover;
 }
-.cst-variant-option--bundle-model {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+
 .cst-variant-option--bundle-model .bundle-info p,
 .cst-variant-option--bundle-model .cst-variant-prices.bundle-right {
     display: none;
@@ -403,8 +400,12 @@ label.variant-option__button-label.cst-variant-option--label {
 label.variant-option__button-label.cst-variant-option--label:before {
     content: unset;
 }
+.cst-variant-option--bundle-model {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 .cst-variant-option--bundle-model label.variant-option__button-label.cst-variant-option--label{
-        justify-content: center;
+    justify-content: center;
     align-items: center;
 }
 .cst-variant-option--bundle-model label.variant-option__button-label.cst-variant-option--label .bundle-left {
