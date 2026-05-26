@@ -548,7 +548,7 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "Is it safe to use on my Wi-Fi network?",
+                    "heading": "Shipping Informations",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -557,7 +557,7 @@
                     "text_Xb4H9R": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>The MinerForge Pro is completely safe to use.</p><p>You only enter your Wi-Fi and a<em>public</em>Bitcoin address so it can display results - it never asks for private keys or wallet access. Everything runs safely on open, read-only network data.</p>",
+                        "text": "<p>✅ <strong>Over 247,000 Tactical RadioX Shipped Worldwide</strong></p><p>Once you place your Tactical RadioX order, you’ll get a confirmation email right away.<br/>Orders are typically processed within <strong>1–2 business days</strong> (excluding weekends and holidays).</p><p><strong>Same-Day Processing</strong></p><p>Place your order before <strong>11:00 AM EST</strong> and we’ll ship it out the same business day.</p><p><strong>Estimated Delivery Times</strong></p><p>📦 <strong>United States:</strong> 7–12 business days (Free Shipping)<br/>🌍 <strong>International:</strong> 7–12 business days (Free Shipping)</p><p><em>Note: Shipping times may vary depending on customs, local postal services, and regional demand.</em></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
