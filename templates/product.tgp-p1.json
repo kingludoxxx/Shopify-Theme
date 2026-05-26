@@ -429,7 +429,7 @@
                 "accordion_row_HEQxbi": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How Does Solo Mining Work?",
+                    "heading": "What To Expect?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -438,7 +438,7 @@
                     "text_pxiq3K": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>A complete <strong>plug-and-play device</strong> that combines <strong>professional-grade mining hardware</strong> with <strong>automated block-solving algorithms</strong> to attempt winning Bitcoin blocks independently.</p><p>Unlike pool mining where thousands of miners split tiny fractions, solo mining <strong>competes for the entire block reward</strong> by itself — attempting to solve blocks <strong>144 times per day</strong> automatically, giving you full ownership if successful.</p>",
+                        "text": "<p>The Tactical RadioX is your ultimate weapon when the world turns against you. Built for blackouts, conflicts, natural disasters, and total grid failure — it ensures you stay powered, connected, and alive — no matter what hits, no matter where you are.</p><p>With four unstoppable power sources — solar, hand crank, USB, and battery backup — nothing can cut you off. The built-in AM/FM and Weather Band locks you into critical emergency alerts and government broadcasts while everyone else is blind. When darkness takes over, the blazing LED flashlight, reading lamp, and screaming SOS alarm keep you visible, safe, and found.</p><p>Compact, battle-tested, and water-resistant — the Tactical RadioX is non-negotiable for every home, every car, and every survival kit. Disasters don't announce themselves. Wars don't wait. When everything collapses around you, this is the device that keeps your family breathing.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -587,6 +587,7 @@
                 "accordion_row_YT4eBG": {
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Shipping and Delivery",
                     "open_by_default": false,
@@ -627,6 +628,7 @@
                 "accordion_row_9kgcDD": {
                   "type": "_accordion-row",
                   "name": "t:names.accordion_row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Tracking",
                     "open_by_default": false,
@@ -677,7 +679,6 @@
             "custom_upsell_KwwX6b": {
               "type": "custom-upsell",
               "name": "Product Upsell",
-              "disabled": true,
               "settings": {
                 "upsell_product": "mining-rig-limited-item",
                 "description": ""
