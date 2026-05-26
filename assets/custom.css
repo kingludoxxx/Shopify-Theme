@@ -367,7 +367,8 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 label.variant-option__button-label.cst-variant-option--label {
     justify-content: space-between;
     padding: 14px 20px;
-    border: 2px solid #222;
+    background: #f3f3f3;    
+    border: 2px solid #00000021;
     overflow: visible;
 }
 body .variant-option__button-label:not(.variant-option__button-label--has-swatch):has([data-option-available=false]) {
@@ -389,8 +390,8 @@ body .cst-variant-option--bundle-model , body .cst-variant-option--bundle-bundle
 .variant-option__button-label.cst-variant-option--label:has(:checked):hover,
 .variant-option__button-label.cst-variant-option--label:has(:checked){
     color: #000000;
-    background: #f3f3f3;
-    border-color: #00000021;
+    background: #ffffff;
+    border-color: #222;
 }
 label.variant-option__button-label.cst-variant-option--label:after,
 label.variant-option__button-label.cst-variant-option--label:before {
