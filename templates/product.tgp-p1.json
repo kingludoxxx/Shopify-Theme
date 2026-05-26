@@ -239,6 +239,19 @@
               },
               "blocks": {}
             },
+            "cs_ris_aXHByc": {
+              "type": "cs-ris",
+              "name": "risk-free",
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "",
+                "text": "<p><strong>Try it risk-free for 90 days.</strong>If you’re not completely satisfied, we’ll give you a 100% refund.</p>"
+              },
+              "blocks": {}
+            },
             "custom_liquid_BnVpqL": {
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
@@ -691,6 +704,7 @@
             "custom_richtext_TUeUAc",
             "icon_text_J6RLLQ",
             "icon_text_VUngdY",
+            "cs_ris_aXHByc",
             "custom_liquid_BnVpqL",
             "divider_VJhene",
             "variant_picker_R3rGDr",
