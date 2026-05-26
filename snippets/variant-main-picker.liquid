@@ -150,9 +150,8 @@
           >
             <legend class="bundle-title">
               {{ product_option.name | escape -}}
-              {%- if variant_style == 'swatch' -%}
-                <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
-              {%- endif %}
+              {%- if variant_style == 'swatch' -%}<span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
+              {% else %}{{ product_option.selected_value }}{%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
               {% if product_option_value.size > longest_value and option_id_attribute %}
