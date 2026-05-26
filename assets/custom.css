@@ -346,6 +346,7 @@ button.custom-slick-next.custom-slick-arrow.slick-arrow { right: 0px;}
 .custom-testimonials-content-inner span {
     font-size: 15px;
     font-weight: 500;
+    margin-left: 5px;
 }
 .custom-testimonials-content-inner svg {
     width: 16px;
