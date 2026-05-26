@@ -242,6 +242,7 @@
             "cs_ris_aXHByc": {
               "type": "cs-ris",
               "name": "risk-free",
+              "disabled": true,
               "settings": {
                 "padding_top": 10,
                 "padding_bottom": 10,
