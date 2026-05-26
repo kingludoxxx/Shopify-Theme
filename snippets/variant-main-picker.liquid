@@ -216,8 +216,9 @@
                     {{- product_option_value | escape -}}
                   </span>
 
-                  {{product_option_value.variant.price | money }}
-                  {{product_option_value.variant.compare_at_price | money }}
+                  <div class="cst-variant-prices">
+                  <span class="cst-variant-regulat-prices"></div>{{product_option_value.variant.price | money }}</span>
+                  <span class="cst-variant-compare-prices">{{product_option_value.variant.compare_at_price | money }}</span>
 
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
