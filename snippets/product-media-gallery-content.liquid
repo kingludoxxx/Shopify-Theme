@@ -621,7 +621,7 @@
       </script>
     {%- endif -%}
 
-{% if section.settings.image != blank %}
+{% if settings.image != blank %}
   <div class="custom-testimonials-box">
     <div class="custom-testimonials-image">
       <img src="{{ section.settings.image | img_src : 'master' }}" alt="{{ settings.image.alt }}">
