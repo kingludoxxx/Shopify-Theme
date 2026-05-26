@@ -391,6 +391,7 @@ label.variant-option__button-label.cst-variant-option--label {
     line-height: 1.1;
     font-weight: 600;
 }
+.variant-option__button-label.cst-variant-option--label:has(:checked):hover,
 .variant-option__button-label.cst-variant-option--label:has(:checked){
     color: #000000;
     background: #f3f3f3;
