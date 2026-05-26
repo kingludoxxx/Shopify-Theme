@@ -468,7 +468,7 @@
                 "accordion_row_Y69yTw": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How Much Can I Win?",
+                    "heading": "Frequently Asked Questions?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -477,7 +477,7 @@
                     "text_Bx6Jrn": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Because solo mining is probability-based with no guarantees, outcomes are unpredictable but when blocks are solved, the rewards are substantial:</p><p><strong>If You Solve a Block:</strong> The full block reward is currently <strong>3.125 BTC</strong> (approximately <strong>$300,000</strong> at current prices). Unlike pool mining where rewards are split among thousands, you keep 100% of the prize.</p>",
+                        "text": "<p><strong>1. How long does the battery last during an emergency?</strong></p><p>The Tactical RadioX is built with 4 power sources — solar, hand crank, USB, and battery backup. There is no time limit. When one source runs out, you switch to the next. In a crisis, you will never be left powerless.</p><p><strong>2. Can I really charge my phone with it?</strong></p><p>Absolutely. The built-in 2000mAh power bank charges your phone directly when the grid is completely dead. When communication is a matter of life and death, your phone stays alive.</p><p><strong>3. Is it tough enough to survive real emergencies?</strong></p><p>Engineered and tested for durability and reliability — built to take the abuse real emergencies deliver. Weather-resistant and built to take a beating — because disasters don't go easy on your gear.</p><p><strong>4. What radio frequencies does it pick up?</strong></p><p>AM, FM, and NOAA Weather Band — locking you into government emergency alerts, official disaster warnings, and live news exactly when the world needs it most</p><p><strong>5. Is it easy to use under pressure?</strong></p><p>One device. One switch. Even in complete darkness, under stress, in the middle of a crisis — the Tactical RadioX is designed to work instantly without confusion.</p><p><strong>6. What if I'm not satisfied with my purchase?</strong></p><p>We back every Tactical RadioX with a 90-day money-back guarantee. No questions. No hassle. But once you hold it in your hands and know your family is protected — you won't need it</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
