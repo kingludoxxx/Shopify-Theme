@@ -434,5 +434,6 @@ body .cst-variant-option--bundle-bundle {margin-bottom: 20px;}
 
 
 @media only screen and (max-width: 749px){
+    .custom-testimonials-box.desktop-version{ display: block; }   
     .product-information__media {padding-left: 10px; padding-right: 10px;}
 }
