@@ -234,7 +234,7 @@
                 "padding_bottom": 10,
                 "mbl_padding_top": 10,
                 "mbl_padding_bottom": 10,
-                "back_color": "",
+                "back_color": "rgba(0,0,0,0)",
                 "text": "<p><em>✓</em> <strong>Get a shot at solving a block of 3 BTC</strong></p><p><em>✓</em><strong> Runs on just 1W via USB-C</strong></p><p><em>✓</em> <strong>Plug in, set & forget</strong></p><p><em>✓</em> <strong>Lifetime warranty</strong></p>"
               },
               "blocks": {}
@@ -243,6 +243,11 @@
               "type": "custom_inventory",
               "name": "Custom Inventory",
               "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "#e8f5e2",
                 "content": "<p><strong>Inventory Alert:</strong>Due to unprecedented global demand, we only have a limited restock of our battle-tested Essential Edition. Available now for immediate dispatch.</p>"
               },
               "blocks": {}
