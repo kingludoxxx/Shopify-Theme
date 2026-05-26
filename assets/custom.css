@@ -422,6 +422,7 @@ body .cst-variant-option--bundle-bundle {margin-bottom: 20px;}
 
 
 @media only screen and (max-width: 989px){
+    label.variant-option__button-label.cst-variant-option--label {padding: 12px 20px;}    
     .bundle-info p {margin: 0px;}    
     .cst-variant-option--bundle-bundle span.variant-option__button-label__text, .cst-variant-option--bundle-model span.variant-option__button-label__text {
         font-size: 18px;
