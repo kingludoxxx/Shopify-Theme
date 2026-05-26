@@ -350,6 +350,15 @@
               },
               "block_order": []
             },
+            "custom_icon_text_WPTzLy": {
+              "type": "custom_icon_text",
+              "name": "Custom Product Icons",
+              "settings": {
+                "icon": "shopify://shop_images/lock_icon_5b225365-20d5-4702-887d-069c747bc792.svg",
+                "heading": "Secure Checkout"
+              },
+              "blocks": {}
+            },
             "cs_ris_h36Uay": {
               "type": "cs-ris",
               "name": "risk-free",
@@ -699,6 +708,7 @@
             "miner_type_selector_v5_a1B2c3",
             "bundle_selector_EerCDN",
             "buy_buttons_eYQEYi",
+            "custom_icon_text_WPTzLy",
             "cs_ris_h36Uay",
             "cs_box_FQhqCJ",
             "payment_icons_P7KmUB",
