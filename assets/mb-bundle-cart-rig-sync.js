@@ -8,13 +8,16 @@
 (function () {
   var RIG_VARIANT = 56077888815435;
   /** @type {Record<number, number>} miner variant id -> rig count per unit */
+  // Signature Edition (pdp-v3) bundles do NOT include a free Mining Rig gift.
+  // All variants set to 0 so the cart never auto-adds a rig for this product.
+  // Other Signature Edition variant IDs (664651/697419/730187) are deleted; kept at 0 defensively.
   var RIGS_PER_MINER_UNIT = {
     56573140566347: 0,
     56573140599115: 0,
-    56573140631883: 1,
-    56573140664651: 2,
-    56573140697419: 4,
-    56573140730187: 6,
+    56573140631883: 0,
+    56573140664651: 0,
+    56573140697419: 0,
+    56573140730187: 0,
   };
 
   var RIG_PROPERTIES = {
