@@ -157,7 +157,11 @@
                   {%- if forloop.index == 2 -%}
                     <span class="bundle-picker__pill bundle-picker__pill--odds">2x ODDS</span>
                   {%- elsif forloop.index == 3 -%}
-                    <span class="bundle-picker__pill bundle-picker__pill--odds">4x ODDS</span>
+                    {%- if product_resource.id == 15759810986315 -%}
+                      <span class="bundle-picker__pill bundle-picker__pill--odds">3x ODDS</span>
+                    {%- else -%}
+                      <span class="bundle-picker__pill bundle-picker__pill--odds">4x ODDS</span>
+                    {%- endif -%}
                   {%- endif -%}
                 </div>
                 {%- comment -%} Per-unit "each" price text {%- endcomment -%}
