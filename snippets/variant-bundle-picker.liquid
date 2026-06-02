@@ -41,6 +41,11 @@
 {% assign each_text_override_56920466751819 = "$74.99 each" %}
 {% assign each_text_override_56920466784587 = "$66 each" %}
 
+{% comment %} Per-unit price text for pdp-v1-v1 Limited Edition (product 15420770681163) bundles {% endcomment %}
+{% assign each_text_override_56798009819467 = "$79.99 each" %}
+{% assign each_text_override_56798009852235 = "$74.99 each" %}
+{% assign each_text_override_56798009885003 = "$66 each" %}
+
 {% comment %} Per-unit price text for Signature Edition bundles {% endcomment %}
 {% assign each_text_override_56573140566347 = "$99.99 each" %}
 {% assign each_text_override_56573140599115 = "$94.99 each" %}
@@ -173,7 +178,7 @@
                   {%- if forloop.index == 2 -%}
                     <span class="bundle-picker__pill bundle-picker__pill--odds">2x ODDS</span>
                   {%- elsif forloop.index == 3 -%}
-                    {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 -%}
+                    {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">3x ODDS</span>
                     {%- else -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">4x ODDS</span>
@@ -199,8 +204,14 @@
                   <p class="bundle-picker__each">{{ each_text_override_56920466751819 }}</p>
                 {%- elsif v.id == 56920466784587 and each_text_override_56920466784587 != blank -%}
                   <p class="bundle-picker__each">{{ each_text_override_56920466784587 }}</p>
+                {%- elsif v.id == 56798009819467 and each_text_override_56798009819467 != blank -%}
+                  <p class="bundle-picker__each">{{ each_text_override_56798009819467 }}</p>
+                {%- elsif v.id == 56798009852235 and each_text_override_56798009852235 != blank -%}
+                  <p class="bundle-picker__each">{{ each_text_override_56798009852235 }}</p>
+                {%- elsif v.id == 56798009885003 and each_text_override_56798009885003 != blank -%}
+                  <p class="bundle-picker__each">{{ each_text_override_56798009885003 }}</p>
                 {%- endif -%}
-                {% if savings > 0 and product_resource.id != 15538599559499 and product_resource.id != 15759810986315 and product_resource.id != 15626881532235 %}
+                {% if savings > 0 and product_resource.id != 15538599559499 and product_resource.id != 15759810986315 and product_resource.id != 15626881532235 and product_resource.id != 15420770681163 %}
                   <p class="bundle-picker__savings">You save {{ savings | money }}</p>
                 {% endif %}
               </div>
