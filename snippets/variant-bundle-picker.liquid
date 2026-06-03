@@ -46,6 +46,16 @@
 {% assign each_text_override_56798009852235 = "$74.99 each" %}
 {% assign each_text_override_56798009885003 = "$66 each" %}
 
+{% comment %} pdp-v5 Limited Edition (product 15698813452619) bundle images {% endcomment %}
+{% assign variant_override_image_url_57160733786443 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-1.png?v=1765567011" | default: '' %}
+{% assign variant_override_image_url_57160733819211 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-2.png?v=1765567044" | default: '' %}
+{% assign variant_override_image_url_57160733851979 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063" | default: '' %}
+
+{% comment %} Per-unit price text for pdp-v5 Limited Edition (product 15698813452619) bundles {% endcomment %}
+{% assign each_text_override_57160733786443 = "$79.99 each" %}
+{% assign each_text_override_57160733819211 = "$74.99 each" %}
+{% assign each_text_override_57160733851979 = "$66 each" %}
+
 {% comment %} Per-unit price text for Signature Edition bundles {% endcomment %}
 {% assign each_text_override_56573140566347 = "$99.99 each" %}
 {% assign each_text_override_56573140599115 = "$94.99 each" %}
@@ -168,6 +178,12 @@
                   <img src="{{ variant_override_image_url_56920466751819 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif v.id == 56920466784587 and variant_override_image_url_56920466784587 != blank %}
                   <img src="{{ variant_override_image_url_56920466784587 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57160733786443 and variant_override_image_url_57160733786443 != blank %}
+                  <img src="{{ variant_override_image_url_57160733786443 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57160733819211 and variant_override_image_url_57160733819211 != blank %}
+                  <img src="{{ variant_override_image_url_57160733819211 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57160733851979 and variant_override_image_url_57160733851979 != blank %}
+                  <img src="{{ variant_override_image_url_57160733851979 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif featured_media %}
                   {{ featured_media | image_url: width: 120 | image_tag: loading: 'lazy', widths: '80,120,160', class: 'bundle-picker__image' }}
                 {% endif %}
@@ -178,7 +194,7 @@
                   {%- if forloop.index == 2 -%}
                     <span class="bundle-picker__pill bundle-picker__pill--odds">2x ODDS</span>
                   {%- elsif forloop.index == 3 -%}
-                    {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 -%}
+                    {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 or product_resource.id == 15698813452619 -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">3x ODDS</span>
                     {%- else -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">4x ODDS</span>
@@ -210,8 +226,14 @@
                   <p class="bundle-picker__each">{{ each_text_override_56798009852235 }}</p>
                 {%- elsif v.id == 56798009885003 and each_text_override_56798009885003 != blank -%}
                   <p class="bundle-picker__each">{{ each_text_override_56798009885003 }}</p>
+                {%- elsif v.id == 57160733786443 and each_text_override_57160733786443 != blank -%}
+                  <p class="bundle-picker__each">{{ each_text_override_57160733786443 }}</p>
+                {%- elsif v.id == 57160733819211 and each_text_override_57160733819211 != blank -%}
+                  <p class="bundle-picker__each">{{ each_text_override_57160733819211 }}</p>
+                {%- elsif v.id == 57160733851979 and each_text_override_57160733851979 != blank -%}
+                  <p class="bundle-picker__each">{{ each_text_override_57160733851979 }}</p>
                 {%- endif -%}
-                {% if savings > 0 and product_resource.id != 15538599559499 and product_resource.id != 15759810986315 and product_resource.id != 15626881532235 and product_resource.id != 15420770681163 %}
+                {% if savings > 0 and product_resource.id != 15538599559499 and product_resource.id != 15759810986315 and product_resource.id != 15626881532235 and product_resource.id != 15420770681163 and product_resource.id != 15698813452619 %}
                   <p class="bundle-picker__savings">You save {{ savings | money }}</p>
                 {% endif %}
               </div>
