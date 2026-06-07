@@ -85,7 +85,7 @@
 
   <body class="page-width-{{ settings.page_width }} template-{{ template | replace: '.', '-' | replace: '/', '-' }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
- {% unless page.handle == '5rw-mr1' or template.suffix == 'list-v2' or template.suffix == 'news' %}
+ {% unless page.handle == '5rw-mr1' or template.suffix == 'list-v2' or template.suffix == 'news' or template.suffix == 'editorial' %}
   <div id="header-group">
     {% sections 'header-group' %}
   </div>
@@ -154,7 +154,7 @@
       {{ content_for_layout }}
     </main>
 
-   {% unless page.handle == '5rw-mr1' or template.suffix == 'list-v2' or template.suffix == 'news' %}
+   {% unless page.handle == '5rw-mr1' or template.suffix == 'list-v2' or template.suffix == 'news' or template.suffix == 'editorial' %}
   {% sections 'footer-group' %}
 {% endunless %}
 
