@@ -21,6 +21,8 @@
     {% if request.host == 'www.theminingjournal.co' or request.host == 'theminingjournal.co' %}
       {% if request.path contains '/pages/comparation' %}
         <script>history.replaceState(null, '', '/comparison');</script>
+      {% elsif request.path contains '/pages/list-v2' %}
+        {% comment %} allow list-v2 page on theminingjournal.co alias — no redirect {% endcomment %}
       {% else %}
         <script>window.location.replace('/pages/comparation');</script>
       {% endif %}
