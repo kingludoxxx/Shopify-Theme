@@ -921,7 +921,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>1. The Math Actually Works In Your Favor</h3>",
+            "text": "<h3>1. It Tries to Win the Full 3.125 BTC Block</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -968,7 +968,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>You're not betting. You're not investing in something risky. You're being entered into an event that pays out \u2014 to someone \u2014 every ten minutes, all day, every day. The Bitcoin network releases a new 3.125 BTC block reward worth roughly $300,000 every ten minutes. The Miner Forge Pro just makes sure your name is in the hat.</p>",
+            "text": "<p>This is called solo mining. Unlike regular mining where thousands of people pool together and split the reward into tiny pieces, the Miner Forge Pro tries to win the entire 3.125 BTC block by itself.</p><p>The odds are extremely low. But if it succeeds, you keep all of it \u2014 around <strong>$300,000 worth of Bitcoin</strong>.</p><p>Every 10 minutes, the Bitcoin network releases a new block. This device competes for it from your desk, trying 144 times every single day.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1033,7 +1033,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>2. There's Nothing To Learn And Nothing To Manage</h3>",
+            "text": "<h3>2. It's Like an Infinite Lottery Ticket That Never Expires</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1080,7 +1080,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>This is the part that breaks most people's brain. There's no app to check. No charts to read. No wallet to fund. You plug it in, scan a QR code with your phone, and the device handles everything else for the rest of its operational life. Marcus didn't open the wallet app for six months. The device kept entering attempts the entire time, completely on its own.</p>",
+            "text": "<p>Most lottery tickets give you one chance, then they're worthless. The Miner Forge Pro keeps trying forever.</p><p>It attempts to solve a Bitcoin block every 10 minutes automatically. That's <strong>144 chances every single day</strong>, for as long as you keep it plugged in.</p><p>And it costs about $1 per year in electricity to run 24/7. So you're basically getting 52,560 lottery attempts annually for the price of a coffee.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1145,7 +1145,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>3. The Cost To Run It Is Almost Nothing</h3>",
+            "text": "<h3>3. Plug-and-Play Setup in Minutes \u2014 No Technical Configuration Required</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1192,7 +1192,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>At one watt of power draw, you'll spend roughly a dollar per year on electricity. A single cup of coffee covers your operating costs for the next four years. Compare that to traditional Bitcoin miners that pull thousands of watts and spike your electricity bill into the hundreds.</p>",
+            "text": "<p>Setup is incredibly simple. Plug it into any USB-C port, scan the QR code with your phone, connect to your WiFi. Done.</p><p>No mining software to configure. No command line. No pool setup. No wallet configuration beyond entering your address.</p><p>You're mining solo within minutes of unboxing.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1257,7 +1257,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>4. Your Odds Quietly Compound The Longer It Runs</h3>",
+            "text": "<h3>4. Runs on Just 1W via USB-C \u2014 Costs Pennies Per Month in Electricity</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1304,7 +1304,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>Each attempt is independent, but the math is simple: more time plugged in equals more attempts. A single unit running for a year makes over fifty thousand attempts at a quarter-million dollar prize. The longer you let it sit and forget about it, the higher your cumulative odds climb. Marcus's unit had been running for one hundred and eighty-three days when his wallet lit up.</p>",
+            "text": "<p>This device pulls just 1 watt of power. You can run it off any USB-C port \u2014 laptop, phone charger, power bank, whatever.</p><p>Electricity cost is roughly <strong>$0.11 per month</strong> running 24/7. That's 4,320 attempts at the block reward for the price of a candy bar. Compare that to traditional mining rigs pulling hundreds or thousands of watts.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1369,7 +1369,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>5. Stacking Units Multiplies Everything</h3>",
+            "text": "<h3>5. Serious Hobbyists Run Multiple Devices to Multiply Their Chances</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1416,7 +1416,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>This is what Marcus did the same week he discovered the windfall. He bought three more units. Four devices running 24/7 means 576 attempts per day instead of 144. Same passive setup. Same one-watt power draw per unit. Four times the chances. He hasn't told anyone in his family yet.</p>",
+            "text": "<p>Here's what experienced crypto hobbyists do: they don't run just one. They run 4, 9, 12, or even 20+ devices simultaneously.</p><p>One device gives you 144 attempts per day at the block. Nine devices give you 1,296 attempts daily. At $0.11/month per device, running nine costs under $1/month total while <strong>multiplying your odds ninefold</strong>.</p><p>That's exactly what Marcus did the week after his first block hit. He didn't tell anyone.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
