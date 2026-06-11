@@ -766,9 +766,75 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "home_comparison_table_WYnpxW": {
+      "type": "home-comparison-table",
+      "blocks": {
+        "feature_f4WY4R": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "Passive setup",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        },
+        "feature_HN3ihx": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "Zero risk",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        },
+        "feature_cGpPDf": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "Anyone can start instantly",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        },
+        "feature_LwkEAz": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "Enjoyable & fun",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        },
+        "feature_wTnGVG": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "No market timing needed",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        }
+      },
+      "block_order": [
+        "feature_f4WY4R",
+        "feature_HN3ihx",
+        "feature_cGpPDf",
+        "feature_LwkEAz",
+        "feature_wTnGVG"
+      ],
+      "disabled": true,
+      "name": "Comparison Table",
+      "settings": {
+        "heading": "Why MinerForge Pro is different..",
+        "your_logo": "shopify://shop_images/logo1.png",
+        "percentage_text": "↑↑↑↑↑",
+        "competitor_logo": "shopify://shop_images/logo2.png",
+        "competitor_name": "Others",
+        "disclaimer": "*Disclaimer: For entertainment and hobbyist use only. Mining success is rare and not guaranteed.",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "home_comparison_table_WYnpxW"
   ]
 }
