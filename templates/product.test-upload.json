@@ -767,6 +767,1797 @@
         "padding-block-end": 0
       }
     },
+    "section_eQaYPp": {
+      "type": "section",
+      "blocks": {
+        "video_peyQPH": {
+          "type": "video",
+          "name": "t:names.video",
+          "settings": {
+            "source": "uploaded",
+            "video": "shopify://files/videos/MB PRODUCT PAGE_V4_HD.mp4",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "alt": "",
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "auto",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 20,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_V9yQxA": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_6b9mNQ": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Try to win the 3.125 BTC block on your own, <em><strong>144 times every day</strong></em></h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_DFiHpR": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Our miners are easy-to-use devices that attempt to win full Bitcoin blocks (<strong>3.125 BTC, currently worth ~$300,000</strong>) instead of splitting rewards with thousands of other miners. They generate new mining attempts every 10 minutes automatically <strong>no setup, no monitoring, just plug in and let it run</strong>.</p><p>Think of it like having a lottery ticket that never expires and keeps <strong>playing itself 144 times a day.</strong></p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_6b9mNQ",
+            "text_DFiHpR"
+          ]
+        }
+      },
+      "block_order": [
+        "video_peyQPH",
+        "group_V9yQxA"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "miner_results_8pFCrk": {
+      "type": "miner-results",
+      "blocks": {
+        "stat_arNrMq": {
+          "type": "stat",
+          "disabled": true,
+          "settings": {
+            "percentage": 100,
+            "label": "Experienced zero device failures or connectivity issues"
+          }
+        },
+        "stat_nFm4A3": {
+          "type": "stat",
+          "disabled": true,
+          "settings": {
+            "percentage": 93,
+            "label": "Successfully connected to the network and began normal device operation."
+          }
+        },
+        "stat_qxLVpQ": {
+          "type": "stat",
+          "disabled": true,
+          "settings": {
+            "percentage": 73,
+            "label": "Reported satisfaction with the plug-and-play setup process"
+          }
+        }
+      },
+      "block_order": [
+        "stat_arNrMq",
+        "stat_nFm4A3",
+        "stat_qxLVpQ"
+      ],
+      "name": "Forge Results",
+      "settings": {
+        "title": "<p>AI Powered Bitcoin Mining <strong>for Cents a Month</strong></p>",
+        "description": "<p>Concerned about the high electricity costs that typically come with Bitcoin mining?</p><p>MinerForge Pro is designed to operate 24/7 while consuming just <strong>24 watts per day,</strong> roughly <strong>0.72 kWh per month</strong>, which comes out to only <strong>a few cents in electricity</strong> to run continuously.</p><p>For less than the price of a small treat, you get an <strong>AI-powered device</strong> that runs quietly in the background, working nonstop as it repeatedly attempts to solve a <strong>3.125 BTC block reward</strong>, day and night.</p>",
+        "subtitle": "",
+        "media_type": "video",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/892f8981d8004cfd91b590f15b04913a.mp4",
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true,
+        "video_controls": false
+      }
+    },
+    "comparation_header_section_NjRwU3": {
+      "type": "comparation-header-section",
+      "disabled": true,
+      "custom_css": [],
+      "name": "Comparation Header",
+      "settings": {
+        "heading": "<h2>Recent Solo Mining <em><strong>Success Stories</strong></em></h2>"
+      }
+    },
+    "section_qiKg4T": {
+      "type": "section",
+      "blocks": {
+        "group_zkAjCt": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-2",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_Yg3PPG": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/Testimonial-01.png",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_EdVBL7": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<h3>James K. - Running 3 Devices</h3><p><em>\"I had three Miner Forge Pros running for 16.3 days when I checked my dashboard one morning and saw one had solved a block. 2,360 attempts later, it actually happened. The block reward was 3.145 BTC. Still can't process it.\"<br/><br/></em></p><p><strong>Actively attempted for: 16.3 days</strong><em><strong>(2,360 transactions)</strong></em></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_Yg3PPG",
+            "text_EdVBL7"
+          ]
+        },
+        "group_rgaNgF": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-2",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_9YcJQt": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/PRODUCT_PAGE_4_97f9dcbd-7283-4657-b547-0b1651808561.webp",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_j8zyGw": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<h3>Ben M. - Running 5 Devices</h3><p><em>\"I started with two devices, then added three more to increase my attempts. After 125.7 days across my setup, one device found a block. 17,986 total transactions between all five units before it hit. The 3.205 BTC went straight to my wallet.\"</em></p><p><em><strong><br/>Actively attempted for: 125.7 days (17,986 transactions)</strong></em></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_9YcJQt",
+            "text_j8zyGw"
+          ]
+        },
+        "group_YM4FVL": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-2",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_8g4xrT": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_BcBFyA": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<h3>Marcus T. - Running 8 Devices</h3><p><em>\"Running eight devices meant 1,152 daily attempts instead of 144. One solved a block after 31.5 days of continuous operation. 4,534 transactions processed across my setup. The full 3.12 BTC block reward is blockchain-verified.\"<br/><br/></em></p><p><em><strong>Actively attempted for: 31.5 days<br/>(4,534 transactions)</strong></em></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_8g4xrT",
+            "text_BcBFyA"
+          ]
+        }
+      },
+      "block_order": [
+        "group_zkAjCt",
+        "group_rgaNgF",
+        "group_YM4FVL"
+      ],
+      "name": "t:names.multicolumn",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "section_LyKBkW": {
+      "type": "section",
+      "blocks": {
+        "video_pneekJ": {
+          "type": "video",
+          "name": "t:names.video",
+          "settings": {
+            "source": "uploaded",
+            "video": "shopify://files/videos/Plug and Play_V2_1x1.mp4",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "alt": "",
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "auto",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 20,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_QMhwLq": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_Kqye7H": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Ready in Minutes - <em><strong>start mining right away</strong></em></h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_zTifmD": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Simply connect the device to a USB-C power source, link it to your Wi-Fi, and you’re immediately connected to the global Bitcoin network and ready to participate <strong>No technical experience needed</strong></p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_Kqye7H",
+            "text_zTifmD"
+          ]
+        }
+      },
+      "block_order": [
+        "video_pneekJ",
+        "group_QMhwLq"
+      ],
+      "custom_css": [
+        ".custom-section-content h2 {color: #fff;}",
+        "p {color: #fff !important;}"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "text_and_mage_section_YVg4JU": {
+      "type": "text-and-mage-section",
+      "custom_css": [
+        ".cst-text-image-section-col em {color: #1a61f9;}",
+        ".cst-text-image-section-col span {text-decoration: none !important;}"
+      ],
+      "name": "Text & Image",
+      "settings": {
+        "text_width": "100%",
+        "col_align": "center",
+        "image": "shopify://shop_images/image_4_98cbc8af-97b0-433e-8471-dd6df9f38684.jpg",
+        "video_url": "",
+        "image_position": "right",
+        "title": "3000% more power with our <span style=\"text-decoration:underline\"><em>Next-Gen AI Chip</em></span>",
+        "title_position": "left",
+        "text": "<p>The world's first Bitcoin miner with AI-integrated technology. Powered by the revolutionary ESP32-D0 AI chip, the 2025 Miner Forge Pro delivers up to 30x more computational power than earlier NerdMiner or One Shot versions.</p><p>The 2026 model features AI-optimized hashing, intelligent energy management, and adaptive block-solving algorithms — giving you better chances at winning blocks while still consuming just pennies in electricity.</p>",
+        "text_position": "left",
+        "checkbox_para": false,
+        "text-strong-background": "rgba(0,0,0,0)",
+        "btn_text": "",
+        "alignside": true,
+        "btn_link": "",
+        "btn_color": "#e18dbc",
+        "btn_color_text": "#ffffff",
+        "mobile_content": false
+      }
+    },
+    "text_and_mage_section_kHxqWM": {
+      "type": "text-and-mage-section",
+      "disabled": true,
+      "custom_css": [
+        ".cst-text-image-section-col h2 strong {color: #1a61f9;}"
+      ],
+      "name": "Text & Image",
+      "settings": {
+        "text_width": "100%",
+        "col_align": "center",
+        "image": "shopify://shop_images/image7_b86ba19e-bd54-4e66-af3a-098b0519ba75.jpg",
+        "video_url": "",
+        "image_position": "left",
+        "title": "Engineered By Experts, <strong>Recommended By Engineers</strong>",
+        "title_position": "left",
+        "text": "<p>Right now, there is nothing on the market that even comes close to the AI-integrated mining technology that the Miner Forge Pro delivers, nor is there anything with as much technical validation supporting its legitimacy and performance!<br/><br/><br/><strong>Dr. Michael Chen, PhD<br/>Electrical Engineer & Creator of Miner Forge Pro</strong></p>",
+        "text_position": "left",
+        "checkbox_para": false,
+        "text-strong-background": "rgba(0,0,0,0)",
+        "btn_text": "",
+        "alignside": true,
+        "btn_link": "",
+        "btn_color": "#e18dbc",
+        "btn_color_text": "#ffffff",
+        "mobile_content": false
+      }
+    },
+    "miner_tabs_section_pxqJpj": {
+      "type": "miner-tabs-section",
+      "blocks": {
+        "tab_H9GiKt": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "How It Works",
+            "media_type": "image",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/575f631273f54a8392d253f56a032134.mp4",
+            "tab_heading": "Seamless Setup",
+            "tab_content": "Our plug-and-play device is designed to connect directly to the Bitcoin network for educational and exploratory purposes. It allows users to observe network activity, understand how blockchain data is processed, and gain insight into how decentralized systems function in real time.\n\nUnlike traditional setups that require complex configuration or third-party services, Forge Pro operates independently as a self-contained device focused on learning, experimentation, and technical exploration. All activity performed by the device is non-custodial and transparent, with no guarantees of outcomes or results.\n\nNo technical expertise is required. Simply connect the device to your Wi-Fi network and enter a public Bitcoin address to enable network interaction features and begin exploring how the system operates."
+          }
+        },
+        "tab_jxceCY": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "The Tech",
+            "media_type": "image",
+            "video_url": "",
+            "tab_heading": "Advanced Architecture",
+            "tab_content": "Powered by the 2025 ESP32-D0 processing chip, the MinerForge Pro is engineered for high-efficiency computation in a compact form factor. Our proprietary firmware utilizes adaptive logic to target network block signatures efficiently.\n<br><br>\nExperience a streamlined mining interface with integrated hardware management designed specifically for the solo mining enthusiast."
+          }
+        },
+        "tab_4G9xpb": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Efficiency",
+            "media_type": "image",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/f49e392ae8ce4973af05a38149f875b8.mp4",
+            "tab_heading": "Eco-Friendly Design",
+            "tab_content": "The MinerForge Pro is designed for 24/7 operation with a focus on sustainability. Consuming just 1W of power (~0.72 kWh per month), it allows you to participate in the Bitcoin ecosystem for less than the cost of a standard LED light bulb.\n<br><br>\nEnjoy a silent, heat-free experience with minimal impact on your utility bill. It is a sustainable way to maintain a continuous connection to the Bitcoin network."
+          }
+        }
+      },
+      "block_order": [
+        "tab_H9GiKt",
+        "tab_jxceCY",
+        "tab_4G9xpb"
+      ],
+      "disabled": true,
+      "name": "Forge Tabs",
+      "settings": {
+        "primary_color": "#1a61f9",
+        "heading": "Why Forge Pro?",
+        "subheading": "Explore the Bitcoin network through interactive, educational technology.",
+        "step1_title": "",
+        "step1_text": "",
+        "step2_title": "",
+        "step2_text": "",
+        "step3_title": "",
+        "step3_text": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "home_comparison_table_WYnpxW": {
+      "type": "home-comparison-table",
+      "blocks": {
+        "feature_f4WY4R": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "Passive setup",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        },
+        "feature_HN3ihx": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "Zero risk",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        },
+        "feature_cGpPDf": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "Anyone can start instantly",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        },
+        "feature_LwkEAz": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "Enjoyable & fun",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        },
+        "feature_wTnGVG": {
+          "type": "feature",
+          "settings": {
+            "feature_name": "No market timing needed",
+            "your_brand_has": true,
+            "competitor_has": false
+          }
+        }
+      },
+      "block_order": [
+        "feature_f4WY4R",
+        "feature_HN3ihx",
+        "feature_cGpPDf",
+        "feature_LwkEAz",
+        "feature_wTnGVG"
+      ],
+      "disabled": true,
+      "name": "Comparison Table",
+      "settings": {
+        "heading": "Why MinerForge Pro is different..",
+        "your_logo": "shopify://shop_images/logo1.png",
+        "percentage_text": "↑↑↑↑↑",
+        "competitor_logo": "shopify://shop_images/logo2.png",
+        "competitor_name": "Others",
+        "disclaimer": "*Disclaimer: For entertainment and hobbyist use only. Mining success is rare and not guaranteed.",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "text_and_mage_section_bdJb6W": {
+      "type": "text-and-mage-section",
+      "disabled": true,
+      "name": "Text & Image",
+      "settings": {
+        "text_width": "100%",
+        "col_align": "start",
+        "image": "shopify://shop_images/image7_Danish.jpg",
+        "video_url": "",
+        "image_position": "right",
+        "title": "<strong>Engineered By Experts, Recommended By Engineers</strong>",
+        "title_position": "left",
+        "text": "<p>Right now, there is nothing on the market that even comes close to the AI-integrated mining technology that the Miner Forge Pro delivers, nor is there anything with as much technical validation supporting its legitimacy and performance!</p><p><strong>Dr. Michael Chen, PhD</strong>Electrical Engineer & Creator of Miner Forge Pro<br/><br/></p>",
+        "text_position": "left",
+        "checkbox_para": false,
+        "text-strong-background": "",
+        "btn_text": "",
+        "alignside": true,
+        "btn_link": "",
+        "btn_color": "#e18dbc",
+        "btn_color_text": "#ffffff",
+        "mobile_content": false
+      }
+    },
+    "comparation_header_section_wCDMid": {
+      "type": "comparation-header-section",
+      "disabled": true,
+      "custom_css": [
+        "h2 {color: white; text-align: center;}",
+        ".n-c-heading-title-cs strong {color: #1a61f9;}"
+      ],
+      "name": "Comparation Header",
+      "settings": {
+        "heading": "<h2>Loved By <strong>10.000 + Customers</strong></h2>"
+      }
+    },
+    "section_9HFF6z": {
+      "type": "section",
+      "blocks": {
+        "group_kcgTib": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-2",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_TULK6w": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/PRODUCT_PAGE_2_e442251f-a839-4394-830f-fcfb056a7fd2.webp",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_KF9qnE": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<h3>The Mineblock community is exploding.</h3><p>From beginners to seasoned crypto fans, everyone is sharing their miner wins, setups, and experiences. Want to be featured? <span style=\"text-decoration:underline\">Upload your pic after purchase!</span></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_TULK6w",
+            "text_KF9qnE"
+          ]
+        },
+        "group_ChiF68": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-2",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_RADkUQ": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/PRODUCT_PAGE_3_66508036-28d5-4112-adae-45e149afadbc.webp",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_LnWnVF": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<h3>Mining Bitcoin has never felt this fun.</h3><p>Our community posts daily photos of their miners in action - tiny devices with massive energy behind them. <span style=\"text-decoration:underline\">Share yours and be part of the movement.</span></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_RADkUQ",
+            "text_LnWnVF"
+          ]
+        },
+        "group_gAmnYC": {
+          "type": "group",
+          "name": "t:names.column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-2",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 15,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_EqF3YP": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/PRODUCT_PAGE_4_97f9dcbd-7283-4657-b547-0b1651808561.webp",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_r3QptT": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<h3>Participate in decentralization!</h3><p>Our customers enjoy the thrill of participating in the Bitcoin network. Results vary and block discovery is never guaranteed - <span style=\"text-decoration:underline\">but that's what makes it fun!</span></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_EqF3YP",
+            "text_r3QptT"
+          ]
+        }
+      },
+      "block_order": [
+        "group_kcgTib",
+        "group_ChiF68",
+        "group_gAmnYC"
+      ],
+      "name": "t:names.multicolumn",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "section_7XXr64": {
+      "type": "section",
+      "blocks": {
+        "text_6PgACK": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>Lifetime warranty│90-day free trial</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_UDegeE": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p><strong>Start Bitcoin mining with peace of mind. Test the MinerForge Pro for 90 days — if it’s not for you, return it. Every unit also comes with lifetime warranty coverage.</strong></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_6PgACK",
+        "text_UDegeE"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "section_cF3GM6": {
+      "type": "section",
+      "blocks": {
+        "text_Tmzim4": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>Frequently Asked Questions</h2><p>Still have questions? Reach out to us anytime at <a href=\"mailto:support@goluvora.com\" title=\"mailto:support@goluvora.com\">support@mineblock.co</a> — we’re here to help.</p>",
+            "width": "fit-content",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_jG9Kw9": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_nyfWy9": {
+              "type": "_accordion-row",
+              "disabled": true,
+              "settings": {
+                "heading": "What are the chances of discovering a block?",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_ignjJx": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>The mathematical probability of discovering a block with a single hobbyist device is <strong>extremely low</strong>. This device should be viewed as a \"lottery-style\" participant in the network. While individual hobbyists have successfully solved blocks in the past, it is not a predictable source of income.</p>",
+                    "width": "fit-content",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_ignjJx"
+              ]
+            },
+            "accordion_row_8QG6nw": {
+              "type": "_accordion-row",
+              "disabled": true,
+              "settings": {
+                "heading": "Does buying more miners improve my chances?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_K3WTgV": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes. Each device operates as an independent node attempting to solve a hash. Operating multiple devices increases your total hash rate, which proportionally increases your statistical probability of block discovery.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_K3WTgV"
+              ]
+            },
+            "accordion_row_DByEAY": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "disabled": true,
+              "settings": {
+                "heading": "What is my chance to win?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_qdaUBY": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>The chances are extremely low. Think of it like a global lottery. Your device continuously generates valid entries, and while odds depend on network difficulty, every single hash has a fair chance. People have already proven small devices can win.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_qdaUBY"
+              ]
+            },
+            "accordion_row_K7fLT6": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "disabled": true,
+              "settings": {
+                "heading": "Are there any hidden fees?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_Wj8UhR": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>No. There are no subscriptions or hidden costs. Once you purchase the hardware, you own it, and all hashing power is directed to your chosen address.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_Wj8UhR"
+              ]
+            },
+            "accordion_row_Lgiq6Q": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "How does the MinerForge Pro actually work?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_VgfGpw": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>The MinerForge Pro connects to the Bitcoin network and performs real solo mining - meaning it independently tries to find a valid block hash. It uses open, read-only network data to participate safely in the mining process without accessing your personal information or wallet.<br/><br/>Each “shot” is a new attempt at discovering a block, which theoretically could yield a Bitcoin reward, although the odds are very small.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_VgfGpw"
+              ]
+            },
+            "accordion_row_7j7ewC": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Does buying more miners improve my odds?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_rPUXVd": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Yes. Each device runs independently, producing its own stream of hashes (lottery tickets). The more units you run, the more chances you have of hitting a winning block.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_rPUXVd"
+              ]
+            },
+            "accordion_row_M7hKcU": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "What is my chance to win?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_jQrFy9": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>The chances are extremely low. Think of it like a global lottery. Your device continuously generates valid entries, and while odds depend on network difficulty, every single hash has a fair chance. People have already proven small devices can win.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_jQrFy9"
+              ]
+            },
+            "accordion_row_Fy8YPE": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Do I need any technical skills to set this up?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_PieimY": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Not at all. Just plug the miner into power, connect to Wi-Fi once through your phone, and you’re mining. No coding, no special hardware, no experience required.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_PieimY"
+              ]
+            },
+            "accordion_row_wNi48C": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Do I need a computer to run this?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_A3d6Un": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>No. Everything runs directly on the device. You only need a smartphone, tablet, or computer for the initial Wi-Fi setup. After that, it works completely on its own.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_A3d6Un"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_nyfWy9",
+            "accordion_row_8QG6nw",
+            "accordion_row_DByEAY",
+            "accordion_row_K7fLT6",
+            "accordion_row_Lgiq6Q",
+            "accordion_row_7j7ewC",
+            "accordion_row_M7hKcU",
+            "accordion_row_Fy8YPE",
+            "accordion_row_wNi48C"
+          ]
+        }
+      },
+      "block_order": [
+        "text_Tmzim4",
+        "accordion_jG9Kw9"
+      ],
+      "custom_css": [
+        "p {font-size: 16px;}",
+        ".accordion .details__header {font-size: 18px;}"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_text_color": "#ffffff",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 20,
+        "padding-block-end": 48
+      }
+    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -912,6 +2703,20 @@
   },
   "order": [
     "main",
+    "section_eQaYPp",
+    "miner_results_8pFCrk",
+    "comparation_header_section_NjRwU3",
+    "section_qiKg4T",
+    "section_LyKBkW",
+    "text_and_mage_section_YVg4JU",
+    "text_and_mage_section_kHxqWM",
+    "miner_tabs_section_pxqJpj",
+    "home_comparison_table_WYnpxW",
+    "text_and_mage_section_bdJb6W",
+    "comparation_header_section_wCDMid",
+    "section_9HFF6z",
+    "section_7XXr64",
+    "section_cF3GM6",
     "product_recommendations_qggXJq"
   ]
 }
