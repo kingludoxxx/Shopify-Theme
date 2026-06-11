@@ -205,12 +205,12 @@
               <div class="bundle-picker__card-body">
                 <div class="bundle-picker__card-title-row">
                   <span class="bundle-picker__card-title">{{ product_option_value.name }}</span>
-                  {%- comment -%} ODDS pills — hidden ONLY for PhantomAxe Ultra {%- endcomment -%}
-                  {%- unless product_resource.id == 15478310535499 -%}
+                  {%- comment -%} ODDS pills — hidden for PhantomAxe Ultra AND Titan Max {%- endcomment -%}
+                  {%- unless product_resource.id == 15478310535499 or product_resource.id == 15478310502731 -%}
                     {%- if forloop.index == 2 -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">2x</span>
                     {%- elsif forloop.index == 3 -%}
-                      {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 or product_resource.id == 15698813452619 or product_resource.id == 15478310502731 -%}
+                      {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 or product_resource.id == 15698813452619 -%}
                         <span class="bundle-picker__pill bundle-picker__pill--odds">3x</span>
                       {%- else -%}
                         <span class="bundle-picker__pill bundle-picker__pill--odds">4x</span>
