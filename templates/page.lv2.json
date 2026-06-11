@@ -126,7 +126,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<h1>[REPLACE \u2014 Article headline]</h1>",
+            "text": "<h1>He Spent $60 To End A Family Argument About Bitcoin. Six Months Later He Found $300,000 In His Wallet By Accident.</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -151,7 +151,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Lede paragraph: 2-3 sentences setting up the article.]</p>",
+            "text": "<p>A suburban father bought a small Bitcoin mining device as a joke to settle a holiday argument. He plugged it in behind his TV and forgot about it. Then one Tuesday morning, half-asleep on his phone, he saw a number that didn't make sense.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -176,7 +176,7 @@
         "d": {
           "type": "text",
           "settings": {
-            "text": "<p>Published [REPLACE \u2014 date and time]</p>",
+            "text": "<p>Published April 27, 2026</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -301,7 +301,7 @@
         "p1": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Intro paragraph 1]</p>",
+            "text": "<p>Marcus didn't believe in Bitcoin. He thought it was a scam, a bubble, or both. His brother-in-law wouldn't shut up about it at Thanksgiving. After three holidays of the same argument, Marcus decided to settle it.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -326,7 +326,7 @@
         "p2": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Intro paragraph 2]</p>",
+            "text": "<p>He went online, found something called a Miner Forge Pro for sixty dollars, and bought one. His plan was simple: let it run for a year, prove nothing happened, and finally win the family argument.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -351,7 +351,7 @@
         "p3": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Intro paragraph 3]</p>",
+            "text": "<p>He plugged it in behind his TV cabinet, connected it to his Wi-Fi, and walked away. No setup. No software. No monitoring. The little device hummed quietly to itself, and Marcus genuinely forgot it was there.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -376,7 +376,7 @@
         "p4": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Intro paragraph 4]</p>",
+            "text": "<p>Months passed. Birthdays came and went. He never checked it. Not once.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -442,7 +442,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<h2>[REPLACE \u2014 H2 headline #1]</h2>",
+            "text": "<h2>The Tuesday Morning He Realized Something Was Wrong</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -505,7 +505,7 @@
         "p1": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Body paragraph 1]</p>",
+            "text": "<p>It was early March. Marcus was lying in bed scrolling his phone before the alarm went off. He opened a Bitcoin wallet app he'd installed six months earlier \u2014 the one tied to the little device behind his TV \u2014 and his eyes refused to process the number on the screen.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -530,7 +530,7 @@
         "p2": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Body paragraph 2]</p>",
+            "text": "<p><strong>3.125 Bitcoin.</strong> The wallet had shown nothing for weeks. Now it showed a balance worth roughly <strong>$298,000</strong> at that morning's price.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -555,7 +555,7 @@
         "p3": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Body paragraph 3]</p>",
+            "text": "<p>He sat up. He refreshed the screen four times. He checked the date. He walked downstairs in his socks and stared at the little Miner Forge Pro behind the TV, still humming, the same green light blinking the way it always had. And he laughed out loud \u2014 the kind of laugh that's half disbelief and half release.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -642,7 +642,7 @@
         "c": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Optional caption]</p>",
+            "text": "<p>The Miner Forge Pro that quietly solved a Bitcoin block while Marcus was on a beach in Florida.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -706,7 +706,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<h2>[REPLACE \u2014 H2 headline #2]</h2>",
+            "text": "<h2>How A Sixty-Dollar Box Quietly Made Him A Quarter-Millionaire</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -769,7 +769,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Lead paragraph for bullets section]</p>",
+            "text": "<p>Here's the part Marcus didn't understand until later. The Miner Forge Pro doesn't promise anything. It doesn't guarantee a payout. What it does is enter you into a global event that runs automatically, every ten minutes, twenty-four hours a day. The Bitcoin network pays out a 3.125 BTC reward every ten minutes to whoever solves a math puzzle first. The Miner Forge Pro just keeps trying \u2014 quietly, forever \u2014 without you doing anything.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -794,7 +794,7 @@
         "b": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 <strong>[REPLACE \u2014 Feature 1]:</strong> [REPLACE \u2014 description]</p><p>\u2705 <strong>[REPLACE \u2014 Feature 2]:</strong> [REPLACE \u2014 description]</p><p>\u2705 <strong>[REPLACE \u2014 Feature 3]:</strong> [REPLACE \u2014 description]</p><p>\u2705 <strong>[REPLACE \u2014 Feature 4]:</strong> [REPLACE \u2014 description]</p><p>\u2705 <strong>[REPLACE \u2014 Feature 5]:</strong> [REPLACE \u2014 description]</p><p>\u2705 <strong>[REPLACE \u2014 Feature 6]:</strong> [REPLACE \u2014 description]</p>",
+            "text": "<p>\u2705 <strong>Plug & forget:</strong> No software. No setup. No monitoring. Just power and Wi-Fi.</p><p>\u2705 <strong>Runs on 1W:</strong> Costs about $0.15 a month in electricity. Cheaper than a nightlight.</p><p>\u2705 <strong>144 attempts per day:</strong> Tries to win the full Bitcoin block reward every 10 minutes.</p><p>\u2705 <strong>Silent operation:</strong> No fan noise. No heat. You forget it's there.</p><p>\u2705 <strong>Lifetime entries:</strong> Every minute it's plugged in is one more chance.</p><p>\u2705 <strong>Stack the odds:</strong> Add more units to multiply your daily attempts.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -858,7 +858,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<h2>[REPLACE \u2014 '5 Reasons...' main headline]</h2>",
+            "text": "<h2>5 Reasons Everyday People Are Quietly Buying These</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -921,7 +921,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>1. [REPLACE \u2014 Reason 1 subheadline]</h3>",
+            "text": "<h3>1. The Math Actually Works In Your Favor</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -968,7 +968,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Reason 1 paragraph (4-6 sentences)]</p>",
+            "text": "<p>You're not betting. You're not investing in something risky. You're being entered into an event that pays out \u2014 to someone \u2014 every ten minutes, all day, every day. The Bitcoin network releases a new 3.125 BTC block reward worth roughly $300,000 every ten minutes. The Miner Forge Pro just makes sure your name is in the hat.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1033,7 +1033,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>2. [REPLACE \u2014 Reason 2 subheadline]</h3>",
+            "text": "<h3>2. There's Nothing To Learn And Nothing To Manage</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1080,7 +1080,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Reason 2 paragraph (4-6 sentences)]</p>",
+            "text": "<p>This is the part that breaks most people's brain. There's no app to check. No charts to read. No wallet to fund. You plug it in, scan a QR code with your phone, and the device handles everything else for the rest of its operational life. Marcus didn't open the wallet app for six months. The device kept entering attempts the entire time, completely on its own.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1145,7 +1145,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>3. [REPLACE \u2014 Reason 3 subheadline]</h3>",
+            "text": "<h3>3. The Cost To Run It Is Almost Nothing</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1192,7 +1192,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Reason 3 paragraph (4-6 sentences)]</p>",
+            "text": "<p>At one watt of power draw, you'll spend roughly a dollar per year on electricity. A single cup of coffee covers your operating costs for the next four years. Compare that to traditional Bitcoin miners that pull thousands of watts and spike your electricity bill into the hundreds.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1257,7 +1257,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>4. [REPLACE \u2014 Reason 4 subheadline]</h3>",
+            "text": "<h3>4. Your Odds Quietly Compound The Longer It Runs</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1304,7 +1304,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Reason 4 paragraph (4-6 sentences)]</p>",
+            "text": "<p>Each attempt is independent, but the math is simple: more time plugged in equals more attempts. A single unit running for a year makes over fifty thousand attempts at a quarter-million dollar prize. The longer you let it sit and forget about it, the higher your cumulative odds climb. Marcus's unit had been running for one hundred and eighty-three days when his wallet lit up.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1369,7 +1369,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>5. [REPLACE \u2014 Reason 5 subheadline]</h3>",
+            "text": "<h3>5. Stacking Units Multiplies Everything</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1416,7 +1416,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Reason 5 paragraph (4-6 sentences)]</p>",
+            "text": "<p>This is what Marcus did the same week he discovered the windfall. He bought three more units. Four devices running 24/7 means 576 attempts per day instead of 144. Same passive setup. Same one-watt power draw per unit. Four times the chances. He hasn't told anyone in his family yet.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1481,7 +1481,7 @@
         "q": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Pull quote or callout]</p>",
+            "text": "<p>I genuinely forgot I owned the thing. That's the only reason this worked. I wasn't watching it. I wasn't refreshing the app. It just sat there, quietly, doing what it does, until one morning the number changed.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1544,7 +1544,7 @@
         "t": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>[REPLACE \u2014 CTA button text]</strong></p>",
+            "text": "<p><strong>GET YOUR MINER FORGE PRO \u2014 60% OFF TODAY</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -1607,7 +1607,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<h2>[REPLACE \u2014 'Top 5 Reasons...' headline]</h2>",
+            "text": "<h2>Why Smart People Are Quietly Stocking Up</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1632,7 +1632,7 @@
         "intro": {
           "type": "text",
           "settings": {
-            "text": "<p>[REPLACE \u2014 Intro line above bullets]</p>",
+            "text": "<p>The people doing well with this aren't the loud ones online. They're the quiet ones who bought two, three, four units and forgot about them. Here's what they understand that most people don't.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1657,7 +1657,7 @@
         "b1": {
           "type": "text",
           "settings": {
-            "text": "<p>\u26a1 <strong>[REPLACE \u2014 Reason 1 lead]</strong> [REPLACE \u2014 Reason 1 supporting paragraph]</p>",
+            "text": "<p>\u26a1 <strong>The window is open right now.</strong> The Bitcoin network pays out a 3.125 BTC reward every ten minutes \u2014 and that number cuts in half on a schedule. The current payout window is the largest you'll see for years.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1682,7 +1682,7 @@
         "b2": {
           "type": "text",
           "settings": {
-            "text": "<p>\ud83d\udee1 <strong>[REPLACE \u2014 Reason 2 lead]</strong> [REPLACE \u2014 Reason 2 supporting paragraph]</p>",
+            "text": "<p>\ud83d\udee1 <strong>Setup is the entire barrier.</strong> Most people don't try this because they assume it's complicated. It isn't. If you can plug in a phone charger, you can run a Miner Forge Pro.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1707,7 +1707,7 @@
         "b3": {
           "type": "text",
           "settings": {
-            "text": "<p>\ud83d\udc65 <strong>[REPLACE \u2014 Reason 3 lead]</strong> [REPLACE \u2014 Reason 3 supporting paragraph]</p>",
+            "text": "<p>\ud83d\udc65 <strong>Multiple units stack your odds linearly.</strong> One unit gives you 144 attempts per day. Five give you 720. Ten give you 1,440. The math is clean and the cost to run them is negligible.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1732,7 +1732,7 @@
         "b4": {
           "type": "text",
           "settings": {
-            "text": "<p>\u26a1 <strong>[REPLACE \u2014 Reason 4 lead]</strong> [REPLACE \u2014 Reason 4 supporting paragraph]</p>",
+            "text": "<p>\u26a1 <strong>It runs forever.</strong> No expiration. No subscription. No recurring fees. You buy the device, plug it in, and it keeps trying for as long as you let it.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1757,7 +1757,7 @@
         "b5": {
           "type": "text",
           "settings": {
-            "text": "<p>\ud83d\udcb0 <strong>[REPLACE \u2014 Reason 5 lead]</strong> [REPLACE \u2014 Reason 5 supporting paragraph]</p>",
+            "text": "<p>\ud83d\udcb0 <strong>The payout is life-changing.</strong> A single solved block at current prices is roughly $300,000 in your wallet. No middleman. Yours.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1826,7 +1826,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<h2>[REPLACE \u2014 Testimonials headline]</h2>",
+            "text": "<h2>What Owners Are Quietly Saying</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1912,7 +1912,7 @@
         "l": {
           "type": "text",
           "settings": {
-            "text": "<p>\"[REPLACE \u2014 Testimonial 1 headline]\"</p>",
+            "text": "<p>\"Honestly thought it was a scam at first\"</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1937,7 +1937,7 @@
         "q": {
           "type": "text",
           "settings": {
-            "text": "<p>\"[REPLACE \u2014 Testimonial 1 body quote]\"</p>",
+            "text": "<p>\"Bought one because my coworker wouldn't stop talking about it. Plugged it in eight months ago. Haven't won anything yet, but the math makes sense and I'm enjoying watching the entries pile up in the dashboard. Cheapest peace of mind I've ever bought.\"</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1962,7 +1962,7 @@
         "a": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2605\u2605\u2605\u2605\u2605 [REPLACE \u2014 Name, Role, Location]</p>",
+            "text": "<p>\u2605\u2605\u2605\u2605\u2605 Daniel R., Phoenix AZ</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2027,7 +2027,7 @@
         "l": {
           "type": "text",
           "settings": {
-            "text": "<p>\"[REPLACE \u2014 Testimonial 2 headline]\"</p>",
+            "text": "<p>\"My third unit just arrived today\"</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2052,7 +2052,7 @@
         "q": {
           "type": "text",
           "settings": {
-            "text": "<p>\"[REPLACE \u2014 Testimonial 2 body quote]\"</p>",
+            "text": "<p>\"Started with one in January. Bought two more in April after I sat down and worked through the odds. They sit in my office closet and I never think about them. Cheapest hobby I've ever had, and the upside is the upside.\"</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2077,7 +2077,7 @@
         "a": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2605\u2605\u2605\u2605\u2605 [REPLACE \u2014 Name, Role, Location]</p>",
+            "text": "<p>\u2605\u2605\u2605\u2605\u2605 Sarah K., Tampa FL</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2142,7 +2142,7 @@
         "l": {
           "type": "text",
           "settings": {
-            "text": "<p>\"[REPLACE \u2014 Testimonial 3 headline]\"</p>",
+            "text": "<p>\"Could not be easier to set up\"</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2167,7 +2167,7 @@
         "q": {
           "type": "text",
           "settings": {
-            "text": "<p>\"[REPLACE \u2014 Testimonial 3 body quote]\"</p>",
+            "text": "<p>\"I am sixty-three years old and I am not technical at all. The setup took less than ten minutes. My grandson helped me hold the phone for the QR code. That was the entire installation process. The device has been running on my kitchen counter for three months.\"</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2192,7 +2192,7 @@
         "a": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2605\u2605\u2605\u2605\u2605 [REPLACE \u2014 Name, Role, Location]</p>",
+            "text": "<p>\u2605\u2605\u2605\u2605\u2605 Robert M., Cleveland OH</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2257,7 +2257,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<h2>[REPLACE \u2014 Final offer headline]</h2>",
+            "text": "<h2>Get Yours Before The Next Block Halving</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2282,7 +2282,7 @@
         "sub": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>[REPLACE \u2014 Discount/save subline]</strong></p>",
+            "text": "<p><strong>SAVE 60% \u2014 TODAY ONLY</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2307,7 +2307,7 @@
         "b1": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 [REPLACE \u2014 Pack benefit 1]</p>",
+            "text": "<p>\u2705 Free shipping on every order</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2332,7 +2332,7 @@
         "b2": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 [REPLACE \u2014 Pack benefit 2]</p>",
+            "text": "<p>\u2705 90-day money-back guarantee \u2014 full refund, no questions</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2357,7 +2357,7 @@
         "b3": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 [REPLACE \u2014 Pack benefit 3]</p>",
+            "text": "<p>\u2705 Plug-and-play setup in under 10 minutes</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2382,7 +2382,7 @@
         "b4": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 [REPLACE \u2014 Pack benefit 4]</p>",
+            "text": "<p>\u2705 Lifetime support, no subscription, no recurring fees</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2407,7 +2407,7 @@
         "b5": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 [REPLACE \u2014 Pack benefit 5]</p>",
+            "text": "<p>\u2705 Silent, fanless operation \u2014 1W power draw</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2432,7 +2432,7 @@
         "cta": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>[REPLACE \u2014 Final CTA button text]</strong></p>",
+            "text": "<p><strong>GET MINER FORGE PRO \u2014 60% OFF</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -2457,7 +2457,7 @@
         "trust": {
           "type": "text",
           "settings": {
-            "text": "<p>\ud83d\udd12 [REPLACE \u2014 trust 1] | \ud83d\udcb0 [REPLACE \u2014 trust 2] | \ud83d\udce6 [REPLACE \u2014 trust 3]</p>",
+            "text": "<p>\ud83d\udd12 Secure checkout | \ud83d\udcb0 90-day refund | \ud83d\udce6 Ships in 24 hours</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -2528,7 +2528,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>LOREM IPSUM DOLOR SIT AMET.</strong></p>",
+            "text": "<p><strong>The Bitcoin Network Pays Out Every Ten Minutes. The Only Question Is Who's Plugged In.</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2553,7 +2553,7 @@
         "p1": {
           "type": "text",
           "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+            "text": "<p>Right now, somewhere, a Miner Forge Pro just made an attempt at a 3.125 BTC block reward. By the time you finish reading this sentence, it will have made another. By tonight, it will have made over a hundred. By next year, more than fifty thousand.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2578,7 +2578,7 @@
         "p2": {
           "type": "text",
           "settings": {
-            "text": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "text": "<p>The people who do well with this don't time the market. They don't read charts. They plug in, walk away, and let the math run in the background of their life. Marcus's only mistake was not buying four units on day one.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2603,7 +2603,7 @@
         "cta": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>LOREM IPSUM CTA BUTTON</strong></p>",
+            "text": "<p><strong>GET MINER FORGE PRO \u2014 60% OFF NOW</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -2628,7 +2628,7 @@
         "fine": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em></p>",
+            "text": "<p>Free shipping. 90-day guarantee. Built for hands-off operation.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -2653,7 +2653,7 @@
         "disc": {
           "type": "text",
           "settings": {
-            "text": "<p>\u00a9 2026 Lorem Ipsum | Privacy Policy | Terms of Service | Refund Policy</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>",
+            "text": "<p>\u00a9 2026 MineBlock | Privacy Policy | Terms of Service | Refund Policy</p><p>This is an advertisement. Solo Bitcoin mining is probabilistic \u2014 outcomes are unpredictable and the Miner Forge Pro does not guarantee any payout. Past results in testimonials are not indicative of future results. Please consult a financial advisor before making any investment decisions.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
