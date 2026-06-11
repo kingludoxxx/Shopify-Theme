@@ -146,9 +146,77 @@
             {%- endif -%}
 
             <div class="bundle-picker__card-inner">
+              {%- comment -%} Bundle product image — hidden ONLY for PhantomAxe Ultra (15478310535499) {%- endcomment -%}
+              {%- unless product_resource.id == 15478310535499 -%}
+              <div class="bundle-picker__card-media">
+                {% if v.id == 56798009819467 and variant_override_image_url_56798009819467 != blank %}
+                  <img src="{{ variant_override_image_url_56798009819467 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56798009852235 and variant_override_image_url_56798009852235 != blank %}
+                  <img src="{{ variant_override_image_url_56798009852235 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56798009885003 and variant_override_image_url_56798009885003 != blank %}
+                  <img src="{{ variant_override_image_url_56798009885003 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317844947275 and variant_override_image_url_56317844947275 != blank %}
+                  <img src="{{ variant_override_image_url_56317844947275 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317844980043 and variant_override_image_url_56317844980043 != blank %}
+                  <img src="{{ variant_override_image_url_56317844980043 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845012811 and variant_override_image_url_56317845012811 != blank %}
+                  <img src="{{ variant_override_image_url_56317845012811 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845307723 and variant_override_image_url_56317845307723 != blank %}
+                  <img src="{{ variant_override_image_url_56317845307723 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845340491 and variant_override_image_url_56317845340491 != blank %}
+                  <img src="{{ variant_override_image_url_56317845340491 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845373259 and variant_override_image_url_56317845373259 != blank %}
+                  <img src="{{ variant_override_image_url_56317845373259 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845209419 and variant_override_image_url_56317845209419 != blank %}
+                  <img src="{{ variant_override_image_url_56317845209419 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845242187 and variant_override_image_url_56317845242187 != blank %}
+                  <img src="{{ variant_override_image_url_56317845242187 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845274955 and variant_override_image_url_56317845274955 != blank %}
+                  <img src="{{ variant_override_image_url_56317845274955 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56573140566347 and variant_override_image_url_56573140566347 != blank %}
+                  <img src="{{ variant_override_image_url_56573140566347 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56573140599115 and variant_override_image_url_56573140599115 != blank %}
+                  <img src="{{ variant_override_image_url_56573140599115 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56573140631883 and variant_override_image_url_56573140631883 != blank %}
+                  <img src="{{ variant_override_image_url_56573140631883 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57455563407691 and variant_override_image_url_57455563407691 != blank %}
+                  <img src="{{ variant_override_image_url_57455563407691 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57455563440459 and variant_override_image_url_57455563440459 != blank %}
+                  <img src="{{ variant_override_image_url_57455563440459 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57455563473227 and variant_override_image_url_57455563473227 != blank %}
+                  <img src="{{ variant_override_image_url_57455563473227 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56920466719051 and variant_override_image_url_56920466719051 != blank %}
+                  <img src="{{ variant_override_image_url_56920466719051 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56920466751819 and variant_override_image_url_56920466751819 != blank %}
+                  <img src="{{ variant_override_image_url_56920466751819 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56920466784587 and variant_override_image_url_56920466784587 != blank %}
+                  <img src="{{ variant_override_image_url_56920466784587 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57160733786443 and variant_override_image_url_57160733786443 != blank %}
+                  <img src="{{ variant_override_image_url_57160733786443 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57160733819211 and variant_override_image_url_57160733819211 != blank %}
+                  <img src="{{ variant_override_image_url_57160733819211 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57160733851979 and variant_override_image_url_57160733851979 != blank %}
+                  <img src="{{ variant_override_image_url_57160733851979 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif featured_media %}
+                  {{ featured_media | image_url: width: 120 | image_tag: loading: 'lazy', widths: '80,120,160', class: 'bundle-picker__image' }}
+                {% endif %}
+              </div>
+              {%- endunless -%}
               <div class="bundle-picker__card-body">
                 <div class="bundle-picker__card-title-row">
                   <span class="bundle-picker__card-title">{{ product_option_value.name }}</span>
+                  {%- comment -%} ODDS pills — hidden ONLY for PhantomAxe Ultra {%- endcomment -%}
+                  {%- unless product_resource.id == 15478310535499 -%}
+                    {%- if forloop.index == 2 -%}
+                      <span class="bundle-picker__pill bundle-picker__pill--odds">2x</span>
+                    {%- elsif forloop.index == 3 -%}
+                      {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 or product_resource.id == 15698813452619 or product_resource.id == 15478310502731 -%}
+                        <span class="bundle-picker__pill bundle-picker__pill--odds">3x</span>
+                      {%- else -%}
+                        <span class="bundle-picker__pill bundle-picker__pill--odds">4x</span>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endunless -%}
                 </div>
                 {%- comment -%} Per-unit "each" price text {%- endcomment -%}
                 {%- if v.id == 56573140566347 and each_text_override_56573140566347 != blank -%}
