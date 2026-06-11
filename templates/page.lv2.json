@@ -151,7 +151,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>A suburban father bought a small Bitcoin mining device as a joke to settle a holiday argument. He plugged it in behind his TV and forgot about it. Then one Tuesday morning, half-asleep on his phone, he saw a number that didn't make sense.</p>",
+            "text": "<p>A suburban father bought a small Bitcoin mining device as a joke to settle a holiday argument. He plugged it in behind his TV and forgot about it. Then one Tuesday morning, half asleep on his phone, he saw a number that didn't make sense.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -301,7 +301,7 @@
         "p1": {
           "type": "text",
           "settings": {
-            "text": "<p>Marcus didn't believe in Bitcoin. He thought it was a scam, a bubble, or both. His brother-in-law wouldn't shut up about it at Thanksgiving. After three holidays of the same argument, Marcus decided to settle it.</p>",
+            "text": "<p>Marcus didn't believe in Bitcoin. He thought it was a scam, a bubble, or both. His brother in law wouldn't shut up about it at Thanksgiving. After three holidays of the same argument, Marcus decided to settle it.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -351,7 +351,7 @@
         "p3": {
           "type": "text",
           "settings": {
-            "text": "<p>He plugged it in behind his TV cabinet, connected it to his Wi-Fi, and walked away. No setup. No software. No monitoring. The little device hummed quietly to itself, and Marcus genuinely forgot it was there.</p>",
+            "text": "<p>He plugged it in behind his TV cabinet, connected it to his WiFi, and walked away. No setup. No software. No monitoring. The little device hummed quietly to itself, and Marcus genuinely forgot it was there.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -505,7 +505,7 @@
         "p1": {
           "type": "text",
           "settings": {
-            "text": "<p>It was early March. Marcus was lying in bed scrolling his phone before the alarm went off. He opened a Bitcoin wallet app he'd installed six months earlier \u2014 the one tied to the little device behind his TV \u2014 and his eyes refused to process the number on the screen.</p>",
+            "text": "<p>It was late May. Marcus was lying in bed scrolling his phone before the alarm went off. He opened a Bitcoin wallet app he'd installed six months earlier, the one tied to the little device behind his TV, and his eyes refused to process the number on the screen.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -555,7 +555,7 @@
         "p3": {
           "type": "text",
           "settings": {
-            "text": "<p>He sat up. He refreshed the screen four times. He checked the date. He walked downstairs in his socks and stared at the little Miner Forge Pro behind the TV, still humming, the same green light blinking the way it always had. And he laughed out loud \u2014 the kind of laugh that's half disbelief and half release.</p>",
+            "text": "<p>He sat up. He refreshed the screen four times. He checked the date. He walked downstairs in his socks and stared at the little Miner Forge Pro behind the TV, still humming, the same green light blinking the way it always had. And he laughed out loud. The kind of laugh that's half disbelief and half release.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -706,7 +706,7 @@
         "h": {
           "type": "text",
           "settings": {
-            "text": "<h2>How A Sixty-Dollar Box Quietly Made Him A Quarter-Millionaire</h2>",
+            "text": "<h2>What That Sixty Dollar Box Was Actually Doing Behind His TV</h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -769,7 +769,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>Here's the part Marcus didn't understand until later. The Miner Forge Pro doesn't promise anything. It doesn't guarantee a payout. What it does is enter you into a global event that runs automatically, every ten minutes, twenty-four hours a day. The Bitcoin network pays out a 3.125 BTC reward every ten minutes to whoever solves a math puzzle first. The Miner Forge Pro just keeps trying \u2014 quietly, forever \u2014 without you doing anything.</p>",
+            "text": "<p>Here's the part Marcus didn't understand until later. The Miner Forge Pro doesn't promise anything. It doesn't guarantee a payout. What it does is enter you into a global event that runs automatically, every ten minutes, twenty four hours a day. The Bitcoin network pays out a 3.125 BTC reward every ten minutes to whoever solves a math puzzle first. The Miner Forge Pro just keeps trying, quietly, forever, without you doing anything.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -794,7 +794,7 @@
         "b": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 <strong>Plug & forget:</strong> No software. No setup. No monitoring. Just power and Wi-Fi.</p><p>\u2705 <strong>Runs on 1W:</strong> Costs about $0.15 a month in electricity. Cheaper than a nightlight.</p><p>\u2705 <strong>144 attempts per day:</strong> Tries to win the full Bitcoin block reward every 10 minutes.</p><p>\u2705 <strong>Silent operation:</strong> No fan noise. No heat. You forget it's there.</p><p>\u2705 <strong>Lifetime entries:</strong> Every minute it's plugged in is one more chance.</p><p>\u2705 <strong>Stack the odds:</strong> Add more units to multiply your daily attempts.</p>",
+            "text": "<p>✅ <strong>Plug and forget:</strong> No software. No setup. No monitoring. Just power and WiFi.</p><p>✅ <strong>Runs on 1W:</strong> Costs about $1 a year in electricity. Cheaper than a nightlight.</p><p>✅ <strong>144 attempts per day:</strong> Tries for the full Bitcoin block reward every 10 minutes.</p><p>✅ <strong>Silent operation:</strong> No fan noise. No heat. You forget it's there.</p><p>✅ <strong>Lifetime entries:</strong> Every minute it's plugged in is one more chance.</p><p>✅ <strong>Stack the odds:</strong> Add more units to multiply your daily attempts.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -968,7 +968,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>This is called solo mining. Unlike regular mining where thousands of people pool together and split the reward into tiny pieces, the Miner Forge Pro tries to win the entire 3.125 BTC block by itself.</p><p>The odds are extremely low. But if it succeeds, you keep all of it \u2014 around <strong>$300,000 worth of Bitcoin</strong>.</p><p>Every 10 minutes, the Bitcoin network releases a new block. This device competes for it from your desk, trying 144 times every single day.</p>",
+            "text": "<p>This is called solo mining. Unlike regular mining where thousands of people pool together and split the reward into tiny pieces, the Miner Forge Pro tries for the entire 3.125 BTC block by itself.</p><p>The odds are extremely low. We will never pretend otherwise. But if it succeeds, you keep all of it, around <strong>$300,000 worth of Bitcoin</strong>.</p><p>Every 10 minutes, the Bitcoin network releases a new block. This device competes for it from your desk, trying 144 times every single day.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1145,7 +1145,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>3. Plug-and-Play Setup in Minutes \u2014 No Technical Configuration Required</h3>",
+            "text": "<h3>3. Plug and Play Setup in Minutes. No Technical Configuration Required</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1192,7 +1192,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>Setup is incredibly simple. Plug it into any USB-C port, scan the QR code with your phone, connect to your WiFi. Done.</p><p>No mining software to configure. No command line. No pool setup. No wallet configuration beyond entering your address.</p><p>You're mining solo within minutes of unboxing.</p>",
+            "text": "<p>Setup is incredibly simple. Plug it into any USB C port, scan the QR code with your phone, connect to your WiFi. Done.</p><p>No mining software to configure. No command line. No pool setup. No wallet configuration beyond entering your address.</p><p>You're mining solo within minutes of unboxing.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1257,7 +1257,7 @@
         "sh": {
           "type": "text",
           "settings": {
-            "text": "<h3>4. Runs on Just 1W via USB-C \u2014 Costs Pennies Per Month in Electricity</h3>",
+            "text": "<h3>4. Runs on Just 1W. Costs About a Dollar a Year in Electricity</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1304,7 +1304,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>This device pulls just 1 watt of power. You can run it off any USB-C port \u2014 laptop, phone charger, power bank, whatever.</p><p>Electricity cost is roughly <strong>$0.11 per month</strong> running 24/7. That's 4,320 attempts at the block reward for the price of a candy bar. Compare that to traditional mining rigs pulling hundreds or thousands of watts.</p>",
+            "text": "<p>This device pulls just 1 watt of power. You can run it off any USB C port. Laptop, phone charger, power bank, whatever.</p><p>Electricity cost is roughly <strong>$1 a year</strong> running 24/7. Compare that to traditional mining rigs pulling hundreds or thousands of watts.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1416,7 +1416,7 @@
         "p": {
           "type": "text",
           "settings": {
-            "text": "<p>Here's what experienced crypto hobbyists do: they don't run just one. They run 4, 9, 12, or even 20+ devices simultaneously.</p><p>One device gives you 144 attempts per day at the block. Nine devices give you 1,296 attempts daily. At $0.11/month per device, running nine costs under $1/month total while <strong>multiplying your odds ninefold</strong>.</p><p>That's exactly what Marcus did the week after his first block hit. He didn't tell anyone.</p>",
+            "text": "<p>Here's what experienced crypto hobbyists do: they don't run just one. They run 4, 9, 12, or even 20 or more devices at the same time.</p><p>One device gives you 144 attempts per day at the block. Nine devices give you 1,296 attempts daily. At about $1 a year per device, running nine still costs only a few dollars a year while <strong>multiplying your daily attempts ninefold</strong>.</p><p>That's exactly what Marcus did the week after his first block hit. He didn't tell anyone.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1544,7 +1544,7 @@
         "t": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>GET YOUR MINER FORGE PRO \u2014 60% OFF TODAY</strong></p>",
+            "text": "<p><strong>GET YOUR MINER FORGE PRO. 58% OFF TODAY</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -1657,7 +1657,7 @@
         "b1": {
           "type": "text",
           "settings": {
-            "text": "<p>\u26a1 <strong>The window is open right now.</strong> The Bitcoin network pays out a 3.125 BTC reward every ten minutes \u2014 and that number cuts in half on a schedule. The current payout window is the largest you'll see for years.</p>",
+            "text": "<p>⚡ <strong>The window is open right now.</strong> The Bitcoin network pays out a 3.125 BTC reward every ten minutes, and that number cuts in half on a schedule. The current payout window is the largest it will be for years.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1682,7 +1682,7 @@
         "b2": {
           "type": "text",
           "settings": {
-            "text": "<p>\ud83d\udee1 <strong>Setup is the entire barrier.</strong> Most people don't try this because they assume it's complicated. It isn't. If you can plug in a phone charger, you can run a Miner Forge Pro.</p>",
+            "text": "<p>🛡 <strong>Setup is the entire barrier.</strong> Most people don't try this because they assume it's complicated. It isn't. If you can plug in a phone charger, you can run a Miner Forge Pro.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1707,7 +1707,7 @@
         "b3": {
           "type": "text",
           "settings": {
-            "text": "<p>\ud83d\udc65 <strong>Multiple units stack your odds linearly.</strong> One unit gives you 144 attempts per day. Five give you 720. Ten give you 1,440. The math is clean and the cost to run them is negligible.</p>",
+            "text": "<p>👥 <strong>Multiple units stack your odds linearly.</strong> One unit gives you 144 attempts per day. Five give you 720. Ten give you 1,440. The math is clean and the cost to run them is negligible.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1732,7 +1732,7 @@
         "b4": {
           "type": "text",
           "settings": {
-            "text": "<p>\u26a1 <strong>It runs forever.</strong> No expiration. No subscription. No recurring fees. You buy the device, plug it in, and it keeps trying for as long as you let it.</p>",
+            "text": "<p>⚡ <strong>It runs forever.</strong> No expiration. No subscription. No recurring fees. You buy the device, plug it in, and it keeps trying for as long as you let it.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1757,7 +1757,7 @@
         "b5": {
           "type": "text",
           "settings": {
-            "text": "<p>\ud83d\udcb0 <strong>The payout is life-changing.</strong> A single solved block at current prices is roughly $300,000 in your wallet. No middleman. Yours.</p>",
+            "text": "<p>💰 <strong>Imagine the morning you check the dashboard.</strong> A single solved block at current prices is roughly $300,000 in your wallet. No pool. No middleman. Yours.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -1962,7 +1962,7 @@
         "a": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2605\u2605\u2605\u2605\u2605 Daniel R., Phoenix AZ</p>",
+            "text": "<p>★★★★★ Daniel R., Phoenix AZ</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2077,7 +2077,7 @@
         "a": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2605\u2605\u2605\u2605\u2605 Sarah K., Tampa FL</p>",
+            "text": "<p>★★★★★ Sarah K., Tampa FL</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2167,7 +2167,7 @@
         "q": {
           "type": "text",
           "settings": {
-            "text": "<p>\"I am sixty-three years old and I am not technical at all. The setup took less than ten minutes. My grandson helped me hold the phone for the QR code. That was the entire installation process. The device has been running on my kitchen counter for three months.\"</p>",
+            "text": "<p>\"I am sixty three years old and I am not technical at all. The setup took less than ten minutes. My grandson helped me hold the phone for the QR code. That was the entire installation process. The device has been running on my kitchen counter for three months.\"</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2192,7 +2192,7 @@
         "a": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2605\u2605\u2605\u2605\u2605 Robert M., Cleveland OH</p>",
+            "text": "<p>★★★★★ Robert M., Cleveland OH</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2282,7 +2282,7 @@
         "sub": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>SAVE 60% \u2014 TODAY ONLY</strong></p>",
+            "text": "<p><strong>SAVE 58%. TODAY ONLY</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2307,7 +2307,7 @@
         "b1": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 Free shipping on every order</p>",
+            "text": "<p>✅ Free shipping on every order</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2332,7 +2332,7 @@
         "b2": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 90-day money-back guarantee \u2014 full refund, no questions</p>",
+            "text": "<p>✅ 90 day money back guarantee. Full refund, no questions</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2357,7 +2357,7 @@
         "b3": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 Plug-and-play setup in under 10 minutes</p>",
+            "text": "<p>✅ Plug and play setup in under 10 minutes</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2382,7 +2382,7 @@
         "b4": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 Lifetime support, no subscription, no recurring fees</p>",
+            "text": "<p>✅ Lifetime support, no subscription, no recurring fees</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2407,7 +2407,7 @@
         "b5": {
           "type": "text",
           "settings": {
-            "text": "<p>\u2705 Silent, fanless operation \u2014 1W power draw</p>",
+            "text": "<p>✅ Silent, fanless operation. 1W power draw</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -2432,7 +2432,7 @@
         "cta": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>GET MINER FORGE PRO \u2014 60% OFF</strong></p>",
+            "text": "<p><strong>GET MINER FORGE PRO. 58% OFF</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -2457,7 +2457,7 @@
         "trust": {
           "type": "text",
           "settings": {
-            "text": "<p>\ud83d\udd12 Secure checkout | \ud83d\udcb0 90-day refund | \ud83d\udce6 Ships in 24 hours</p>",
+            "text": "<p>🔒 Secure checkout | 💰 90-day refund | 📦 Ships in 24 hours</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -2603,7 +2603,7 @@
         "cta": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>GET MINER FORGE PRO \u2014 60% OFF NOW</strong></p>",
+            "text": "<p><strong>GET MINER FORGE PRO. 58% OFF NOW</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -2653,7 +2653,7 @@
         "disc": {
           "type": "text",
           "settings": {
-            "text": "<p>\u00a9 2026 MineBlock | Privacy Policy | Terms of Service | Refund Policy</p><p>This is an advertisement. Solo Bitcoin mining is probabilistic \u2014 outcomes are unpredictable and the Miner Forge Pro does not guarantee any payout. Past results in testimonials are not indicative of future results. Please consult a financial advisor before making any investment decisions.</p>",
+            "text": "<p>© 2026 MineBlock | Privacy Policy | Terms of Service | Refund Policy</p><p>This is an advertisement. Solo Bitcoin mining is probabilistic. Outcomes are unpredictable and the Miner Forge Pro does not guarantee any payout. Past results described here are not indicative of future results.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -2713,6 +2713,184 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "proof_block": {
+      "type": "section",
+      "name": "Proof / Blockchain",
+      "blocks": {
+        "sh": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>How To Know It Is Actually Working</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Here is the test that separates the real thing from a toy. Every attempt your Miner Forge Pro makes is recorded on the public Bitcoin blockchain. Not on our dashboard. On the network itself.</p><p>Within minutes of plugging in, you can take your wallet address, paste it into any block explorer, and watch your attempts appear in real time. Anyone in the world can check it. You never have to take our word for anything. The Bitcoin network does the proving for us.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "sh",
+        "p"
+      ],
+      "custom_css": [],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-start",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_text_color": "",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 8,
+        "padding-block-end": 16
+      }
+    },
+    "rivals_block": {
+      "type": "section",
+      "name": "Copycat Warning",
+      "blocks": {
+        "sh": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>A Quiet Warning About The Copycats</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We built this category. Then the lookalikes showed up. Same plastic shell. Same little screen. Same product photos. They copied everything except the one thing that matters.</p><p>They do not actually mine. The numbers on the screen move, so it looks busy, but nothing is ever submitted to the Bitcoin network. Look up the wallet on one of those in a block explorer and you find nothing. Because there is nothing there.</p><p>They are selling the feeling of mining. The Miner Forge Pro does the real thing, and the blockchain is where you can prove it.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "sh",
+        "p"
+      ],
+      "custom_css": [],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-start",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_text_color": "",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 8,
+        "padding-block-end": 16
+      }
     }
   },
   "order": [
@@ -2732,6 +2910,8 @@
     "reason_3",
     "reason_4",
     "reason_5",
+    "proof_block",
+    "rivals_block",
     "quote_block_1",
     "cta_block_1",
     "top_reasons",
