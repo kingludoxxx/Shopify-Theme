@@ -16,6 +16,11 @@
 {% assign variant_override_image_url_56317845340491 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_2.png?v=1773610130" | default: '' %}
 {% assign variant_override_image_url_56317845373259 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_3.png?v=1773610130" | default: '' %}
 
+{% comment %} PhantomAxe Ultra (product 15478310535499) — same bundle imagery as Titan Max {% endcomment %}
+{% assign variant_override_image_url_56317845209419 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_1.png?v=1773610130" | default: '' %}
+{% assign variant_override_image_url_56317845242187 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_2.png?v=1773610130" | default: '' %}
+{% assign variant_override_image_url_56317845274955 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Bundle_Images_3.png?v=1773610130" | default: '' %}
+
 {% comment %} Signature Edition (product 15538599559499) bundle images {% endcomment %}
 {% assign variant_override_image_url_56573140566347 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-1.png?v=1765567011" | default: '' %}
 {% assign variant_override_image_url_56573140599115 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-2.png?v=1765567044" | default: '' %}
@@ -160,6 +165,12 @@
                   <img src="{{ variant_override_image_url_56317845340491 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif v.id == 56317845373259 and variant_override_image_url_56317845373259 != blank %}
                   <img src="{{ variant_override_image_url_56317845373259 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845209419 and variant_override_image_url_56317845209419 != blank %}
+                  <img src="{{ variant_override_image_url_56317845209419 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845242187 and variant_override_image_url_56317845242187 != blank %}
+                  <img src="{{ variant_override_image_url_56317845242187 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 56317845274955 and variant_override_image_url_56317845274955 != blank %}
+                  <img src="{{ variant_override_image_url_56317845274955 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif v.id == 56573140566347 and variant_override_image_url_56573140566347 != blank %}
                   <img src="{{ variant_override_image_url_56573140566347 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif v.id == 56573140599115 and variant_override_image_url_56573140599115 != blank %}
@@ -194,7 +205,7 @@
                   {%- if forloop.index == 2 -%}
                     <span class="bundle-picker__pill bundle-picker__pill--odds">2x</span>
                   {%- elsif forloop.index == 3 -%}
-                    {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 or product_resource.id == 15698813452619 or product_resource.id == 15478310502731 -%}
+                    {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 or product_resource.id == 15698813452619 or product_resource.id == 15478310502731 or product_resource.id == 15478310535499 -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">3x</span>
                     {%- else -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">4x</span>
