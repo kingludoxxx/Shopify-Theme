@@ -11,7 +11,761 @@
   "sections": {
     "main": {
       "type": "product-information",
-      "settings": {}
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": true,
+            "icons_style": "chevron",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 72,
+            "thumbnail_radius": 8,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": true,
+            "media_fit": "cover",
+            "media_radius": 20,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 20,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 12,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 8,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "h2",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "custom_liquid_JWieFQ": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "<div class=\"review-box-style-bottom\" style=\"font-size: 17px;\"><span class=\"stars\" style=\"    margin-bottom: 0 !important;\n    color: #f8931b;\n    font-size: 23px;\">★★★★★ </span>Rated “Excellent” based on 2492 reviews</div>"
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "disabled": true,
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "custom_liquid_JWieFQ",
+                "price_tVjtKg"
+              ]
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "disabled": true,
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-primary--family)",
+                "font_size": "1.125rem",
+                "line_height": "normal",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "custom_richtext_TUeUAc": {
+              "type": "custom-richtext",
+              "name": "custom richtext",
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "",
+                "rich-text": "<p>Every 10 minutes, the Bitcoin network pays out a $300,000 block reward. Miner Forge Pro gives you 144 automatic attempts at that reward, every single day.</p>"
+              },
+              "blocks": {}
+            },
+            "icon_text_J6RLLQ": {
+              "type": "icon-text",
+              "name": "icon-text",
+              "disabled": true,
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "",
+                "text": "<p><em>✓</em> <strong>Get a chance to win 3 BTC ($300,000)</strong></p><p><em>✓</em> <strong>Costs just $20/year to run</strong></p><p><em>✓</em> <strong>720 automatic attempts to solve a block</strong></p><p><em>✓</em> <strong>Plug in, set & forget</strong></p><p><em>✓</em> <strong>Lifetime warranty</strong></p>"
+              },
+              "blocks": {}
+            },
+            "icon_text_VUngdY": {
+              "type": "icon-text",
+              "name": "icon-text",
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "rgba(0,0,0,0)",
+                "text": "<p><em>✓</em> <strong>Get a shot at solving a block of 3 BTC</strong></p><p><em>✓</em> <strong>Less than $1 a month in electricity</strong></p><p><em>✓</em> <strong>Plug in, connect to WiFi, start mining in minutes</strong></p><p><em>✓</em> <strong>3-year warranty + 90-day money-back guarantee</strong></p>"
+              },
+              "blocks": {}
+            },
+            "custom_inventory_wUpCAQ": {
+              "type": "custom_inventory",
+              "name": "Custom Inventory",
+              "settings": {
+                "padding_top": 14,
+                "mbl_padding_top": 14,
+                "back_color": "#e8f5e2",
+                "content": "<p><strong>Inventory Alert:</strong> Due to overwhelming demand and global chip shortages, we only have a limited restock of the MinerForge Pro available. Secure yours now for immediate dispatch.</p>"
+              },
+              "blocks": {}
+            },
+            "cs_ris_aXHByc": {
+              "type": "cs-ris",
+              "name": "risk-free",
+              "disabled": true,
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "",
+                "text": "<p><strong>Try it risk-free for 90 days.</strong>If you’re not completely satisfied, we’ll give you a 100% refund.</p>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_BnVpqL": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "disabled": true,
+              "settings": {
+                "custom_liquid": "<div style=\"display: flex; align-items: start; justify-content: start; gap: 10px;\">\n<p style=\"background: #8E8E8E; color: white; padding: 10px 20px; border-radius: 50px; font-size: 16px;\" class=\"for-mob\">New Update</p>\n<p style=\"background: #8E8E8E; color: white; padding: 10px 20px; border-radius: 50px; margin-top: 0px; font-size: 16px;\" class=\"for-mob\">1W power</p>\n<p style=\"background: #8E8E8E; color: white; padding: 10px 20px; border-radius: 50px; margin-top: 0px; font-size: 16px;\" class=\"for-mob\">plug & play</p>\n</div>\n\n<style>\n@media (max-width: 600px){\n.for-mob{\n    padding: 10px 10px !important;\n    border-radius: 50px;\n    font-size: 14px !important;\n}}\n</style>"
+              },
+              "blocks": {}
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "disabled": true,
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "bundle",
+                "show_swatches": false,
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "miner_type_selector_v5_a1B2c3": {
+              "type": "miner-type-selector-v5",
+              "name": "Miner Type Selector V5",
+              "disabled": true,
+              "settings": {},
+              "blocks": {}
+            },
+            "bundle_selector_EerCDN": {
+              "type": "bundle-selector-v5",
+              "name": "Bundle Selector V5",
+              "disabled": true,
+              "settings": {},
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "custom_payment_block_p8TpnT": {
+              "type": "custom_payment_block",
+              "name": "Payment Icons Bar",
+              "settings": {
+                "icon": "shopify://shop_images/amex.svg",
+                "icon2": "shopify://shop_images/Maestro.svg",
+                "icon3": "shopify://shop_images/visa.svg",
+                "icon4": "shopify://shop_images/shop_pay.svg",
+                "icon5": "shopify://shop_images/mastercard.svg",
+                "icon6": "shopify://shop_images/discover.svg",
+                "icon7": "shopify://shop_images/apple_pay.svg",
+                "icon8": "shopify://shop_images/gpay.svg",
+                "text": "128-bit SSL encryption"
+              },
+              "blocks": {}
+            },
+            "custom_icon_text_WPTzLy": {
+              "type": "custom_icon_text",
+              "name": "Custom Product Icons",
+              "settings": {
+                "icon": "shopify://shop_images/lock-icon.png",
+                "heading": "Secure Checkout",
+                "icon1": "shopify://shop_images/Money-Back_Guarantee-new.png",
+                "heading1": "90 day  money back guarantee"
+              },
+              "blocks": {}
+            },
+            "cs_ris_h36Uay": {
+              "type": "cs-ris",
+              "name": "risk-free",
+              "disabled": true,
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "",
+                "image": "shopify://shop_images/111_f9b26ecb-2d6f-4643-983e-cde83ce35a59.svg",
+                "text": "<p><strong>Try it risk-free for 90 days.</strong>If you’re not completely satisfied, we’ll give you a 100% refund.</p>"
+              },
+              "blocks": {}
+            },
+            "cs_box_FQhqCJ": {
+              "type": "cs-box",
+              "name": "Free Shipping",
+              "disabled": true,
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 16,
+                "mbl_padding_bottom": 16,
+                "back_color": "",
+                "text": "<p>📦 | Free Shipping to <span style=\"text-decoration:underline\"><strong>Pakistan</strong></span></p>"
+              },
+              "blocks": {}
+            },
+            "payment_icons_P7KmUB": {
+              "type": "payment-icons",
+              "name": "t:names.payment_icons",
+              "disabled": true,
+              "settings": {
+                "horizontal_alignment": "center",
+                "gap": 10,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "accordion_R4Kxk3": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h5",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_HEQxbi": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "How Does Solo Mining Work?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_pxiq3K": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>A complete <strong>plug-and-play device</strong> that combines <strong>professional-grade mining hardware</strong> with <strong>automated block-solving algorithms</strong> to attempt winning Bitcoin blocks independently.</p><p>Unlike pool mining where thousands of miners split tiny fractions, solo mining <strong>competes for the entire block reward</strong> by itself — attempting to solve blocks <strong>144 times per day</strong> automatically, giving you full ownership if successful.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_pxiq3K"
+                  ]
+                },
+                "accordion_row_Y69yTw": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "How Much Can I Win?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Bx6Jrn": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Because solo mining is probability-based with no guarantees, outcomes are unpredictable but when blocks are solved, the rewards are substantial:</p><p><strong>If You Solve a Block:</strong> The full block reward is currently <strong>3.125 BTC</strong> (approximately <strong>$300,000</strong> at current prices). Unlike pool mining where rewards are split among thousands, you keep 100% of the prize.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Bx6Jrn"
+                  ]
+                },
+                "accordion_row_XkmTgk": {
+                  "type": "_accordion-row",
+                  "disabled": true,
+                  "settings": {
+                    "heading": "How Much Can I Win?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_8QNNLM": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Because solo mining is probability-based with no guarantees, outcomes are unpredictable but when blocks are solved, the rewards are substantial:</p><p><strong>If You Solve a Block:</strong> The full block reward is currently <strong>3.125 BTC</strong> (approximately <strong>$300,000</strong> at current prices). Unlike pool mining where rewards are split among thousands, you keep 100% of the prize.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_8QNNLM"
+                  ]
+                },
+                "accordion_row_hMgweK": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "Is it safe to use on my Wi-Fi network?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Xb4H9R": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>The MinerForge Pro is completely safe to use.</p><p>You only enter your Wi-Fi and a<em>public</em>Bitcoin address so it can display results - it never asks for private keys or wallet access. Everything runs safely on open, read-only network data.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Xb4H9R"
+                  ]
+                },
+                "accordion_row_YT4eBG": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "Shipping and Delivery",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_7MPQmY": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><strong>Processing Time</strong></p><p>Orders are processed within <strong>1–2 business days</strong> (Monday to Friday, 9 AM—5 PM EST).</p><p>We currently offer the following shipping options:</p><ul><li>Standard Shipping (6–10 Working Days) — Free<br/></li><li>Priority Processing & Delivery Guarantee (5–8 Working Days) — $4.97</li></ul><p></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_7MPQmY"
+                  ]
+                },
+                "accordion_row_9kgcDD": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "Tracking",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_9RA3aE": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Once your order ships, you will receive an email with a <strong>tracking number </strong>to follow your package.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_9RA3aE"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_HEQxbi",
+                "accordion_row_Y69yTw",
+                "accordion_row_XkmTgk",
+                "accordion_row_hMgweK",
+                "accordion_row_YT4eBG",
+                "accordion_row_9kgcDD"
+              ]
+            },
+            "custom_upsell_KwwX6b": {
+              "type": "custom-upsell",
+              "name": "Product Upsell",
+              "settings": {
+                "upsell_product": "mining-rig-limited-item",
+                "description": ""
+              },
+              "blocks": {}
+            },
+            "custom_testimonial_cnQkYx": {
+              "type": "custom-testimonial",
+              "name": "Custom Testimonials",
+              "settings": {
+                "for_desktop": true,
+                "image": "shopify://shop_images/signature-edition-testimonial-family-v2.png",
+                "name": "Daniel W.",
+                "content": "<p><strong>Finally Got My Shot at Bitcoin</strong></p><p>I missed Bitcoin the first time. Wasn’t going to miss it again. Got one for myself, one for my brother, and two for my kids. For such a low price, why not take a shot? It just sits there taking shots at a block 144 times a day while I’m at work. Either way, this is the coolest gadget I have ever seen.</p>"
+              },
+              "blocks": {}
+            },
+            "cs_slect_product_VwJwbh": {
+              "type": "cs-slect-product",
+              "name": "Slected Product",
+              "disabled": true,
+              "settings": {
+                "padding_top": 10,
+                "padding_bottom": 10,
+                "mbl_padding_top": 10,
+                "mbl_padding_bottom": 10,
+                "back_color": "",
+                "selected_product": "mining-rig-limited-item"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "text_aEtTtq",
+            "custom_richtext_TUeUAc",
+            "icon_text_J6RLLQ",
+            "icon_text_VUngdY",
+            "custom_inventory_wUpCAQ",
+            "cs_ris_aXHByc",
+            "custom_liquid_BnVpqL",
+            "divider_VJhene",
+            "variant_picker_R3rGDr",
+            "miner_type_selector_v5_a1B2c3",
+            "bundle_selector_EerCDN",
+            "buy_buttons_eYQEYi",
+            "custom_payment_block_p8TpnT",
+            "custom_icon_text_WPTzLy",
+            "cs_ris_h36Uay",
+            "cs_box_FQhqCJ",
+            "payment_icons_P7KmUB",
+            "accordion_R4Kxk3",
+            "custom_testimonial_cnQkYx",
+            "custom_upsell_KwwX6b",
+            "cs_slect_product_VwJwbh"
+          ]
+        }
+      },
+      "custom_css": [
+        ".add-to-cart-button,.product-upsell__add-btn,.custom-product-main-class .add-to-cart-button {background-color: #1126a5;}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/signature-edition-testimonial-family-v2.png",
+        "name": "Daniel W.",
+        "content": "<p><strong>Finally Got My Shot at Bitcoin</strong></p><p>I missed Bitcoin the first time. Wasn’t going to miss it again. Got one for myself, one for my brother, and two for my kids. For such a low price, why not take a shot? It just sits there taking shots at a block 144 times a day while I’m at work. Either way, this is the coolest gadget I have ever seen.</p>",
+        "main-calss": true,
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
