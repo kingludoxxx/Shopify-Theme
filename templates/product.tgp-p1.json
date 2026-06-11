@@ -1027,7 +1027,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/Testimonial-01.png",
+                "image": "shopify://shop_images/PRODUCT_PAGE_4_97f9dcbd-7283-4657-b547-0b1651808561.webp",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "fill",
@@ -1122,7 +1122,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/testimonial-ben-running-5-devices.png",
+                "image": "shopify://shop_images/Testimonial-01.png",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "fill",
@@ -1217,7 +1217,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/aaa3e390-cc12-403c-9c7f-ee00922a1cc6.jpg",
+                "image": "shopify://shop_images/PRODUCT_PAGE_2_e442251f-a839-4394-830f-fcfb056a7fd2.webp",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "fill",
