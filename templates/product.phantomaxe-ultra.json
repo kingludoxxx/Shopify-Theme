@@ -695,12 +695,12 @@
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {}
+          "blocks": {},
+          "disabled": true
         },
         "video_peyQPH": {
           "type": "video",
           "name": "t:names.video",
-          "disabled": true,
           "settings": {
             "source": "uploaded",
             "video_url": "",
@@ -717,7 +717,8 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "video": "shopify://files/videos/phantomaxe-section1-video.mp4"
           },
           "blocks": {}
         },
@@ -764,7 +765,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Try to win the 3.125 BTC block on your own, <em><strong>144 times every day</strong></em></h2>",
+                "text": "<h2>Unlock a chance to hit <strong>3.125 Bitcoin</strong> every 10 minutes</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -789,7 +790,7 @@
             "text_DFiHpR": {
               "type": "text",
               "settings": {
-                "text": "<p>Our miners are easy-to-use devices that attempt to win full Bitcoin blocks (<strong>3.125 BTC, currently worth ~$300,000</strong>) instead of splitting rewards with thousands of other miners. They generate new mining attempts every 10 minutes automatically <strong>no setup, no monitoring, just plug in and let it run</strong>.</p><p>Think of it like having a lottery ticket that never expires and keeps <strong>playing itself 144 times a day.</strong></p>",
+                "text": "<p>We provide convenient, zero-effort BTC mining devices that let you generate fresh &lsquo;lottery tickets&rsquo; every 10 minutes for the full Bitcoin block reward (<strong>3.125 BTC, worth ~$350,000</strong> at today&rsquo;s prices). It runs automatically, 24/7, with no setup and no effort required.</p><p>Unlike actual lottery tickets, this is not a one-time gamble &mdash; our miners are your long-term companion in the race. The longer it runs, the more entries you stack.</p><p><strong>Takes 160W power</strong></p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
