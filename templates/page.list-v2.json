@@ -620,7 +620,7 @@
         "i": {
           "type": "image",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/minerforge-sub-behindtv.jpg",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
