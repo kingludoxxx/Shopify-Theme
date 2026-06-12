@@ -241,7 +241,7 @@
         "i": {
           "type": "image",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/minerforge-hero-c2b.jpg",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
