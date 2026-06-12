@@ -58,8 +58,8 @@ body.template-page-lv2,body.template-page-list-v2{padding-bottom:96px!important}
 </style>
 <div class="lv2-sticky">
   <div class="lv2-sticky__label">
-    <strong>{% if template.suffix == 'lv2' %}Miner Forge Pro{% else %}[REPLACE — Product name]{% endif %}</strong>
-    <em>{% if template.suffix == 'lv2' %}58% Off Today Only{% else %}[REPLACE — e.g. 60% OFF Today Only]{% endif %}</em>
+    <strong>{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}Miner Forge Pro{% else %}[REPLACE — Product name]{% endif %}</strong>
+    <em>{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}58% Off Today Only{% else %}[REPLACE — e.g. 60% OFF Today Only]{% endif %}</em>
   </div>
-  <a href="{% if template.suffix == 'lv2' %}/products/pdp-v4{% else %}#{% endif %}" class="lv2-sticky__btn">{% if template.suffix == 'lv2' %}Get 58% Off{% else %}[REPLACE — CTA]{% endif %}</a>
+  <a href="{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}/products/pdp-v4{% else %}#{% endif %}" class="lv2-sticky__btn">{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}Get 58% Off{% else %}[REPLACE — CTA]{% endif %}</a>
 </div>
