@@ -943,28 +943,6 @@
           },
           "blocks": {}
         },
-        "i": {
-          "type": "image",
-          "settings": {
-            "image": "",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "p": {
           "type": "text",
           "settings": {
@@ -989,11 +967,35 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "vid": {
+          "type": "video",
+          "name": "Reason video",
+          "settings": {
+            "source": "uploaded",
+            "video": "shopify://files/videos/advertorial-reason-1.mp4",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "alt": "Miner Forge Pro demo",
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "auto",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 8,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "sh",
-        "i",
+        "vid",
         "p"
       ],
       "custom_css": [],
@@ -1167,28 +1169,6 @@
           },
           "blocks": {}
         },
-        "i": {
-          "type": "image",
-          "settings": {
-            "image": "",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "p": {
           "type": "text",
           "settings": {
@@ -1213,11 +1193,35 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "vid": {
+          "type": "video",
+          "name": "Reason video",
+          "settings": {
+            "source": "uploaded",
+            "video": "shopify://files/videos/advertorial-reason-3.mp4",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "alt": "Miner Forge Pro demo",
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "auto",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 8,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "sh",
-        "i",
+        "vid",
         "p"
       ],
       "custom_css": [],
@@ -1282,7 +1286,7 @@
         "i": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/reason-4.png",
+            "image": "shopify://shop_images/advertorial-reason-4.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",
@@ -1391,28 +1395,6 @@
           },
           "blocks": {}
         },
-        "i": {
-          "type": "image",
-          "settings": {
-            "image": "",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "p": {
           "type": "text",
           "settings": {
@@ -1437,11 +1419,35 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "vid": {
+          "type": "video",
+          "name": "Reason video",
+          "settings": {
+            "source": "uploaded",
+            "video": "shopify://files/videos/advertorial-reason-5.mp4",
+            "video_url": "",
+            "video_autoplay": true,
+            "video_loop": true,
+            "alt": "Miner Forge Pro demo",
+            "custom_width": 100,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "auto",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 8,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "sh",
-        "i",
+        "vid",
         "p"
       ],
       "custom_css": [],
