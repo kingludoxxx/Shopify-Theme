@@ -27,7 +27,7 @@
 [id*="__reason_"] h3{font-size:22px!important;font-weight:700!important;line-height:1.25!important;color:#111!important;margin:28px 0 14px!important}
 [id*="__reason_"] p{font-size:17px!important;line-height:1.6!important;margin-bottom:14px!important}
 [id*="__quote_block"] p{font-size:19px!important;font-style:italic!important;color:#444!important;border-left:4px solid #1a1a1a!important;padding:8px 0 8px 18px!important;margin:16px 0!important;line-height:1.5!important}
-[id*="__cta_block"] p{background:#2e7d32!important;color:#fff!important;padding:18px 32px!important;text-align:center!important;border-radius:8px!important;font-weight:800!important;font-size:17px!important;letter-spacing:.5px!important;max-width:560px!important;margin:8px auto!important;text-transform:uppercase!important;display:block!important;box-shadow:0 2px 8px rgba(46,125,50,.25)!important}
+[id*="__cta_block"]{display:none!important}
 [id*="__cta_block"] p strong{color:#fff!important}
 [id*="__top_reasons"] p{font-size:16px!important;line-height:1.55!important;margin:10px 0!important}
 [id*="__testimonial_"] p:nth-of-type(1){font-weight:800!important;font-size:17px!important;margin-bottom:6px!important;color:#111!important}
@@ -35,7 +35,7 @@
 [id*="__testimonial_"] p:nth-of-type(3){font-size:14px!important;color:#666!important;margin:0 0 28px!important}
 [id*="__final_offer"] h2{font-size:28px!important;font-weight:800!important;margin:24px 0 12px!important;color:#111!important}
 [id*="__final_offer"] p:nth-of-type(1){font-size:18px!important;font-weight:700!important;margin-bottom:18px!important}
-[id*="__final_offer"] p:nth-last-of-type(2){background:#2e7d32!important;color:#fff!important;padding:18px 32px!important;text-align:center!important;border-radius:8px!important;font-weight:800!important;font-size:17px!important;letter-spacing:.5px!important;max-width:560px!important;margin:24px auto!important;text-transform:uppercase!important;display:block!important}
+[id*="__final_offer"] p:nth-last-of-type(2){display:none!important}
 [id*="__final_offer"] p:nth-last-of-type(2) strong{color:#fff!important}
 [id*="__final_offer"] p:last-of-type{text-align:center!important;font-size:14px!important;color:#666!important}
 [id*="__footer_band"]{background:#000!important;color:#fff!important;width:100vw!important;margin-left:calc(50% - 50vw)!important;padding:60px 24px!important;margin-top:48px!important}
@@ -43,7 +43,7 @@
 [id*="__footer_band"] > div{max-width:760px!important;margin:0 auto!important;padding:0!important}
 [id*="__footer_band"] p{font-size:17px!important;line-height:1.6!important}
 [id*="__footer_band"] p strong{font-size:22px!important;font-weight:800!important;display:block!important;margin-bottom:16px!important}
-[id*="__footer_band"] p:nth-last-of-type(3){background:#2e7d32!important;color:#fff!important;padding:18px 32px!important;text-align:center!important;border-radius:8px!important;font-weight:800!important;font-size:17px!important;max-width:560px!important;margin:24px auto!important;text-transform:uppercase!important;display:block!important;letter-spacing:.5px!important}
+[id*="__footer_band"] p:nth-last-of-type(3){display:none!important}
 [id*="__footer_band"] p:last-of-type{font-size:12px!important;color:#aaa!important;line-height:1.5!important;margin-top:24px!important}
 
 .lv2-sticky{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;color:#fff;box-shadow:0 -4px 16px rgba(0,0,0,.25);padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
@@ -57,9 +57,5 @@ body.template-page-lv2,body.template-page-list-v2{padding-bottom:96px!important}
 
 </style>
 <div class="lv2-sticky">
-  <div class="lv2-sticky__label">
-    <strong>{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}Miner Forge Pro{% else %}[REPLACE — Product name]{% endif %}</strong>
-    <em>{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}58% Off Today Only{% else %}[REPLACE — e.g. 60% OFF Today Only]{% endif %}</em>
-  </div>
   <a href="{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}/products/pdp-v4{% else %}#{% endif %}" class="lv2-sticky__btn">{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}Get 58% Off{% else %}[REPLACE — CTA]{% endif %}</a>
 </div>
