@@ -64,6 +64,11 @@ body.template-page-lv2,body.template-page-list-v2{padding-bottom:96px!important}
 .template-page-lv2 #MainContent [id*="__footer_band"] p,.template-page-list-v2 #MainContent [id*="__footer_band"] p,.template-page-lv2 #MainContent [id*="__footer_band"] p *,.template-page-list-v2 #MainContent [id*="__footer_band"] p *{color:#fff!important}
 /* mobile: shrink the long headline to ~4-5 lines */
 @media (max-width:600px){[id*="__article_hero"] h1,.template-page-lv2 #MainContent h1,.template-page-list-v2 #MainContent h1{font-size:24px!important;line-height:1.2!important;margin:14px 0 12px!important;letter-spacing:-.01em!important}}
+
+/* widen the narrow reading column on the advertorial pages (theme is page-width-narrow) */
+body.template-page-lv2,body.template-page-list-v2{--max-width--body-normal:44em!important;--max-width--body-narrow:44em!important}
+@media (max-width:749px){body.template-page-lv2,body.template-page-list-v2{--max-width--body-normal:100%!important;--max-width--body-narrow:100%!important;--page-margin:16px!important}
+body.template-page-lv2 .section--page-width,body.template-page-list-v2 .section--page-width{padding-left:16px!important;padding-right:16px!important}}
 </style>
 <div class="lv2-sticky">
   <a href="{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}/products/pdp-v4{% else %}#{% endif %}" class="lv2-sticky__btn">{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}Get 58% Off{% else %}[REPLACE — CTA]{% endif %}</a>
