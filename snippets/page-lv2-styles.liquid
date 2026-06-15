@@ -16,10 +16,10 @@
 [id*="__article_hero"] p:nth-of-type(2){font-size:13px!important;color:#888!important;margin:0!important}
 [id*="__hero_image"]{padding:16px 0 24px!important;background:transparent!important}
 [id*="__hero_image"] svg, [id*="__hero_image"] img[src*="placeholder"]{display:none!important}
-[id*="__hero_image"] .media-block, [id*="__hero_image"] .media-block__background{background:#e8e8e8!important;border-radius:8px!important;min-height:300px!important;display:flex!important;align-items:center!important;justify-content:center!important;color:#888!important;font-size:14px!important}
-[id*="__hero_image"] .media-block::before, [id*="__sub_img"] .media-block::before, [id*="__reason_"] .media-block::before, [id*="__testimonials_intro"] .media-block::before{content:"[ IMAGE PLACEHOLDER ]"!important;position:absolute!important;font-size:13px!important;color:#999!important;letter-spacing:1px!important}
+[id*="__hero_image"] .media-block, [id*="__hero_image"] .media-block__background{background:transparent!important;border-radius:8px!important;min-height:0!important;display:flex!important;align-items:center!important;justify-content:center!important;color:#888!important;font-size:14px!important}
+[id*="__hero_image"] .media-block::before, [id*="__sub_img"] .media-block::before, [id*="__reason_"] .media-block::before, [id*="__testimonials_intro"] .media-block::before{content:none!important;position:absolute!important;font-size:13px!important;color:#999!important;letter-spacing:1px!important}
 [id*="__sub_img"] svg, [id*="__sub_img"] img[src*="placeholder"], [id*="__reason_"] svg, [id*="__reason_"] img[src*="placeholder"], [id*="__testimonials_intro"] svg, [id*="__testimonials_intro"] img[src*="placeholder"]{display:none!important}
-[id*="__sub_img"] .media-block, [id*="__reason_"] .media-block, [id*="__testimonials_intro"] .media-block{background:#e8e8e8!important;border-radius:8px!important;min-height:220px!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important}
+[id*="__sub_img"] .media-block, [id*="__reason_"] .media-block, [id*="__testimonials_intro"] .media-block{background:transparent!important;border-radius:8px!important;min-height:0!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important}
 [id*="__body_"] p{font-size:17px!important;line-height:1.65!important;color:#2a2a2a!important;margin-bottom:18px!important}
 [id*="__h2_"] h2{font-size:28px!important;font-weight:800!important;line-height:1.2!important;color:#111!important;margin:24px 0 14px!important}
 [id*="__bullets"] p{font-size:16px!important;line-height:1.55!important;margin:10px 0!important}
@@ -69,7 +69,15 @@ body.template-page-lv2,body.template-page-list-v2{padding-bottom:96px!important}
 body.template-page-lv2,body.template-page-list-v2{--max-width--body-normal:44em!important;--max-width--body-narrow:44em!important}
 @media (max-width:749px){body.template-page-lv2,body.template-page-list-v2{--max-width--body-normal:100%!important;--max-width--body-narrow:100%!important;--page-margin:16px!important}
 body.template-page-lv2 .section--page-width,body.template-page-list-v2 .section--page-width{padding-left:16px!important;padding-right:16px!important}}
+
+/* real media full width + tighter reason gaps */
+[id*="__hero_image"] img,[id*="__sub_img"] img,[id*="__reason_"] img,[id*="__reason_"] video,[id*="__testimonials_intro"] img{width:100%!important;max-width:100%!important;height:auto!important;border-radius:8px!important;display:block!important;margin:6px 0!important}
+[id*="__hero_image"] .media-block,[id*="__sub_img"] .media-block,[id*="__reason_"] .media-block,[id*="__testimonials_intro"] .media-block{min-height:0!important;background:transparent!important;display:block!important}
+[id*="__reason_"]{padding-top:4px!important;padding-bottom:4px!important}
+/* scroll-reveal sticky: hidden until the 5 Reasons section */
+.lv2-sticky{transform:translateY(140%);transition:transform .35s ease}.lv2-sticky.is-visible{transform:translateY(0)}
 </style>
 <div class="lv2-sticky">
   <a href="{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}/products/pdp-v4{% else %}#{% endif %}" class="lv2-sticky__btn">{% if template.suffix == 'lv2' or template.suffix == 'list-v2' %}Get 58% Off{% else %}[REPLACE — CTA]{% endif %}</a>
 </div>
+<script data-lv2-sticky-reveal>(function(){function init(){var s=document.querySelector('.lv2-sticky');var t=document.querySelector('[id*="__listicle_header"]');if(!s||!t){return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){s.classList.add('is-visible');io.disconnect();}});},{threshold:0,rootMargin:'0px 0px -15% 0px'});io.observe(t);}if(document.readyState!=='loading'){init();}else{document.addEventListener('DOMContentLoaded',init);}})();</script>
