@@ -142,7 +142,11 @@
             {%- if forloop.index == 2 -%}
               <span class="bundle-picker__badge bundle-picker__badge--shipping">Free Shipping</span>
             {%- elsif forloop.index == 3 -%}
-              <span class="bundle-picker__badge bundle-picker__badge--value">Best Value</span>
+              {%- if product_resource.id == 15759810986315 -%}
+                <span class="bundle-picker__badge bundle-picker__badge--value">Higher Chances to Win</span>
+              {%- else -%}
+                <span class="bundle-picker__badge bundle-picker__badge--value">Best Value</span>
+              {%- endif -%}
             {%- endif -%}
 
             <div class="bundle-picker__card-inner">
@@ -205,8 +209,8 @@
               <div class="bundle-picker__card-body">
                 <div class="bundle-picker__card-title-row">
                   <span class="bundle-picker__card-title">{{ product_option_value.name }}</span>
-                  {%- comment -%} ODDS pills — hidden for PhantomAxe Ultra AND Titan Max {%- endcomment -%}
-                  {%- unless product_resource.id == 15478310535499 or product_resource.id == 15478310502731 -%}
+                  {%- comment -%} ODDS pills — hidden for PhantomAxe Ultra, Titan Max, AND Hero-3 test (15759810986315) {%- endcomment -%}
+                  {%- unless product_resource.id == 15478310535499 or product_resource.id == 15478310502731 or product_resource.id == 15759810986315 -%}
                     {%- if forloop.index == 2 -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">2x</span>
                     {%- elsif forloop.index == 3 -%}
@@ -465,18 +469,56 @@
   already carries an explicit ?variant= (deep links keep working).
 {%- endcomment -%}
 {%- if product_resource.id == 15759810986315 -%}
+  {%- comment -%}
+    Hero-3 test styling: make the per-unit "each" price clearly visible
+    (default is 14px gray). Emitted only on this product's page, so no
+    other product's widget styling changes.
+  {%- endcomment -%}
+  <style>
+    .bundle-picker__each {
+      font-size: 16px !important;
+      color: #111 !important;
+      font-weight: 800 !important;
+    }
+  </style>
   <script>
     (function () {
-      if (window.location.search.indexOf('variant=') !== -1) return;
-      var pick = function () {
-        var input = document.querySelector('input[data-variant-id="57455563473227"]');
-        if (input && !input.checked) input.click();
-      };
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', pick);
-      } else {
-        pick();
+      // 1) Pre-select Buy 3 on load (skip when URL pins a variant)
+      if (window.location.search.indexOf('variant=') === -1) {
+        var pick = function () {
+          var input = document.querySelector('input[data-variant-id="57455563473227"]');
+          if (input && !input.checked) input.click();
+        };
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', pick);
+        } else {
+          pick();
+        }
       }
+
+      // 2) Skip the cart: intercept Add to Cart and jump straight to checkout
+      // via a cart permalink (/cart/{variantId}:1). Capture phase so we beat
+      // the theme's own add-to-cart handler; scoped to this page only since
+      // this whole block renders solely for product 15759810986315.
+      document.addEventListener(
+        'click',
+        function (e) {
+          var btn = e.target.closest(
+            'form[action*="/cart/add"] button, product-form-component button[type="submit"], add-to-cart-component button'
+          );
+          if (!btn) return;
+          // don't hijack accelerated-checkout wallet buttons
+          if (btn.closest('shopify-accelerated-checkout, [data-shopify="payment-button"]')) return;
+          var checked = document.querySelector('input[data-variant-id]:checked');
+          var variantId = checked
+            ? checked.getAttribute('data-variant-id')
+            : '57455563473227';
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.href = '/cart/' + variantId + ':1';
+        },
+        true
+      );
     })();
   </script>
 {%- endif -%}
