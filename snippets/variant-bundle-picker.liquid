@@ -31,10 +31,10 @@
 {% assign variant_override_image_url_57455563440459 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-2.png?v=1765567044" | default: '' %}
 {% assign variant_override_image_url_57455563473227 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063" | default: '' %}
 
-{% comment %} Per-unit price text for Signature Edition copy (split test) bundles {% endcomment %}
-{% assign each_text_override_57455563407691 = "$79.99 each" %}
-{% assign each_text_override_57455563440459 = "$74.99 each" %}
-{% assign each_text_override_57455563473227 = "$66 each" %}
+{% comment %} Per-unit price text for Signature Edition copy (split test) bundles — Hero-3 pricing (anchor $89.99, hero $199.99) {% endcomment %}
+{% assign each_text_override_57455563407691 = "$89.99 each" %}
+{% assign each_text_override_57455563440459 = "$75.00 each" %}
+{% assign each_text_override_57455563473227 = "$66.66 each" %}
 
 {% comment %} Limited Edition (product 15626881532235) bundle images {% endcomment %}
 {% assign variant_override_image_url_56920466719051 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-1.png?v=1765567011" | default: '' %}
@@ -456,3 +456,27 @@
     cursor: not-allowed;
   }
 {% endstylesheet %}
+
+{%- comment -%}
+  Hero-3 test (product 15759810986315 ONLY): pre-select the Buy 3 tier on
+  page load. Clicking the radio (instead of setting `checked` in Liquid)
+  runs the theme's own variant-change pipeline, so the main price, compare-at,
+  media, and add-to-cart button all update consistently. Skipped when the URL
+  already carries an explicit ?variant= (deep links keep working).
+{%- endcomment -%}
+{%- if product_resource.id == 15759810986315 -%}
+  <script>
+    (function () {
+      if (window.location.search.indexOf('variant=') !== -1) return;
+      var pick = function () {
+        var input = document.querySelector('input[data-variant-id="57455563473227"]');
+        if (input && !input.checked) input.click();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', pick);
+      } else {
+        pick();
+      }
+    })();
+  </script>
+{%- endif -%}
