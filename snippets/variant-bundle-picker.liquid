@@ -496,10 +496,15 @@
         }
       }
 
-      // 2) Skip the cart: intercept Add to Cart and jump straight to checkout
-      // via a cart permalink (/cart/{variantId}:1). Capture phase so we beat
-      // the theme's own add-to-cart handler; scoped to this page only since
-      // this whole block renders solely for product 15759810986315.
+      // 2) Skip the cart drawer: intercept Add to Cart, then clear cart ->
+      // add the selected variant -> window.proceedToCheckout(), which is the
+      // injected MineBlock/Lasso checkout redirect (carries lasso_sid). This
+      // mirrors the flow the Lasso landing pages use — the Whop+Lasso
+      // checkout reads the Shopify cart, so the cart must contain exactly
+      // the selected bundle. NOT Shopify's native /checkout (payments there
+      // are intentionally disabled). Capture phase beats the theme's own
+      // add-to-cart handler; whole block renders only for product
+      // 15759810986315.
       document.addEventListener(
         'click',
         function (e) {
@@ -509,13 +514,41 @@
           if (!btn) return;
           // don't hijack accelerated-checkout wallet buttons
           if (btn.closest('shopify-accelerated-checkout, [data-shopify="payment-button"]')) return;
+          e.preventDefault();
+          e.stopPropagation();
+
           var checked = document.querySelector('input[data-variant-id]:checked');
           var variantId = checked
             ? checked.getAttribute('data-variant-id')
             : '57455563473227';
-          e.preventDefault();
-          e.stopPropagation();
-          window.location.href = '/cart/' + variantId + ':1';
+
+          var originalText = btn.textContent;
+          btn.textContent = 'Loading...';
+          btn.setAttribute('aria-busy', 'true');
+
+          fetch('/cart/clear.js', { method: 'POST' })
+            .then(function () {
+              return fetch('/cart/add.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ items: [{ id: Number(variantId), quantity: 1 }] }),
+              });
+            })
+            .then(function (res) {
+              if (!res.ok) throw new Error('add-to-cart failed');
+              if (typeof window.proceedToCheckout === 'function') {
+                window.proceedToCheckout();
+              } else {
+                // Lasso script not loaded — fall back to the cart page where
+                // the standard flow (and its checkout handling) takes over.
+                window.location.href = '/cart';
+              }
+            })
+            .catch(function () {
+              btn.textContent = originalText;
+              btn.removeAttribute('aria-busy');
+              window.location.href = '/cart';
+            });
         },
         true
       );
