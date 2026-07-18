@@ -603,7 +603,9 @@
         applyMoreState();
       });
       // Re-assert the expander state after the theme's section morphs.
-      // rAF-debounced so bursts of mutations cost one pass.
+      // IMPORTANT: observe `document`, not document.body — the theme's morph
+      // can replace the <body> node wholesale, which orphans any observer
+      // attached to it. `document` itself is never replaced.
       var morphScheduled = false;
       new MutationObserver(function () {
         if (morphScheduled || !moreOpen) return;
@@ -612,7 +614,12 @@
           morphScheduled = false;
           applyMoreState();
         });
-      }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden'] });
+      }).observe(document, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden'] });
+      // Belt-and-braces: cheap periodic re-assert (2 querySelectors), covers
+      // any morph strategy the observer might miss.
+      setInterval(function () {
+        if (moreOpen) applyMoreState();
+      }, 500);
 
       // 2) Skip the cart drawer: intercept Add to Cart, then clear cart ->
       // add the selected variant -> window.proceedToCheckout(), which is the
