@@ -35,6 +35,11 @@
 {% assign each_text_override_57455563407691 = "$89.99 each" %}
 {% assign each_text_override_57455563440459 = "$75.00 each" %}
 {% assign each_text_override_57455563473227 = "$66.66 each" %}
+{% comment %} Hero-3 expander tiers (Buy 6 / Buy 12), hidden behind "Need More?" toggle {% endcomment %}
+{% assign variant_override_image_url_57893306368331 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063" | default: '' %}
+{% assign variant_override_image_url_57893306466635 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063" | default: '' %}
+{% assign each_text_override_57893306368331 = "$63.33 each" %}
+{% assign each_text_override_57893306466635 = "$60.00 each" %}
 
 {% comment %} Limited Edition (product 15626881532235) bundle images {% endcomment %}
 {% assign variant_override_image_url_56920466719051 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-1.png?v=1765567011" | default: '' %}
@@ -113,6 +118,15 @@
           {%- assign is_selected = product_option_value.selected -%}
           {%- assign featured_media = v.featured_media | default: product_resource.featured_media -%}
 
+          {%- comment -%} Hero-3 expander: tiers 4+ collapse behind "Need More?" toggle (product 15759810986315 only) {%- endcomment -%}
+          {%- if product_resource.id == 15759810986315 and forloop.index == 4 -%}
+            <button type="button" class="bundle-picker__more-toggle" data-more-toggle aria-expanded="false">
+              <span class="bundle-picker__more-plus">+</span>
+              <span class="bundle-picker__more-text">Need More? View More Options</span>
+              <svg class="bundle-picker__more-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="bundle-picker__more-cards" data-more-cards hidden>
+          {%- endif -%}
           <label
             class="bundle-picker__card{% if is_selected %} bundle-picker__card--selected{% endif %}"
           >
@@ -189,6 +203,10 @@
                   <img src="{{ variant_override_image_url_57455563440459 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif v.id == 57455563473227 and variant_override_image_url_57455563473227 != blank %}
                   <img src="{{ variant_override_image_url_57455563473227 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57893306368331 and variant_override_image_url_57893306368331 != blank %}
+                  <img src="{{ variant_override_image_url_57893306368331 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
+                {% elsif v.id == 57893306466635 and variant_override_image_url_57893306466635 != blank %}
+                  <img src="{{ variant_override_image_url_57893306466635 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif v.id == 56920466719051 and variant_override_image_url_56920466719051 != blank %}
                   <img src="{{ variant_override_image_url_56920466719051 }}" alt="{{ product_option_value.name | escape }}" class="bundle-picker__image" loading="lazy" width="120" height="120">
                 {% elsif v.id == 56920466751819 and variant_override_image_url_56920466751819 != blank %}
@@ -235,6 +253,10 @@
                   <p class="bundle-picker__each">{{ each_text_override_57455563440459 }}</p>
                 {%- elsif v.id == 57455563473227 and each_text_override_57455563473227 != blank -%}
                   <p class="bundle-picker__each">{{ each_text_override_57455563473227 }}</p>
+                {%- elsif v.id == 57893306368331 and each_text_override_57893306368331 != blank -%}
+                  <p class="bundle-picker__each">{{ each_text_override_57893306368331 }}</p>
+                {%- elsif v.id == 57893306466635 and each_text_override_57893306466635 != blank -%}
+                  <p class="bundle-picker__each">{{ each_text_override_57893306466635 }}</p>
                 {%- elsif v.id == 56920466719051 and each_text_override_56920466719051 != blank -%}
                   <p class="bundle-picker__each">{{ each_text_override_56920466719051 }}</p>
                 {%- elsif v.id == 56920466751819 and each_text_override_56920466751819 != blank -%}
@@ -267,6 +289,9 @@
             </div>
           </label>
         {%- endfor -%}
+        {%- if product_resource.id == 15759810986315 -%}
+          </div>
+        {%- endif -%}
       </fieldset>
     </div>
 
@@ -480,6 +505,54 @@
       color: #6b6b6b !important;
       font-weight: 700 !important;
     }
+    .bundle-picker__more-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      margin-top: 10px;
+      padding: 14px 16px;
+      background: transparent;
+      border: 2px dashed #b5b5b5;
+      border-radius: 14px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .bundle-picker__more-plus {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border: 2px solid #1a61f9;
+      border-radius: 50%;
+      color: #1a61f9;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .bundle-picker__more-text {
+      flex: 1 1 auto;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: #111;
+    }
+    .bundle-picker__more-chevron {
+      flex: 0 0 auto;
+      color: #111;
+      transition: transform 0.2s ease;
+    }
+    .bundle-picker__more-toggle.is-open .bundle-picker__more-chevron {
+      transform: rotate(180deg);
+    }
+    .bundle-picker__more-cards {
+      display: contents;
+    }
+    .bundle-picker__more-cards[hidden] {
+      display: none;
+    }
   </style>
   <script>
     (function () {
@@ -499,6 +572,28 @@
         document.addEventListener('DOMContentLoaded', pick);
       } else {
         pick();
+      }
+
+      // Expander: "Need More? View More Options" reveals the Buy 6 / Buy 12 cards
+      var wireToggle = function () {
+        var toggle = document.querySelector('[data-more-toggle]');
+        var cards = document.querySelector('[data-more-cards]');
+        if (!toggle || !cards) return;
+        toggle.addEventListener('click', function () {
+          var opening = cards.hasAttribute('hidden');
+          if (opening) {
+            cards.removeAttribute('hidden');
+          } else {
+            cards.setAttribute('hidden', '');
+          }
+          toggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+          toggle.classList.toggle('is-open', opening);
+        });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', wireToggle);
+      } else {
+        wireToggle();
       }
 
       // 2) Skip the cart drawer: intercept Add to Cart, then clear cart ->
