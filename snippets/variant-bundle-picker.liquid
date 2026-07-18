@@ -483,17 +483,22 @@
   </style>
   <script>
     (function () {
-      // 1) Pre-select Buy 3 on load (skip when URL pins a variant)
-      if (window.location.search.indexOf('variant=') === -1) {
-        var pick = function () {
-          var input = document.querySelector('input[data-variant-id="57455563473227"]');
-          if (input && !input.checked) input.click();
-        };
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', pick);
-        } else {
-          pick();
+      // 1) Pre-select Buy 3 on load — ALWAYS (operator requirement), even when
+      // the URL carries a ?variant= deep link. Retries for up to 5s in case
+      // the picker inputs render late (section hydration / slow devices).
+      var pickTries = 0;
+      var pick = function () {
+        var input = document.querySelector('input[data-variant-id="57455563473227"]');
+        if (input) {
+          if (!input.checked) input.click();
+          return;
         }
+        if (++pickTries < 25) setTimeout(pick, 200);
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', pick);
+      } else {
+        pick();
       }
 
       // 2) Skip the cart drawer: intercept Add to Cart, then clear cart ->
