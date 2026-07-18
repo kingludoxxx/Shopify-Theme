@@ -574,27 +574,45 @@
         pick();
       }
 
-      // Expander: "Need More? View More Options" reveals the Buy 6 / Buy 12 cards
-      var wireToggle = function () {
+      // Expander: "Need More? View More Options" reveals the Buy 6 / Buy 12
+      // cards. The theme MORPHS the whole product section on every variant
+      // change, which (a) restores the server-side collapsed state and
+      // (b) replaces the toggle node, killing directly-attached listeners.
+      // So: delegate the click at document level (survives node swaps),
+      // remember the open state, and re-apply it after every DOM mutation.
+      var moreOpen = false;
+      var applyMoreState = function () {
         var toggle = document.querySelector('[data-more-toggle]');
         var cards = document.querySelector('[data-more-cards]');
         if (!toggle || !cards) return;
-        toggle.addEventListener('click', function () {
-          var opening = cards.hasAttribute('hidden');
-          if (opening) {
-            cards.removeAttribute('hidden');
-          } else {
-            cards.setAttribute('hidden', '');
-          }
-          toggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
-          toggle.classList.toggle('is-open', opening);
-        });
+        if (moreOpen) {
+          if (cards.hasAttribute('hidden')) cards.removeAttribute('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+          toggle.classList.add('is-open');
+        } else {
+          if (!cards.hasAttribute('hidden')) cards.setAttribute('hidden', '');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.classList.remove('is-open');
+        }
       };
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', wireToggle);
-      } else {
-        wireToggle();
-      }
+      document.addEventListener('click', function (e) {
+        var t = e.target.closest('[data-more-toggle]');
+        if (!t) return;
+        e.preventDefault();
+        moreOpen = !moreOpen;
+        applyMoreState();
+      });
+      // Re-assert the expander state after the theme's section morphs.
+      // rAF-debounced so bursts of mutations cost one pass.
+      var morphScheduled = false;
+      new MutationObserver(function () {
+        if (morphScheduled || !moreOpen) return;
+        morphScheduled = true;
+        requestAnimationFrame(function () {
+          morphScheduled = false;
+          applyMoreState();
+        });
+      }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden'] });
 
       // 2) Skip the cart drawer: intercept Add to Cart, then clear cart ->
       // add the selected variant -> window.proceedToCheckout(), which is the
@@ -608,6 +626,9 @@
       document.addEventListener(
         'click',
         function (e) {
+          // Never intercept clicks inside the bundle picker itself (variant
+          // cards, expander toggle) — only the real Add to Cart button.
+          if (e.target.closest('.bundle-picker, [data-more-toggle], [data-more-cards]')) return;
           var btn = e.target.closest(
             'form[action*="/cart/add"] button, product-form-component button[type="submit"], add-to-cart-component button'
           );
