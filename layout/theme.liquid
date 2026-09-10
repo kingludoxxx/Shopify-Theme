@@ -6,6 +6,70 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    <!-- MB-CRM-CHECKOUT:start -->
+    <script>
+/* ===== Mineblock — route ALL storefront purchases to the CRM checkout =====
+   mineblock.co is the Shopify storefront; the CRM checkout lives at
+   shop.mineblock.co/checkout-v1?cart=<variantId>:<qty>,... . Every add-to-cart,
+   checkout button, and the /cart & /checkout pages are redirected there so the
+   native Shopify cart/checkout is never used. Prices are re-derived server-side
+   by the CRM, so passing variant ids is safe. Registered at parse time (in
+   <head>) so its capture-phase listeners run before the theme's handlers. */
+(function () {
+  "use strict";
+  // Only ever run on the Shopify storefront. Never on the CRM host (which serves
+  // /checkout-v1 itself) — otherwise this would bounce the CRM checkout back to
+  // itself and drop the cart.
+  if (/(^|\.)shop\.mineblock\.co$/i.test(window.location.hostname)) { return; }
+  var CO = "https://shop.mineblock.co/checkout-v1";
+  function go(items) {
+    items = (items || []).filter(function (i) { return i && i.id; });
+    if (!items.length) { window.location.href = CO; return; }
+    var q = items.map(function (i) {
+      return String(i.id) + ":" + (parseInt(i.qty, 10) > 0 ? parseInt(i.qty, 10) : 1);
+    }).join(",");
+    window.location.href = CO + "?cart=" + encodeURIComponent(q);
+  }
+  function formVariant(f) { var el = f && f.querySelector('[name="id"]'); return el ? el.value : null; }
+  function formQty(f) { var el = f && f.querySelector('[name="quantity"]'); var q = el ? parseInt(el.value, 10) : 1; return q > 0 ? q : 1; }
+  function urlVariant() { try { return new URLSearchParams(window.location.search).get("variant"); } catch (e) { return null; } }
+  function cartThenGo() {
+    fetch("/cart.js", { headers: { Accept: "application/json" }, credentials: "same-origin" })
+      .then(function (r) { return r.json(); })
+      .then(function (c) { go((c.items || []).map(function (i) { return { id: i.variant_id, qty: i.quantity }; })); })
+      .catch(function () { window.location.href = CO; });
+  }
+  // 1) Native add-to-cart form submit -> straight to CRM checkout.
+  document.addEventListener("submit", function (e) {
+    var f = e.target;
+    if (f && f.matches && f.matches('form[action*="/cart/add"]')) {
+      e.preventDefault(); e.stopImmediatePropagation();
+      go([{ id: formVariant(f) || urlVariant(), qty: formQty(f) }]);
+    }
+  }, true);
+  // 2) Clicks: add-to-cart triggers (incl. sticky/AJAX) and checkout triggers.
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    var addEl = t.closest && t.closest('[name="add"],.add-to-cart-b,.sticky-add-to-cart__button,[data-add-to-cart],button.product-form__submit,a[href*="/cart/add"]');
+    if (addEl) {
+      var f = (addEl.closest && addEl.closest('form[action*="/cart/add"]')) || document.querySelector('form[action*="/cart/add"]');
+      var vid = formVariant(f) || urlVariant();
+      if (vid) { e.preventDefault(); e.stopImmediatePropagation(); go([{ id: vid, qty: formQty(f) }]); return; }
+    }
+    var coEl = t.closest && t.closest('a[href*="/checkout"],button[name="checkout"],[data-checkout],.cart__checkout-button,.cart-drawer__checkout,#checkout');
+    if (coEl) { e.preventDefault(); e.stopImmediatePropagation(); cartThenGo(); }
+  }, true);
+  // 3) Direct visits to the Shopify cart/checkout pages bounce to the CRM.
+  //    Match ONLY real Shopify paths — not lookalikes such as /checkout-v1.
+  var path = window.location.pathname || "";
+  if (/^\/(cart|checkout|checkouts)(\/|$|\?)/.test(path)) {
+    cartThenGo();
+  }
+})();
+
+    </script>
+    <!-- MB-CRM-CHECKOUT:end -->
+
     {% if template.name == 'page' and template.suffix == 'comparation' %}
       <style>
         #header-group { display: none !important; }
