@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.title",
           "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
+            "text": "<h1>{{ closest.page.title }}<\/h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.content",
           "settings": {
-            "text": "<p><br/><strong>For any questions, please contact us: </strong></p><p><strong>- Email: support@mineblock.com</strong></p><p><strong>- Phone: </strong><a href=\"tel:+18722061840\" title=\"tel:+15557394821\"><strong>+1 (555) 739-4821</strong></a><br/><br/>Emails and texts will be responded to within one business day of receipt.</p><p>You can also reach us through the form below:</p>",
+            "text": "<p><br\/><strong>For any questions, please contact us: <\/strong><\/p><p><strong>- Email: support@mineblock.co<\/strong><\/p><p><strong>- Phone: <\/strong><a href=\"tel:+18722061840\" title=\"tel:+15557394821\"><strong>+1 (555) 739-4821<\/strong><\/a><br\/><br\/>Emails and texts will be responded to within one business day of receipt.<\/p><p>You can also reach us through the form below:<\/p>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "center",
