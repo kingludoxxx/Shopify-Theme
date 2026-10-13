@@ -621,15 +621,13 @@
         if (moreOpen) applyMoreState();
       }, 500);
 
-      // 2) Skip the cart drawer: intercept Add to Cart, then clear cart ->
-      // add the selected variant -> window.proceedToCheckout(), which is the
-      // injected MineBlock/Lasso checkout redirect (carries lasso_sid). This
-      // mirrors the flow the Lasso landing pages use — the Whop+Lasso
-      // checkout reads the Shopify cart, so the cart must contain exactly
-      // the selected bundle. NOT Shopify's native /checkout (payments there
-      // are intentionally disabled). Capture phase beats the theme's own
-      // add-to-cart handler; whole block renders only for product
-      // 15759810986315.
+      // 2) Skip the cart drawer: intercept Add to Cart for the bundle picker
+      // and hand the selected bundle straight to the CRM checkout through the
+      // shared hand-off (window.MB_CRM_CHECKOUT_GO -> checkout-b1?cart=<id>:<qty>).
+      // The CRM reads the cart from that URL, so the Shopify cart is never
+      // touched. Falls back to the same URL builder if the hand-off is not
+      // present. Capture phase beats the theme's own add-to-cart handler; the
+      // whole block renders only for product 15759810986315.
       document.addEventListener(
         'click',
         function (e) {
@@ -650,33 +648,14 @@
             ? checked.getAttribute('data-variant-id')
             : '57455563473227';
 
-          var originalText = btn.textContent;
-          btn.textContent = 'Loading...';
-          btn.setAttribute('aria-busy', 'true');
-
-          fetch('/cart/clear.js', { method: 'POST' })
-            .then(function () {
-              return fetch('/cart/add.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ items: [{ id: Number(variantId), quantity: 1 }] }),
-              });
-            })
-            .then(function (res) {
-              if (!res.ok) throw new Error('add-to-cart failed');
-              if (typeof window.proceedToCheckout === 'function') {
-                window.proceedToCheckout();
-              } else {
-                // Lasso script not loaded — fall back to the cart page where
-                // the standard flow (and its checkout handling) takes over.
-                window.location.href = '/cart';
-              }
-            })
-            .catch(function () {
-              btn.textContent = originalText;
-              btn.removeAttribute('aria-busy');
-              window.location.href = '/cart';
-            });
+          var item = { id: variantId, qty: 1 };
+          if (typeof window.MB_CRM_CHECKOUT_GO === 'function') {
+            window.MB_CRM_CHECKOUT_GO([item]);
+          } else {
+            window.location.href =
+              'https://shop.mineblock.co/checkout-b1?cart=' +
+              encodeURIComponent(variantId + ':1');
+          }
         },
         true
       );

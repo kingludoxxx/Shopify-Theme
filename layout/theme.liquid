@@ -10,7 +10,7 @@
     <script>
 /* ===== Mineblock — route ALL storefront purchases to the CRM checkout =====
    mineblock.co is the Shopify storefront; the CRM checkout lives at
-   shop.mineblock.co/checkout-v1?cart=<variantId>:<qty>,... . Every add-to-cart,
+   shop.mineblock.co/checkout-b1?cart=<variantId>:<qty>,... . Every add-to-cart,
    checkout button, and the /cart & /checkout pages are redirected there so the
    native Shopify cart/checkout is never used. Prices are re-derived server-side
    by the CRM, so passing variant ids is safe. Registered at parse time (in
@@ -18,18 +18,48 @@
 (function () {
   "use strict";
   // Only ever run on the Shopify storefront. Never on the CRM host (which serves
-  // /checkout-v1 itself) — otherwise this would bounce the CRM checkout back to
+  // /checkout-b1 itself) — otherwise this would bounce the CRM checkout back to
   // itself and drop the cart.
   if (/(^|\.)shop\.mineblock\.co$/i.test(window.location.hostname)) { return; }
-  var CO = "https://shop.mineblock.co/checkout-v1";
+  var CO = "https://shop.mineblock.co/checkout-b1";
+  // Marketing/tracking params are forwarded to the CRM checkout on the URL so
+  // the checkout attributes the sale to the right ad. Values are captured from
+  // the current URL and persisted per-browser (neutral key) so they survive the
+  // navigation from a landing page to the product page.
+  var TRACK_KEY = "mb_track";
+  var TRACK_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "utm_id",
+    "utm_source_platform", "utm_creative_format", "utm_marketing_tactic", "fbclid", "gclid", "gbraid",
+    "wbraid", "ttclid", "ScCid", "tblci", "_tw", "twclid", "tw_source", "epik"];
+  function collectTracking() {
+    var out = {};
+    try {
+      var saved = JSON.parse(localStorage.getItem(TRACK_KEY) || "{}");
+      for (var s in saved) { if (saved[s]) out[s] = saved[s]; }
+    } catch (e) { /* ignore malformed store */ }
+    try {
+      new URLSearchParams(window.location.search).forEach(function (v, k) {
+        if (v && (/^utm_/i.test(k) || TRACK_KEYS.indexOf(k) !== -1)) out[k] = v;
+      });
+    } catch (e) { /* ignore unreadable query */ }
+    try { localStorage.setItem(TRACK_KEY, JSON.stringify(out)); } catch (e) { /* ignore */ }
+    return out;
+  }
   function go(items) {
     items = (items || []).filter(function (i) { return i && i.id; });
-    if (!items.length) { window.location.href = CO; return; }
-    var q = items.map(function (i) {
-      return String(i.id) + ":" + (parseInt(i.qty, 10) > 0 ? parseInt(i.qty, 10) : 1);
-    }).join(",");
-    window.location.href = CO + "?cart=" + encodeURIComponent(q);
+    var qs = [];
+    if (items.length) {
+      var q = items.map(function (i) {
+        return String(i.id) + ":" + (parseInt(i.qty, 10) > 0 ? parseInt(i.qty, 10) : 1);
+      }).join(",");
+      qs.push("cart=" + encodeURIComponent(q));
+    }
+    var track = collectTracking();
+    for (var k in track) { qs.push(encodeURIComponent(k) + "=" + encodeURIComponent(track[k])); }
+    window.location.href = qs.length ? CO + "?" + qs.join("&") : CO;
   }
+  // Exposed so other theme scripts (e.g. the bundle picker) can reuse the same
+  // hand-off instead of building their own checkout URL.
+  window.MB_CRM_CHECKOUT_GO = go;
   function formVariant(f) { var el = f && f.querySelector('[name="id"]'); return el ? el.value : null; }
   function formQty(f) { var el = f && f.querySelector('[name="quantity"]'); var q = el ? parseInt(el.value, 10) : 1; return q > 0 ? q : 1; }
   function urlVariant() { try { return new URLSearchParams(window.location.search).get("variant"); } catch (e) { return null; } }
@@ -60,7 +90,7 @@
     if (coEl) { e.preventDefault(); e.stopImmediatePropagation(); cartThenGo(); }
   }, true);
   // 3) Direct visits to the Shopify cart/checkout pages bounce to the CRM.
-  //    Match ONLY real Shopify paths — not lookalikes such as /checkout-v1.
+  //    Match ONLY real Shopify paths — not lookalikes such as /checkout-b1.
   var path = window.location.pathname || "";
   if (/^\/(cart|checkout|checkouts)(\/|$|\?)/.test(path)) {
     cartThenGo();
@@ -91,16 +121,6 @@
         <script>window.location.replace('/pages/comparation');</script>
       {% endif %}
     {% endif %}
-    <script>
-    (function() {
-      var params = new URLSearchParams(window.location.search);
-      var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','gbraid','wbraid','ttclid','ScCid','tblci','_tw','twclid','tw_source','epik'];
-      keys.forEach(function(key) {
-        var val = params.get(key);
-        if (val) localStorage.setItem('lasso_' + key, val);
-      });
-    })();
-    </script>
     <style>
       a.cart-items__title {
     font-size: 15px;
@@ -232,12 +252,6 @@
     {% endif %}
 
 
-  <script 
-  src="https://checkout.mineblock.co/shopify-scripts/elevate-script.js" 
-  data-store-id="6982707afa247c841ff8287e"
-  data-checkout-url="checkout.mineblock.co/checkout"
-  defer>
-  </script>
   {% comment %} <script>
 (function () {
   console.log('[Upsell] Direct Drawer Refresh Mode');
