@@ -47,9 +47,9 @@
 {% assign variant_override_image_url_56920466784587 = "https://cdn.shopify.com/s/files/1/0768/4787/4379/files/Kaching-Bundles-3.png?v=1765567063" | default: '' %}
 
 {% comment %} Per-unit price text for Limited Edition bundles {% endcomment %}
-{% assign each_text_override_56920466719051 = "$79.99 each" %}
-{% assign each_text_override_56920466751819 = "$74.99 each" %}
-{% assign each_text_override_56920466784587 = "$66 each" %}
+{% assign each_text_override_56920466719051 = "$69.00 each" %}
+{% assign each_text_override_56920466751819 = "$59.50 each" %}
+{% assign each_text_override_56920466784587 = "$49.75 each" %}
 
 {% comment %} Per-unit price text for pdp-v1-v1 Limited Edition (product 15420770681163) bundles {% endcomment %}
 {% assign each_text_override_56798009819467 = "$79.99 each" %}
@@ -232,7 +232,7 @@
                     {%- if forloop.index == 2 -%}
                       <span class="bundle-picker__pill bundle-picker__pill--odds">2x</span>
                     {%- elsif forloop.index == 3 -%}
-                      {%- if product_resource.id == 15759810986315 or product_resource.id == 15626881532235 or product_resource.id == 15420770681163 or product_resource.id == 15698813452619 -%}
+                      {%- if product_resource.id == 15759810986315 or product_resource.id == 15420770681163 or product_resource.id == 15698813452619 -%}
                         <span class="bundle-picker__pill bundle-picker__pill--odds">3x</span>
                       {%- else -%}
                         <span class="bundle-picker__pill bundle-picker__pill--odds">4x</span>
@@ -662,3 +662,4 @@
     })();
   </script>
 {%- endif -%}
+
