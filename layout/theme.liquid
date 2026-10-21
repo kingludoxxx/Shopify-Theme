@@ -46,6 +46,18 @@
   }
   function go(items) {
     items = (items || []).filter(function (i) { return i && i.id; });
+    // Add-ons picked on the page (blocks/custom-upsell.liquid, e.g. the Mining Rig) ride along
+    // AFTER the buy-box line, so the first line still decides the post-checkout upsell route.
+    try {
+      var addons = JSON.parse(sessionStorage.getItem("mb_addons") || "{}");
+      for (var av in addons) {
+        var aq = parseInt(addons[av], 10);
+        if (!/^\d+$/.test(av) || !(aq > 0)) continue;
+        if (items.some(function (i) { return String(i.id) === av; })) continue;
+        items.push({ id: av, qty: Math.min(aq, 10) });
+      }
+    } catch (e) { /* storage blocked or malformed: checkout with the buy box only */ }
+    try { sessionStorage.removeItem("mb_addons"); } catch (e) { /* storage blocked */ }
     var qs = [];
     if (items.length) {
       var q = items.map(function (i) {

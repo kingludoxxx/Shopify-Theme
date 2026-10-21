@@ -380,6 +380,13 @@
         }
 
         // Success
+        // Remember the add-on for the CRM checkout hand-off (layout/theme.liquid go()), which
+        // builds checkout-b1?cart= from the buy box and never reads the Shopify cart.
+        try {
+          const store = JSON.parse(sessionStorage.getItem('mb_addons') || '{}');
+          store[variantId] = (parseInt(store[variantId], 10) || 0) + 1;
+          sessionStorage.setItem('mb_addons', JSON.stringify(store));
+        } catch (err) { /* storage blocked: the add-on just is not carried */ }
         const btnText = btn.querySelector('span');
         const originalText = btnText.textContent;
         btnText.textContent = '✓ Added!';
