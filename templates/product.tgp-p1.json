@@ -2098,7 +2098,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>Frequently Asked Questions</h2><p>Still have questions? Reach out to us anytime at <a href=\"mailto:support@goluvora.com\" title=\"mailto:support@goluvora.com\">support@mineblock.co</a> — we’re here to help.</p>",
+            "text": "<h2>Frequently Asked Questions</h2><p>Still have questions? Reach out to us anytime at <a href=\"mailto:support@goluvora.com\" title=\"mailto:support@goluvora.com\">support@mineblock.co</a>. We’re here to help.</p>",
             "width": "fit-content",
             "max_width": "none",
             "alignment": "left",
