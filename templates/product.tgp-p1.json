@@ -754,7 +754,7 @@
       "settings": {
         "image": "shopify://shop_images/signature-edition-testimonial-family-v2.png",
         "name": "Daniel W.",
-        "content": "<p><strong>Finally Got My Shot at Bitcoin</strong></p><p>I missed Bitcoin the first time. Wasn’t going to miss it again. Got one for myself, one for my brother, and two for my kids. For such a low price, why not take a shot? It just sits there taking shots at a block 144 times a day while I’m at work. Either way, this is the coolest gadget I have ever seen.</p>",
+        "content": "<p>Got one for myself, one for my brother, and two for my kids. It just sits there taking shots at a block 144 times a day while I’m at work.</p>",
         "main-calss": true,
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
