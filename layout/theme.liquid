@@ -10,7 +10,7 @@
     <script>
 /* ===== Mineblock — route ALL storefront purchases to the CRM checkout =====
    mineblock.co is the Shopify storefront; the CRM checkout lives at
-   shop.mineblock.co/checkout-b1?cart=<variantId>:<qty>,... . Every add-to-cart,
+   shop.getmineblock.co/checkout-b1?cart=<variantId>:<qty>,... . Every add-to-cart,
    checkout button, and the /cart & /checkout pages are redirected there so the
    native Shopify cart/checkout is never used. Prices are re-derived server-side
    by the CRM, so passing variant ids is safe. Registered at parse time (in
@@ -20,8 +20,8 @@
   // Only ever run on the Shopify storefront. Never on the CRM host (which serves
   // /checkout-b1 itself) — otherwise this would bounce the CRM checkout back to
   // itself and drop the cart.
-  if (/(^|\.)shop\.mineblock\.co$/i.test(window.location.hostname)) { return; }
-  var CO = "https://shop.mineblock.co/checkout-b1";
+  if (/(^|\.)shop\.(get)?mineblock\.co$/i.test(window.location.hostname)) { return; }
+  var CO = "https://shop.getmineblock.co/checkout-b1";
   // Marketing/tracking params are forwarded to the CRM checkout on the URL so
   // the checkout attributes the sale to the right ad. Values are captured from
   // the current URL and persisted per-browser (neutral key) so they survive the
