@@ -208,7 +208,7 @@
                 "mbl_padding_top": 10,
                 "mbl_padding_bottom": 10,
                 "back_color": "",
-                "rich-text": "<p>Every 10 minutes, the Bitcoin network pays out a $300,000 block reward. Miner Forge Pro gives you 144 automatic attempts at that reward, every single day.</p>"
+                "rich-text": "<p>A compact USB solo miner for Bitcoin hobbyists. Miner Forge Pro connects to the Bitcoin network and makes 144 attempts a day at solving a block, quietly and on very little power.</p>"
               },
               "blocks": {}
             },
@@ -235,7 +235,7 @@
                 "mbl_padding_top": 10,
                 "mbl_padding_bottom": 10,
                 "back_color": "rgba(0,0,0,0)",
-                "text": "<p><em>✓</em> <strong>Get a shot at solving a block of 3 BTC</strong></p><p><em>✓</em> <strong>Less than $1 a month in electricity</strong></p><p><em>✓</em> <strong>Plug in, connect to WiFi, start mining in minutes</strong></p><p><em>✓</em> <strong>3-year warranty + 90-day money-back guarantee</strong></p>"
+                "text": "<p><em>✓</em> <strong>144 solo mining attempts a day, fully automatic</strong></p><p><em>✓</em> <strong>Very low power use, about 1 W</strong></p><p><em>✓</em> <strong>Plug in, connect to Wi-Fi, running in minutes</strong></p><p><em>✓</em> <strong>3-year warranty + 90-day money-back guarantee</strong></p>"
               },
               "blocks": {}
             },
@@ -246,7 +246,7 @@
                 "padding_top": 14,
                 "mbl_padding_top": 14,
                 "back_color": "#e8f5e2",
-                "content": "<p><strong>Inventory Alert:</strong> Due to overwhelming demand and global chip shortages, we only have a limited restock of the MinerForge Pro available. Secure yours now for immediate dispatch.</p>"
+                "content": "<p><strong>In stock.</strong> Orders ship within 1 to 2 business days.</p>"
               },
               "blocks": {}
             },
@@ -451,7 +451,7 @@
                     "text_pxiq3K": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>A complete <strong>plug-and-play device</strong> that combines <strong>professional-grade mining hardware</strong> with <strong>automated block-solving algorithms</strong> to attempt winning Bitcoin blocks independently.</p><p>Unlike pool mining where thousands of miners split tiny fractions, solo mining <strong>competes for the entire block reward</strong> by itself — attempting to solve blocks <strong>144 times per day</strong> automatically, giving you full ownership if successful.</p>",
+                        "text": "<p>Miner Forge Pro is a <strong>plug-and-play device</strong> that makes its own attempts at solving Bitcoin blocks.</p><p>In pool mining, thousands of miners share the work and split small payouts. In solo mining, your device works alone, about <strong>144 attempts a day</strong>. If it ever solves a block, the block reward goes to the Bitcoin address you set. With a device this size, that is very rare.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -481,7 +481,7 @@
                 "accordion_row_Y69yTw": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How Much Can I Win?",
+                    "heading": "What happens if my miner solves a block?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -490,7 +490,7 @@
                     "text_Bx6Jrn": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Because solo mining is probability-based with no guarantees, outcomes are unpredictable but when blocks are solved, the rewards are substantial:</p><p><strong>If You Solve a Block:</strong> The full block reward is currently <strong>3.125 BTC</strong> (approximately <strong>$300,000</strong> at current prices). Unlike pool mining where rewards are split among thousands, you keep 100% of the prize.</p>",
+                        "text": "<p>Solo mining is based on probability, and with hobby hardware the odds of solving a block are <strong>extremely low</strong>. Most devices never find one.</p><p>If a block is solved, the network sends the block reward (currently 3.125 BTC plus fees) to the Bitcoin address you set up. Buy Miner Forge Pro for the hobby, not as a way to make money.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -521,7 +521,7 @@
                   "type": "_accordion-row",
                   "disabled": true,
                   "settings": {
-                    "heading": "How Much Can I Win?",
+                    "heading": "What happens if my miner solves a block?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -530,7 +530,7 @@
                     "text_8QNNLM": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Because solo mining is probability-based with no guarantees, outcomes are unpredictable but when blocks are solved, the rewards are substantial:</p><p><strong>If You Solve a Block:</strong> The full block reward is currently <strong>3.125 BTC</strong> (approximately <strong>$300,000</strong> at current prices). Unlike pool mining where rewards are split among thousands, you keep 100% of the prize.</p>",
+                        "text": "<p>Solo mining is based on probability, and with hobby hardware the odds of solving a block are <strong>extremely low</strong>. Most devices never find one.</p><p>If a block is solved, the network sends the block reward (currently 3.125 BTC plus fees) to the Bitcoin address you set up. Buy Miner Forge Pro for the hobby, not as a way to make money.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -570,7 +570,7 @@
                     "text_Xb4H9R": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>The MinerForge Pro is completely safe to use.</p><p>You only enter your Wi-Fi and a<em>public</em>Bitcoin address so it can display results - it never asks for private keys or wallet access. Everything runs safely on open, read-only network data.</p>",
+                        "text": "<p>Miner Forge Pro only needs your Wi-Fi details and a <em>public</em> Bitcoin address. It never asks for private keys or wallet access.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -610,7 +610,7 @@
                     "text_7MPQmY": {
                       "type": "text",
                       "settings": {
-                        "text": "<p><strong>Processing Time</strong></p><p>Orders are processed within <strong>1–2 business days</strong> (Monday to Friday, 9 AM—5 PM EST).</p><p>We currently offer the following shipping options:</p><ul><li>Standard Shipping (6–10 Working Days) — Free<br/></li><li>Priority Processing & Delivery Guarantee (5–8 Working Days) — $4.97</li></ul><p></p>",
+                        "text": "<p><strong>Processing Time</strong></p><p>Orders are processed within <strong>1 to 2 business days</strong> (Monday to Friday, 9 AM to 5 PM EST).</p><p>We currently offer the following shipping options:</p><ul><li>Standard Shipping (6 to 10 working days): Free<br/></li><li>Priority Processing (5 to 8 working days): $4.97</li></ul><p></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -703,7 +703,7 @@
                 "for_desktop": true,
                 "image": "shopify://shop_images/signature-edition-testimonial-family-v2.png",
                 "name": "Daniel W.",
-                "content": "<p><strong>Finally Got My Shot at Bitcoin</strong></p><p>I missed Bitcoin the first time. Wasn’t going to miss it again. Got one for myself, one for my brother, and two for my kids. For such a low price, why not take a shot? It just sits there taking shots at a block 144 times a day while I’m at work. Either way, this is the coolest gadget I have ever seen.</p>"
+                "content": "<p>Got one for myself, one for my brother, and two for my kids. It just sits there taking shots at a block 144 times a day while I’m at work.</p>"
               },
               "blocks": {}
             },
@@ -837,7 +837,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Try to win the 3.125 BTC block on your own, <em><strong>144 times every day</strong></em></h2>",
+                "text": "<h2>Solo mining, <em><strong>144 attempts a day</strong></em></h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -862,7 +862,7 @@
             "text_DFiHpR": {
               "type": "text",
               "settings": {
-                "text": "<p>Our miners are easy-to-use devices that attempt to win full Bitcoin blocks (<strong>3.125 BTC, currently worth ~$300,000</strong>) instead of splitting rewards with thousands of other miners. They generate new mining attempts every 10 minutes automatically <strong>no setup, no monitoring, just plug in and let it run</strong>.</p><p>Think of it like having a lottery ticket that never expires and keeps <strong>playing itself 144 times a day.</strong></p>",
+                "text": "<p>Most home miners join a pool and share small payouts with thousands of other miners. Miner Forge Pro solo mines: it works on its own attempts at a full Bitcoin block, about 144 a day, automatically. <strong>No setup beyond Wi-Fi, no monitoring.</strong></p><p>Solving a block with a device this size is very rare, and most owners never find one. People buy Miner Forge Pro to learn how Bitcoin mining works, to take part in the network, and for the fun of running a real miner at home.</p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -960,8 +960,8 @@
       ],
       "name": "Forge Results",
       "settings": {
-        "title": "<p>AI Powered Bitcoin Mining <strong>for Cents a Month</strong></p>",
-        "description": "<p>Concerned about the high electricity costs that typically come with Bitcoin mining?</p><p>MinerForge Pro is designed to operate 24/7 while consuming just <strong>24 watts per day,</strong> roughly <strong>0.72 kWh per month</strong>, which comes out to only <strong>a few cents in electricity</strong> to run continuously.</p><p>For less than the price of a small treat, you get an <strong>AI-powered device</strong> that runs quietly in the background, working nonstop as it repeatedly attempts to solve a <strong>3.125 BTC block reward</strong>, day and night.</p>",
+        "title": "<p>Bitcoin mining <strong>for cents a month</strong></p>",
+        "description": "<p>Miner Forge Pro is built to run 24/7 on about <strong>1 W</strong>, roughly <strong>0.72 kWh a month</strong>. That is <strong>a few cents of electricity</strong>.</p><p>It runs quietly in the background, day and night.</p>",
         "subtitle": "",
         "media_type": "video",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/892f8981d8004cfd91b590f15b04913a.mp4",
@@ -1302,7 +1302,8 @@
         "gradient_direction": "to top",
         "padding-block-start": 48,
         "padding-block-end": 48
-      }
+      },
+      "disabled": true
     },
     "section_LyKBkW": {
       "type": "section",
@@ -1374,7 +1375,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Ready in Minutes - <em><strong>start mining right away</strong></em></h2>",
+                "text": "<h2>Ready <em><strong>in minutes</strong></em></h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1399,7 +1400,7 @@
             "text_zTifmD": {
               "type": "text",
               "settings": {
-                "text": "<p>Simply connect the device to a USB-C power source, link it to your Wi-Fi, and you’re immediately connected to the global Bitcoin network and ready to participate <strong>No technical experience needed</strong></p>",
+                "text": "<p>Connect the device to a USB-C power source, link it to your Wi-Fi, and it joins the Bitcoin network. <strong>No technical experience needed.</strong></p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -1479,9 +1480,9 @@
         "image": "shopify://shop_images/image_4_98cbc8af-97b0-433e-8471-dd6df9f38684.jpg",
         "video_url": "",
         "image_position": "right",
-        "title": "3000% more power with our <span style=\"text-decoration:underline\"><em>Next-Gen AI Chip</em></span>",
+        "title": "Compact, <span style=\"text-decoration:underline\"><em>efficient hardware</em></span>",
         "title_position": "left",
-        "text": "<p>The world's first Bitcoin miner with AI-integrated technology. Powered by the revolutionary ESP32-D0 AI chip, the 2025 Miner Forge Pro delivers up to 30x more computational power than earlier NerdMiner or One Shot versions.</p><p>The 2026 model features AI-optimized hashing, intelligent energy management, and adaptive block-solving algorithms — giving you better chances at winning blocks while still consuming just pennies in electricity.</p>",
+        "text": "<p>The 2026 Miner Forge Pro runs on an ESP32-based chip with firmware tuned for SHA-256 hashing and low power use.</p><p>It is a hobby-scale miner: much slower than industrial mining machines, and priced and powered to match.</p>",
         "text_position": "left",
         "checkbox_para": false,
         "text-strong-background": "rgba(0,0,0,0)",
@@ -1746,7 +1747,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<h3>The Mineblock community is exploding.</h3><p>From beginners to seasoned crypto fans, everyone is sharing their miner wins, setups, and experiences. Want to be featured? <span style=\"text-decoration:underline\">Upload your pic after purchase!</span></p>",
+                "text": "<h3>Join the Mineblock community.</h3><p>From beginners to long-time Bitcoin fans, owners share their setups and experiences. Want to be featured? <span style=\"text-decoration:underline\">Upload your pic after purchase!</span></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -1841,7 +1842,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<h3>Mining Bitcoin has never felt this fun.</h3><p>Our community posts daily photos of their miners in action - tiny devices with massive energy behind them. <span style=\"text-decoration:underline\">Share yours and be part of the movement.</span></p>",
+                "text": "<h3>Mining Bitcoin has never felt this fun.</h3><p>Our community posts daily photos of their miners in action. <span style=\"text-decoration:underline\">Share yours and be part of the movement.</span></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -1936,7 +1937,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<h3>Participate in decentralization!</h3><p>Our customers enjoy the thrill of participating in the Bitcoin network. Results vary and block discovery is never guaranteed - <span style=\"text-decoration:underline\">but that's what makes it fun!</span></p>",
+                "text": "<h3>Take part in decentralization</h3><p>Every miner adds to the Bitcoin network. Block discovery is never guaranteed: <span style=\"text-decoration:underline\">Miner Forge Pro is a hobby device, not an investment.</span></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -2007,7 +2008,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>Lifetime warranty│90-day free trial</h2>",
+            "text": "<h2>3-year warranty│90-day money-back guarantee</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -2033,7 +2034,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p><strong>Start Bitcoin mining with peace of mind. Test the MinerForge Pro for 90 days — if it’s not for you, return it. Every unit also comes with lifetime warranty coverage.</strong></p>",
+            "text": "<p><strong>Try Miner Forge Pro for 90 days. If it’s not for you, return it for a full refund. Every unit comes with a 3-year warranty.</strong></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -2316,7 +2317,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>The MinerForge Pro connects to the Bitcoin network and performs real solo mining - meaning it independently tries to find a valid block hash. It uses open, read-only network data to participate safely in the mining process without accessing your personal information or wallet.<br/><br/>Each “shot” is a new attempt at discovering a block, which theoretically could yield a Bitcoin reward, although the odds are very small.</p>",
+                    "text": "<p>Miner Forge Pro connects to the Bitcoin network and does real solo mining: it independently tries to find a valid block hash. It only reads public network data and never accesses your personal information or wallet.<br/><br/>Each attempt is a new try at finding a block, and the odds on any single attempt are very small.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -2357,7 +2358,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Yes. Each device runs independently, producing its own stream of hashes (lottery tickets). The more units you run, the more chances you have of hitting a winning block.</p>",
+                    "text": "<p>Each device runs independently with its own attempts, so more units mean more attempts. The odds per device stay very small, so buy the number of miners you would enjoy running.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -2388,7 +2389,7 @@
               "type": "_accordion-row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "What is my chance to win?",
+                "heading": "What are the odds of solving a block?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
@@ -2398,7 +2399,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>The chances are extremely low. Think of it like a global lottery. Your device continuously generates valid entries, and while odds depend on network difficulty, every single hash has a fair chance. People have already proven small devices can win.</p>",
+                    "text": "<p><strong>Very low.</strong> The odds depend on the network's difficulty, which is set by all the miners in the world. A hobby device like Miner Forge Pro is a tiny share of that, so most owners will never solve a block.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -2439,7 +2440,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Not at all. Just plug the miner into power, connect to Wi-Fi once through your phone, and you’re mining. No coding, no special hardware, no experience required.</p>",
+                    "text": "<p>Not at all. Plug the miner into power, connect it to Wi-Fi once through your phone, and it starts mining. No coding, no special hardware, no experience required.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -2480,7 +2481,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>No. Everything runs directly on the device. You only need a smartphone, tablet, or computer for the initial Wi-Fi setup. After that, it works completely on its own.</p>",
+                    "text": "<p>No. Everything runs on the device. You only need a smartphone, tablet or computer for the first Wi-Fi setup. After that, it works on its own.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
