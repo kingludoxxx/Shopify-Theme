@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "<strong>BLACK FRIDAY SALE&nbsp;</strong>│<strong>&nbsp;</strong>Up to 58% OFF",
+            "text": "<strong>BLACK FRIDAY SALE&nbsp;</strong>│<strong>&nbsp;</strong>Up to 58% OFF │ Ends Nov 30",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.95rem",
