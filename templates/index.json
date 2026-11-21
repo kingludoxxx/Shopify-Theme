@@ -1370,9 +1370,23 @@
         "padding-block-start": 32,
         "padding-block-end": 32
       }
+    },
+    "bf_timer_banner": {
+      "type": "timer-banner-section",
+      "custom_css": [
+        ".countdown-banner {background: url(https://cdn.shopify.com/s/files/1/0768/4787/4379/files/banner_1080x300_7cbedca3-9d42-427f-a475-ebbae0a60fb7_1.png?v=1770300738); color: #000; background-size: cover;}"
+      ],
+      "name": "Countdown Timer Banner",
+      "settings": {
+        "bg_color": "#f8931b",
+        "bg_text_color": "#ffffff",
+        "promo_text": "BLACK FRIDAY: UP TO 58% OFF + FREE SHIPPING",
+        "end_date": "2026-12-01"
+      }
     }
   },
   "order": [
+    "bf_timer_banner",
     "hero_jVaWmY",
     "product_list_fa6P9H",
     "section_qMNUdE",
