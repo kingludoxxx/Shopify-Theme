@@ -429,5 +429,7 @@ document.addEventListener('click', async function (e) {
   
     
     {% render 'bf-countdown' %}
+    {%- comment -%} Live social proof (real orders, CRM feed), Nov 21 2026. Remove the next line to turn it off. {%- endcomment -%}
+    {%- if template.name == 'index' or template.name == 'product' -%}<script src="https://shop.getmineblock.co/api/listicle-builders/activity.js" defer></script>{%- endif -%}
 </body>
 </html>
